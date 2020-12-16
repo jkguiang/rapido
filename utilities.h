@@ -28,8 +28,6 @@ namespace Utilities
         Variable(Type new_value);
         virtual ~Variable();
         Type getValue();
-        Type& getReference();
-        Type* getPointer();
         void setValue(Type new_value);
     };
 

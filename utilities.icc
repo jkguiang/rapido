@@ -8,6 +8,7 @@ Utilities::Dynamic::~Dynamic() {}
 
 /**
  * Variable object constructor
+ * @template: type of variable
  * @params: pointer to TTree, branch name
  * @return: none
  */
@@ -19,6 +20,7 @@ Utilities::Variable<Type>::Variable(Type new_value)
 
 /**
  * Variable object destructor
+ * @template: type of variable
  * @params: none
  * @return: none
  */
@@ -27,6 +29,7 @@ Utilities::Variable<Type>::~Variable() {}
 
 /**
  * Get current value
+ * @template: type of variable
  * @params: none
  * @return: value of current leaf
  */
@@ -34,23 +37,8 @@ template<typename Type>
 Type Utilities::Variable<Type>::getValue() { return value; }
 
 /**
- * Get reference to current value
- * @params: none
- * @return: value of current leaf
- */
-template<typename Type>
-Type& Utilities::Variable<Type>::getReference() { return value; }
-
-/**
- * Get pointer to current value
- * @params: none
- * @return: value of current leaf
- */
-template<typename Type>
-Type* Utilities::Variable<Type>::getPointer() { return value; }
-
-/**
  * Set value of variable
+ * @template: type of variable
  * @params: new value
  * @return: none
  */
@@ -60,9 +48,18 @@ void Utilities::Variable<Type>::setValue(Type new_value)
     value = new_value; 
 }
 
-
+/**
+ * Variables object constructor
+ * @params: none
+ * @return: none
+ */
 Utilities::Variables::Variables() {}
 
+/**
+ * Variables object destructor
+ * @params: none
+ * @return: none
+ */
 Utilities::Variables::~Variables() 
 {
     std::map<std::string, Utilities::Dynamic*>::iterator iter;
@@ -74,6 +71,12 @@ Utilities::Variables::~Variables()
     variables.clear();
 }
 
+/** PRIVATE
+ * Retrieve variable object from map if it exists
+ * @template: type of variable
+ * @params: name of variable
+ * @return: none
+ */
 template<typename Type>
 Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
 {
@@ -89,6 +92,12 @@ Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
     }
 }
 
+/**
+ * Add blank variable to map
+ * @template: type of new variable
+ * @params: name of new variable
+ * @return: none
+ */
 template<typename Type>
 void Utilities::Variables::add(std::string new_name) 
 {
@@ -96,6 +105,12 @@ void Utilities::Variables::add(std::string new_name)
     return;
 }
 
+/**
+ * Add new variable to map
+ * @template: type of new variable
+ * @params: name of new variable, value of new variable
+ * @return: none
+ */
 template<typename Type>
 void Utilities::Variables::add(std::string new_name, Type new_value) 
 {
@@ -103,6 +118,12 @@ void Utilities::Variables::add(std::string new_name, Type new_value)
     return;
 }
 
+/**
+ * Get value of a variable in map if it exists
+ * @template: type of variable
+ * @params: name of variable
+ * @return: none
+ */
 template<typename Type>
 Type Utilities::Variables::get(std::string name)
 {
@@ -110,6 +131,12 @@ Type Utilities::Variables::get(std::string name)
     return var->getValue();
 }
 
+/**
+ * Set value of a variable in map if it exists
+ * @template: type of variable
+ * @params: name of variable, new value for variable
+ * @return: none
+ */
 template<typename Type>
 Type Utilities::Variables::set(std::string name, Type new_value)
 {
