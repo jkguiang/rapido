@@ -3,16 +3,17 @@ Repeatable Analysis Programming for Interpretability, Durability, and Organizati
 ## RAPIDO Tools
 1. Arbol: TTree wrapper that reduces the hassle of setting up and using TTrees
 2. Cutflow: Binary search tree with lambda nodes and other bells and whistles
+3. Looper: Basic looper for a TChain of TFiles that uses any selector
 
 ## Set Up Instructions
 1. Clone this repository
-2. `cd` into `RAPIDO` the cloned directory and run `make -j5`
+2. `cd` into the cloned repository and run `make -j5`
 3. Write your script and `#include` whatever you need
-4. In the cloned directory, run `make -j`
+4. Compile and run using your favorite `Makefile`
 
 
 ## Examples
-1. A simple Arbol example (using [NanoCORE](https://github.com/cmstas/NanoTools) to read NanoAOD N-Tuple)
+1. A simple Arbol example (using [NanoCORE](https://github.com/cmstas/NanoTools) to read NanoAOD)
 ```cpp
 // NanoCORE
 #include "Nano.h"
@@ -20,7 +21,7 @@ Repeatable Analysis Programming for Interpretability, Durability, and Organizati
 #include "arbol.h"
 #include "looper.h"
 
-// Initialize objects
+// Initialize Arbol
 TFile* output_tfile = new Tfile("output.root", "RECREATE");
 Arbol arbol = Arbol(output_tfile);
 
@@ -44,7 +45,7 @@ looper.run(
     {
         // --> Event-level Logic <--
         // Reset tree
-        arbol.resetBranches(); // local variables are passed in by reference
+        arbol.resetBranches(); // variables like arbol and nt are captured by reference
         // Loop over jets
         float ht = 0.;
         for (unsigned int i = 0; i < nt.nJet(); i++) 
