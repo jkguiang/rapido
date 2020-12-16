@@ -1,0 +1,299 @@
+/**
+ * Branch object constructor
+ * @params: pointer to TTree, branch name
+ * @return: none
+ */
+template<typename Type>
+Branch<Type>::Branch(TTree* ttree, TString new_branch_name)
+{ 
+    branch = ttree->Branch(new_branch_name, &value);
+}
+
+/**
+ * Branch object destructor
+ * @params: none
+ * @return: none
+ */
+template<typename Type>
+Branch<Type>::~Branch() {}
+
+/**
+ * Get current leaf value
+ * @params: none
+ * @return: value of current leaf
+ */
+template<typename Type>
+Type Branch<Type>::getValue() { return value; }
+
+/**
+ * Set value of current leaf
+ * @params: new value
+ * @return: none
+ */
+template<typename Type>
+void Branch<Type>::setValue(Type new_value) { value = new_value; }
+
+/**
+ * Set the reset value of branch
+ * @params: new reset value (e.g. -999; default is the default type constructor)
+ * @return: none
+ */
+template<typename Type>
+void Branch<Type>::setResetValue(Type new_reset_value) { reset_value = new_reset_value; }
+
+/**
+ * Reset the current leaf
+ * @params: none
+ * @return: none
+ */
+template<typename Type>
+void Branch<Type>::resetValue() { value = reset_value; }
+
+/**
+ * Arbol object overload constructor
+ * @params: pointer to an output TFile
+ * @return: none
+ */
+Arbol::Arbol(TFile* new_tfile)
+{
+    ttree = new TTree("tree", "tree");
+    tfile = new_tfile;
+}
+
+/**
+ * Arbol object destructor
+ * @params: none
+ * @return: none
+ */
+Arbol::~Arbol() 
+{
+    std::map<TString, Utilities::Dynamic*>::iterator iter;
+    for(iter = branches.begin(); iter != branches.end(); ++iter)
+    {
+        delete (*iter).second;
+    }
+
+    branches.clear();
+}
+
+/**
+ * Add a new branch to TTree
+ * @template: type of branch value
+ * @params: branch name
+ * @return: none
+ */
+template<typename Type>
+void Arbol::newBranch(TString new_branch_name)
+{
+    Branch<Type>* branch = new Branch<Type>(ttree, new_branch_name);
+    branches[new_branch_name] = branch;
+    branchResetters[new_branch_name] = [branch] { return branch->resetValue(); };
+    return;
+}
+
+/**
+ * Get pointer to branch object
+ * @template: type of branch value
+ * @params: branch name
+ * @return: pointer to branch object
+ */
+template<typename Type>
+Branch<Type>* Arbol::getBranch(TString branch_name)
+{
+    return (Branch<Type>*)branches[branch_name];
+}
+
+/**
+ * Set reset value for the branch
+ * @template: type of branch value
+ * @params: branch name, new reset value
+ * @return: none
+ */
+template<typename Type>
+void Arbol::setBranchResetValue(TString branch_name, Type new_reset_value)
+{
+    Branch<Type>* branch = (Branch<Type>*)branches[branch_name];
+    return branch->setResetValue(new_reset_value);
+}
+
+/**
+ * Get current leaf value
+ * @template: type of branch value
+ * @params: branch name
+ * @return: leaf value
+ */
+template<typename Type>
+Type Arbol::getLeaf(TString branch_name)
+{
+    Branch<Type>* branch = (Branch<Type>*)branches[branch_name];
+    return branch->getValue();
+}
+
+/**
+ * Set current leaf value
+ * @template: type of branch value
+ * @params: branch name, new value
+ * @return: none
+ */
+template<typename Type>
+void Arbol::setLeaf(TString branch_name, Type new_value)
+{
+    Branch<Type>* branch = (Branch<Type>*)branches[branch_name];
+    return branch->setValue(new_value);
+}
+
+/**
+ * Calls Arbol::newBranch, but supplies std::vector<Type> for @template
+ * @template: type of vector branch value
+ * @params: branch name
+ * @return: none
+ */
+template<typename Type>
+void Arbol::newVecBranch(TString new_branch_name)
+{
+    return newBranch<std::vector<Type>>(new_branch_name);
+}
+
+/**
+ * Calls Arbol::getBranch, but supplies std::vector<Type> for @template
+ * @template: type of vector branch value
+ * @params: branch name
+ * @return: pointer to branch object
+ */
+template<typename Type>
+Branch<std::vector<Type>>* Arbol::getVecBranch(TString new_branch_name)
+{
+    return getBranch<std::vector<Type>>(new_branch_name);
+}
+
+/**
+ * Calls Arbol::setBranchResetValue, but supplies std::vector<Type> for @template
+ * @template: type of vector branch value
+ * @params: branch name, new reset value
+ * @return: pointer to branch object
+ */
+template<typename Type>
+void Arbol::setVecBranchResetValue(TString branch_name, std::vector<Type> new_reset_vector)
+{
+    return setBranchResetValue<std::vector<Type>>(branch_name, new_reset_vector);
+}
+
+/**
+ * Calls Arbol::getLeaf, but supplies std::vector<Type> for @template
+ * @template: type of branch value
+ * @params: branch name
+ * @return: leaf vector
+ */
+template<typename Type>
+std::vector<Type> Arbol::getVecLeaf(TString branch_name)
+{
+    return getLeaf<std::vector<Type>>(branch_name);
+}
+
+/**
+ * Calls Arbol::setLeaf, but supplies std::vector<Type> for @template
+ * @template: type of branch value
+ * @params: branch name, new vector
+ * @return: none
+ */
+template<typename Type>
+void Arbol::setVecLeaf(TString branch_name, std::vector<Type> new_vector)
+{
+    return setLeaf<std::vector<Type>>(branch_name, new_vector);
+}
+
+/**
+ * Append value to leaf vector
+ * @template: type of branch value
+ * @params: branch name, new value
+ * @return: none
+ */
+template<typename Type>
+void Arbol::appendToVecLeaf(TString branch_name, Type new_value)
+{
+    Branch<std::vector<Type>>* branch = (Branch<std::vector<Type>>*)branches[branch_name];
+    std::vector<Type> vec = branch->getValue();
+    vec.push_back(new_value);
+    return branch->setValue(vec);
+}
+
+/**
+ * Prepend value to leaf vector
+ * @template: type of branch value
+ * @params: branch name, new value
+ * @return: none
+ */
+template<typename Type>
+void Arbol::prependToVecLeaf(TString branch_name, Type new_value)
+{
+    return insertIntoVecLeaf(branch_name, new_value, 0);
+}
+
+/**
+ * Insert value into leaf vector at a particular index
+ * @template: type of branch value
+ * @params: branch name, new value, index
+ * @return: none
+ */
+template<typename Type>
+void Arbol::insertIntoVecLeaf(TString branch_name, Type new_value, int index)
+{
+    Branch<std::vector<Type>>* branch = (Branch<std::vector<Type>>*)branches[branch_name];
+    std::vector<Type> vec = branch->getValue();
+    vec.insert(vec.begin()+index, new_value);
+    return branch->setValue(vec);
+}
+
+/**
+ * Sort leaf vector using a given lambda function
+ * @template: type of branch value
+ * @params: branch name, new value, lambda function
+ * @return: none
+ */
+template<typename Type>
+void Arbol::sortVecLeaf(TString branch_name, std::function<bool(Type, Type)> &lambda)
+{
+    Branch<std::vector<Type>>* branch = (Branch<std::vector<Type>>*)branches[branch_name];
+    std::vector<Type> vec = branch->getValue();
+    std::sort(vec.begin(), vec.end(), lambda);
+    return branch->setValue(vec);
+}
+
+/**
+ * Reset all branches
+ * @params: none
+ * @return: none
+ */
+void Arbol::resetBranches()
+{
+    std::map<TString, std::function<void()>>::iterator iter;
+    for(iter = branchResetters.begin(); iter != branchResetters.end(); ++iter)
+    {
+        (*iter).second();
+    }
+    return;
+}
+
+/**
+ * Fill TTree with all current leaves
+ * @params: none
+ * @return: none
+ */
+void Arbol::fillTTree()
+{
+    ttree->Fill();
+    return;
+}
+
+/**
+ * Write TTree to output TFile
+ * @params: none
+ * @return: none
+ */
+void Arbol::writeTFile()
+{
+    tfile->cd();
+    ttree->Write();
+    tfile->Close();
+    return;
+}
