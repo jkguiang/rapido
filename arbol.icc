@@ -1,5 +1,6 @@
 /**
  * Branch object constructor
+ * @template: type of branch value
  * @params: pointer to TTree, branch name
  * @return: none
  */
@@ -11,6 +12,7 @@ Branch<Type>::Branch(TTree* ttree, TString new_branch_name)
 
 /**
  * Branch object destructor
+ * @template: type of branch value
  * @params: none
  * @return: none
  */
@@ -19,6 +21,7 @@ Branch<Type>::~Branch() {}
 
 /**
  * Get current leaf value
+ * @template: type of branch value
  * @params: none
  * @return: value of current leaf
  */
@@ -27,6 +30,7 @@ Type Branch<Type>::getValue() { return value; }
 
 /**
  * Set value of current leaf
+ * @template: type of branch value
  * @params: new value
  * @return: none
  */
@@ -35,6 +39,7 @@ void Branch<Type>::setValue(Type new_value) { value = new_value; }
 
 /**
  * Set the reset value of branch
+ * @template: type of branch value
  * @params: new reset value (e.g. -999; default is the default type constructor)
  * @return: none
  */
@@ -43,6 +48,7 @@ void Branch<Type>::setResetValue(Type new_reset_value) { reset_value = new_reset
 
 /**
  * Reset the current leaf
+ * @template: type of branch value
  * @params: none
  * @return: none
  */
