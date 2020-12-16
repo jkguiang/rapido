@@ -2,7 +2,7 @@ Repeatable Analysis Programming for Interpretability, Durability, and Organizati
 
 ## RAPIDO Tools
 1. Arbol: TTree wrapper that reduces the hassle of setting up and using TTrees
-2. Cutflow: Binary search tree with lambda nodes
+2. Cutflow: Binary search tree with lambda nodes and other bells and whistles
 
 ## Set Up Instructions
 1. Clone this repository
@@ -12,7 +12,7 @@ Repeatable Analysis Programming for Interpretability, Durability, and Organizati
 
 
 ## Examples
-1. A simple Arbol example (using NanoTools)
+1. A simple Arbol example (using [NanoTools](https://github.com/cmstas/NanoTools))
 ```cpp
 // Initialize objects
 TFile* output_tfile = new Tfile("output.root", "RECREATE");
