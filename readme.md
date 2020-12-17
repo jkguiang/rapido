@@ -1,4 +1,13 @@
-Repeatable Analysis Programming for Interpretability, Durability, and Organization
+# RAPIDO
+_Repeatable Analysis Programming for Interpretability, Durability, and Organization_
+
+
+RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic and readable. It wraps some basic 
+functionality of [ROOT](https://root.cern/). The idea is that an analysis, in general, consists of a few objects: 
+a TTree (to hold some skimmed N-Tuple and/or a set of histograms), a cutflow (a collection of boolean logic for 
+filtering events), and a looper (some way to run over multiple files). RAPIDO is designed to handle all three of 
+these tasks such that every analysis that uses it is structured in the same way. In addition, the _way_ in which 
+it is structured lends itself to the common workflow of a HEPEx-er.
 
 ## RAPIDO Tools
 1. Arbol: TTree wrapper that reduces the hassle of setting up and using TTrees
