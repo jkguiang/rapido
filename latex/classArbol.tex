@@ -1,0 +1,93 @@
+\hypertarget{classArbol}{}\section{Arbol Class Reference}
+\label{classArbol}\index{Arbol@{Arbol}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Arbol} (T\+File $\ast$new\+\_\+tfile)\hypertarget{classArbol_a70f09d1535c225d3d8bc565d468ffe56}{}\label{classArbol_a70f09d1535c225d3d8bc565d468ffe56}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries new\+Branch} (T\+String new\+\_\+branch\+\_\+name)\hypertarget{classArbol_a552622885ffce15f1b1369fe44e729bb}{}\label{classArbol_a552622885ffce15f1b1369fe44e729bb}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries new\+Branch} (T\+String new\+\_\+branch\+\_\+name, Type new\+\_\+reset\+\_\+value)\hypertarget{classArbol_a5f38b399beb87ec5bf8cb53ff126d501}{}\label{classArbol_a5f38b399beb87ec5bf8cb53ff126d501}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries set\+Branch\+Reset\+Value} (T\+String branch\+\_\+name, Type new\+\_\+reset\+\_\+value)\hypertarget{classArbol_a38f72c5553a435a5b0e37ca55752126c}{}\label{classArbol_a38f72c5553a435a5b0e37ca55752126c}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\Type {\bfseries get\+Leaf} (T\+String branch\+\_\+name)\hypertarget{classArbol_a92be3f8c4258247d65e7f66a8da70453}{}\label{classArbol_a92be3f8c4258247d65e7f66a8da70453}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries set\+Leaf} (T\+String branch\+\_\+name, Type new\+\_\+value)\hypertarget{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{}\label{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries new\+Vec\+Branch} (T\+String new\+\_\+branch\+\_\+name)\hypertarget{classArbol_a57b6cf7cca6cbb3b75bb0e0333dbe3c8}{}\label{classArbol_a57b6cf7cca6cbb3b75bb0e0333dbe3c8}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries new\+Vec\+Branch} (T\+String new\+\_\+branch\+\_\+name, std\+::vector$<$ Type $>$ new\+\_\+reset\+\_\+vector)\hypertarget{classArbol_aee48fcb853b21527bb67d733a7c5b1b3}{}\label{classArbol_aee48fcb853b21527bb67d733a7c5b1b3}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries set\+Vec\+Branch\+Reset\+Value} (T\+String branch\+\_\+name, std\+::vector$<$ Type $>$ new\+\_\+reset\+\_\+vector)\hypertarget{classArbol_a448653919588717f4dfbe910565a3563}{}\label{classArbol_a448653919588717f4dfbe910565a3563}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\std\+::vector$<$ Type $>$ {\bfseries get\+Vec\+Leaf} (T\+String branch\+\_\+name)\hypertarget{classArbol_a634be85d92f5f26403407952b10a29fd}{}\label{classArbol_a634be85d92f5f26403407952b10a29fd}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries set\+Vec\+Leaf} (T\+String branch\+\_\+name, std\+::vector$<$ Type $>$ new\+\_\+vector)\hypertarget{classArbol_aa8547878e687941e4e84fc0e56f814d8}{}\label{classArbol_aa8547878e687941e4e84fc0e56f814d8}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries append\+To\+Vec\+Leaf} (T\+String branch\+\_\+name, Type new\+\_\+value)\hypertarget{classArbol_a811156c9134ca7e0015bbe2ab95434b0}{}\label{classArbol_a811156c9134ca7e0015bbe2ab95434b0}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries prepend\+To\+Vec\+Leaf} (T\+String branch\+\_\+name, Type new\+\_\+value)\hypertarget{classArbol_a4ac9a92f2ac2e82500e342262bee0418}{}\label{classArbol_a4ac9a92f2ac2e82500e342262bee0418}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries insert\+Into\+Vec\+Leaf} (T\+String branch\+\_\+name, Type new\+\_\+value, int index)\hypertarget{classArbol_a7ac9c4d6404c79519d277975a8566e60}{}\label{classArbol_a7ac9c4d6404c79519d277975a8566e60}
+
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void {\bfseries sort\+Vec\+Leaf} (T\+String branch\+\_\+name, std\+::function$<$ bool(Type, Type)$>$ \&lambda)\hypertarget{classArbol_aa4066700ccb5ecc42477538734ae6abb}{}\label{classArbol_aa4066700ccb5ecc42477538734ae6abb}
+
+\item 
+void {\bfseries reset\+Branches} ()\hypertarget{classArbol_a4c2184d378ab21a9627a57098291a7c4}{}\label{classArbol_a4c2184d378ab21a9627a57098291a7c4}
+
+\item 
+void {\bfseries fill\+T\+Tree} ()\hypertarget{classArbol_a1d029dd97a0451281c774b578d93bcda}{}\label{classArbol_a1d029dd97a0451281c774b578d93bcda}
+
+\item 
+void {\bfseries write\+T\+File} ()\hypertarget{classArbol_ade7d835bbe383a70006e86785ae5672c}{}\label{classArbol_ade7d835bbe383a70006e86785ae5672c}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T\+Tree $\ast$ {\bfseries ttree}\hypertarget{classArbol_abe1c658a04d96bb5bbf6eda7e90acf38}{}\label{classArbol_abe1c658a04d96bb5bbf6eda7e90acf38}
+
+\item 
+T\+File $\ast$ {\bfseries tfile}\hypertarget{classArbol_ae2b0964ee5e90cb2d7beb10810c14b9c}{}\label{classArbol_ae2b0964ee5e90cb2d7beb10810c14b9c}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Type $>$ }\\\hyperlink{classBranch}{Branch}$<$ Type $>$ $\ast$ {\bfseries get\+Branch} (T\+String branch\+\_\+name)\hypertarget{classArbol_af741f05e40b0972472057ddcf56aac1c}{}\label{classArbol_af741f05e40b0972472057ddcf56aac1c}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ T\+String, \hyperlink{classUtilities_1_1Dynamic}{Utilities\+::\+Dynamic} $\ast$ $>$ \hyperlink{classArbol_aa5e8b636ab0e2df59aada12961beb738}{branches}
+\item 
+std\+::map$<$ T\+String, std\+::function$<$ void()$>$ $>$ {\bfseries branch\+Resetters}\hypertarget{classArbol_a7bbd718f5a514e8d073721913d5a982b}{}\label{classArbol_a7bbd718f5a514e8d073721913d5a982b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\index{Arbol@{Arbol}!branches@{branches}}
+\index{branches@{branches}!Arbol@{Arbol}}
+\subsubsection[{\texorpdfstring{branches}{branches}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$T\+String, {\bf Utilities\+::\+Dynamic}$\ast$$>$ Arbol\+::branches\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classArbol_aa5e8b636ab0e2df59aada12961beb738}{}\label{classArbol_aa5e8b636ab0e2df59aada12961beb738}
+Wraps T\+Tree object with funcitonality for making branches dynamically 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+arbol.\+h\end{DoxyCompactItemize}
