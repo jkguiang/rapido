@@ -1,9 +1,3 @@
-/**
- * Looper object constructor
- * @template: selector class
- * @params: pointer to tchain, pointer to selector object
- * @return: none
- */
 template<class Type>
 Looper<Type>::Looper(TChain* new_tchain, Type* new_selector)
 {
@@ -13,21 +7,9 @@ Looper<Type>::Looper(TChain* new_tchain, Type* new_selector)
     n_events_to_process = tchain->GetEntries();
 }
 
-/**
- * Looper object constructor
- * @template: selector class
- * @params: none
- * @return: none
- */
 template<class Type>
 Looper<Type>::~Looper() {}
 
-/**
- * Looper object constructor
- * @template: selector class
- * @params: event-level logic captured in a void lambda function
- * @return: none
- */
 template<class Type>
 void Looper<Type>::run(std::function<void()> evaluate) 
 {

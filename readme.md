@@ -59,7 +59,8 @@ looper.run(
         float ht = 0.;
         for (unsigned int i = 0; i < nt.nJet(); i++) 
         {
-            if (nt.Jet_pt()[i] > 30) {
+            if (nt.Jet_pt()[i] > 30)
+            {
                 arbol.appendToVecLeaf<float>("good_jet_pt", Jet_pt()[i]);
                 ht += Jet_pt()[i];
             }
