@@ -1,0 +1,85 @@
+Utilities::Dynamic::~Dynamic() {}
+
+template<typename Type>
+Utilities::Variable<Type>::Variable(Type new_value)
+{ 
+    value = new_value;
+}
+
+template<typename Type>
+Utilities::Variable<Type>::~Variable() {}
+
+template<typename Type>
+Type Utilities::Variable<Type>::getValue() { return value; }
+
+template<typename Type>
+Type& Utilities::Variable<Type>::getReference() { return value; }
+
+template<typename Type>
+void Utilities::Variable<Type>::setValue(Type new_value) 
+{ 
+    value = new_value; 
+}
+
+Utilities::Variables::Variables() {}
+
+Utilities::Variables::~Variables() 
+{
+    std::map<std::string, Utilities::Dynamic*>::iterator iter;
+    for(iter = variables.begin(); iter != variables.end(); ++iter)
+    {
+        delete (*iter).second;
+    }
+
+    variables.clear();
+}
+
+template<typename Type>
+Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
+{
+    if (variables.count(name) == 1)
+    {
+        return (Variable<Type>*)variables[name];
+    }
+    else
+    {
+        std::string msg = "Error - "+name+" does not exist.";
+        throw std::runtime_error("Utilities::Variables::new: "+msg);
+        return NULL;
+    }
+}
+
+template<typename Type>
+void Utilities::Variables::newVar(std::string new_name) 
+{
+    variables[new_name] = new Variable<Type>(NULL);
+    return;
+}
+
+template<typename Type>
+void Utilities::Variables::newVar(std::string new_name, Type new_value) 
+{
+    variables[new_name] = new Variable<Type>(new_value);
+    return;
+}
+
+template<typename Type>
+Type Utilities::Variables::getVar(std::string name)
+{
+    Variable<Type>* var = getVariable<Type>(name);
+    return var->getValue();
+}
+
+template<typename Type>
+Type& Utilities::Variables::getRef(std::string name)
+{
+    Variable<Type>* var = getVariable<Type>(name);
+    return var->getReference();
+}
+
+template<typename Type>
+Type Utilities::Variables::setVar(std::string name, Type new_value)
+{
+    Variable<Type>* var = getVariable<Type>(name);
+    return var->setValue(new_value);
+}

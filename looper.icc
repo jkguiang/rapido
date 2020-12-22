@@ -1,0 +1,47 @@
+template<class Type>
+Looper<Type>::Looper(TChain* new_tchain, Type* new_selector)
+{
+    tchain = new_tchain;
+    selector = new_selector;
+    n_events_processed = 0;
+    n_events_to_process = tchain->GetEntries();
+}
+
+template<class Type>
+Looper<Type>::~Looper() {}
+
+template<class Type>
+void Looper<Type>::run(std::function<void()> evaluate) 
+{
+    cout << "Initializing looper variables..." << endl;
+    // Initialize looper variables
+    TIter file_iterator(tchain->GetListOfFiles());
+    // File loop
+    TFile* current_file = 0;
+    while ((current_file = (TFile*)file_iterator.Next()))
+    {
+        // Open file
+        TFile* file = TFile::Open(current_file->GetTitle());
+        TTree* tree = (TTree*)file->Get("Events");
+        // Imported TTree configuration
+        tree->SetCacheSize(128*1024*1024);
+        tree->SetCacheLearnEntries(100);
+        selector->Init(tree);
+        // --> START Event loop <--
+        for (unsigned int event = 0; event < tree->GetEntriesFast(); ++event) 
+        {
+            // Load event
+            selector->GetEntry(event);
+            // Run event-level logic
+            evaluate();
+            n_events_processed++;
+        } 
+        // --> END event loop <--
+
+        // Clean up
+        delete file;
+
+    } // END file loop
+
+    return;
+}
