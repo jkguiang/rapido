@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7edynamic',['~Dynamic',['../classUtilities_1_1Dynamic.html#a4d12e083a7d3fceec2d390f47df3b992',1,'Utilities::Dynamic']]]
+  ['appendtovecleaf',['appendToVecLeaf',['../classArbol.html#a811156c9134ca7e0015bbe2ab95434b0',1,'Arbol']]],
+  ['arbol',['Arbol',['../classArbol.html#a70f09d1535c225d3d8bc565d468ffe56',1,'Arbol']]]
 ];

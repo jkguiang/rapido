@@ -3,35 +3,83 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Cut} (std\+::string new\+\_\+name, std\+::function$<$ bool()$>$ new\+\_\+evaluate)\hypertarget{classCut_aaa89435c5326080296041bc38937ab2d}{}\label{classCut_aaa89435c5326080296041bc38937ab2d}
-
+\hyperlink{classCut_aaa89435c5326080296041bc38937ab2d}{Cut} (std\+::string new\+\_\+name, std\+::function$<$ bool()$>$ new\+\_\+evaluate)
 \item 
-void {\bfseries print} ()\hypertarget{classCut_a9b1298219ed1f85bba920e4049d712e3}{}\label{classCut_a9b1298219ed1f85bba920e4049d712e3}
-
+void \hyperlink{classCut_a9b1298219ed1f85bba920e4049d712e3}{print} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string {\bfseries name}\hypertarget{classCut_accf700d2d00746b97a265d4aea3f55c2}{}\label{classCut_accf700d2d00746b97a265d4aea3f55c2}
-
+std\+::string \hyperlink{classCut_accf700d2d00746b97a265d4aea3f55c2}{name}
 \item 
-std\+::function$<$ bool()$>$ {\bfseries evaluate}\hypertarget{classCut_a4205ad5e62b859536797141f3ace2253}{}\label{classCut_a4205ad5e62b859536797141f3ace2253}
-
+std\+::function$<$ bool()$>$ \hyperlink{classCut_a4205ad5e62b859536797141f3ace2253}{evaluate}
 \item 
-\hyperlink{classCut}{Cut} $\ast$ {\bfseries left}\hypertarget{classCut_a2c65e372172dfa0f705d117d3ad0f668}{}\label{classCut_a2c65e372172dfa0f705d117d3ad0f668}
-
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}{right}
 \item 
-\hyperlink{classCut}{Cut} $\ast$ {\bfseries right}\hypertarget{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}{}\label{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}
-
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCut_a2c65e372172dfa0f705d117d3ad0f668}{left}
 \item 
-int {\bfseries passes}\hypertarget{classCut_a9ec802667c770787a473c622208ef35c}{}\label{classCut_a9ec802667c770787a473c622208ef35c}
-
+int \hyperlink{classCut_a9ec802667c770787a473c622208ef35c}{passes}
 \item 
-int {\bfseries fails}\hypertarget{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}{}\label{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}
-
+int \hyperlink{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}{fails}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Constructor \& Destructor Documentation}
+\index{Cut@{Cut}!Cut@{Cut}}
+\index{Cut@{Cut}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{Cut(std\+::string new\+\_\+name, std\+::function$<$ bool()$>$ new\+\_\+evaluate)}{Cut(std::string new_name, std::function< bool()> new_evaluate)}}]{\setlength{\rightskip}{0pt plus 5cm}Cut\+::\+Cut (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{new\+\_\+name, }
+\item[{std\+::function$<$ bool()$>$}]{new\+\_\+evaluate}
+\end{DoxyParamCaption}
+)}\hypertarget{classCut_aaa89435c5326080296041bc38937ab2d}{}\label{classCut_aaa89435c5326080296041bc38937ab2d}
+\hyperlink{classCut}{Cut} object constructor 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+name} & new cut name \\
+\hline
+{\em new\+\_\+evaluate} & new cut conditional logic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Cut@{Cut}!print@{print}}
+\index{print@{print}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{print()}{print()}}]{\setlength{\rightskip}{0pt plus 5cm}void Cut\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCut_a9b1298219ed1f85bba920e4049d712e3}{}\label{classCut_a9b1298219ed1f85bba920e4049d712e3}
+Print cut object properties \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Cut@{Cut}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{evaluate}{evaluate}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::function$<$bool()$>$ Cut\+::evaluate}\hypertarget{classCut_a4205ad5e62b859536797141f3ace2253}{}\label{classCut_a4205ad5e62b859536797141f3ace2253}
+Lambda function that evaluates to true or false (the cut itself) \index{Cut@{Cut}!fails@{fails}}
+\index{fails@{fails}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{fails}{fails}}]{\setlength{\rightskip}{0pt plus 5cm}int Cut\+::fails}\hypertarget{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}{}\label{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}
+Number of fails \index{Cut@{Cut}!left@{left}}
+\index{left@{left}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{left}{left}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut}$\ast$ Cut\+::left}\hypertarget{classCut_a2c65e372172dfa0f705d117d3ad0f668}{}\label{classCut_a2c65e372172dfa0f705d117d3ad0f668}
+Pointer to next cut to evaluate if this cut evaluates to false \index{Cut@{Cut}!name@{name}}
+\index{name@{name}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Cut\+::name}\hypertarget{classCut_accf700d2d00746b97a265d4aea3f55c2}{}\label{classCut_accf700d2d00746b97a265d4aea3f55c2}
+Object that represents a single cut in an analysis\+Unique name of cut \index{Cut@{Cut}!passes@{passes}}
+\index{passes@{passes}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{passes}{passes}}]{\setlength{\rightskip}{0pt plus 5cm}int Cut\+::passes}\hypertarget{classCut_a9ec802667c770787a473c622208ef35c}{}\label{classCut_a9ec802667c770787a473c622208ef35c}
+Number of passes \index{Cut@{Cut}!right@{right}}
+\index{right@{right}!Cut@{Cut}}
+\subsubsection[{\texorpdfstring{right}{right}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut}$\ast$ Cut\+::right}\hypertarget{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}{}\label{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}
+Pointer to next cut to evaluate if this cut evaluates to true 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-cutflow.\+h\end{DoxyCompactItemize}
+cutflow.\+h\item 
+cutflow.\+cc\end{DoxyCompactItemize}

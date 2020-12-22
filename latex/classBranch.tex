@@ -9,24 +9,132 @@ Inheritance diagram for Branch$<$ Type $>$\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Branch} (T\+Tree $\ast$ttree, T\+String new\+\_\+branch\+\_\+name)\hypertarget{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}{}\label{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}
-
+\hyperlink{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}{Branch} (T\+Tree $\ast$ttree, T\+String new\+\_\+branch\+\_\+name)
 \item 
-Type {\bfseries get\+Value} ()\hypertarget{classBranch_abe830de2e0e7c0df57fdb51436631e1e}{}\label{classBranch_abe830de2e0e7c0df57fdb51436631e1e}
-
+virtual \hyperlink{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}{$\sim$\+Branch} ()
 \item 
-Type \& {\bfseries get\+Variable} ()\hypertarget{classBranch_ac7b3edc772ed824c18d192db455ef80a}{}\label{classBranch_ac7b3edc772ed824c18d192db455ef80a}
-
+Type \hyperlink{classBranch_abe830de2e0e7c0df57fdb51436631e1e}{get\+Value} ()
 \item 
-void {\bfseries set\+Value} (Type new\+\_\+value)\hypertarget{classBranch_abe26b3df8dc53eeb1770d853a39865b1}{}\label{classBranch_abe26b3df8dc53eeb1770d853a39865b1}
-
+void \hyperlink{classBranch_abe26b3df8dc53eeb1770d853a39865b1}{set\+Value} (Type new\+\_\+value)
 \item 
-void {\bfseries set\+Reset\+Value} (Type new\+\_\+reset\+\_\+value)\hypertarget{classBranch_a390e9610f26ce93743237dbe3695b4c1}{}\label{classBranch_a390e9610f26ce93743237dbe3695b4c1}
-
+void \hyperlink{classBranch_a390e9610f26ce93743237dbe3695b4c1}{set\+Reset\+Value} (Type new\+\_\+reset\+\_\+value)
 \item 
-void {\bfseries reset\+Value} ()\hypertarget{classBranch_aff52fd008db1471e60107522bc62dfb7}{}\label{classBranch_aff52fd008db1471e60107522bc62dfb7}
-
+void \hyperlink{classBranch_aff52fd008db1471e60107522bc62dfb7}{reset\+Value} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Branch@{Branch}!Branch@{Branch}}
+\index{Branch@{Branch}!Branch@{Branch}}
+\subsubsection[{\texorpdfstring{Branch(\+T\+Tree $\ast$ttree, T\+String new\+\_\+branch\+\_\+name)}{Branch(TTree *ttree, TString new_branch_name)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type$>$ {\bf Branch}$<$ Type $>$\+::{\bf Branch} (
+\begin{DoxyParamCaption}
+\item[{T\+Tree $\ast$}]{ttree, }
+\item[{T\+String}]{new\+\_\+branch\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}{}\label{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}
+\hyperlink{classBranch}{Branch} object constructor 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of branch value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ttree} & pointer to T\+Tree \\
+\hline
+{\em new\+\_\+branch\+\_\+name} & new branch name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Branch@{Branch}!````~Branch@{$\sim$\+Branch}}
+\index{````~Branch@{$\sim$\+Branch}!Branch@{Branch}}
+\subsubsection[{\texorpdfstring{$\sim$\+Branch()}{~Branch()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type$>$ virtual {\bf Branch}$<$ Type $>$\+::$\sim${\bf Branch} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}{}\label{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}
+\hyperlink{classBranch}{Branch} object destructor 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of branch value \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Branch@{Branch}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Branch@{Branch}}
+\subsubsection[{\texorpdfstring{get\+Value()}{getValue()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type$>$ Type {\bf Branch}$<$ Type $>$\+::get\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classBranch_abe830de2e0e7c0df57fdb51436631e1e}{}\label{classBranch_abe830de2e0e7c0df57fdb51436631e1e}
+Get current leaf value 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of branch value \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+value of current leaf 
+\end{DoxyReturn}
+\index{Branch@{Branch}!reset\+Value@{reset\+Value}}
+\index{reset\+Value@{reset\+Value}!Branch@{Branch}}
+\subsubsection[{\texorpdfstring{reset\+Value()}{resetValue()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type$>$ void {\bf Branch}$<$ Type $>$\+::reset\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classBranch_aff52fd008db1471e60107522bc62dfb7}{}\label{classBranch_aff52fd008db1471e60107522bc62dfb7}
+Reset the current leaf to the reset value 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of branch value \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Branch@{Branch}!set\+Reset\+Value@{set\+Reset\+Value}}
+\index{set\+Reset\+Value@{set\+Reset\+Value}!Branch@{Branch}}
+\subsubsection[{\texorpdfstring{set\+Reset\+Value(\+Type new\+\_\+reset\+\_\+value)}{setResetValue(Type new_reset_value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type$>$ void {\bf Branch}$<$ Type $>$\+::set\+Reset\+Value (
+\begin{DoxyParamCaption}
+\item[{Type}]{new\+\_\+reset\+\_\+value}
+\end{DoxyParamCaption}
+)}\hypertarget{classBranch_a390e9610f26ce93743237dbe3695b4c1}{}\label{classBranch_a390e9610f26ce93743237dbe3695b4c1}
+Set the reset value of branch 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of branch value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+reset\+\_\+value} & new reset value (e.\+g. -\/999; default is the default type constructor) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Branch@{Branch}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Branch@{Branch}}
+\subsubsection[{\texorpdfstring{set\+Value(\+Type new\+\_\+value)}{setValue(Type new_value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type$>$ void {\bf Branch}$<$ Type $>$\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{Type}]{new\+\_\+value}
+\end{DoxyParamCaption}
+)}\hypertarget{classBranch_abe26b3df8dc53eeb1770d853a39865b1}{}\label{classBranch_abe26b3df8dc53eeb1770d853a39865b1}
+Set value of current leaf 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of branch value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+value} & new value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

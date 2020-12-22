@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['insert',['insert',['../classCutflow.html#a35cf443b602a92cab92012da3ab5a93b',1,'Cutflow::insert(Cut *target_cut, Cut *new_cut, Direction direction)'],['../classCutflow.html#a8da46f1053a6b97991489ee0920c29a1',1,'Cutflow::insert(std::string target_cut_name, Cut *new_cut, Direction direction)']]],
-  ['insertatroot',['insertAtRoot',['../classCutflow.html#a9cee412ae1a841068b0192120074b505',1,'Cutflow']]]
+  ['cut',['Cut',['../classCut.html#aaa89435c5326080296041bc38937ab2d',1,'Cut']]],
+  ['cutflow',['Cutflow',['../classCutflow.html#a17811cb40a7906fc65e79ce69e3b21be',1,'Cutflow::Cutflow()'],['../classCutflow.html#a943ac94db62104f63499c41b5aa83b4d',1,'Cutflow::Cutflow(Cut *new_root)']]]
 ];

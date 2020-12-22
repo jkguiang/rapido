@@ -1,67 +1,314 @@
 \hypertarget{classCutflow}{}\section{Cutflow Class Reference}
 \label{classCutflow}\index{Cutflow@{Cutflow}}
+Inheritance diagram for Cutflow\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCutflow}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Cutflow} (\hyperlink{classCut}{Cut} $\ast$new\+\_\+root)\hypertarget{classCutflow_a943ac94db62104f63499c41b5aa83b4d}{}\label{classCutflow_a943ac94db62104f63499c41b5aa83b4d}
-
+\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow} ()
 \item 
-void {\bfseries set\+Root} (\hyperlink{classCut}{Cut} $\ast$new\+\_\+root)\hypertarget{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{}\label{classCutflow_ad27d37141c3748779a5d81fad919ecbb}
-
+\hyperlink{classCutflow_a943ac94db62104f63499c41b5aa83b4d}{Cutflow} (\hyperlink{classCut}{Cut} $\ast$new\+\_\+root)
 \item 
-void {\bfseries insert\+At\+Root} (\hyperlink{classCut}{Cut} $\ast$new\+\_\+cut, Direction direction)\hypertarget{classCutflow_a9cee412ae1a841068b0192120074b505}{}\label{classCutflow_a9cee412ae1a841068b0192120074b505}
-
+\hyperlink{classCutflow_adb300cd78d57a287934e4d22856a0ffe}{$\sim$\+Cutflow} ()
 \item 
-void {\bfseries insert} (\hyperlink{classCut}{Cut} $\ast$target\+\_\+cut, \hyperlink{classCut}{Cut} $\ast$new\+\_\+cut, Direction direction)\hypertarget{classCutflow_a35cf443b602a92cab92012da3ab5a93b}{}\label{classCutflow_a35cf443b602a92cab92012da3ab5a93b}
-
+void \hyperlink{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{set\+Root} (\hyperlink{classCut}{Cut} $\ast$new\+\_\+root)
 \item 
-void {\bfseries insert} (std\+::string target\+\_\+cut\+\_\+name, \hyperlink{classCut}{Cut} $\ast$new\+\_\+cut, Direction direction)\hypertarget{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{}\label{classCutflow_a8da46f1053a6b97991489ee0920c29a1}
-
+void \hyperlink{classCutflow_a9cee412ae1a841068b0192120074b505}{insert\+At\+Root} (\hyperlink{classCut}{Cut} $\ast$new\+\_\+cut, Direction direction)
 \item 
-\hyperlink{classCut}{Cut} $\ast$ {\bfseries run} ()\hypertarget{classCutflow_ad18b65471b1e50457a6cb3653961ee3f}{}\label{classCutflow_ad18b65471b1e50457a6cb3653961ee3f}
-
+void \hyperlink{classCutflow_a35cf443b602a92cab92012da3ab5a93b}{insert} (\hyperlink{classCut}{Cut} $\ast$target\+\_\+cut, \hyperlink{classCut}{Cut} $\ast$new\+\_\+cut, Direction direction)
 \item 
-bool {\bfseries run\+Until} (\hyperlink{classCut}{Cut} $\ast$target\+\_\+cut)\hypertarget{classCutflow_aaa3cecdf78988aacf6f7e89758addbbf}{}\label{classCutflow_aaa3cecdf78988aacf6f7e89758addbbf}
-
+void \hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert} (std\+::string target\+\_\+cut\+\_\+name, \hyperlink{classCut}{Cut} $\ast$new\+\_\+cut, Direction direction)
 \item 
-bool {\bfseries run\+Until} (std\+::string target\+\_\+cut\+\_\+name)\hypertarget{classCutflow_a3b5a6dc6e9490037d190eca691295859}{}\label{classCutflow_a3b5a6dc6e9490037d190eca691295859}
-
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}{run} ()
 \item 
-void {\bfseries print} (Directions directions=\{\})\hypertarget{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}{}\label{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}
-
+bool \hyperlink{classCutflow_aaa3cecdf78988aacf6f7e89758addbbf}{run\+Until} (\hyperlink{classCut}{Cut} $\ast$target\+\_\+cut)
+\item 
+bool \hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{run\+Until} (std\+::string target\+\_\+cut\+\_\+name)
+\item 
+void \hyperlink{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}{print} (Directions directions=\{\})
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classUtilities_1_1Variables}{Utilities\+::\+Variables} {\bfseries globals}\hypertarget{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{}\label{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}
-
+\hyperlink{classUtilities_1_1Variables}{Utilities\+::\+Variables} \hyperlink{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{globals}
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCut}{Cut} $\ast$ {\bfseries get\+Cut} (std\+::string cut\+\_\+name)\hypertarget{classCutflow_acee46c9d4c0d77086545500965965996}{}\label{classCutflow_acee46c9d4c0d77086545500965965996}
-
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{get\+Cut} (std\+::string cut\+\_\+name)
 \item 
-void {\bfseries recursive\+Print} (\hyperlink{classCut}{Cut} $\ast$cut, Directions directions=\{\}, unsigned int index=0)\hypertarget{classCutflow_a4acc0465c3fd23989e60db56583b1a3e}{}\label{classCutflow_a4acc0465c3fd23989e60db56583b1a3e}
-
+void \hyperlink{classCutflow_a4acc0465c3fd23989e60db56583b1a3e}{recursive\+Print} (\hyperlink{classCut}{Cut} $\ast$cut, Directions directions=\{\}, unsigned int index=0)
 \item 
-\hyperlink{classCut}{Cut} $\ast$ {\bfseries recursive\+Evaluate} (\hyperlink{classCut}{Cut} $\ast$cut)\hypertarget{classCutflow_ac6da50d83b3605d4fd519258ddceb973}{}\label{classCutflow_ac6da50d83b3605d4fd519258ddceb973}
-
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}{recursive\+Evaluate} (\hyperlink{classCut}{Cut} $\ast$cut)
 \item 
-void {\bfseries recursive\+Delete} (\hyperlink{classCut}{Cut} $\ast$cut)\hypertarget{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{}\label{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}
-
+void \hyperlink{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{recursive\+Delete} (\hyperlink{classCut}{Cut} $\ast$cut)
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCut}{Cut} $\ast$ {\bfseries root}\hypertarget{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{}\label{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}
-
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{root}
 \item 
-std\+::map$<$ std\+::string, \hyperlink{classCut}{Cut} $\ast$ $>$ {\bfseries cut\+\_\+record}\hypertarget{classCutflow_a76f5cbd82750844d379384c7b1243cca}{}\label{classCutflow_a76f5cbd82750844d379384c7b1243cca}
-
+std\+::map$<$ std\+::string, \hyperlink{classCut}{Cut} $\ast$ $>$ \hyperlink{classCutflow_a76f5cbd82750844d379384c7b1243cca}{cut\+\_\+record}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Constructor \& Destructor Documentation}
+\index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
+\index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{Cutflow()}{Cutflow()}}]{\setlength{\rightskip}{0pt plus 5cm}Cutflow\+::\+Cutflow (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{}\label{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}
+\hyperlink{classCutflow}{Cutflow} object default constructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
+\index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{Cutflow(\+Cut $\ast$new\+\_\+root)}{Cutflow(Cut *new_root)}}]{\setlength{\rightskip}{0pt plus 5cm}Cutflow\+::\+Cutflow (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{new\+\_\+root}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a943ac94db62104f63499c41b5aa83b4d}{}\label{classCutflow_a943ac94db62104f63499c41b5aa83b4d}
+\hyperlink{classCutflow}{Cutflow} object overload constructor 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+root} & pointer to cut object to use as root node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!````~Cutflow@{$\sim$\+Cutflow}}
+\index{````~Cutflow@{$\sim$\+Cutflow}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{$\sim$\+Cutflow()}{~Cutflow()}}]{\setlength{\rightskip}{0pt plus 5cm}Cutflow\+::$\sim$\+Cutflow (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_adb300cd78d57a287934e4d22856a0ffe}{}\label{classCutflow_adb300cd78d57a287934e4d22856a0ffe}
+\hyperlink{classCutflow}{Cutflow} object destructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Cutflow@{Cutflow}!get\+Cut@{get\+Cut}}
+\index{get\+Cut@{get\+Cut}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{get\+Cut(std\+::string cut\+\_\+name)}{getCut(std::string cut_name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut} $\ast$ Cutflow\+::get\+Cut (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{cut\+\_\+name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{}\label{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}
+(P\+R\+O\+T\+E\+C\+T\+ED) Retrieve cut object from cut record 
+\begin{DoxyParams}{Parameters}
+{\em cut\+\_\+name} & cut name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to cut 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!insert@{insert}}
+\index{insert@{insert}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{insert(\+Cut $\ast$target\+\_\+cut, Cut $\ast$new\+\_\+cut, Direction direction)}{insert(Cut *target_cut, Cut *new_cut, Direction direction)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{target\+\_\+cut, }
+\item[{{\bf Cut} $\ast$}]{new\+\_\+cut, }
+\item[{Direction}]{direction}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a35cf443b602a92cab92012da3ab5a93b}{}\label{classCutflow_a35cf443b602a92cab92012da3ab5a93b}
+Insert a new node A\+F\+T\+ER a given node 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut} & pointer to target node \\
+\hline
+{\em new\+\_\+cut} & pointer to new node \\
+\hline
+{\em direction} & direction (Left/false, Right/true) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!insert@{insert}}
+\index{insert@{insert}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{insert(std\+::string target\+\_\+cut\+\_\+name, Cut $\ast$new\+\_\+cut, Direction direction)}{insert(std::string target_cut_name, Cut *new_cut, Direction direction)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::insert (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{target\+\_\+cut\+\_\+name, }
+\item[{{\bf Cut} $\ast$}]{new\+\_\+cut, }
+\item[{Direction}]{direction}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{}\label{classCutflow_a8da46f1053a6b97991489ee0920c29a1}
+Insert a new node A\+F\+T\+ER a given node (alternative definition) 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut\+\_\+name} & target node name \\
+\hline
+{\em new\+\_\+cut} & pointer to new node \\
+\hline
+{\em direction} & direction (Left/false, Right/true) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!insert\+At\+Root@{insert\+At\+Root}}
+\index{insert\+At\+Root@{insert\+At\+Root}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{insert\+At\+Root(\+Cut $\ast$new\+\_\+cut, Direction direction)}{insertAtRoot(Cut *new_cut, Direction direction)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::insert\+At\+Root (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{new\+\_\+cut, }
+\item[{Direction}]{direction}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a9cee412ae1a841068b0192120074b505}{}\label{classCutflow_a9cee412ae1a841068b0192120074b505}
+Insert a new node A\+F\+T\+ER the root node 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+cut} & pointer to new node \\
+\hline
+{\em direction} & direction (Left/false, Right/true) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!print@{print}}
+\index{print@{print}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{print(\+Directions directions=\lcurly{}\rcurly{})}{print(Directions directions=\{\})}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::print (
+\begin{DoxyParamCaption}
+\item[{Directions}]{directions = {\ttfamily \{\}}}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}{}\label{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}
+Print properties of a cutflow path (default\+: rightmost path) 
+\begin{DoxyParams}{Parameters}
+{\em directions} & vector of directions (e.\+g. \{Left, Right, ...\}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!recursive\+Delete@{recursive\+Delete}}
+\index{recursive\+Delete@{recursive\+Delete}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{recursive\+Delete(\+Cut $\ast$cut)}{recursiveDelete(Cut *cut)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::recursive\+Delete (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{cut}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{}\label{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}
+(P\+R\+O\+T\+E\+C\+T\+ED) Recursively delete cuts in the cutflow 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!recursive\+Evaluate@{recursive\+Evaluate}}
+\index{recursive\+Evaluate@{recursive\+Evaluate}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{recursive\+Evaluate(\+Cut $\ast$cut)}{recursiveEvaluate(Cut *cut)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut} $\ast$ Cutflow\+::recursive\+Evaluate (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{cut}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}{}\label{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}
+(P\+R\+O\+T\+E\+C\+T\+ED) Recursively evaulate cuts in the cutflow 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to terminal cut 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!recursive\+Print@{recursive\+Print}}
+\index{recursive\+Print@{recursive\+Print}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{recursive\+Print(\+Cut $\ast$cut, Directions directions=\lcurly{}\rcurly{}, unsigned int index=0)}{recursivePrint(Cut *cut, Directions directions=\{\}, unsigned int index=0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::recursive\+Print (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{cut, }
+\item[{Directions}]{directions = {\ttfamily \{\}}, }
+\item[{unsigned int}]{index = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a4acc0465c3fd23989e60db56583b1a3e}{}\label{classCutflow_a4acc0465c3fd23989e60db56583b1a3e}
+(P\+R\+O\+T\+E\+C\+T\+ED) Recursively print cuts along a cutflow path (default\+: rightmost path) 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+{\em directions} & vector of directions (optional) \\
+\hline
+{\em index} & current index (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!run@{run}}
+\index{run@{run}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut} $\ast$ Cutflow\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}{}\label{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}
+Run cutflow \begin{DoxyReturn}{Returns}
+pointer to terminal cut (final leaf of tree reached) 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!run\+Until@{run\+Until}}
+\index{run\+Until@{run\+Until}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{run\+Until(\+Cut $\ast$target\+\_\+cut)}{runUntil(Cut *target_cut)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Cutflow\+::run\+Until (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{target\+\_\+cut}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_aaa3cecdf78988aacf6f7e89758addbbf}{}\label{classCutflow_aaa3cecdf78988aacf6f7e89758addbbf}
+Run cutflow until a target cut 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut} & pointer to target cut \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether or not (true/false) the target cut was reached 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!run\+Until@{run\+Until}}
+\index{run\+Until@{run\+Until}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{run\+Until(std\+::string target\+\_\+cut\+\_\+name)}{runUntil(std::string target_cut_name)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Cutflow\+::run\+Until (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{target\+\_\+cut\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a3b5a6dc6e9490037d190eca691295859}{}\label{classCutflow_a3b5a6dc6e9490037d190eca691295859}
+Run cutflow until a target cut \begin{DoxySeeAlso}{See also}
+\hyperlink{classCutflow_aaa3cecdf78988aacf6f7e89758addbbf}{Cutflow\+::run\+Until} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut\+\_\+name} & name of target cut \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether or not (true/false) the target cut was reached 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!set\+Root@{set\+Root}}
+\index{set\+Root@{set\+Root}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{set\+Root(\+Cut $\ast$new\+\_\+root)}{setRoot(Cut *new_root)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::set\+Root (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{new\+\_\+root}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{}\label{classCutflow_ad27d37141c3748779a5d81fad919ecbb}
+Set root node of cutflow object 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+root} & pointer to cut object to use as new root node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Cutflow@{Cutflow}!cut\+\_\+record@{cut\+\_\+record}}
+\index{cut\+\_\+record@{cut\+\_\+record}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{cut\+\_\+record}{cut_record}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$std\+::string, {\bf Cut}$\ast$$>$ Cutflow\+::cut\+\_\+record\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a76f5cbd82750844d379384c7b1243cca}{}\label{classCutflow_a76f5cbd82750844d379384c7b1243cca}
+Map (\char`\"{}record\char`\"{}) of all cuts in cutflow \index{Cutflow@{Cutflow}!globals@{globals}}
+\index{globals@{globals}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{globals}{globals}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Utilities\+::\+Variables} Cutflow\+::globals}\hypertarget{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{}\label{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}
+Dynamic list of variables to track across object scope (i.\+e. psuedo-\/members) \index{Cutflow@{Cutflow}!root@{root}}
+\index{root@{root}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{root}{root}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut}$\ast$ Cutflow\+::root\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{}\label{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}
+An analysis represented as a binary search tree (i.\+e. analysis = tree, cut = node)Pointer to cut that is used as the root node 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-cutflow.\+h\end{DoxyCompactItemize}
+cutflow.\+h\item 
+cutflow.\+cc\end{DoxyCompactItemize}
