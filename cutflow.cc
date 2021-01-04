@@ -1,9 +1,11 @@
 #include "cutflow.h"
 
-Cut::Cut(std::string new_name, std::function<bool()> new_evaluate)
+Cut::Cut(std::string new_name, std::function<bool()> new_evaluate, 
+         std::function<float()> new_weight)
 {
     name = new_name;
     evaluate = new_evaluate;
+    weight = new_weight;
     left = NULL;
     right = NULL;
     passes = 0;
@@ -15,6 +17,12 @@ void Cut::print()
     std::cout << "---- " << name << " ----" << std::endl;
     std::cout << " - Passes: " << passes << std::endl;
     std::cout << " - Fails: " << fails << std::endl;
+    if (weight() != 1.0)
+    {
+        float w = weight();
+        std::cout << " - Passes (weighted): " << passes*w << std::endl;
+        std::cout << " - Fails (weighted): " << fails*w << std::endl;
+    }
     std::string right_name = (right != NULL) ? right->name : "None";
     std::cout << " - Right: " << right_name << std::endl;
     std::string left_name = (left != NULL) ? left->name : "None";
@@ -31,8 +39,8 @@ Cutflow::Cutflow()
 Cutflow::Cutflow(Cut* new_root)
 {
     globals = Utilities::Variables();
-    root = NULL;
-    setRoot(new_root);
+    root = new_root;
+    cut_record[new_root->name] = new_root;
 }
 
 Cutflow::~Cutflow() { recursiveDelete(root); }
@@ -44,19 +52,16 @@ void Cutflow::setRoot(Cut* new_root)
         new_root->left = root->left;
         new_root->right = root->right;
         cut_record.erase(root->name);
+        delete root;
     }
     root = new_root;
     cut_record[new_root->name] = new_root;
     return;
 }
 
-void Cutflow::insertAtRoot(Cut* new_cut, Direction direction)
+void Cutflow::insert(std::string target_cut_name, Cut* new_cut, Direction direction)
 {
-    return insert(root, new_cut, direction);
-}
-
-void Cutflow::insert(Cut* target_cut, Cut* new_cut, Direction direction)
-{
+    Cut* target_cut = getCut(target_cut_name);
     if (cut_record.count(new_cut->name) == 1)
     {
         std::string msg = "Error - "+new_cut->name+" already exists.";
@@ -78,19 +83,25 @@ void Cutflow::insert(Cut* target_cut, Cut* new_cut, Direction direction)
     }
     return;
 }
-void Cutflow::insert(std::string target_cut_name, Cut* new_cut, Direction direction)
-{
-    return insert(getCut(target_cut_name), new_cut, direction);
-}
 
 Cut* Cutflow::run()
 {
+    if (root == NULL)
+    {
+        std::string msg = "Error - no root node set.";
+        throw std::runtime_error("Cutflow::run: "+msg);
+    }
     Cut* terminal_cut = recursiveEvaluate(root);
     return terminal_cut;
 }
 
 bool Cutflow::runUntil(Cut* target_cut)
 {
+    if (root == NULL)
+    {
+        std::string msg = "Error - no root node set.";
+        throw std::runtime_error("Cutflow::runUntil: "+msg);
+    }
     Cut* terminal_cut = recursiveEvaluate(root);
     return target_cut == terminal_cut;
 }
@@ -113,7 +124,7 @@ Cut* Cutflow::getCut(std::string cut_name)
     if (cut_record.count(cut_name) == 0)
     {
         std::string msg = "Error - "+cut_name+" does not exist.";
-        throw std::runtime_error("Cutflow::insert: "+msg);
+        throw std::runtime_error("Cutflow::getCut: "+msg);
         return NULL;
     }
     else 

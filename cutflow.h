@@ -24,8 +24,10 @@ class Cut
 public:
     /** Unique name of cut */
     std::string name;
-    /** Lambda function that evaluates to true or false (the cut itself) */
+    /** Lambda function that evaluates conditional logic (i.e. the cut itself) */
     std::function<bool()> evaluate;
+    /** Lambda function that computes event weight */
+    std::function<float()> weight;
     /** Pointer to next cut to evaluate if this cut evaluates to true */
     Cut* right;
     /** Pointer to next cut to evaluate if this cut evaluates to false */
@@ -38,10 +40,12 @@ public:
     /**
      * Cut object constructor
      * @param new_name new cut name
-     * @param new_evaluate new cut conditional logic
+     * @param new_evaluate lambda function that evaluates new cut conditional logic
+     * @param new_weight lambda function that computes event weight
      * @return none
      */
-    Cut(std::string new_name, std::function<bool()> new_evaluate);
+    Cut(std::string new_name, std::function<bool()> new_evaluate, 
+        std::function<float()> new_weight = [&]() { return 1.0; });
     /**
      * Print cut object properties
      * @return none
@@ -112,22 +116,7 @@ public:
      */
     void setRoot(Cut* new_root);
     /**
-     * Insert a new node AFTER the root node
-     * @param new_cut pointer to new node
-     * @param direction direction (Left/false, Right/true)
-     * @return none
-     */
-    void insertAtRoot(Cut* new_cut, Direction direction);
-    /**
      * Insert a new node AFTER a given node
-     * @param target_cut pointer to target node
-     * @param new_cut pointer to new node
-     * @param direction direction (Left/false, Right/true)
-     * @return none
-     */
-    void insert(Cut* target_cut, Cut* new_cut, Direction direction);
-    /**
-     * Insert a new node AFTER a given node (alternative definition)
      * @param target_cut_name target node name
      * @param new_cut pointer to new node
      * @param direction direction (Left/false, Right/true)
