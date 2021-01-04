@@ -79,7 +79,7 @@ protected:
     /** Map of dynamically typed TBranches */
     std::map<TString, Utilities::Dynamic*> branches;
     /** Map of reset function for each dynamically typed TBranch */
-    std::map<TString, std::function<void()>> branchResetters;
+    std::map<TString, std::function<void()>> branch_resetters;
     /**
      * (PROTECTED) Get pointer to branch object if it exists
      * @tparam Type type of branch value
