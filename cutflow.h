@@ -27,7 +27,7 @@ public:
     /** Lambda function that evaluates conditional logic (i.e. the cut itself) */
     std::function<bool()> evaluate;
     /** Lambda function that computes event weight */
-    std::function<float()> weight;
+    std::function<float()> compute_weight;
     /** Pointer to next cut to evaluate if this cut evaluates to true */
     Cut* right;
     /** Pointer to next cut to evaluate if this cut evaluates to false */
@@ -38,19 +38,27 @@ public:
     int fails;
 
     /**
+     * Cut object constructor (assumes weight == 1.0)
+     * @param new_name new cut name
+     * @param new_evaluate lambda function that evaluates new cut conditional logic
+     * @return none
+     */
+    Cut(std::string new_name, std::function<bool()> new_evaluate);
+    /**
      * Cut object constructor
      * @param new_name new cut name
      * @param new_evaluate lambda function that evaluates new cut conditional logic
-     * @param new_weight lambda function that computes event weight
+     * @param new_compute_weight lambda function that computes event weight
      * @return none
      */
     Cut(std::string new_name, std::function<bool()> new_evaluate, 
-        std::function<float()> new_weight = [&]() { return 1.0; });
+        std::function<float()> new_compute_weight);
     /**
      * Print cut object properties
+     * @param weight event weight
      * @return none
      */
-    void print();
+    void print(float weight = 1.0);
 };
 
 class Cutflow
@@ -74,9 +82,11 @@ protected:
      * @param cut pointer to current cut
      * @param directions vector of directions (optional)
      * @param index current index (optional)
+     * @param index current event weight (optional)
      * @return none
      */
-    void recursivePrint(Cut* cut, Directions directions = {}, unsigned int index = 0);
+    void recursivePrint(Cut* cut, Directions directions = {}, unsigned int index = 0, 
+                        float weight = 1.0);
     /**
      * (PROTECTED) Recursively evaulate cuts in the cutflow
      * @param cut pointer to current cut

@@ -1,27 +1,39 @@
 #include "cutflow.h"
 
-Cut::Cut(std::string new_name, std::function<bool()> new_evaluate, 
-         std::function<float()> new_weight)
+Cut::Cut(std::string new_name, std::function<bool()> new_evaluate)
 {
     name = new_name;
     evaluate = new_evaluate;
-    weight = new_weight;
+    compute_weight = [&]() { return 1.0; };
     left = NULL;
     right = NULL;
     passes = 0;
     fails = 0;
 }
 
-void Cut::print()
+Cut::Cut(std::string new_name, std::function<bool()> new_evaluate, 
+         std::function<float()> new_compute_weight)
+{
+    name = new_name;
+    evaluate = new_evaluate;
+    compute_weight = new_compute_weight;
+    left = NULL;
+    right = NULL;
+    passes = 0;
+    fails = 0;
+}
+
+void Cut::print(float weight)
 {
     std::cout << "---- " << name << " ----" << std::endl;
+    std::cout << " - Total Weight: " << weight << std::endl;
+    std::cout << " - Cut Weight: " << compute_weight() << std::endl;
     std::cout << " - Passes: " << passes << std::endl;
     std::cout << " - Fails: " << fails << std::endl;
-    if (weight() != 1.0)
+    if (weight != 1.0)
     {
-        float w = weight();
-        std::cout << " - Passes (weighted): " << passes*w << std::endl;
-        std::cout << " - Fails (weighted): " << fails*w << std::endl;
+        std::cout << " - Passes (weighted): " << passes*weight << std::endl;
+        std::cout << " - Fails (weighted): " << fails*weight << std::endl;
     }
     std::string right_name = (right != NULL) ? right->name : "None";
     std::cout << " - Right: " << right_name << std::endl;
@@ -115,7 +127,7 @@ bool Cutflow::runUntil(std::string target_cut_name)
 
 void Cutflow::print(Directions directions)
 {
-    recursivePrint(root, directions, 0);
+    recursivePrint(root, directions, 0, 1.0);
     return;
 }
 
@@ -133,20 +145,21 @@ Cut* Cutflow::getCut(std::string cut_name)
     }
 }
 
-void Cutflow::recursivePrint(Cut* cut, Directions directions, unsigned int index)
+void Cutflow::recursivePrint(Cut* cut, Directions directions, unsigned int index, float weight)
 {
-    cut->print();
+    weight *= cut->compute_weight();
+    cut->print(weight);
     if (index < directions.size() && directions.at(index) == Left) 
     {
         index++;
         if (cut->left == NULL) { return; }
-        else { recursivePrint(cut->left, directions, index); }
+        else { recursivePrint(cut->left, directions, index, weight); }
     }
     else
     {
         index++;
         if (cut->right == NULL) { return; }
-        else { recursivePrint(cut->right, directions, index); }
+        else { recursivePrint(cut->right, directions, index, weight); }
     }
     return;
 }
