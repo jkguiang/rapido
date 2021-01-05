@@ -82,7 +82,7 @@ protected:
      * @param cut pointer to current cut
      * @param directions vector of directions (optional)
      * @param index current index (optional)
-     * @param index current event weight (optional)
+     * @param weight current event weight (optional)
      * @return none
      */
     void recursivePrint(Cut* cut, Directions directions = {}, unsigned int index = 0, 
