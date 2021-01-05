@@ -1,5 +1,7 @@
 {\itshape Repeatable Analysis Programming for Interpretability, Durability, and Organization}
 
+\href{https://opensource.org/licenses/MIT}{\tt } \href{https://jkguiang.github.io/rapido/html/index.html}{\tt } \href{https://www.codefactor.io/repository/github/jkguiang/rapido/overview/master}{\tt }
+
 R\+A\+P\+I\+DO is a C++ framework designed to make writing H\+EP analyses more ergonomic and readable. It wraps some basic functionality of \href{https://root.cern/}{\tt R\+O\+OT}. The idea is that an analysis, in general, consists of a few objects\+: a T\+Tree (to hold some skimmed N-\/\+Tuple and/or a set of histograms), a cutflow (a collection of boolean logic for filtering events), and a looper (some way to run over multiple files). R\+A\+P\+I\+DO is designed to handle all three of these tasks such that every analysis that uses it is structured in the same way. In addition, the {\itshape way} in which it is structured lends itself to the common workflow of a H\+E\+P\+Ex-\/er.
 
 \subsection*{R\+A\+P\+I\+DO Tools}
@@ -8,6 +10,9 @@ R\+A\+P\+I\+DO is a C++ framework designed to make writing H\+EP analyses more e
 \begin{DoxyEnumerate}
 \item \hyperlink{classArbol}{Arbol}\+: T\+Tree wrapper that reduces the hassle of setting up and using T\+Trees
 \item \hyperlink{classCutflow}{Cutflow}\+: Binary search tree with lambda nodes and other bells and whistles
+\begin{DoxyItemize}
+\item \hyperlink{classHistflow}{Histflow}\+: An extension of the \hyperlink{classCutflow}{Cutflow} object that handles histogramming at any given step of the cutflow
+\end{DoxyItemize}
 \item \hyperlink{classLooper}{Looper}\+: Basic looper for a T\+Chain of T\+Files that uses any selector
 \end{DoxyEnumerate}
 

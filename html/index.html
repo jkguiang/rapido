@@ -25,6 +25,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RAPIDO
    </div>
+   <div id="projectbrief">Repeatable Analysis Programming for Interpretability, Durability, and Organization</div>
   </td>
  </tr>
  </tbody>
@@ -79,11 +80,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><em>Repeatable Analysis Programming for Interpretability, Durability, and Organization</em></p>
+<p><a href="https://opensource.org/licenses/MIT"></a> <a href="https://jkguiang.github.io/rapido/html/index.html"></a> <a href="https://www.codefactor.io/repository/github/jkguiang/rapido/overview/master"></a></p>
 <p>RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic and readable. It wraps some basic functionality of <a href="https://root.cern/">ROOT</a>. The idea is that an analysis, in general, consists of a few objects: a TTree (to hold some skimmed N-Tuple and/or a set of histograms), a cutflow (a collection of boolean logic for filtering events), and a looper (some way to run over multiple files). RAPIDO is designed to handle all three of these tasks such that every analysis that uses it is structured in the same way. In addition, the <em>way</em> in which it is structured lends itself to the common workflow of a HEPEx-er.</p>
 <h2>RAPIDO Tools</h2>
 <ol type="1">
 <li><a class="el" href="classArbol.html">Arbol</a>: TTree wrapper that reduces the hassle of setting up and using TTrees</li>
-<li><a class="el" href="classCutflow.html">Cutflow</a>: Binary search tree with lambda nodes and other bells and whistles</li>
+<li><a class="el" href="classCutflow.html">Cutflow</a>: Binary search tree with lambda nodes and other bells and whistles<ul>
+<li><a class="el" href="classHistflow.html">Histflow</a>: An extension of the <a class="el" href="classCutflow.html">Cutflow</a> object that handles histogramming at any given step of the cutflow</li>
+</ul>
+</li>
 <li><a class="el" href="classLooper.html">Looper</a>: Basic looper for a TChain of TFiles that uses any selector</li>
 </ol>
 <h2>Set Up Instructions</h2>
