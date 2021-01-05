@@ -1,6 +1,8 @@
 # RAPIDO
 _Repeatable Analysis Programming for Interpretability, Durability, and Organization_
 
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jkguiang.github.io/rapido/html/index.html)
+[![CodeFactor](https://www.codefactor.io/repository/github/jkguiang/rapido/badge/master)](https://www.codefactor.io/repository/github/jkguiang/rapido/overview/master)
 
 RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic and readable. It wraps some basic 
 functionality of [ROOT](https://root.cern/). The idea is that an analysis, in general, consists of a few objects: 
