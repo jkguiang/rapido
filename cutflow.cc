@@ -107,21 +107,10 @@ Cut* Cutflow::run()
     return terminal_cut;
 }
 
-bool Cutflow::runUntil(Cut* target_cut)
-{
-    if (root == NULL)
-    {
-        std::string msg = "Error - no root node set.";
-        throw std::runtime_error("Cutflow::runUntil: "+msg);
-    }
-    Cut* terminal_cut = recursiveEvaluate(root);
-    return target_cut == terminal_cut;
-}
-
 bool Cutflow::runUntil(std::string target_cut_name)
 {
     Cut* target_cut = getCut(target_cut_name);
-    Cut* terminal_cut = recursiveEvaluate(root);
+    Cut* terminal_cut = run();
     return target_cut == terminal_cut;
 }
 
