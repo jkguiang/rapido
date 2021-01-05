@@ -137,13 +137,7 @@ public:
      * Run cutflow
      * @return pointer to terminal cut (final leaf of tree reached)
      */
-    Cut* run();
-    /**
-     * Run cutflow until a target cut
-     * @param target_cut pointer to target cut
-     * @return whether or not (true/false) the target cut was reached
-     */
-    bool runUntil(Cut* target_cut);
+    virtual Cut* run();
     /**
      * Run cutflow until a target cut
      * @see Cutflow::runUntil
