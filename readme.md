@@ -1,6 +1,7 @@
 # RAPIDO
 _Repeatable Analysis Programming for Interpretability, Durability, and Organization_
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jkguiang.github.io/rapido/html/index.html)
 [![CodeFactor](https://www.codefactor.io/repository/github/jkguiang/rapido/badge/master)](https://www.codefactor.io/repository/github/jkguiang/rapido/overview/master)
 
