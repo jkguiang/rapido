@@ -11,6 +11,7 @@ it is structured lends itself to the common workflow of a HEPEx-er.
 
 ## RAPIDO Tools
 1. Arbol: TTree wrapper that reduces the hassle of setting up and using TTrees
+    - Histflow: An extension of the Cutflow object that handles histogramming at any given step of the cutflow
 2. Cutflow: Binary search tree with lambda nodes and other bells and whistles
 3. Looper: Basic looper for a TChain of TFiles that uses any selector
 
@@ -75,4 +76,34 @@ looper.run(
 );
 
 arbol.writeTFile();
+```
+
+2. Simple (no ROOT!) Cutflow example
+```cpp
+#include "cutflow.h"
+#include <stdlib.h>
+
+Cutflow dummy_cutflow = Cutflow();
+
+Cut* dummy_root = new Cut("root", []() { return bool(rand() % 2); });
+dummy_cutflow.setRoot(dummy_root);
+
+Cut* node1 = new Cut("node1", []() { return bool(rand() % 2); });
+dummy_cutflow.insert("root", node1, Right);
+
+Cut* node2 = new Cut("node2", []() { return bool(rand() % 2); });
+dummy_cutflow.insert("node1", node2, Right);
+
+Cut* node3 = new Cut("node3", []() { return bool(rand() % 2); });
+dummy_cutflow.insert("node1", node3, Left);
+
+Cut* node4 = new Cut("node4", []() { return bool(rand() % 2); });
+dummy_cutflow.insert("node2", node4, Right);
+
+for (int i = 0; i < 5; i++)
+{
+    Cut* terminal_node = dummy_cutflow.run();
+    cout << "terminated at " << terminal_node->name << endl;
+}
+dummy_cutflow.print();
 ```
