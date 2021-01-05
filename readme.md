@@ -11,8 +11,8 @@ it is structured lends itself to the common workflow of a HEPEx-er.
 
 ## RAPIDO Tools
 1. Arbol: TTree wrapper that reduces the hassle of setting up and using TTrees
-    - Histflow: An extension of the Cutflow object that handles histogramming at any given step of the cutflow
 2. Cutflow: Binary search tree with lambda nodes and other bells and whistles
+    - Histflow: An extension of the Cutflow object that handles histogramming at any given step of the cutflow
 3. Looper: Basic looper for a TChain of TFiles that uses any selector
 
 ## Set Up Instructions
