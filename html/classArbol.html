@@ -165,8 +165,8 @@ Protected Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aa5e8b636ab0e2df59aada12961beb738"><td class="memItemLeft" align="right" valign="top">std::map&lt; TString, <a class="el" href="classUtilities_1_1Dynamic.html">Utilities::Dynamic</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#aa5e8b636ab0e2df59aada12961beb738">branches</a></td></tr>
 <tr class="separator:aa5e8b636ab0e2df59aada12961beb738"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bbd718f5a514e8d073721913d5a982b"><td class="memItemLeft" align="right" valign="top">std::map&lt; TString, std::function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#a7bbd718f5a514e8d073721913d5a982b">branchResetters</a></td></tr>
-<tr class="separator:a7bbd718f5a514e8d073721913d5a982b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8a0eb30b9dbb154a1a68233ef105db1"><td class="memItemLeft" align="right" valign="top">std::map&lt; TString, std::function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#af8a0eb30b9dbb154a1a68233ef105db1">branch_resetters</a></td></tr>
+<tr class="separator:af8a0eb30b9dbb154a1a68233ef105db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a70f09d1535c225d3d8bc565d468ffe56"></a>
@@ -861,6 +861,27 @@ template&lt;typename Type &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="af8a0eb30b9dbb154a1a68233ef105db1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;TString, std::function&lt;void()&gt; &gt; Arbol::branch_resetters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Map of reset function for each dynamically typed TBranch </p>
+
+</div>
+</div>
 <a class="anchor" id="aa5e8b636ab0e2df59aada12961beb738"></a>
 <div class="memitem">
 <div class="memproto">
@@ -879,27 +900,6 @@ template&lt;typename Type &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Wraps TTree object with funcitonality for making branches dynamicallyMap of dynamically typed TBranches </p>
-
-</div>
-</div>
-<a class="anchor" id="a7bbd718f5a514e8d073721913d5a982b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;TString, std::function&lt;void()&gt; &gt; Arbol::branchResetters</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Map of reset function for each dynamically typed TBranch </p>
 
 </div>
 </div>

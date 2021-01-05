@@ -9,20 +9,98 @@ Inheritance diagram for Hist1D$<$ Type1D $>$\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Hist1D} (Type1D $\ast$new\+\_\+hist, filler1D filler)\hypertarget{classHist1D_a7b4d34dee4e18b5220452d1a214bc2fe}{}\label{classHist1D_a7b4d34dee4e18b5220452d1a214bc2fe}
-
+\hyperlink{classHist1D_a76378975401f2dcd3635244ca8614664}{Hist1D} (Type1D $\ast$new\+\_\+hist, Filler1D new\+\_\+filler)
 \item 
-{\bfseries fill} ()\hypertarget{classHist1D_a5f64735f56c0b80c1b7ed661539b323b}{}\label{classHist1D_a5f64735f56c0b80c1b7ed661539b323b}
-
+\hyperlink{classHist1D_a26a713a3b0f55a885fd6f110407990ee}{$\sim$\+Hist1D} ()
+\item 
+void \hyperlink{classHist1D_af9ae5dd7a2aca46be456dde196db8fba}{fill} (float weight=1.\+0)
+\item 
+void \hyperlink{classHist1D_ae45c2073b4c8f25a10ac534012feb22b}{write} ()
+\item 
+\hyperlink{classHist1D}{Hist1D}$<$ Type1D $>$ $\ast$ \hyperlink{classHist1D_a6a35d7957cc8608f61d4605d70407fa6}{clone} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string {\bfseries name}\hypertarget{classHist1D_a431cdac050f2a484a6e9ab93cfa501a0}{}\label{classHist1D_a431cdac050f2a484a6e9ab93cfa501a0}
-
+T\+String \hyperlink{classHist1D_a28f350f4fd9e13199ef560ea6820d65c}{name}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\index{Hist1D@{Hist1D}!Hist1D@{Hist1D}}
+\index{Hist1D@{Hist1D}!Hist1D@{Hist1D}}
+\subsubsection[{\texorpdfstring{Hist1\+D(\+Type1\+D $\ast$new\+\_\+hist, Filler1\+D new\+\_\+filler)}{Hist1D(Type1D *new_hist, Filler1D new_filler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D$>$ {\bf Hist1D}$<$ Type1D $>$\+::{\bf Hist1D} (
+\begin{DoxyParamCaption}
+\item[{Type1D $\ast$}]{new\+\_\+hist, }
+\item[{Filler1D}]{new\+\_\+filler}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist1D_a76378975401f2dcd3635244ca8614664}{}\label{classHist1D_a76378975401f2dcd3635244ca8614664}
+1D Histogram constructor 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+hist} & pointer to a 1D R\+O\+OT histogram \\
+\hline
+{\em new\+\_\+filler} & lambda function that computes the value used to fill the histogram \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Hist1D@{Hist1D}!````~Hist1D@{$\sim$\+Hist1D}}
+\index{````~Hist1D@{$\sim$\+Hist1D}!Hist1D@{Hist1D}}
+\subsubsection[{\texorpdfstring{$\sim$\+Hist1\+D()}{~Hist1D()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D$>$ {\bf Hist1D}$<$ Type1D $>$\+::$\sim${\bf Hist1D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist1D_a26a713a3b0f55a885fd6f110407990ee}{}\label{classHist1D_a26a713a3b0f55a885fd6f110407990ee}
+1D Histogram destructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Hist1D@{Hist1D}!clone@{clone}}
+\index{clone@{clone}!Hist1D@{Hist1D}}
+\subsubsection[{\texorpdfstring{clone()}{clone()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D$>$ {\bf Hist1D}$<$Type1D$>$$\ast$ {\bf Hist1D}$<$ Type1D $>$\+::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist1D_a6a35d7957cc8608f61d4605d70407fa6}{}\label{classHist1D_a6a35d7957cc8608f61d4605d70407fa6}
+Clone this \char`\"{}dynamic\char`\"{} histogram object \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Hist1D@{Hist1D}!fill@{fill}}
+\index{fill@{fill}!Hist1D@{Hist1D}}
+\subsubsection[{\texorpdfstring{fill(float weight=1.\+0)}{fill(float weight=1.0)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D$>$ void {\bf Hist1D}$<$ Type1D $>$\+::fill (
+\begin{DoxyParamCaption}
+\item[{float}]{weight = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist1D_af9ae5dd7a2aca46be456dde196db8fba}{}\label{classHist1D_af9ae5dd7a2aca46be456dde196db8fba}
+Call filler to fill histogram with an optional weight 
+\begin{DoxyParams}{Parameters}
+{\em weight} & float to weigh new histogram entry (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Hist1D@{Hist1D}!write@{write}}
+\index{write@{write}!Hist1D@{Hist1D}}
+\subsubsection[{\texorpdfstring{write()}{write()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D$>$ void {\bf Hist1D}$<$ Type1D $>$\+::write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist1D_ae45c2073b4c8f25a10ac534012feb22b}{}\label{classHist1D_ae45c2073b4c8f25a10ac534012feb22b}
+Write R\+O\+OT histogram to currently opened T\+File \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Hist1D@{Hist1D}!name@{name}}
+\index{name@{name}!Hist1D@{Hist1D}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D$>$ T\+String {\bf Hist1D}$<$ Type1D $>$\+::name}\hypertarget{classHist1D_a28f350f4fd9e13199ef560ea6820d65c}{}\label{classHist1D_a28f350f4fd9e13199ef560ea6820d65c}
+Name of histogram 
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-histflow\+\_\+h.\+txt\end{DoxyCompactItemize}
+histflow.\+h\end{DoxyCompactItemize}

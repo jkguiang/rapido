@@ -82,5 +82,35 @@ looper.\hyperlink{classLooper_abfa564ca48778da1f58c8a6444ddd463}{run}(
 
 arbol.\hyperlink{classArbol_ade7d835bbe383a70006e86785ae5672c}{writeTFile}();
 \end{DoxyCode}
+
+\item Simple (no R\+O\+O\+T!) \hyperlink{classCutflow}{Cutflow} example 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "cutflow.h"}
+\textcolor{preprocessor}{#include <stdlib.h>}
+
+\hyperlink{classCutflow}{Cutflow} dummy\_cutflow = \hyperlink{classCutflow}{Cutflow}();
+
+\hyperlink{classCut}{Cut}* dummy\_root = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(\textcolor{stringliteral}{"root"}, []() \{ \textcolor{keywordflow}{return} bool(rand() % 2); \});
+dummy\_cutflow.\hyperlink{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{setRoot}(dummy\_root);
+
+\hyperlink{classCut}{Cut}* node1 = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(\textcolor{stringliteral}{"node1"}, []() \{ \textcolor{keywordflow}{return} bool(rand() % 2); \});
+dummy\_cutflow.\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}(\textcolor{stringliteral}{"root"}, node1, Right);
+
+\hyperlink{classCut}{Cut}* node2 = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(\textcolor{stringliteral}{"node2"}, []() \{ \textcolor{keywordflow}{return} bool(rand() % 2); \});
+dummy\_cutflow.\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}(\textcolor{stringliteral}{"node1"}, node2, Right);
+
+\hyperlink{classCut}{Cut}* node3 = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(\textcolor{stringliteral}{"node3"}, []() \{ \textcolor{keywordflow}{return} bool(rand() % 2); \});
+dummy\_cutflow.\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}(\textcolor{stringliteral}{"node1"}, node3, Left);
+
+\hyperlink{classCut}{Cut}* node4 = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(\textcolor{stringliteral}{"node4"}, []() \{ \textcolor{keywordflow}{return} bool(rand() % 2); \});
+dummy\_cutflow.\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}(\textcolor{stringliteral}{"node2"}, node4, Right);
+
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 5; i++)
+\{
+    \hyperlink{classCut}{Cut}* terminal\_node = dummy\_cutflow.\hyperlink{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}{run}();
+    cout << \textcolor{stringliteral}{"terminated at "} << terminal\_node->\hyperlink{classCut_accf700d2d00746b97a265d4aea3f55c2}{name} << endl;
+\}
+dummy\_cutflow.\hyperlink{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}{print}();
+\end{DoxyCode}
  
 \end{DoxyEnumerate}

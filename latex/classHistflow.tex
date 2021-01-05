@@ -6,9 +6,200 @@ Inheritance diagram for Histflow\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classHistflow}
 \end{center}
 \end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHistflow_ae4c76353f6d545eca787fc0abf1a433e}{Histflow} ()
+\item 
+\hyperlink{classHistflow_aa1adf4cd5e253c51f4e9febf97e11da1}{$\sim$\+Histflow} ()
+\item 
+{\footnotesize template$<$typename Type1D $>$ }\\void \hyperlink{classHistflow_a0fc41c86984acdd1b2a271be83ecf69d}{book\+Hist1D} (std\+::string target\+\_\+cut\+\_\+name, \hyperlink{classHist1D}{Hist1D}$<$ Type1D $>$ $\ast$hist)
+\item 
+{\footnotesize template$<$typename Type2D $>$ }\\void \hyperlink{classHistflow_a16858deb3566f6b64c4ac21c309d0a2c}{book\+Hist2D} (std\+::string target\+\_\+cut\+\_\+name, \hyperlink{classHist2D}{Hist2D}$<$ Type2D $>$ $\ast$hist)
+\item 
+{\footnotesize template$<$typename Type1D $>$ }\\void \hyperlink{classHistflow_a07a698624a6376ebdcef8ef9b025ef33}{book\+Hist1D} (std\+::string target\+\_\+cut\+\_\+name, Type1D $\ast$hist, Filler1D filler)
+\item 
+{\footnotesize template$<$typename Type2D $>$ }\\void \hyperlink{classHistflow_a425698092efa7ec2389b9fb83d26dc84}{book\+Hist2D} (std\+::string target\+\_\+cut\+\_\+name, Type2D $\ast$hist, Filler2D filler)
+\item 
+void \hyperlink{classHistflow_a06a2e1683cdc7ac2731b4608abe15eb7}{write\+Hists} (T\+File $\ast$tfile)
+\item 
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classHistflow_aeb075eb05c888a31fc059a97aab22acd}{run} () override
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classHistflow_a5e08f779038a58aa234691b1069bf47c}{recursive\+Evaluate} (\hyperlink{classCut}{Cut} $\ast$cut, float weight=1.\+0)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::function$<$ void(float)$>$ $>$ $>$ \hyperlink{classHistflow_a8440049297c1fc5d0c0f71602a940850}{fill\+\_\+schedule}
+\item 
+std\+::map$<$ T\+String, std\+::function$<$ void()$>$ $>$ \hyperlink{classHistflow_ab0e1c8893b1afe8b77c886f6c7c043f4}{hist\+\_\+writers}
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\index{Histflow@{Histflow}!Histflow@{Histflow}}
+\index{Histflow@{Histflow}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{Histflow()}{Histflow()}}]{\setlength{\rightskip}{0pt plus 5cm}Histflow\+::\+Histflow (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHistflow_ae4c76353f6d545eca787fc0abf1a433e}{}\label{classHistflow_ae4c76353f6d545eca787fc0abf1a433e}
+\hyperlink{classHistflow}{Histflow} constructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Histflow@{Histflow}!````~Histflow@{$\sim$\+Histflow}}
+\index{````~Histflow@{$\sim$\+Histflow}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{$\sim$\+Histflow()}{~Histflow()}}]{\setlength{\rightskip}{0pt plus 5cm}Histflow\+::$\sim$\+Histflow (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHistflow_aa1adf4cd5e253c51f4e9febf97e11da1}{}\label{classHistflow_aa1adf4cd5e253c51f4e9febf97e11da1}
+\hyperlink{classHistflow}{Histflow} destructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Histflow@{Histflow}!book\+Hist1D@{book\+Hist1D}}
+\index{book\+Hist1D@{book\+Hist1D}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{book\+Hist1\+D(std\+::string target\+\_\+cut\+\_\+name, Hist1\+D$<$ Type1\+D $>$ $\ast$hist)}{bookHist1D(std::string target_cut_name, Hist1D< Type1D > *hist)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D $>$ void Histflow\+::book\+Hist1D (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{target\+\_\+cut\+\_\+name, }
+\item[{{\bf Hist1D}$<$ Type1D $>$ $\ast$}]{hist}
+\end{DoxyParamCaption}
+)}\hypertarget{classHistflow_a0fc41c86984acdd1b2a271be83ecf69d}{}\label{classHistflow_a0fc41c86984acdd1b2a271be83ecf69d}
+Schedule a \char`\"{}dynamic\char`\"{} 1D histogram object for a given cut 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut\+\_\+name} & target node name \\
+\hline
+{\em hist} & pointer to \char`\"{}dynamic\char`\"{} 1D histogram object to schedule \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Histflow@{Histflow}!book\+Hist1D@{book\+Hist1D}}
+\index{book\+Hist1D@{book\+Hist1D}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{book\+Hist1\+D(std\+::string target\+\_\+cut\+\_\+name, Type1\+D $\ast$hist, Filler1\+D filler)}{bookHist1D(std::string target_cut_name, Type1D *hist, Filler1D filler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type1D $>$ void Histflow\+::book\+Hist1D (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{target\+\_\+cut\+\_\+name, }
+\item[{Type1D $\ast$}]{hist, }
+\item[{Filler1D}]{filler}
+\end{DoxyParamCaption}
+)}\hypertarget{classHistflow_a07a698624a6376ebdcef8ef9b025ef33}{}\label{classHistflow_a07a698624a6376ebdcef8ef9b025ef33}
+Schedule a 1D R\+O\+OT histogram for a given cut 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut\+\_\+name} & target node name \\
+\hline
+{\em hist} & pointer to 1D R\+O\+OT histogram to schedule \\
+\hline
+{\em filler} & lambda function that computes the value used to fill the histogram \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Histflow@{Histflow}!book\+Hist2D@{book\+Hist2D}}
+\index{book\+Hist2D@{book\+Hist2D}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{book\+Hist2\+D(std\+::string target\+\_\+cut\+\_\+name, Hist2\+D$<$ Type2\+D $>$ $\ast$hist)}{bookHist2D(std::string target_cut_name, Hist2D< Type2D > *hist)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D $>$ void Histflow\+::book\+Hist2D (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{target\+\_\+cut\+\_\+name, }
+\item[{{\bf Hist2D}$<$ Type2D $>$ $\ast$}]{hist}
+\end{DoxyParamCaption}
+)}\hypertarget{classHistflow_a16858deb3566f6b64c4ac21c309d0a2c}{}\label{classHistflow_a16858deb3566f6b64c4ac21c309d0a2c}
+Schedule a \char`\"{}dynamic\char`\"{} 2D histogram object for a given cut 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut\+\_\+name} & target node name \\
+\hline
+{\em hist} & pointer to \char`\"{}dynamic\char`\"{} 2D histogram object to schedule \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Histflow@{Histflow}!book\+Hist2D@{book\+Hist2D}}
+\index{book\+Hist2D@{book\+Hist2D}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{book\+Hist2\+D(std\+::string target\+\_\+cut\+\_\+name, Type2\+D $\ast$hist, Filler2\+D filler)}{bookHist2D(std::string target_cut_name, Type2D *hist, Filler2D filler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D $>$ void Histflow\+::book\+Hist2D (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{target\+\_\+cut\+\_\+name, }
+\item[{Type2D $\ast$}]{hist, }
+\item[{Filler2D}]{filler}
+\end{DoxyParamCaption}
+)}\hypertarget{classHistflow_a425698092efa7ec2389b9fb83d26dc84}{}\label{classHistflow_a425698092efa7ec2389b9fb83d26dc84}
+Schedule a 2D R\+O\+OT histogram for a given cut 
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+cut\+\_\+name} & target node name \\
+\hline
+{\em hist} & pointer to 2D R\+O\+OT histogram to schedule \\
+\hline
+{\em filler} & lambda function that computes the value used to fill the histogram \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Histflow@{Histflow}!recursive\+Evaluate@{recursive\+Evaluate}}
+\index{recursive\+Evaluate@{recursive\+Evaluate}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{recursive\+Evaluate(\+Cut $\ast$cut, float weight=1.\+0)}{recursiveEvaluate(Cut *cut, float weight=1.0)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut}$\ast$ Histflow\+::recursive\+Evaluate (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{cut, }
+\item[{float}]{weight = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classHistflow_a5e08f779038a58aa234691b1069bf47c}{}\label{classHistflow_a5e08f779038a58aa234691b1069bf47c}
+(P\+R\+O\+T\+E\+C\+T\+ED) Additional definition that recursively evaluates cuts in cutflow and fills scheduled histograms when appropriate cuts are passed 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+{\em weight} & current event weight (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Histflow@{Histflow}!run@{run}}
+\index{run@{run}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{run() override}{run() override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut}$\ast$ Histflow\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{classHistflow_aeb075eb05c888a31fc059a97aab22acd}{}\label{classHistflow_aeb075eb05c888a31fc059a97aab22acd}
+Overriding definition that runs cutflow with \hyperlink{classHistflow_a5e08f779038a58aa234691b1069bf47c}{Histflow\+::recursive\+Evaluate} \begin{DoxyReturn}{Returns}
+pointer to terminal cut (final leaf of tree reached) 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}{Cutflow}.
+
+\index{Histflow@{Histflow}!write\+Hists@{write\+Hists}}
+\index{write\+Hists@{write\+Hists}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{write\+Hists(\+T\+File $\ast$tfile)}{writeHists(TFile *tfile)}}]{\setlength{\rightskip}{0pt plus 5cm}void Histflow\+::write\+Hists (
+\begin{DoxyParamCaption}
+\item[{T\+File $\ast$}]{tfile}
+\end{DoxyParamCaption}
+)}\hypertarget{classHistflow_a06a2e1683cdc7ac2731b4608abe15eb7}{}\label{classHistflow_a06a2e1683cdc7ac2731b4608abe15eb7}
+Write all histograms to a given T\+File 
+\begin{DoxyParams}{Parameters}
+{\em tfile} & pointer to R\+O\+OT T\+File to write histograms to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Histflow@{Histflow}!fill\+\_\+schedule@{fill\+\_\+schedule}}
+\index{fill\+\_\+schedule@{fill\+\_\+schedule}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{fill\+\_\+schedule}{fill_schedule}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$std\+::string, std\+::vector$<$std\+::function$<$void(float)$>$ $>$ $>$ Histflow\+::fill\+\_\+schedule\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classHistflow_a8440049297c1fc5d0c0f71602a940850}{}\label{classHistflow_a8440049297c1fc5d0c0f71602a940850}
+Modified \hyperlink{classCutflow}{Cutflow} object that fills booked histograms after passing a given set of cuts\char`\"{}\+Schedule\char`\"{} dictating when to fill certain histograms \index{Histflow@{Histflow}!hist\+\_\+writers@{hist\+\_\+writers}}
+\index{hist\+\_\+writers@{hist\+\_\+writers}!Histflow@{Histflow}}
+\subsubsection[{\texorpdfstring{hist\+\_\+writers}{hist_writers}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$T\+String, std\+::function$<$void()$>$ $>$ Histflow\+::hist\+\_\+writers\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classHistflow_ab0e1c8893b1afe8b77c886f6c7c043f4}{}\label{classHistflow_ab0e1c8893b1afe8b77c886f6c7c043f4}
+Collection of functions that write histograms to opened T\+File 
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-histflow\+\_\+h.\+txt\end{DoxyCompactItemize}
+histflow.\+h\end{DoxyCompactItemize}

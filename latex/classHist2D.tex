@@ -9,20 +9,98 @@ Inheritance diagram for Hist2D$<$ Type2D $>$\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Hist2D} (Type2D $\ast$new\+\_\+hist, filler2D filler)\hypertarget{classHist2D_ac6f6dd5407b013b675d00ad9689257ef}{}\label{classHist2D_ac6f6dd5407b013b675d00ad9689257ef}
-
+\hyperlink{classHist2D_a85a6f8b45d8752b1c50a3ea1c1436860}{Hist2D} (Type2D $\ast$new\+\_\+hist, Filler2D new\+\_\+filler)
 \item 
-{\bfseries fill} ()\hypertarget{classHist2D_a52b6422b779adf4cdf9aab4119e2248a}{}\label{classHist2D_a52b6422b779adf4cdf9aab4119e2248a}
-
+\hyperlink{classHist2D_ae100dde5b1716fc0033102f3db6dece1}{$\sim$\+Hist2D} ()
+\item 
+void \hyperlink{classHist2D_a851f1d896300cb1962e5ac87a176cb08}{fill} (float weight=1.\+0)
+\item 
+void \hyperlink{classHist2D_aea99923e54c6b1af26c2b399cf648231}{write} ()
+\item 
+\hyperlink{classHist2D}{Hist2D} $\ast$ \hyperlink{classHist2D_ae0326204255d619a3ec550f1086351e3}{clone} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string {\bfseries name}\hypertarget{classHist2D_a4bab52e7321431214528519b389bf5d2}{}\label{classHist2D_a4bab52e7321431214528519b389bf5d2}
-
+T\+String \hyperlink{classHist2D_ac84b99dc72ad3d9f85a46f7620ce1740}{name}
 \end{DoxyCompactItemize}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\index{Hist2D@{Hist2D}!Hist2D@{Hist2D}}
+\index{Hist2D@{Hist2D}!Hist2D@{Hist2D}}
+\subsubsection[{\texorpdfstring{Hist2\+D(\+Type2\+D $\ast$new\+\_\+hist, Filler2\+D new\+\_\+filler)}{Hist2D(Type2D *new_hist, Filler2D new_filler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D$>$ {\bf Hist2D}$<$ Type2D $>$\+::{\bf Hist2D} (
+\begin{DoxyParamCaption}
+\item[{Type2D $\ast$}]{new\+\_\+hist, }
+\item[{Filler2D}]{new\+\_\+filler}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist2D_a85a6f8b45d8752b1c50a3ea1c1436860}{}\label{classHist2D_a85a6f8b45d8752b1c50a3ea1c1436860}
+2D Histogram constructor 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+hist} & pointer to a 2D R\+O\+OT histogram \\
+\hline
+{\em new\+\_\+filler} & lambda function that computes the value used to fill the histogram \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Hist2D@{Hist2D}!````~Hist2D@{$\sim$\+Hist2D}}
+\index{````~Hist2D@{$\sim$\+Hist2D}!Hist2D@{Hist2D}}
+\subsubsection[{\texorpdfstring{$\sim$\+Hist2\+D()}{~Hist2D()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D$>$ {\bf Hist2D}$<$ Type2D $>$\+::$\sim${\bf Hist2D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist2D_ae100dde5b1716fc0033102f3db6dece1}{}\label{classHist2D_ae100dde5b1716fc0033102f3db6dece1}
+2D Histogram destructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Hist2D@{Hist2D}!clone@{clone}}
+\index{clone@{clone}!Hist2D@{Hist2D}}
+\subsubsection[{\texorpdfstring{clone()}{clone()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D$>$ {\bf Hist2D}$\ast$ {\bf Hist2D}$<$ Type2D $>$\+::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist2D_ae0326204255d619a3ec550f1086351e3}{}\label{classHist2D_ae0326204255d619a3ec550f1086351e3}
+Clone this \char`\"{}dynamic\char`\"{} histogram object \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Hist2D@{Hist2D}!fill@{fill}}
+\index{fill@{fill}!Hist2D@{Hist2D}}
+\subsubsection[{\texorpdfstring{fill(float weight=1.\+0)}{fill(float weight=1.0)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D$>$ void {\bf Hist2D}$<$ Type2D $>$\+::fill (
+\begin{DoxyParamCaption}
+\item[{float}]{weight = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist2D_a851f1d896300cb1962e5ac87a176cb08}{}\label{classHist2D_a851f1d896300cb1962e5ac87a176cb08}
+Call filler to fill histogram with an optional weight 
+\begin{DoxyParams}{Parameters}
+{\em weight} & float to weigh new histogram entry (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Hist2D@{Hist2D}!write@{write}}
+\index{write@{write}!Hist2D@{Hist2D}}
+\subsubsection[{\texorpdfstring{write()}{write()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D$>$ void {\bf Hist2D}$<$ Type2D $>$\+::write (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHist2D_aea99923e54c6b1af26c2b399cf648231}{}\label{classHist2D_aea99923e54c6b1af26c2b399cf648231}
+Write R\+O\+OT histogram to currently opened T\+File \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Hist2D@{Hist2D}!name@{name}}
+\index{name@{name}!Hist2D@{Hist2D}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type2D$>$ T\+String {\bf Hist2D}$<$ Type2D $>$\+::name}\hypertarget{classHist2D_ac84b99dc72ad3d9f85a46f7620ce1740}{}\label{classHist2D_ac84b99dc72ad3d9f85a46f7620ce1740}
+Name of histogram 
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-histflow\+\_\+h.\+txt\end{DoxyCompactItemize}
+histflow.\+h\end{DoxyCompactItemize}

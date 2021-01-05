@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['insert',['insert',['../classCutflow.html#a35cf443b602a92cab92012da3ab5a93b',1,'Cutflow::insert(Cut *target_cut, Cut *new_cut, Direction direction)'],['../classCutflow.html#a8da46f1053a6b97991489ee0920c29a1',1,'Cutflow::insert(std::string target_cut_name, Cut *new_cut, Direction direction)']]],
-  ['insertatroot',['insertAtRoot',['../classCutflow.html#a9cee412ae1a841068b0192120074b505',1,'Cutflow']]],
-  ['insertintovecleaf',['insertIntoVecLeaf',['../classArbol.html#a7ac9c4d6404c79519d277975a8566e60',1,'Arbol']]]
+  ['hist1d',['Hist1D',['../classHist1D.html#a76378975401f2dcd3635244ca8614664',1,'Hist1D']]],
+  ['hist2d',['Hist2D',['../classHist2D.html#a85a6f8b45d8752b1c50a3ea1c1436860',1,'Hist2D']]],
+  ['histflow',['Histflow',['../classHistflow.html#ae4c76353f6d545eca787fc0abf1a433e',1,'Histflow']]]
 ];

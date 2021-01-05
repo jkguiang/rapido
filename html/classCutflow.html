@@ -112,16 +112,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adb300cd78d57a287934e4d22856a0ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad27d37141c3748779a5d81fad919ecbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#ad27d37141c3748779a5d81fad919ecbb">setRoot</a> (<a class="el" href="classCut.html">Cut</a> *new_root)</td></tr>
 <tr class="separator:ad27d37141c3748779a5d81fad919ecbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cee412ae1a841068b0192120074b505"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a9cee412ae1a841068b0192120074b505">insertAtRoot</a> (<a class="el" href="classCut.html">Cut</a> *new_cut, Direction direction)</td></tr>
-<tr class="separator:a9cee412ae1a841068b0192120074b505"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35cf443b602a92cab92012da3ab5a93b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a35cf443b602a92cab92012da3ab5a93b">insert</a> (<a class="el" href="classCut.html">Cut</a> *target_cut, <a class="el" href="classCut.html">Cut</a> *new_cut, Direction direction)</td></tr>
-<tr class="separator:a35cf443b602a92cab92012da3ab5a93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da46f1053a6b97991489ee0920c29a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a> (std::string target_cut_name, <a class="el" href="classCut.html">Cut</a> *new_cut, Direction direction)</td></tr>
 <tr class="separator:a8da46f1053a6b97991489ee0920c29a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a563da4fc41aa5c611dd0ce37ce966f2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a563da4fc41aa5c611dd0ce37ce966f2c">run</a> ()</td></tr>
+<tr class="memitem:a563da4fc41aa5c611dd0ce37ce966f2c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a563da4fc41aa5c611dd0ce37ce966f2c">run</a> ()</td></tr>
 <tr class="separator:a563da4fc41aa5c611dd0ce37ce966f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3cecdf78988aacf6f7e89758addbbf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#aaa3cecdf78988aacf6f7e89758addbbf">runUntil</a> (<a class="el" href="classCut.html">Cut</a> *target_cut)</td></tr>
-<tr class="separator:aaa3cecdf78988aacf6f7e89758addbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5a6dc6e9490037d190eca691295859"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">runUntil</a> (std::string target_cut_name)</td></tr>
 <tr class="separator:a3b5a6dc6e9490037d190eca691295859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d9f9fa315303fa9f63738dd41c05042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a5d9f9fa315303fa9f63738dd41c05042">print</a> (Directions directions={})</td></tr>
@@ -136,8 +130,8 @@ Public Attributes</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a20193ee89ee39b0fc58ab4f27e2779db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a20193ee89ee39b0fc58ab4f27e2779db">getCut</a> (std::string cut_name)</td></tr>
 <tr class="separator:a20193ee89ee39b0fc58ab4f27e2779db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4acc0465c3fd23989e60db56583b1a3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a4acc0465c3fd23989e60db56583b1a3e">recursivePrint</a> (<a class="el" href="classCut.html">Cut</a> *cut, Directions directions={}, unsigned int index=0)</td></tr>
-<tr class="separator:a4acc0465c3fd23989e60db56583b1a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86017e61a9b902ffe8dff6be3030d86c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a86017e61a9b902ffe8dff6be3030d86c">recursivePrint</a> (<a class="el" href="classCut.html">Cut</a> *cut, Directions directions={}, unsigned int index=0, float weight=1.0)</td></tr>
+<tr class="separator:a86017e61a9b902ffe8dff6be3030d86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4fc37122bc9437fe3cdaa9861c2bcec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#ae4fc37122bc9437fe3cdaa9861c2bcec">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:ae4fc37122bc9437fe3cdaa9861c2bcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc7029b27ff8d742d10c75d6f6342dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac">recursiveDelete</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
@@ -238,47 +232,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a35cf443b602a92cab92012da3ab5a93b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Cutflow::insert </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
-          <td class="paramname"><em>target_cut</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
-          <td class="paramname"><em>new_cut</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Direction&#160;</td>
-          <td class="paramname"><em>direction</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Insert a new node AFTER a given node </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target_cut</td><td>pointer to target node </td></tr>
-    <tr><td class="paramname">new_cut</td><td>pointer to new node </td></tr>
-    <tr><td class="paramname">direction</td><td>direction (Left/false, Right/true) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a8da46f1053a6b97991489ee0920c29a1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -308,43 +261,9 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Insert a new node AFTER a given node (alternative definition) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Insert a new node AFTER a given node </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target_cut_name</td><td>target node name </td></tr>
-    <tr><td class="paramname">new_cut</td><td>pointer to new node </td></tr>
-    <tr><td class="paramname">direction</td><td>direction (Left/false, Right/true) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a9cee412ae1a841068b0192120074b505"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Cutflow::insertAtRoot </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
-          <td class="paramname"><em>new_cut</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Direction&#160;</td>
-          <td class="paramname"><em>direction</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Insert a new node AFTER the root node </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
     <tr><td class="paramname">new_cut</td><td>pointer to new node </td></tr>
     <tr><td class="paramname">direction</td><td>direction (Left/false, Right/true) </td></tr>
   </table>
@@ -439,7 +358,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4acc0465c3fd23989e60db56583b1a3e"></a>
+<a class="anchor" id="a86017e61a9b902ffe8dff6be3030d86c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -462,7 +381,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>index</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>index</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>weight</em> = <code>1.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -481,6 +406,7 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
     <tr><td class="paramname">directions</td><td>vector of directions (optional) </td></tr>
     <tr><td class="paramname">index</td><td>current index (optional) </td></tr>
+    <tr><td class="paramname">weight</td><td>current event weight (optional) </td></tr>
   </table>
   </dd>
 </dl>
@@ -491,6 +417,9 @@ Protected Attributes</h2></td></tr>
 <a class="anchor" id="a563da4fc41aa5c611dd0ce37ce966f2c"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classCut.html">Cut</a> * Cutflow::run </td>
@@ -499,31 +428,15 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Run cutflow </p><dl class="section return"><dt>Returns</dt><dd>pointer to terminal cut (final leaf of tree reached) </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="aaa3cecdf78988aacf6f7e89758addbbf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Cutflow::runUntil </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
-          <td class="paramname"><em>target_cut</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Run cutflow until a target cut </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target_cut</td><td>pointer to target cut </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>whether or not (true/false) the target cut was reached </dd></dl>
+<p>Reimplemented in <a class="el" href="classHistflow.html#aeb075eb05c888a31fc059a97aab22acd">Histflow</a>.</p>
 
 </div>
 </div>
@@ -540,7 +453,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Run cutflow until a target cut </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCutflow.html#aaa3cecdf78988aacf6f7e89758addbbf">Cutflow::runUntil</a> </dd></dl>
+<p>Run cutflow until a target cut </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">Cutflow::runUntil</a> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target_cut_name</td><td>name of target cut </td></tr>
