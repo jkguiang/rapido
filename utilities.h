@@ -7,11 +7,11 @@
 
 namespace Utilities 
 {
-    class Dynamic
-    {
     /**
      * "Dynamic" object that serves as a base for templated objects
      */
+    class Dynamic
+    {
     public:
         /**
          * Dynamic object destructor
@@ -20,54 +20,51 @@ namespace Utilities
         virtual ~Dynamic();
     };
 
+    /**
+     * "Dynamic" variable
+     *  @tparam Type type of variable
+     */
     template<typename Type>
     class Variable : public Dynamic
     {
-    /**
-     * "Dynamic" variable
-     */
     protected:
+        /** Value of this variable object */
         Type value;
     public:
         /**
          * Variable object constructor
-         * @tparam Type type of variable
          * @param new_value value of new variable
          * @return none
          */
         Variable(Type new_value);
         /**
          * Variable object destructor
-         * @tparam Type type of variable
          * @return none
          */
         virtual ~Variable();
         /**
          * Get current value
-         * @tparam Type type of variable
          * @return value of current leaf
          */
         Type getValue();
         /**
          * Get current value by reference
-         * @tparam Type type of variable
          * @return value of current leaf
          */
         Type& getReference();
         /**
          * Set value of variable
-         * @tparam Type type of variable
          * @param new_value new value
          * @return none
          */
         void setValue(Type new_value);
     };
 
-    class Variables
-    {
     /**
      * A group of "dynamic" variables
      */
+    class Variables
+    {
     protected:
         /** Map of dynamic variables */
         std::map<std::string, Dynamic*> variables;

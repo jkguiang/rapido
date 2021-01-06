@@ -16,11 +16,11 @@ enum Direction
 };
 typedef std::vector<Direction> Directions;
 
-class Cut
-{
 /** 
  * Object that represents a single cut in an analysis
  */
+class Cut
+{
 public:
     /** Unique name of cut */
     std::string name;
@@ -61,11 +61,11 @@ public:
     void print(float weight = 1.0);
 };
 
-class Cutflow
-{
 /** 
  * An analysis represented as a binary search tree (i.e. analysis = tree, cut = node)
  */
+class Cutflow
+{
 protected:
     /** Pointer to cut that is used as the root node */
     Cut* root;

@@ -10,12 +10,13 @@
 typedef std::function<float()> Filler1D;
 typedef std::function<pair<float, float>()> Filler2D;
 
+/** 
+ * "Dynamic" 1D ROOT histogram object
+ *  @tparam Type1D type of 1D ROOT histogram (e.g. TH1F)
+ */
 template<typename Type1D>
 class Hist1D : public Utilities::Dynamic
 {
-/** 
- * "Dynamic" 1D ROOT histogram object
- */
 private:
     /** Pointer to 1D ROOT histogram */
     Type1D* hist;
@@ -56,12 +57,13 @@ public:
     Hist1D<Type1D>* clone();
 };
 
+/** 
+ * "Dynamic" 2D ROOT histogram object
+ *  @tparam Type2D type of 2D ROOT histogram (e.g. TH2F)
+ */
 template<typename Type2D>
 class Hist2D : public Utilities::Dynamic
 {
-/** 
- * "Dynamic" 2D ROOT histogram object
- */
 private:
     /** Pointer to 2D ROOT histogram */
     Type2D* hist;
@@ -102,12 +104,12 @@ public:
     Hist2D* clone();
 };
 
-class Histflow : public Cutflow
-{
 /** 
  * Modified Cutflow object that fills booked histograms after passing a given set of 
  * cuts
  */
+class Histflow : public Cutflow
+{
 protected:
     /** "Schedule" dictating when to fill certain histograms */
     std::map<std::string, std::vector<std::function<void(float)>>> fill_schedule;

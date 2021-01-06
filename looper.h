@@ -9,13 +9,13 @@
 #include "TTreeCache.h"
 #include "TTreeCacheUnzip.h"
 
-template<class Type>
-class Looper
-{
 /**
  * Object to handle looping over ROOT files
  * @tparam Type ROOT selector class
  */
+template<class Type>
+class Looper
+{
 private:
     /** ROOT TChain of files to loop over */
     TChain* tchain;

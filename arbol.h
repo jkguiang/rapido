@@ -13,12 +13,13 @@
 
 #include "utilities.h"
 
+/**
+ * Wraps TTree branches to allow for making branches on the fly
+ * @tparam Type type of branch value
+ */
 template<typename Type>
 class Branch : public Utilities::Dynamic
 {
-/**
- * Wraps TTree branches to allow for making branches on the fly
- */
 private:
     /** Value of branch */
     Type value;
@@ -29,7 +30,6 @@ private:
 public:
     /**
      * Branch object constructor
-     * @tparam Type type of branch value
      * @param ttree pointer to TTree
      * @param new_branch_name new branch name
      * @return none
@@ -37,26 +37,22 @@ public:
     Branch(TTree* ttree, TString new_branch_name);
     /**
      * Branch object destructor
-     * @tparam Type type of branch value
      * @return none
      */
     virtual ~Branch();
     /**
      * Get current leaf value
-     * @tparam Type type of branch value
      * @return value of current leaf
      */
     Type getValue();
     /**
      * Set value of current leaf
-     * @tparam Type type of branch value
      * @param new_value new value
      * @return none
      */
     void setValue(Type new_value);
     /**
      * Set the reset value of branch
-     * @tparam Type type of branch value
      * @param new_reset_value new reset value (e.g. -999; default is the default type 
      *                        constructor)
      * @return none
@@ -64,17 +60,16 @@ public:
     void setResetValue(Type new_reset_value);
     /**
      * Reset the current leaf to the reset value
-     * @tparam Type type of branch value
      * @return none
      */
     void resetValue();
 };
 
-class Arbol
-{
 /**
  * Wraps TTree object with funcitonality for making branches dynamically
  */
+class Arbol
+{
 protected:
     /** Map of dynamically typed TBranches */
     std::map<TString, Utilities::Dynamic*> branches;
