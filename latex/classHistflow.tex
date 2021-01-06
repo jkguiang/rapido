@@ -1,5 +1,9 @@
 \hypertarget{classHistflow}{}\section{Histflow Class Reference}
 \label{classHistflow}\index{Histflow@{Histflow}}
+
+
+{\ttfamily \#include $<$histflow.\+h$>$}
+
 Inheritance diagram for Histflow\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,6 +43,9 @@ std\+::map$<$ T\+String, std\+::function$<$ void()$>$ $>$ \hyperlink{classHistfl
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
+
+\subsection{Detailed Description}
+Modified \hyperlink{classCutflow}{Cutflow} object that fills booked histograms after passing a given set of cuts 
 
 \subsection{Constructor \& Destructor Documentation}
 \index{Histflow@{Histflow}!Histflow@{Histflow}}
@@ -195,7 +202,7 @@ none
 \index{Histflow@{Histflow}!fill\+\_\+schedule@{fill\+\_\+schedule}}
 \index{fill\+\_\+schedule@{fill\+\_\+schedule}!Histflow@{Histflow}}
 \subsubsection[{\texorpdfstring{fill\+\_\+schedule}{fill_schedule}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$std\+::string, std\+::vector$<$std\+::function$<$void(float)$>$ $>$ $>$ Histflow\+::fill\+\_\+schedule\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classHistflow_a8440049297c1fc5d0c0f71602a940850}{}\label{classHistflow_a8440049297c1fc5d0c0f71602a940850}
-Modified \hyperlink{classCutflow}{Cutflow} object that fills booked histograms after passing a given set of cuts\char`\"{}\+Schedule\char`\"{} dictating when to fill certain histograms \index{Histflow@{Histflow}!hist\+\_\+writers@{hist\+\_\+writers}}
+\char`\"{}\+Schedule\char`\"{} dictating when to fill certain histograms \index{Histflow@{Histflow}!hist\+\_\+writers@{hist\+\_\+writers}}
 \index{hist\+\_\+writers@{hist\+\_\+writers}!Histflow@{Histflow}}
 \subsubsection[{\texorpdfstring{hist\+\_\+writers}{hist_writers}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$T\+String, std\+::function$<$void()$>$ $>$ Histflow\+::hist\+\_\+writers\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classHistflow_ab0e1c8893b1afe8b77c886f6c7c043f4}{}\label{classHistflow_ab0e1c8893b1afe8b77c886f6c7c043f4}
 Collection of functions that write histograms to opened T\+File 

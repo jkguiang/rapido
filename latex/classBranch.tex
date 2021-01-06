@@ -1,5 +1,9 @@
 \hypertarget{classBranch}{}\section{Branch$<$ Type $>$ Class Template Reference}
 \label{classBranch}\index{Branch$<$ Type $>$@{Branch$<$ Type $>$}}
+
+
+{\ttfamily \#include $<$arbol.\+h$>$}
+
 Inheritance diagram for Branch$<$ Type $>$\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,6 +27,17 @@ void \hyperlink{classBranch_aff52fd008db1471e60107522bc62dfb7}{reset\+Value} ()
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Type$>$\\*
+class Branch$<$ Type $>$}
+
+Wraps T\+Tree branches to allow for making branches on the fly 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of branch value \\
+\hline
+\end{DoxyTemplParams}
+
+
 \subsection{Constructor \& Destructor Documentation}
 \index{Branch@{Branch}!Branch@{Branch}}
 \index{Branch@{Branch}!Branch@{Branch}}
@@ -33,11 +48,6 @@ void \hyperlink{classBranch_aff52fd008db1471e60107522bc62dfb7}{reset\+Value} ()
 \end{DoxyParamCaption}
 )}\hypertarget{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}{}\label{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}
 \hyperlink{classBranch}{Branch} object constructor 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of branch value \\
-\hline
-\end{DoxyTemplParams}
-
 \begin{DoxyParams}{Parameters}
 {\em ttree} & pointer to T\+Tree \\
 \hline
@@ -54,12 +64,7 @@ none
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}{}\label{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}
-\hyperlink{classBranch}{Branch} object destructor 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of branch value \\
-\hline
-\end{DoxyTemplParams}
-\begin{DoxyReturn}{Returns}
+\hyperlink{classBranch}{Branch} object destructor \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 
@@ -72,12 +77,7 @@ none
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{classBranch_abe830de2e0e7c0df57fdb51436631e1e}{}\label{classBranch_abe830de2e0e7c0df57fdb51436631e1e}
-Get current leaf value 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of branch value \\
-\hline
-\end{DoxyTemplParams}
-\begin{DoxyReturn}{Returns}
+Get current leaf value \begin{DoxyReturn}{Returns}
 value of current leaf 
 \end{DoxyReturn}
 \index{Branch@{Branch}!reset\+Value@{reset\+Value}}
@@ -87,12 +87,7 @@ value of current leaf
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{classBranch_aff52fd008db1471e60107522bc62dfb7}{}\label{classBranch_aff52fd008db1471e60107522bc62dfb7}
-Reset the current leaf to the reset value 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of branch value \\
-\hline
-\end{DoxyTemplParams}
-\begin{DoxyReturn}{Returns}
+Reset the current leaf to the reset value \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 \index{Branch@{Branch}!set\+Reset\+Value@{set\+Reset\+Value}}
@@ -103,11 +98,6 @@ none
 \end{DoxyParamCaption}
 )}\hypertarget{classBranch_a390e9610f26ce93743237dbe3695b4c1}{}\label{classBranch_a390e9610f26ce93743237dbe3695b4c1}
 Set the reset value of branch 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of branch value \\
-\hline
-\end{DoxyTemplParams}
-
 \begin{DoxyParams}{Parameters}
 {\em new\+\_\+reset\+\_\+value} & new reset value (e.\+g. -\/999; default is the default type constructor) \\
 \hline
@@ -123,11 +113,6 @@ none
 \end{DoxyParamCaption}
 )}\hypertarget{classBranch_abe26b3df8dc53eeb1770d853a39865b1}{}\label{classBranch_abe26b3df8dc53eeb1770d853a39865b1}
 Set value of current leaf 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of branch value \\
-\hline
-\end{DoxyTemplParams}
-
 \begin{DoxyParams}{Parameters}
 {\em new\+\_\+value} & new value \\
 \hline
