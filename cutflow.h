@@ -145,7 +145,7 @@ public:
      */
     bool runUntil(std::string target_cut_name);
     /**
-     * Print properties of a cutflow path (default: rightmost path)
+     * Print cutflow
      * @return none
      */
     void print();
