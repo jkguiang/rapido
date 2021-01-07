@@ -5,8 +5,8 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate)
     name = new_name;
     evaluate = new_evaluate;
     compute_weight = [&]() { return 1.0; };
-    left = NULL;
-    right = NULL;
+    left = nullptr;
+    right = nullptr;
     passes = 0;
     fails = 0;
 }
@@ -17,8 +17,8 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate,
     name = new_name;
     evaluate = new_evaluate;
     compute_weight = new_compute_weight;
-    left = NULL;
-    right = NULL;
+    left = nullptr;
+    right = nullptr;
     passes = 0;
     fails = 0;
 }
@@ -35,9 +35,9 @@ void Cut::print(float weight)
         std::cout << " - Passes (weighted): " << passes*weight << std::endl;
         std::cout << " - Fails (weighted): " << fails*weight << std::endl;
     }
-    std::string right_name = (right != NULL) ? right->name : "None";
+    std::string right_name = (right != nullptr) ? right->name : "None";
     std::cout << " - Right: " << right_name << std::endl;
-    std::string left_name = (left != NULL) ? left->name : "None";
+    std::string left_name = (left != nullptr) ? left->name : "None";
     std::cout << " - Left: " << left_name << std::endl;
     return;
 }
@@ -45,7 +45,7 @@ void Cut::print(float weight)
 Cutflow::Cutflow()
 {
     globals = Utilities::Variables();
-    root = NULL;
+    root = nullptr;
 }
 
 Cutflow::Cutflow(Cut* new_root)
@@ -59,7 +59,7 @@ Cutflow::~Cutflow() { recursiveDelete(root); }
 
 void Cutflow::setRoot(Cut* new_root)
 {
-    if (root != NULL)
+    if (root != nullptr)
     {
         new_root->left = root->left;
         new_root->right = root->right;
@@ -98,7 +98,7 @@ void Cutflow::insert(std::string target_cut_name, Cut* new_cut, Direction direct
 
 Cut* Cutflow::run()
 {
-    if (root == NULL)
+    if (root == nullptr)
     {
         std::string msg = "Error - no root node set.";
         throw std::runtime_error("Cutflow::run: "+msg);
@@ -114,9 +114,10 @@ bool Cutflow::runUntil(std::string target_cut_name)
     return target_cut == terminal_cut;
 }
 
-void Cutflow::print(Directions directions)
+void Cutflow::print()
 {
-    recursivePrint(root, directions, 0, 1.0);
+    std::cout << "Cutflow" << std::endl;
+    recursivePrint("", root, Right, 1.0);
     return;
 }
 
@@ -126,7 +127,7 @@ Cut* Cutflow::getCut(std::string cut_name)
     {
         std::string msg = "Error - "+cut_name+" does not exist.";
         throw std::runtime_error("Cutflow::getCut: "+msg);
-        return NULL;
+        return nullptr;
     }
     else 
     {
@@ -134,21 +135,28 @@ Cut* Cutflow::getCut(std::string cut_name)
     }
 }
 
-void Cutflow::recursivePrint(Cut* cut, Directions directions, unsigned int index, float weight)
+void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction, 
+                             float weight)
 {
-    weight *= cut->compute_weight();
-    cut->print(weight);
-    if (index < directions.size() && directions.at(index) == Left) 
+    if (cut != nullptr)
     {
-        index++;
-        if (cut->left == NULL) { return; }
-        else { recursivePrint(cut->left, directions, index, weight); }
-    }
-    else
-    {
-        index++;
-        if (cut->right == NULL) { return; }
-        else { recursivePrint(cut->right, directions, index, weight); }
+        if (cut->evaluate()) { weight *= cut->compute_weight(); }
+        std::cout << tabs;
+        if (direction == Left) { std::cout << "\u251C\u2500\u2500"; }
+        else { std::cout << "\u2514\u2500\u2500"; }
+        // Print cut name
+        std::cout << cut->name << std::endl;
+        // Print cut info
+        tabs += (direction == Left) ? "\u2502   " : "    ";
+        float event_count = cut->passes + cut->fails;
+        std::cout << tabs << event_count << " (raw)" << std::endl;
+        if (weight != 1.0)
+        {
+            std::cout << tabs << event_count*weight << " (weighted)" << std::endl;
+        }
+        // Print next cutflow level
+        recursivePrint(tabs, cut->left, Left, weight);
+        recursivePrint(tabs, cut->right, Right, weight);
     }
     return;
 }
@@ -158,20 +166,20 @@ Cut* Cutflow::recursiveEvaluate(Cut* cut)
     if (cut->evaluate() == true)
     {
         cut->passes++;
-        if (cut->right == NULL) { return cut; }
+        if (cut->right == nullptr) { return cut; }
         else { return recursiveEvaluate(cut->right); }
     }
     else
     {
         cut->fails++;
-        if (cut->left == NULL) { return cut; }
+        if (cut->left == nullptr) { return cut; }
         else { return recursiveEvaluate(cut->left); }
     }
 }
 
 void Cutflow::recursiveDelete(Cut* cut)
 {
-    if (cut == NULL) { return; }
+    if (cut == nullptr) { return; }
     else { 
         recursiveDelete(cut->right); 
         recursiveDelete(cut->left); 

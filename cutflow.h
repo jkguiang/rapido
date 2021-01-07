@@ -78,15 +78,14 @@ protected:
      */
     Cut* getCut(std::string cut_name);
     /**
-     * (PROTECTED) Recursively print cuts along a cutflow path (default: rightmost path)
+     * (PROTECTED) Recursively print cuts
+     * @param tabs string with the prefix tabs for current cut
      * @param cut pointer to current cut
-     * @param directions vector of directions (optional)
-     * @param index current index (optional)
-     * @param weight current event weight (optional)
+     * @param direction direction of cut relative to parent
+     * @param weight current event weight
      * @return none
      */
-    void recursivePrint(Cut* cut, Directions directions = {}, unsigned int index = 0, 
-                        float weight = 1.0);
+    void recursivePrint(std::string tabs, Cut* cut, Direction direction, float weight);
     /**
      * (PROTECTED) Recursively evaulate cuts in the cutflow
      * @param cut pointer to current cut
@@ -147,10 +146,9 @@ public:
     bool runUntil(std::string target_cut_name);
     /**
      * Print properties of a cutflow path (default: rightmost path)
-     * @param directions vector of directions (e.g. {Left, Right, ...})
      * @return none
      */
-    void print(Directions directions = {});
+    void print();
 };
 
 #endif
