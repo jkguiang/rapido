@@ -27,7 +27,7 @@ virtual \hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a563da4fc41aa5c
 \item 
 bool \hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{run\+Until} (std\+::string target\+\_\+cut\+\_\+name)
 \item 
-void \hyperlink{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}{print} (Directions directions=\{\})
+void \hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -39,7 +39,7 @@ void \hyperlink{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}{print} (Directio
 \item 
 \hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{get\+Cut} (std\+::string cut\+\_\+name)
 \item 
-void \hyperlink{classCutflow_a86017e61a9b902ffe8dff6be3030d86c}{recursive\+Print} (\hyperlink{classCut}{Cut} $\ast$cut, Directions directions=\{\}, unsigned int index=0, float weight=1.\+0)
+void \hyperlink{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}{recursive\+Print} (std\+::string tabs, \hyperlink{classCut}{Cut} $\ast$cut, Direction direction, float weight)
 \item 
 \hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}{recursive\+Evaluate} (\hyperlink{classCut}{Cut} $\ast$cut)
 \item 
@@ -134,17 +134,12 @@ none
 \end{DoxyReturn}
 \index{Cutflow@{Cutflow}!print@{print}}
 \index{print@{print}!Cutflow@{Cutflow}}
-\subsubsection[{\texorpdfstring{print(\+Directions directions=\lcurly{}\rcurly{})}{print(Directions directions=\{\})}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::print (
+\subsubsection[{\texorpdfstring{print()}{print()}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::print (
 \begin{DoxyParamCaption}
-\item[{Directions}]{directions = {\ttfamily \{\}}}
+{}
 \end{DoxyParamCaption}
-)}\hypertarget{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}{}\label{classCutflow_a5d9f9fa315303fa9f63738dd41c05042}
-Print properties of a cutflow path (default\+: rightmost path) 
-\begin{DoxyParams}{Parameters}
-{\em directions} & vector of directions (e.\+g. \{Left, Right, ...\}) \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+)}\hypertarget{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{}\label{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}
+Print properties of a cutflow path (default\+: rightmost path) \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 \index{Cutflow@{Cutflow}!recursive\+Delete@{recursive\+Delete}}
@@ -179,23 +174,23 @@ pointer to terminal cut
 \end{DoxyReturn}
 \index{Cutflow@{Cutflow}!recursive\+Print@{recursive\+Print}}
 \index{recursive\+Print@{recursive\+Print}!Cutflow@{Cutflow}}
-\subsubsection[{\texorpdfstring{recursive\+Print(\+Cut $\ast$cut, Directions directions=\lcurly{}\rcurly{}, unsigned int index=0, float weight=1.\+0)}{recursivePrint(Cut *cut, Directions directions=\{\}, unsigned int index=0, float weight=1.0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::recursive\+Print (
+\subsubsection[{\texorpdfstring{recursive\+Print(std\+::string tabs, Cut $\ast$cut, Direction direction, float weight)}{recursivePrint(std::string tabs, Cut *cut, Direction direction, float weight)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::recursive\+Print (
 \begin{DoxyParamCaption}
+\item[{std\+::string}]{tabs, }
 \item[{{\bf Cut} $\ast$}]{cut, }
-\item[{Directions}]{directions = {\ttfamily \{\}}, }
-\item[{unsigned int}]{index = {\ttfamily 0}, }
-\item[{float}]{weight = {\ttfamily 1.0}}
+\item[{Direction}]{direction, }
+\item[{float}]{weight}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a86017e61a9b902ffe8dff6be3030d86c}{}\label{classCutflow_a86017e61a9b902ffe8dff6be3030d86c}
-(P\+R\+O\+T\+E\+C\+T\+ED) Recursively print cuts along a cutflow path (default\+: rightmost path) 
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}{}\label{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}
+(P\+R\+O\+T\+E\+C\+T\+ED) Recursively print cuts 
 \begin{DoxyParams}{Parameters}
+{\em tabs} & string with the prefix tabs for current cut \\
+\hline
 {\em cut} & pointer to current cut \\
 \hline
-{\em directions} & vector of directions (optional) \\
+{\em direction} & direction of cut relative to parent \\
 \hline
-{\em index} & current index (optional) \\
-\hline
-{\em weight} & current event weight (optional) \\
+{\em weight} & current event weight \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
