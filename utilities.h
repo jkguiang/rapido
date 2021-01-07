@@ -22,7 +22,7 @@ namespace Utilities
 
     /**
      * "Dynamic" variable
-     *  @tparam Type type of variable
+     * @tparam Type type of variable
      */
     template<typename Type>
     class Variable : public Dynamic
