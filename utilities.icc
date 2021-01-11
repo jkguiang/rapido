@@ -1,3 +1,63 @@
+Utilities::CSVFile::CSVFile(std::ofstream& new_ofstream, std::string new_name, 
+                            std::vector<std::string> new_headers) 
+: ofstream(new_ofstream)
+{
+    name = new_name;
+    headers = new_headers;
+    // Write headers to new CSV file
+    buffer = new_headers;
+    writeRow(false); // clears buffer
+}
+
+Utilities::CSVFile::~CSVFile() {}
+
+Utilities::CSVFile Utilities::CSVFile::clone(std::string new_name)
+{
+    Utilities::CSVFile new_csv = Utilities::CSVFile(ofstream, new_name, headers);
+    // Copy original CSV contents to new CSV
+    std::ifstream ifstream(name);
+    ofstream.open(new_name);
+    ofstream << ifstream.rdbuf();
+    ofstream.close();
+    return new_csv;
+}
+
+template<typename Type>
+void Utilities::CSVFile::pushCol(Type value)
+{
+    buffer.push_back(std::to_string(value));
+    return;
+}
+
+template<>
+void Utilities::CSVFile::pushCol<std::string>(std::string value)
+{
+    buffer.push_back(value);
+    return;
+}
+
+void Utilities::CSVFile::writeRow(bool append)
+{
+    if (buffer.size() == headers.size())
+    {
+        if (append) { ofstream.open(name, std::ios::app); }
+        else { ofstream.open(name); }
+        for (unsigned int i = 0; i < buffer.size(); i++)
+        {
+            ofstream << buffer.at(i); // DEBUG
+            if (i < buffer.size() - 1) { ofstream << ","; }
+        }
+        ofstream << std::endl;
+        ofstream.close();
+        buffer.clear();
+    }
+    else
+    {
+        // TODO: add error here
+    }
+    return;
+}
+
 Utilities::Dynamic::~Dynamic() {}
 
 template<typename Type>

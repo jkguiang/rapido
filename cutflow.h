@@ -1,6 +1,7 @@
 #ifndef CUTFLOW_H
 #define CUTFLOW_H
 
+#include <fstream>
 #include <iostream>
 #include <functional>
 #include <string>
@@ -66,6 +67,18 @@ public:
  */
 class Cutflow
 {
+private:
+    /**
+     * (PRIVATE) Recursively write cutflow level to CSV file(s)
+     * @param Cut* cut pointer to current cut
+     * @param direction direction of cut relative to parent
+     * @param ofstreams_idx index of ofstream (in ofstreams) for target CSV file
+     * @param ofstreams vector of ofstream objects for all currently opened CSV files
+     * @param weight current event weight
+     * @return none
+     */
+    void recursiveWrite(Cut* cut, Direction direction, int csv_idx, 
+                        Utilities::CSVFiles csv_files, float weight);
 protected:
     /** Pointer to cut that is used as the root node */
     Cut* root;
@@ -77,6 +90,12 @@ protected:
      * @return pointer to cut
      */
     Cut* getCut(std::string cut_name);
+    /**
+     * (PROTECTED) Recursively search for the rightmost terminal leaf from a given node
+     * @param cut pointer to current cut
+     * @return terminal cut
+     */
+    Cut* recursiveFindTerminus(Cut* cut);
     /**
      * (PROTECTED) Recursively print cuts
      * @param tabs string with the prefix tabs for current cut
@@ -99,6 +118,8 @@ protected:
      */
     void recursiveDelete(Cut* cut);
 public:
+    /** Name of cutflow */
+    std::string name;
     /** Dynamic list of variables to track across object scope (i.e. psuedo-members) */
     Utilities::Variables globals;
 
@@ -108,11 +129,18 @@ public:
      */
     Cutflow();
     /**
-     * Cutflow object overload constructor
+     * Cutflow object constructor
+     * @param new_name name of cutflow
+     * @return none
+     */
+    Cutflow(std::string new_name);
+    /**
+     * Cutflow object constructor
+     * @param new_name name of cutflow
      * @param new_root pointer to cut object to use as root node
      * @return none
      */
-    Cutflow(Cut* new_root);
+    Cutflow(std::string new_name, Cut* new_root);
     /**
      * Cutflow object destructor
      * @return none
@@ -145,10 +173,21 @@ public:
      */
     bool runUntil(std::string target_cut_name);
     /**
+     * Find the rightmost terminal leaf from a given node
+     * @param starting_cut_name cut from which to start search
+     * @return terminal cut
+     */
+    Cut* findTerminus(std::string starting_cut_name);
+    /**
      * Print cutflow
      * @return none
      */
     void print();
+    /**
+     * Print all cutflow paths to separate CSV files named cutflow_{terminal_cut}.csv
+     * @return none
+     */
+    void writeCSV();
 };
 
 #endif

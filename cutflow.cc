@@ -44,12 +44,21 @@ void Cut::print(float weight)
 
 Cutflow::Cutflow()
 {
+    name = "cutflow";
     globals = Utilities::Variables();
     root = nullptr;
 }
 
-Cutflow::Cutflow(Cut* new_root)
+Cutflow::Cutflow(std::string new_name)
 {
+    name = new_name;
+    globals = Utilities::Variables();
+    root = nullptr;
+}
+
+Cutflow::Cutflow(std::string new_name, Cut* new_root)
+{
+    name = new_name;
     globals = Utilities::Variables();
     root = new_root;
     cut_record[new_root->name] = new_root;
@@ -114,10 +123,33 @@ bool Cutflow::runUntil(std::string target_cut_name)
     return target_cut == terminal_cut;
 }
 
+Cut* Cutflow::findTerminus(std::string starting_cut_name)
+{
+    Cut* terminal_cut = recursiveFindTerminus(getCut(starting_cut_name));
+    return terminal_cut;
+}
+
 void Cutflow::print()
 {
     std::cout << "Cutflow" << std::endl;
     recursivePrint("", root, Right, 1.0);
+    return;
+}
+
+void Cutflow::writeCSV()
+{
+    // Get rightmost terminal child
+    Cut* terminal_cut = recursiveFindTerminus(root);
+    // Open a new file
+    std::ofstream ofstream;
+    Utilities::CSVFile first_csv = Utilities::CSVFile(
+        ofstream,
+        name+"_"+terminal_cut->name+".csv",
+        {"cut", "weight", "raw_events", "weighted_events"}
+    );
+    Utilities::CSVFiles csv_files = {first_csv};
+    // Write out next cutflow level
+    recursiveWrite(root, Right, 0, csv_files, 1.0);
     return;
 }
 
@@ -133,6 +165,12 @@ Cut* Cutflow::getCut(std::string cut_name)
     {
         return cut_record[cut_name];
     }
+}
+
+Cut* Cutflow::recursiveFindTerminus(Cut* cut)
+{
+    if (cut->right != nullptr) { return recursiveFindTerminus(cut->right); }
+    return cut;
 }
 
 void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction, 
@@ -179,11 +217,51 @@ Cut* Cutflow::recursiveEvaluate(Cut* cut)
 
 void Cutflow::recursiveDelete(Cut* cut)
 {
-    if (cut == nullptr) { return; }
-    else { 
+    if (cut != nullptr)
+    {
         recursiveDelete(cut->right); 
         recursiveDelete(cut->left); 
         delete cut;
     }
+    return;
+}
+
+void Cutflow::recursiveWrite(Cut* cut, Direction direction, int csv_idx, 
+                             Utilities::CSVFiles csv_files, float weight)
+{
+    if (cut != nullptr)
+    {
+        Utilities::CSVFile this_csv = csv_files.at(csv_idx);
+        // Write out current cut
+        float raw_events = cut->passes + cut->fails;
+        if (direction == Right) { 
+            weight *= cut->compute_weight(); 
+            this_csv.pushCol<std::string>(cut->name);
+            this_csv.pushCol<float>(cut->compute_weight());
+            this_csv.pushCol<float>(raw_events);
+            this_csv.pushCol<float>(raw_events*weight);
+            this_csv.writeRow();
+        }
+        else
+        {
+            csv_idx++;
+            // Get rightmost terminal child
+            Cut* terminal_cut = recursiveFindTerminus(cut);
+            // Open a new file
+            Utilities::CSVFile new_csv = this_csv.clone(
+                name+"_"+terminal_cut->name+".csv"
+            );
+            new_csv.pushCol<std::string>(cut->name);
+            new_csv.pushCol<float>(cut->compute_weight());
+            new_csv.pushCol<float>(raw_events);
+            new_csv.pushCol<float>(raw_events*weight);
+            new_csv.writeRow();
+            csv_files.push_back(new_csv);
+        }
+        // Write out next cutflow level
+        recursiveWrite(cut->left, Left, csv_idx, csv_files, weight);
+        recursiveWrite(cut->right, Right, csv_idx, csv_files, weight);
+    }
+
     return;
 }
