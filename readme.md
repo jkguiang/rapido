@@ -86,27 +86,33 @@ arbol.writeTFile();
 #include "cutflow.h"
 #include <stdlib.h>
 
-Cutflow dummy_cutflow = Cutflow();
-
-Cut* dummy_root = new Cut("root", []() { return bool(rand() % 2); });
-dummy_cutflow.setRoot(dummy_root);
-
-Cut* node1 = new Cut("node1", []() { return bool(rand() % 2); });
-dummy_cutflow.insert("root", node1, Right);
-
-Cut* node2 = new Cut("node2", []() { return bool(rand() % 2); });
-dummy_cutflow.insert("node1", node2, Right);
-
-Cut* node3 = new Cut("node3", []() { return bool(rand() % 2); });
-dummy_cutflow.insert("node1", node3, Left);
-
-Cut* node4 = new Cut("node4", []() { return bool(rand() % 2); });
-dummy_cutflow.insert("node2", node4, Right);
-
-for (int i = 0; i < 5; i++)
+int main()
 {
-    Cut* terminal_node = dummy_cutflow.run();
-    cout << "terminated at " << terminal_node->name << endl;
+    Cutflow dummy_cutflow = Cutflow();
+
+    Cut* dummy_root = new Cut("root", []() { return bool(rand() % 2); });
+    dummy_cutflow.setRoot(dummy_root);
+
+    Cut* node0 = new Cut("node0", []() { return bool(rand() % 2); });
+    dummy_cutflow.insert("root", node0, Left);
+
+    Cut* node1 = new Cut("node1", []() { return bool(rand() % 2); });
+    dummy_cutflow.insert("root", node1, Right);
+
+    Cut* node2 = new Cut("node2", []() { return bool(rand() % 2); });
+    dummy_cutflow.insert("node1", node2, Right);
+
+    Cut* node3 = new Cut("node3", []() { return bool(rand() % 2); });
+    dummy_cutflow.insert("node1", node3, Left);
+
+    Cut* node4 = new Cut("node4", []() { return bool(rand() % 2); });
+    dummy_cutflow.insert("node2", node4, Right);
+
+    for (int i = 0; i < 5; i++)
+    {
+        Cut* terminal_node = dummy_cutflow.run();
+        cout << "terminated at " << terminal_node->name << endl;
+    }
+    dummy_cutflow.print();
 }
-dummy_cutflow.print();
 ```
