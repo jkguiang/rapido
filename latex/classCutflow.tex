@@ -15,7 +15,9 @@ Inheritance diagram for Cutflow\+:\begin{figure}[H]
 \item 
 \hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow} ()
 \item 
-\hyperlink{classCutflow_a943ac94db62104f63499c41b5aa83b4d}{Cutflow} (\hyperlink{classCut}{Cut} $\ast$new\+\_\+root)
+\hyperlink{classCutflow_a46b6444272c54fe9988e8d328d0644ca}{Cutflow} (std\+::string new\+\_\+name)
+\item 
+\hyperlink{classCutflow_ae13ef13d8c6cef09bed242855e45aacf}{Cutflow} (std\+::string new\+\_\+name, \hyperlink{classCut}{Cut} $\ast$new\+\_\+root)
 \item 
 \hyperlink{classCutflow_adb300cd78d57a287934e4d22856a0ffe}{$\sim$\+Cutflow} ()
 \item 
@@ -27,10 +29,16 @@ virtual \hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a563da4fc41aa5c
 \item 
 bool \hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{run\+Until} (std\+::string target\+\_\+cut\+\_\+name)
 \item 
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a11c1116dc01d4c0679945eeff66ff0a4}{find\+Terminus} (std\+::string starting\+\_\+cut\+\_\+name)
+\item 
 void \hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print} ()
+\item 
+void \hyperlink{classCutflow_a56105cb7e5bccd7f9f6ed3b6d79ad753}{write\+C\+SV} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classCutflow_a268e204c942ca35895a94f1be7ce111d}{name}
 \item 
 \hyperlink{classUtilities_1_1Variables}{Utilities\+::\+Variables} \hyperlink{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{globals}
 \end{DoxyCompactItemize}
@@ -38,6 +46,8 @@ void \hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print} ()
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{get\+Cut} (std\+::string cut\+\_\+name)
+\item 
+\hyperlink{classCut}{Cut} $\ast$ \hyperlink{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}{recursive\+Find\+Terminus} (\hyperlink{classCut}{Cut} $\ast$cut)
 \item 
 void \hyperlink{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}{recursive\+Print} (std\+::string tabs, \hyperlink{classCut}{Cut} $\ast$cut, Direction direction, float weight)
 \item 
@@ -70,13 +80,31 @@ none
 \end{DoxyReturn}
 \index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
 \index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
-\subsubsection[{\texorpdfstring{Cutflow(\+Cut $\ast$new\+\_\+root)}{Cutflow(Cut *new_root)}}]{\setlength{\rightskip}{0pt plus 5cm}Cutflow\+::\+Cutflow (
+\subsubsection[{\texorpdfstring{Cutflow(std\+::string new\+\_\+name)}{Cutflow(std::string new_name)}}]{\setlength{\rightskip}{0pt plus 5cm}Cutflow\+::\+Cutflow (
 \begin{DoxyParamCaption}
+\item[{std\+::string}]{new\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a46b6444272c54fe9988e8d328d0644ca}{}\label{classCutflow_a46b6444272c54fe9988e8d328d0644ca}
+\hyperlink{classCutflow}{Cutflow} object constructor 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+name} & name of cutflow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
+\index{Cutflow@{Cutflow}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{Cutflow(std\+::string new\+\_\+name, Cut $\ast$new\+\_\+root)}{Cutflow(std::string new_name, Cut *new_root)}}]{\setlength{\rightskip}{0pt plus 5cm}Cutflow\+::\+Cutflow (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{new\+\_\+name, }
 \item[{{\bf Cut} $\ast$}]{new\+\_\+root}
 \end{DoxyParamCaption}
-)}\hypertarget{classCutflow_a943ac94db62104f63499c41b5aa83b4d}{}\label{classCutflow_a943ac94db62104f63499c41b5aa83b4d}
-\hyperlink{classCutflow}{Cutflow} object overload constructor 
+)}\hypertarget{classCutflow_ae13ef13d8c6cef09bed242855e45aacf}{}\label{classCutflow_ae13ef13d8c6cef09bed242855e45aacf}
+\hyperlink{classCutflow}{Cutflow} object constructor 
 \begin{DoxyParams}{Parameters}
+{\em new\+\_\+name} & name of cutflow \\
+\hline
 {\em new\+\_\+root} & pointer to cut object to use as root node \\
 \hline
 \end{DoxyParams}
@@ -96,6 +124,21 @@ none
 
 
 \subsection{Member Function Documentation}
+\index{Cutflow@{Cutflow}!find\+Terminus@{find\+Terminus}}
+\index{find\+Terminus@{find\+Terminus}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{find\+Terminus(std\+::string starting\+\_\+cut\+\_\+name)}{findTerminus(std::string starting_cut_name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut} $\ast$ Cutflow\+::find\+Terminus (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{starting\+\_\+cut\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a11c1116dc01d4c0679945eeff66ff0a4}{}\label{classCutflow_a11c1116dc01d4c0679945eeff66ff0a4}
+Find the rightmost terminal leaf from a given node 
+\begin{DoxyParams}{Parameters}
+{\em starting\+\_\+cut\+\_\+name} & cut from which to start search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+terminal cut 
+\end{DoxyReturn}
 \index{Cutflow@{Cutflow}!get\+Cut@{get\+Cut}}
 \index{get\+Cut@{get\+Cut}!Cutflow@{Cutflow}}
 \subsubsection[{\texorpdfstring{get\+Cut(std\+::string cut\+\_\+name)}{getCut(std::string cut_name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut} $\ast$ Cutflow\+::get\+Cut (
@@ -172,6 +215,21 @@ none
 \begin{DoxyReturn}{Returns}
 pointer to terminal cut 
 \end{DoxyReturn}
+\index{Cutflow@{Cutflow}!recursive\+Find\+Terminus@{recursive\+Find\+Terminus}}
+\index{recursive\+Find\+Terminus@{recursive\+Find\+Terminus}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{recursive\+Find\+Terminus(\+Cut $\ast$cut)}{recursiveFindTerminus(Cut *cut)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut} $\ast$ Cutflow\+::recursive\+Find\+Terminus (
+\begin{DoxyParamCaption}
+\item[{{\bf Cut} $\ast$}]{cut}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}{}\label{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}
+(P\+R\+O\+T\+E\+C\+T\+ED) Recursively search for the rightmost terminal leaf from a given node 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+terminal cut 
+\end{DoxyReturn}
 \index{Cutflow@{Cutflow}!recursive\+Print@{recursive\+Print}}
 \index{recursive\+Print@{recursive\+Print}!Cutflow@{Cutflow}}
 \subsubsection[{\texorpdfstring{recursive\+Print(std\+::string tabs, Cut $\ast$cut, Direction direction, float weight)}{recursivePrint(std::string tabs, Cut *cut, Direction direction, float weight)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::recursive\+Print (
@@ -243,6 +301,16 @@ Set root node of cutflow object
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
+\index{Cutflow@{Cutflow}!write\+C\+SV@{write\+C\+SV}}
+\index{write\+C\+SV@{write\+C\+SV}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{write\+C\+S\+V()}{writeCSV()}}]{\setlength{\rightskip}{0pt plus 5cm}void Cutflow\+::write\+C\+SV (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classCutflow_a56105cb7e5bccd7f9f6ed3b6d79ad753}{}\label{classCutflow_a56105cb7e5bccd7f9f6ed3b6d79ad753}
+Print all cutflow paths to separate C\+SV files named cutflow\+\_\+\{terminal\+\_\+cut\}.csv \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 
 
 \subsection{Member Data Documentation}
@@ -252,7 +320,10 @@ none
 Map (\char`\"{}record\char`\"{}) of all cuts in cutflow \index{Cutflow@{Cutflow}!globals@{globals}}
 \index{globals@{globals}!Cutflow@{Cutflow}}
 \subsubsection[{\texorpdfstring{globals}{globals}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Utilities\+::\+Variables} Cutflow\+::globals}\hypertarget{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{}\label{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}
-Dynamic list of variables to track across object scope (i.\+e. psuedo-\/members) \index{Cutflow@{Cutflow}!root@{root}}
+Dynamic list of variables to track across object scope (i.\+e. psuedo-\/members) \index{Cutflow@{Cutflow}!name@{name}}
+\index{name@{name}!Cutflow@{Cutflow}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Cutflow\+::name}\hypertarget{classCutflow_a268e204c942ca35895a94f1be7ce111d}{}\label{classCutflow_a268e204c942ca35895a94f1be7ce111d}
+Name of cutflow \index{Cutflow@{Cutflow}!root@{root}}
 \index{root@{root}!Cutflow@{Cutflow}}
 \subsubsection[{\texorpdfstring{root}{root}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cut}$\ast$ Cutflow\+::root\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{}\label{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}
 Pointer to cut that is used as the root node 

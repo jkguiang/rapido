@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['setbranchresetvalue',['setBranchResetValue',['../classArbol.html#a38f72c5553a435a5b0e37ca55752126c',1,'Arbol']]],
-  ['setleaf',['setLeaf',['../classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01',1,'Arbol']]],
-  ['setresetvalue',['setResetValue',['../classBranch.html#a390e9610f26ce93743237dbe3695b4c1',1,'Branch']]],
-  ['setroot',['setRoot',['../classCutflow.html#ad27d37141c3748779a5d81fad919ecbb',1,'Cutflow']]],
-  ['setvalue',['setValue',['../classBranch.html#abe26b3df8dc53eeb1770d853a39865b1',1,'Branch::setValue()'],['../classUtilities_1_1Variable.html#af218f1c4f50cbb2f69cc66e8150e05b3',1,'Utilities::Variable::setValue()']]],
-  ['setvar',['setVar',['../classUtilities_1_1Variables.html#ad5f59cff15b008435763a81bdac8bcf3',1,'Utilities::Variables']]],
-  ['setvecbranchresetvalue',['setVecBranchResetValue',['../classArbol.html#a448653919588717f4dfbe910565a3563',1,'Arbol']]],
-  ['setvecleaf',['setVecLeaf',['../classArbol.html#aa8547878e687941e4e84fc0e56f814d8',1,'Arbol']]],
-  ['sortvecleaf',['sortVecLeaf',['../classArbol.html#aa4066700ccb5ecc42477538734ae6abb',1,'Arbol']]]
+  ['rapido',['RAPIDO',['../index.html',1,'']]],
+  ['recursivedelete',['recursiveDelete',['../classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac',1,'Cutflow']]],
+  ['recursiveevaluate',['recursiveEvaluate',['../classCutflow.html#ae4fc37122bc9437fe3cdaa9861c2bcec',1,'Cutflow::recursiveEvaluate()'],['../classHistflow.html#a5e08f779038a58aa234691b1069bf47c',1,'Histflow::recursiveEvaluate()']]],
+  ['recursivefindterminus',['recursiveFindTerminus',['../classCutflow.html#a6949f1d9e7d74c6ab8cf0c6f28ac3701',1,'Cutflow']]],
+  ['recursiveprint',['recursivePrint',['../classCutflow.html#a54e6ae7d3e4c9efdb8fd830ab8a0e0e9',1,'Cutflow']]],
+  ['resetbranches',['resetBranches',['../classArbol.html#a4c2184d378ab21a9627a57098291a7c4',1,'Arbol']]],
+  ['resetvalue',['resetValue',['../classBranch.html#aff52fd008db1471e60107522bc62dfb7',1,'Branch']]],
+  ['right',['right',['../classCut.html#a2142ffe68028bb0c211408c0f5bb8bfb',1,'Cut']]],
+  ['root',['root',['../classCutflow.html#a96f2343bfae77c94f2e87b5f3a128d6d',1,'Cutflow']]],
+  ['run',['run',['../classCutflow.html#a563da4fc41aa5c611dd0ce37ce966f2c',1,'Cutflow::run()'],['../classHistflow.html#aeb075eb05c888a31fc059a97aab22acd',1,'Histflow::run()'],['../classLooper.html#abfa564ca48778da1f58c8a6444ddd463',1,'Looper::run()']]],
+  ['rununtil',['runUntil',['../classCutflow.html#a3b5a6dc6e9490037d190eca691295859',1,'Cutflow']]]
 ];

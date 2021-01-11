@@ -1,0 +1,140 @@
+\hypertarget{classUtilities_1_1CSVFile}{}\section{Utilities\+:\+:C\+S\+V\+File Class Reference}
+\label{classUtilities_1_1CSVFile}\index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+
+
+{\ttfamily \#include $<$utilities.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classUtilities_1_1CSVFile_a35c6dd1a71618229cdd5f5e1ca6de4e9}{C\+S\+V\+File} (std\+::ofstream \&new\+\_\+ofstream, std\+::string new\+\_\+name, std\+::vector$<$ std\+::string $>$ new\+\_\+headers)
+\item 
+virtual \hyperlink{classUtilities_1_1CSVFile_a4e90ae7fd8a4de6908aab2554eac76d0}{$\sim$\+C\+S\+V\+File} ()
+\item 
+\hyperlink{classUtilities_1_1CSVFile}{C\+S\+V\+File} \hyperlink{classUtilities_1_1CSVFile_a7394abaf33c2cf1bc557bba58cf0e453}{clone} (std\+::string new\+\_\+name)
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void \hyperlink{classUtilities_1_1CSVFile_ad0fc6d028ca1010f6597fa9a18f3db7a}{push\+Col} (Type value)
+\item 
+void \hyperlink{classUtilities_1_1CSVFile_a592fc96c51382efb35c6708acbfa69c2}{write\+Row} (bool append=true)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream \& \hyperlink{classUtilities_1_1CSVFile_a3ceb6ad218bb1e729b03a51e326fc12b}{ofstream}
+\item 
+std\+::string \hyperlink{classUtilities_1_1CSVFile_a26f01db1cc36f242adf00b17b4f63e37}{name}
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classUtilities_1_1CSVFile_a17822ae335f168e68498b8b1b69b8dbe}{headers}
+\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{classUtilities_1_1CSVFile_aa1ab5bfb37837aaba9b6cabd38c96bb3}{buffer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Object for handling C\+SV I/O 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!C\+S\+V\+File@{C\+S\+V\+File}}
+\index{C\+S\+V\+File@{C\+S\+V\+File}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{C\+S\+V\+File(std\+::ofstream \&new\+\_\+ofstream, std\+::string new\+\_\+name, std\+::vector$<$ std\+::string $>$ new\+\_\+headers)}{CSVFile(std::ofstream &new_ofstream, std::string new_name, std::vector< std::string > new_headers)}}]{\setlength{\rightskip}{0pt plus 5cm}Utilities\+::\+C\+S\+V\+File\+::\+C\+S\+V\+File (
+\begin{DoxyParamCaption}
+\item[{std\+::ofstream \&}]{new\+\_\+ofstream, }
+\item[{std\+::string}]{new\+\_\+name, }
+\item[{std\+::vector$<$ std\+::string $>$}]{new\+\_\+headers}
+\end{DoxyParamCaption}
+)}\hypertarget{classUtilities_1_1CSVFile_a35c6dd1a71618229cdd5f5e1ca6de4e9}{}\label{classUtilities_1_1CSVFile_a35c6dd1a71618229cdd5f5e1ca6de4e9}
+\hyperlink{classUtilities_1_1CSVFile}{C\+S\+V\+File} object constructor 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+ofstream} & reference of an existing ofstream object \\
+\hline
+{\em new\+\_\+name} & name of new C\+SV file (e.\+g. output.\+csv) \\
+\hline
+{\em new\+\_\+headers} & headers for new C\+SV file columns \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!````~C\+S\+V\+File@{$\sim$\+C\+S\+V\+File}}
+\index{````~C\+S\+V\+File@{$\sim$\+C\+S\+V\+File}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{$\sim$\+C\+S\+V\+File()}{~CSVFile()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Utilities\+::\+C\+S\+V\+File\+::$\sim$\+C\+S\+V\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classUtilities_1_1CSVFile_a4e90ae7fd8a4de6908aab2554eac76d0}{}\label{classUtilities_1_1CSVFile_a4e90ae7fd8a4de6908aab2554eac76d0}
+\hyperlink{classUtilities_1_1CSVFile}{C\+S\+V\+File} object destructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!clone@{clone}}
+\index{clone@{clone}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{clone(std\+::string new\+\_\+name)}{clone(std::string new_name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+S\+V\+File} Utilities\+::\+C\+S\+V\+File\+::clone (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{new\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{classUtilities_1_1CSVFile_a7394abaf33c2cf1bc557bba58cf0e453}{}\label{classUtilities_1_1CSVFile_a7394abaf33c2cf1bc557bba58cf0e453}
+Clone \hyperlink{classUtilities_1_1CSVFile}{C\+S\+V\+File} object and copy the existing C\+SV file to a new file 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+name} & name of new C\+SV file (e.\+g. output.\+csv) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new \hyperlink{classUtilities_1_1CSVFile}{C\+S\+V\+File} object 
+\end{DoxyReturn}
+\index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!push\+Col@{push\+Col}}
+\index{push\+Col@{push\+Col}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{push\+Col(\+Type value)}{pushCol(Type value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Type $>$ void Utilities\+::\+C\+S\+V\+File\+::push\+Col (
+\begin{DoxyParamCaption}
+\item[{Type}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classUtilities_1_1CSVFile_ad0fc6d028ca1010f6597fa9a18f3db7a}{}\label{classUtilities_1_1CSVFile_ad0fc6d028ca1010f6597fa9a18f3db7a}
+Push a new column entry to buffer 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of column entry \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em value} & new column entry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!write\+Row@{write\+Row}}
+\index{write\+Row@{write\+Row}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{write\+Row(bool append=true)}{writeRow(bool append=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Utilities\+::\+C\+S\+V\+File\+::write\+Row (
+\begin{DoxyParamCaption}
+\item[{bool}]{append = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classUtilities_1_1CSVFile_a592fc96c51382efb35c6708acbfa69c2}{}\label{classUtilities_1_1CSVFile_a592fc96c51382efb35c6708acbfa69c2}
+Write buffer to C\+SV file 
+\begin{DoxyParams}{Parameters}
+{\em append} & Toggle \char`\"{}append\char`\"{} mode (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!buffer@{buffer}}
+\index{buffer@{buffer}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{buffer}{buffer}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::string$>$ Utilities\+::\+C\+S\+V\+File\+::buffer}\hypertarget{classUtilities_1_1CSVFile_aa1ab5bfb37837aaba9b6cabd38c96bb3}{}\label{classUtilities_1_1CSVFile_aa1ab5bfb37837aaba9b6cabd38c96bb3}
+Buffer for staging column values \index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!headers@{headers}}
+\index{headers@{headers}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{headers}{headers}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::string$>$ Utilities\+::\+C\+S\+V\+File\+::headers}\hypertarget{classUtilities_1_1CSVFile_a17822ae335f168e68498b8b1b69b8dbe}{}\label{classUtilities_1_1CSVFile_a17822ae335f168e68498b8b1b69b8dbe}
+Headers for C\+SV columns \index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!name@{name}}
+\index{name@{name}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{name}{name}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Utilities\+::\+C\+S\+V\+File\+::name}\hypertarget{classUtilities_1_1CSVFile_a26f01db1cc36f242adf00b17b4f63e37}{}\label{classUtilities_1_1CSVFile_a26f01db1cc36f242adf00b17b4f63e37}
+Name (e.\+g. output.\+csv) of C\+SV file \index{Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}!ofstream@{ofstream}}
+\index{ofstream@{ofstream}!Utilities\+::\+C\+S\+V\+File@{Utilities\+::\+C\+S\+V\+File}}
+\subsubsection[{\texorpdfstring{ofstream}{ofstream}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::ofstream\& Utilities\+::\+C\+S\+V\+File\+::ofstream}\hypertarget{classUtilities_1_1CSVFile_a3ceb6ad218bb1e729b03a51e326fc12b}{}\label{classUtilities_1_1CSVFile_a3ceb6ad218bb1e729b03a51e326fc12b}
+fstream object for writing files 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+utilities.\+h\end{DoxyCompactItemize}
