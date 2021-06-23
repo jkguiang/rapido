@@ -66,6 +66,8 @@ int main()
         cout << "terminated at " << terminal_node->name << endl;
     }
     dummy_cutflow.print();
+
+    return 0;
 }
 ```
 
@@ -124,10 +126,11 @@ int main()
     );
     // Write results to a ROOT file
     arbol.writeTFile();
+    return 0;
 }
 ```
 
-3. Arbol+Cutflow+Looper+HEPCLI example (also uses [NanoCORE](https://github.com/cmstas/NanoTools/tree/master/NanoCORE) to read NanoAOD)
+3. Arbol+Cutflow+Looper+HEPCLI example (again using [NanoCORE](https://github.com/cmstas/NanoTools/tree/master/NanoCORE) to read NanoAOD)
 ```cpp
 // ROOT
 #include "TH1F.h"
