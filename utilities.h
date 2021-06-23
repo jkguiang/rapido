@@ -14,50 +14,50 @@ namespace Utilities
      */
     class CSVFile
     {
-        public:
-            /** fstream object for writing files */
-            std::ofstream& ofstream;
-            /** Name (e.g. output.csv) of CSV file */
-            std::string name;
-            /** Headers for CSV columns */
-            std::vector<std::string> headers;
-            /** Buffer for staging column values */
-            std::vector<std::string> buffer;
+    public:
+        /** fstream object for writing files */
+        std::ofstream& ofstream;
+        /** Name (e.g. output.csv) of CSV file */
+        std::string name;
+        /** Headers for CSV columns */
+        std::vector<std::string> headers;
+        /** Buffer for staging column values */
+        std::vector<std::string> buffer;
 
-            /**
-             * CSVFile object constructor
-             * @param new_ofstream reference of an existing ofstream object
-             * @param new_name name of new CSV file (e.g. output.csv)
-             * @param new_headers headers for new CSV file columns
-             * @return none
-             */
-            CSVFile(std::ofstream& new_ofstream, std::string new_name, 
-                    std::vector<std::string> new_headers);
-            /**
-             * CSVFile object destructor
-             * @return none
-             */
-            virtual ~CSVFile();
-            /**
-             * Clone CSVFile object and copy the existing CSV file to a new file
-             * @param new_name name of new CSV file (e.g. output.csv)
-             * @return new CSVFile object
-             */
-            CSVFile clone(std::string new_name);
-            /**
-             * Push a new column entry to buffer
-             * @tparam Type type of column entry
-             * @param value new column entry
-             * @return none
-             */
-            template<typename Type>
-            void pushCol(Type value);
-            /**
-             * Write buffer to CSV file
-             * @param append Toggle "append" mode (optional)
-             * @return none
-             */
-            void writeRow(bool append = true);
+        /**
+         * CSVFile object constructor
+         * @param new_ofstream reference of an existing ofstream object
+         * @param new_name name of new CSV file (e.g. output.csv)
+         * @param new_headers headers for new CSV file columns
+         * @return none
+         */
+        CSVFile(std::ofstream& new_ofstream, std::string new_name, 
+                std::vector<std::string> new_headers);
+        /**
+         * CSVFile object destructor
+         * @return none
+         */
+        virtual ~CSVFile();
+        /**
+         * Clone CSVFile object and copy the existing CSV file to a new file
+         * @param new_name name of new CSV file (e.g. output.csv)
+         * @return new CSVFile object
+         */
+        CSVFile clone(std::string new_name);
+        /**
+         * Push a new column entry to buffer
+         * @tparam Type type of column entry
+         * @param value new column entry
+         * @return none
+         */
+        template<typename Type>
+        void pushCol(Type value);
+        /**
+         * Write buffer to CSV file
+         * @param append Toggle "append" mode (optional)
+         * @return none
+         */
+        void writeRow(bool append = true);
     };
     typedef std::vector<CSVFile> CSVFiles;
 
