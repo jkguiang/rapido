@@ -1,5 +1,93 @@
+HEPCLI::HEPCLI(int argc, char** argv)
+{
+    verbose = false;
+    is_data = false;
+    is_signal = false;
+    scale_factor = 1.;
+    parse(argc, argv);
+}
+
+void HEPCLI::printHelp()
+{
+    std::cout << "RAPIDO HEP CLI\n";
+    std::cout << "usage: ./<executable> [options] ";
+    std::cout << "<path/to/file1> [<path/to/file2> ...]\n";
+    std::cout << "\n";
+    std::cout << std::left << "Options:\n";
+    std::cout << std::setw(25) << "  -h, --help";
+    std::cout << std::setw(50) << "display this message";
+    std::cout << std::endl;
+    std::cout << std::setw(25) << "  -v, --verbose";
+    std::cout << std::setw(50) << "toggle verbosity flag";
+    std::cout << std::endl;
+    std::cout << std::setw(25) << "  -t, --input_ttree";
+    std::cout << std::setw(50) << "name of ttree in input ROOT files (e.g. Events)";
+    std::cout << std::endl;
+    std::cout << std::setw(25) << "  -o, --output_file ";
+    std::cout << std::setw(50) << "target path for output ROOT file";
+    std::cout << std::endl;
+    std::cout << std::setw(25) << "  -s, --scale_factor";
+    std::cout << std::setw(50) << "global event weight";
+    std::cout << std::endl;
+    std::cout << std::setw(25) << "  --is_data" << std::setw(50) << "data flag";
+    std::cout << std::endl;
+    std::cout << std::setw(25) << "  --is_signal" << std::setw(50) << "signal flag";
+    std::cout << std::endl;
+    return;
+}
+
+void HEPCLI::parse(int argc, char** argv)
+{
+    // Initialize getopts-relevant variables
+    int value;
+    static struct option options[] = {
+        {"input_ttree", required_argument, 0, 't'},
+        {"output_file", required_argument, 0, 'o'},
+        {"scale_factor", required_argument, 0, 's'},
+        {"help", no_argument, 0, 'h'},
+        {"verbose", no_argument, 0, 'v'},
+        {"is_data", no_argument, 0, 0},
+        {"is_signal", no_argument, 0, 0},
+    };
+    std::string input_ttree = "";
+    while (true) 
+    {
+        int option_index = 0;
+        value = getopt_long(argc, argv, "t:o:s:vh", options, &option_index);
+        if (value == -1)
+            break;
+        switch(value)
+        {
+            case 't':
+                input_ttree = optarg;
+                break;
+            case 'o':
+                output_tfile = new TFile(optarg, "RECREATE");
+                break;
+            case 's':
+                scale_factor = std::atof(optarg);
+                break;
+            case 'v':
+                verbose = false;
+            case 'h':
+                printHelp();
+                exit(EXIT_SUCCESS);
+                // Terminate entire process
+                break;
+        }
+    }
+    // Read all non-optioned arguments as input file paths
+    input_tchain = new TChain(input_ttree.c_str());
+    if (optind < argc)
+    {
+        while (optind < argc)
+            input_tchain->Add(std::string(argv[optind++]).c_str());
+    }
+    return;
+}
+
 template<class Type>
-Looper<Type>::Looper(TChain* new_tchain, Type* new_selector)
+Looper<Type>::Looper(Type* new_selector, TChain* new_tchain)
 {
     tchain = new_tchain;
     selector = new_selector;
@@ -13,7 +101,6 @@ Looper<Type>::~Looper() {}
 template<class Type>
 void Looper<Type>::run(std::function<void()> evaluate) 
 {
-    cout << "Initializing looper variables..." << endl;
     // Initialize looper variables
     TIter file_iterator(tchain->GetListOfFiles());
     // File loop
@@ -24,7 +111,7 @@ void Looper<Type>::run(std::function<void()> evaluate)
         TFile* file = TFile::Open(current_file->GetTitle());
         TTree* tree = (TTree*)file->Get("Events");
         // Imported TTree configuration
-        tree->SetCacheSize(128*1024*1024);
+        tree->SetCacheSize(128*1024*1024); // 128 MB
         tree->SetCacheLearnEntries(100);
         selector->Init(tree);
         // --> START Event loop <--
