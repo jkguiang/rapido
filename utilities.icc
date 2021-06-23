@@ -53,7 +53,7 @@ void Utilities::CSVFile::writeRow(bool append)
     }
     else
     {
-        // TODO: add error here
+        throw std::runtime_error("CSVFile::writeRow: no buffered columns to write");
     }
     return;
 }
@@ -105,7 +105,7 @@ Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
     {
         std::string msg = "Error - "+name+" does not exist.";
         throw std::runtime_error("Utilities::Variables::new: "+msg);
-        return NULL;
+        return nullptr;
     }
 }
 
