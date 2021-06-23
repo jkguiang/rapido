@@ -1,0 +1,76 @@
+\hypertarget{classHEPCLI}{}\section{H\+E\+P\+C\+LI Class Reference}
+\label{classHEPCLI}\index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+
+
+{\ttfamily \#include $<$looper.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}{H\+E\+P\+C\+LI} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classHEPCLI_a50592a47a23f3e33a774a747ee32bf00}{verbose}
+\item 
+bool \hyperlink{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}{is\+\_\+data}
+\item 
+bool \hyperlink{classHEPCLI_ae1d563a29c5a238e0469442bad714e6e}{is\+\_\+signal}
+\item 
+float \hyperlink{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}{scale\+\_\+factor}
+\item 
+T\+Chain $\ast$ \hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\+\_\+tchain}
+\item 
+T\+File $\ast$ \hyperlink{classHEPCLI_ab900d2e3822e20d636564874440d33f0}{output\+\_\+tfile}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Object for handling H\+EP C\+LI input (wraps getopt functionality) 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\subsubsection[{\texorpdfstring{H\+E\+P\+C\+L\+I(int argc, char $\ast$$\ast$argv)}{HEPCLI(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}H\+E\+P\+C\+L\+I\+::\+H\+E\+P\+C\+LI (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}{}\label{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}
+\hyperlink{classHEPCLI}{H\+E\+P\+C\+LI} object constructor 
+\begin{DoxyParams}{Parameters}
+{\em argc} & argument count \\
+\hline
+{\em argv} & argument vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!input\+\_\+tchain@{input\+\_\+tchain}}
+\index{input\+\_\+tchain@{input\+\_\+tchain}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\subsubsection[{\texorpdfstring{input\+\_\+tchain}{input_tchain}}]{\setlength{\rightskip}{0pt plus 5cm}T\+Chain$\ast$ H\+E\+P\+C\+L\+I\+::input\+\_\+tchain}\hypertarget{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{}\label{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}
+R\+O\+OT T\+Chain with input files \index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!is\+\_\+data@{is\+\_\+data}}
+\index{is\+\_\+data@{is\+\_\+data}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\subsubsection[{\texorpdfstring{is\+\_\+data}{is_data}}]{\setlength{\rightskip}{0pt plus 5cm}bool H\+E\+P\+C\+L\+I\+::is\+\_\+data}\hypertarget{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}{}\label{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}
+Data (as opposed to Monte Carlo) flag \index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!is\+\_\+signal@{is\+\_\+signal}}
+\index{is\+\_\+signal@{is\+\_\+signal}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\subsubsection[{\texorpdfstring{is\+\_\+signal}{is_signal}}]{\setlength{\rightskip}{0pt plus 5cm}bool H\+E\+P\+C\+L\+I\+::is\+\_\+signal}\hypertarget{classHEPCLI_ae1d563a29c5a238e0469442bad714e6e}{}\label{classHEPCLI_ae1d563a29c5a238e0469442bad714e6e}
+Signal (as opposed to background) flag \index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!output\+\_\+tfile@{output\+\_\+tfile}}
+\index{output\+\_\+tfile@{output\+\_\+tfile}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\subsubsection[{\texorpdfstring{output\+\_\+tfile}{output_tfile}}]{\setlength{\rightskip}{0pt plus 5cm}T\+File$\ast$ H\+E\+P\+C\+L\+I\+::output\+\_\+tfile}\hypertarget{classHEPCLI_ab900d2e3822e20d636564874440d33f0}{}\label{classHEPCLI_ab900d2e3822e20d636564874440d33f0}
+R\+O\+OT T\+File for storing output \index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!scale\+\_\+factor@{scale\+\_\+factor}}
+\index{scale\+\_\+factor@{scale\+\_\+factor}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\subsubsection[{\texorpdfstring{scale\+\_\+factor}{scale_factor}}]{\setlength{\rightskip}{0pt plus 5cm}float H\+E\+P\+C\+L\+I\+::scale\+\_\+factor}\hypertarget{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}{}\label{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}
+Global event weight \index{H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}!verbose@{verbose}}
+\index{verbose@{verbose}!H\+E\+P\+C\+LI@{H\+E\+P\+C\+LI}}
+\subsubsection[{\texorpdfstring{verbose}{verbose}}]{\setlength{\rightskip}{0pt plus 5cm}bool H\+E\+P\+C\+L\+I\+::verbose}\hypertarget{classHEPCLI_a50592a47a23f3e33a774a747ee32bf00}{}\label{classHEPCLI_a50592a47a23f3e33a774a747ee32bf00}
+Verbosity flag 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+looper.\+h\end{DoxyCompactItemize}

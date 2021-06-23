@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tfile',['tfile',['../classArbol.html#ae2b0964ee5e90cb2d7beb10810c14b9c',1,'Arbol']]],
-  ['ttree',['ttree',['../classArbol.html#abe1c658a04d96bb5bbf6eda7e90acf38',1,'Arbol']]]
+  ['right',['right',['../classCut.html#a2142ffe68028bb0c211408c0f5bb8bfb',1,'Cut']]],
+  ['root',['root',['../classCutflow.html#a96f2343bfae77c94f2e87b5f3a128d6d',1,'Cutflow']]]
 ];

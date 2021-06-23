@@ -7,7 +7,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classLooper_a1328b8985a65807d46cbc23532917fd5}{Looper} (T\+Chain $\ast$new\+\_\+tchain, Type $\ast$new\+\_\+selector)
+\hyperlink{classLooper_a34cd93fad2506bf594fc360ca4a72c14}{Looper} (Type $\ast$new\+\_\+selector, T\+Chain $\ast$new\+\_\+tchain)
 \item 
 virtual \hyperlink{classLooper_a2ab3ca481534b316d9844ada765b74b3}{$\sim$\+Looper} ()
 \item 
@@ -36,17 +36,17 @@ Object to handle looping over R\+O\+OT files
 \subsection{Constructor \& Destructor Documentation}
 \index{Looper@{Looper}!Looper@{Looper}}
 \index{Looper@{Looper}!Looper@{Looper}}
-\subsubsection[{\texorpdfstring{Looper(\+T\+Chain $\ast$new\+\_\+tchain, Type $\ast$new\+\_\+selector)}{Looper(TChain *new_tchain, Type *new_selector)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Looper}$<$ Type $>$\+::{\bf Looper} (
+\subsubsection[{\texorpdfstring{Looper(\+Type $\ast$new\+\_\+selector, T\+Chain $\ast$new\+\_\+tchain)}{Looper(Type *new_selector, TChain *new_tchain)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type $>$ {\bf Looper}$<$ Type $>$\+::{\bf Looper} (
 \begin{DoxyParamCaption}
-\item[{T\+Chain $\ast$}]{new\+\_\+tchain, }
-\item[{Type $\ast$}]{new\+\_\+selector}
+\item[{Type $\ast$}]{new\+\_\+selector, }
+\item[{T\+Chain $\ast$}]{new\+\_\+tchain}
 \end{DoxyParamCaption}
-)}\hypertarget{classLooper_a1328b8985a65807d46cbc23532917fd5}{}\label{classLooper_a1328b8985a65807d46cbc23532917fd5}
+)}\hypertarget{classLooper_a34cd93fad2506bf594fc360ca4a72c14}{}\label{classLooper_a34cd93fad2506bf594fc360ca4a72c14}
 \hyperlink{classLooper}{Looper} object constructor 
 \begin{DoxyParams}{Parameters}
-{\em new\+\_\+tchain} & pointer to R\+O\+OT T\+Chain of files to loop over \\
-\hline
 {\em new\+\_\+selector} & pointer to R\+O\+OT selector object \\
+\hline
+{\em new\+\_\+tchain} & pointer to R\+O\+OT T\+Chain of files to loop over \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -72,7 +72,7 @@ none
 \item[{std\+::function$<$ void()$>$}]{evaluate}
 \end{DoxyParamCaption}
 )}\hypertarget{classLooper_abfa564ca48778da1f58c8a6444ddd463}{}\label{classLooper_abfa564ca48778da1f58c8a6444ddd463}
-\hyperlink{classLooper}{Looper} object constructor 
+Run looper 
 \begin{DoxyParams}{Parameters}
 {\em evaluate} & event-\/level logic captured in a void lambda function \\
 \hline

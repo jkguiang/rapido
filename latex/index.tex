@@ -22,8 +22,14 @@ R\+A\+P\+I\+DO is a C++ framework designed to make writing H\+EP analyses more e
 \begin{DoxyEnumerate}
 \item Clone this repository
 \item {\ttfamily cd} into the cloned repository and run {\ttfamily make -\/j5}
-\item Write your script and {\ttfamily \#include} whatever you need
-\item Compile and run using your favorite {\ttfamily Makefile}
+\item Write your script (e.\+g. {\ttfamily main.\+cc}) and {\ttfamily \#include} whatever you need
+\item Compile and run using your favorite {\ttfamily Makefile}\+: 
+\begin{DoxyCode}
+1 $ g++ main.cc -o ./a -lRAPIDO -Lrapido -Irapido
+2 $ export LD\_LIBRARY\_PATH=$LD\_LIBRARY\_PATH:$PWD/rapidog
+3 $ \(\backslash\).a
+\end{DoxyCode}
+
 \end{DoxyEnumerate}
 
 \subsection*{Examples}
@@ -92,6 +98,8 @@ arbol.\hyperlink{classArbol_ade7d835bbe383a70006e86785ae5672c}{writeTFile}();
 \begin{DoxyCode}
 \textcolor{preprocessor}{#include "cutflow.h"}
 \textcolor{preprocessor}{#include <stdlib.h>}
+
+\textcolor{keyword}{using} namepsace std;
 
 \textcolor{keywordtype}{int} main()
 \{

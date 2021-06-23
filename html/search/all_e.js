@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['scale_5ffactor',['scale_factor',['../classHEPCLI.html#a027e714e73b6fcdd0cb73eb8445bbfa4',1,'HEPCLI']]],
   ['setbranchresetvalue',['setBranchResetValue',['../classArbol.html#a38f72c5553a435a5b0e37ca55752126c',1,'Arbol']]],
   ['setleaf',['setLeaf',['../classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01',1,'Arbol']]],
   ['setresetvalue',['setResetValue',['../classBranch.html#a390e9610f26ce93743237dbe3695b4c1',1,'Branch']]],
