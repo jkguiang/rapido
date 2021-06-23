@@ -21,8 +21,13 @@ it is structured lends itself to the common workflow of a HEPEx-er.
 ## Set Up Instructions
 1. Clone this repository
 2. `cd` into the cloned repository and run `make -j5`
-3. Write your script and `#include` whatever you need
-4. Compile and run using your favorite `Makefile`
+3. Write your script (e.g. `main.cc`) and `#include` whatever you need
+4. Compile and run using your favorite `Makefile`:
+```
+$ g++ main.cc -o ./a -lRAPIDO -Lrapido -Irapido
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/rapidog
+$ \.a
+```
 
 
 ## Examples
@@ -85,6 +90,8 @@ arbol.writeTFile();
 ```cpp
 #include "cutflow.h"
 #include <stdlib.h>
+
+using namepsace std;
 
 int main()
 {
