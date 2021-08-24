@@ -25,9 +25,9 @@ R\+A\+P\+I\+DO is a C++ framework designed to make writing H\+EP analyses more e
 \item Write your script (e.\+g. {\ttfamily main.\+cc}) and {\ttfamily \#include} whatever you need
 \item Compile and run using your favorite {\ttfamily Makefile}\+: 
 \begin{DoxyCode}
-1 $ g++ main.cc -o ./a -lRAPIDO -Lrapido -Irapido
-2 $ export LD\_LIBRARY\_PATH=$LD\_LIBRARY\_PATH:$PWD/rapidog
-3 $ \(\backslash\).a
+1 $ g++ main.cc -o ./main -lRAPIDO -Lrapido -Irapido
+2 $ export LD\_LIBRARY\_PATH=$LD\_LIBRARY\_PATH:$PWD/rapido
+3 $ ./main
 \end{DoxyCode}
 
 \end{DoxyEnumerate}
@@ -36,65 +36,7 @@ R\+A\+P\+I\+DO is a C++ framework designed to make writing H\+EP analyses more e
 
 
 \begin{DoxyEnumerate}
-\item A simple \hyperlink{classArbol}{Arbol} example (using \href{https://github.com/cmstas/NanoTools}{\tt Nano\+C\+O\+RE} to read Nano\+A\+OD) 
-\begin{DoxyCode}
-\textcolor{comment}{// NanoCORE}
-\textcolor{preprocessor}{#include "Nano.h"}
-\textcolor{comment}{// RAPIDO}
-\textcolor{preprocessor}{#include "arbol.h"}
-\textcolor{preprocessor}{#include "looper.h"}
-
-\textcolor{comment}{// Initialize Arbol}
-TFile* output\_tfile = \textcolor{keyword}{new} Tfile(\textcolor{stringliteral}{"output.root"}, \textcolor{stringliteral}{"RECREATE"});
-\hyperlink{classArbol}{Arbol} arbol = \hyperlink{classArbol}{Arbol}(output\_tfile);
-
-\textcolor{comment}{// Initialize branches}
-arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"event"});
-arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"met"});
-arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"ht"});
-arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"n\_jets"});
-arbol.\hyperlink{classArbol_a57b6cf7cca6cbb3b75bb0e0333dbe3c8}{newVecBranch}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"good\_jet\_pt"}); \textcolor{comment}{// newVecBranch<float> <-->
-       newBranch<std::vector<float>>}
-
-\textcolor{comment}{// Get file}
-TChain* tchain = \textcolor{keyword}{new} TChain(\textcolor{stringliteral}{"Events"}); 
-tchain->Add(\textcolor{stringliteral}{"
-      root://xcache-redirector.t2.ucsd.edu:2040//store/mc/RunIIAutumn18NanoAODv7/TTJets\_DiLept\_TuneCP
-      5\_13TeV-madgraphMLM-pythia8/NANOAODSIM/Nano02Apr2020\_102X\_upgrade2018\_realistic\_v21-v1/60000/69CAC742-7679-D342-BF99-BF22B6D10BA4.root"});
-
-\textcolor{comment}{// Initialize Looper}
-\hyperlink{classLooper}{Looper} looper = \hyperlink{classLooper}{Looper<Nano>}(tchain, &nt); \textcolor{comment}{// nt is a global variable from NanoCORE}
-
-\textcolor{comment}{// Run}
-looper.\hyperlink{classLooper_abfa564ca48778da1f58c8a6444ddd463}{run}(
-    [&]()
-    \{
-        \textcolor{comment}{// --> Event-level Logic <--}
-        \textcolor{comment}{// Reset tree}
-        arbol.\hyperlink{classArbol_a4c2184d378ab21a9627a57098291a7c4}{resetBranches}(); \textcolor{comment}{// variables like arbol and nt are captured by reference}
-        \textcolor{comment}{// Loop over jets}
-        \textcolor{keywordtype}{float} ht = 0.;
-        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nt.nJet(); i++) 
-        \{
-            \textcolor{keywordflow}{if} (nt.Jet\_pt()[i] > 30)
-            \{
-                arbol.\hyperlink{classArbol_a811156c9134ca7e0015bbe2ab95434b0}{appendToVecLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"good\_jet\_pt"}, Jet\_pt()[i]);
-                ht += Jet\_pt()[i];
-            \}
-        \}
-        arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"event"}, event());
-        arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"ht"}, ht);
-        arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"met"}, MET\_pt());
-        arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"n\_jets"}, arbol.\hyperlink{classArbol_a634be85d92f5f26403407952b10a29fd}{getVecLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"goot\_jet\_pt"}).size());
-        arbol.\hyperlink{classArbol_a1d029dd97a0451281c774b578d93bcda}{fillTTree}();
-        \textcolor{keywordflow}{return}; \textcolor{comment}{// Must be void}
-    \}
-);
-
-arbol.\hyperlink{classArbol_ade7d835bbe383a70006e86785ae5672c}{writeTFile}();
-\end{DoxyCode}
-
-\item Simple (no R\+O\+O\+T!) \hyperlink{classCutflow}{Cutflow} example 
+\item Minimal \hyperlink{classCutflow}{Cutflow} example 
 \begin{DoxyCode}
 \textcolor{preprocessor}{#include "cutflow.h"}
 \textcolor{preprocessor}{#include <stdlib.h>}
@@ -129,7 +71,262 @@ arbol.\hyperlink{classArbol_ade7d835bbe383a70006e86785ae5672c}{writeTFile}();
         cout << \textcolor{stringliteral}{"terminated at "} << terminal\_node->\hyperlink{classCut_accf700d2d00746b97a265d4aea3f55c2}{name} << endl;
     \}
     dummy\_cutflow.\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}();
+
+    \textcolor{keywordflow}{return} 0;
 \}
 \end{DoxyCode}
- 
+
+\item A simple Arbol+\+Looper example (using \href{https://github.com/cmstas/NanoTools}{\tt Nano\+C\+O\+RE} to read Nano\+A\+OD) 
+\begin{DoxyCode}
+\textcolor{comment}{// NanoCORE}
+\textcolor{preprocessor}{#include "Nano.h"}
+\textcolor{comment}{// RAPIDO}
+\textcolor{preprocessor}{#include "arbol.h"}
+\textcolor{preprocessor}{#include "looper.h"}
+
+\textcolor{keywordtype}{int} main()
+\{
+    \textcolor{comment}{// Initialize Arbol}
+    TFile* output\_tfile = \textcolor{keyword}{new} Tfile(\textcolor{stringliteral}{"output.root"}, \textcolor{stringliteral}{"RECREATE"});
+    \hyperlink{classArbol}{Arbol} arbol = \hyperlink{classArbol}{Arbol}(output\_tfile);
+
+    \textcolor{comment}{// Initialize branches}
+    arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"event"});
+    arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"met"});
+    arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"ht"});
+    arbol.\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"n\_jets"});
+    arbol.\hyperlink{classArbol_a57b6cf7cca6cbb3b75bb0e0333dbe3c8}{newVecBranch}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"good\_jet\_pt"}); \textcolor{comment}{// newVecBranch<float> <-->
+       newBranch<std::vector<float>>}
+
+    \textcolor{comment}{// Get file}
+    TChain* tchain = \textcolor{keyword}{new} TChain(\textcolor{stringliteral}{"Events"}); 
+    tchain->Add(\textcolor{stringliteral}{"
+      root://xcache-redirector.t2.ucsd.edu:2040//store/mc/RunIIAutumn18NanoAODv7/TTJets\_DiLept\_Tu
+      neCP5\_13TeV-madgraphMLM-pythia8/NANOAODSIM/Nano02Apr2020\_102X\_upgrade2018\_realistic\_v21-v1/60000/69CAC742-7679-D342-BF99-BF22B6D10BA4.root"});
+
+    \textcolor{comment}{// Initialize Looper}
+    \hyperlink{classLooper}{Looper} looper = \hyperlink{classLooper}{Looper<Nano>}(tchain, &nt); \textcolor{comment}{// nt is a global variable from NanoCORE}
+
+    \textcolor{comment}{// Run}
+    looper.\hyperlink{classLooper_abfa564ca48778da1f58c8a6444ddd463}{run}(
+        [&]()
+        \{
+            \textcolor{comment}{// --> Event-level Logic <--}
+            \textcolor{comment}{// Reset tree}
+            arbol.\hyperlink{classArbol_a4c2184d378ab21a9627a57098291a7c4}{resetBranches}(); \textcolor{comment}{// variables like arbol and nt are captured by reference}
+            \textcolor{comment}{// Loop over jets}
+            \textcolor{keywordtype}{float} ht = 0.;
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nt.nJet(); i++) 
+            \{
+                \textcolor{keywordflow}{if} (nt.Jet\_pt()[i] > 30)
+                \{
+                    arbol.\hyperlink{classArbol_a811156c9134ca7e0015bbe2ab95434b0}{appendToVecLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"good\_jet\_pt"}, Jet\_pt()[i]);
+                    ht += Jet\_pt()[i];
+                \}
+            \}
+            arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"event"}, event());
+            arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"ht"}, ht);
+            arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"met"}, MET\_pt());
+            arbol.\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"n\_jets"}, arbol.\hyperlink{classArbol_a634be85d92f5f26403407952b10a29fd}{getVecLeaf}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"goot\_jet\_pt"}).size());
+            arbol.\hyperlink{classArbol_a1d029dd97a0451281c774b578d93bcda}{fillTTree}();
+            \textcolor{keywordflow}{return};
+        \}
+    );
+    \textcolor{comment}{// Write results to a ROOT file}
+    arbol.\hyperlink{classArbol_ade7d835bbe383a70006e86785ae5672c}{writeTFile}();
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+
+\item Arbol+\+Cutflow+\+Looper+\+H\+E\+P\+C\+LI example (again using \href{https://github.com/cmstas/NanoTools/tree/master/NanoCORE}{\tt Nano\+C\+O\+RE} to read Nano\+A\+OD) 
+\begin{DoxyCode}
+\textcolor{comment}{// ROOT}
+\textcolor{preprocessor}{#include "TH1F.h"}
+\textcolor{comment}{// NanoCORE}
+\textcolor{preprocessor}{#include "Nano.h"}
+\textcolor{preprocessor}{#include "tqdm.h"} \textcolor{comment}{// progress bar}
+\textcolor{preprocessor}{#include "SSSelections.h"}
+\textcolor{preprocessor}{#include "ElectronSelections.h"}
+\textcolor{preprocessor}{#include "MuonSelections.h"}
+\textcolor{comment}{// RAPIDO}
+\textcolor{preprocessor}{#include "arbol.h"}
+\textcolor{preprocessor}{#include "cutflow.h"}
+\textcolor{preprocessor}{#include "looper.h"}
+
+\textcolor{keyword}{using namespace }std;
+\textcolor{keyword}{using namespace }tas;
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv) 
+\{
+    \textcolor{comment}{// CLI}
+    \hyperlink{classHEPCLI}{HEPCLI} cli = \hyperlink{classHEPCLI}{HEPCLI}(argc, argv);
+
+    \textcolor{comment}{// Initialize Looper}
+    \hyperlink{classLooper}{Looper} looper = \hyperlink{classLooper}{Looper<Nano>}(&nt, cli.\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain});
+
+    \textcolor{comment}{// Initialize Arbol}
+    \hyperlink{classArbol}{Arbol} arbol = \hyperlink{classArbol}{Arbol}(cli.\hyperlink{classHEPCLI_ab900d2e3822e20d636564874440d33f0}{output\_tfile});
+    \textcolor{comment}{// Event branches}
+    arbol.newBranch<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"event"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"met"}, -999);
+    \textcolor{comment}{// Leptons}
+    arbol.newBranch<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"leading\_lep\_id"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"leading\_lep\_pt"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"leading\_lep\_eta"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"leading\_lep\_phi"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"trailing\_lep\_id"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"trailing\_lep\_pt"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"trailing\_lep\_eta"}, -999);
+    arbol.newBranch<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"trailing\_lep\_phi"}, -999);
+
+    \textcolor{comment}{// Initialize Cutflow}
+    \hyperlink{classCutflow}{Cutflow} cutflow = \hyperlink{classCutflow}{Cutflow}();
+
+    \textcolor{comment}{// Initialize some hists}
+    TH1F* ld\_lep\_pt\_hist = \textcolor{keyword}{new} TH1F(\textcolor{stringliteral}{"ld\_lep\_pt\_hist"}, \textcolor{stringliteral}{"ld\_lep\_pt\_hist"}, 20, 0, 200);
+    TH1F* tr\_lep\_pt\_hist = \textcolor{keyword}{new} TH1F(\textcolor{stringliteral}{"tr\_lep\_pt\_hist"}, \textcolor{stringliteral}{"tr\_lep\_pt\_hist"}, 20, 0, 200);
+    cutflow.globals.newVar<TH1F>(\textcolor{stringliteral}{"ld\_lep\_pt\_hist"}, *ld\_lep\_pt\_hist);
+    cutflow.globals.newVar<TH1F>(\textcolor{stringliteral}{"tr\_lep\_pt\_hist"}, *tr\_lep\_pt\_hist);
+
+    \hyperlink{classCut}{Cut}* root = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(
+        \textcolor{stringliteral}{"Bookkeeping"},
+        [&]()
+        \{
+            arbol.setLeaf(\textcolor{stringliteral}{"event"}, nt.event());
+            arbol.setLeaf(\textcolor{stringliteral}{"met"}, nt.MET\_pt());
+            \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+        \},
+        [&]()
+        \{
+            \textcolor{comment}{// Dummy weight}
+            \textcolor{keywordflow}{return} 0.001;
+        \}
+    );
+    cutflow.setRoot(root);
+
+    \hyperlink{classCut}{Cut}* dilep\_presel = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(
+        \textcolor{stringliteral}{"DileptonPreselection"},
+        [&]()
+        \{
+            \textcolor{keywordtype}{int} n\_tight\_leps = 0;
+            \textcolor{keywordtype}{int} n\_loose\_not\_tight\_leps = 0;
+            Leptons leptons = getLeptons();
+            Lepton leading\_lep;
+            Lepton trailing\_lep;
+            \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}& lep : leptons)
+            \{
+                \textcolor{keywordflow}{if} (lep.pt() < 20) \{ \textcolor{keywordflow}{continue}; \}
+                \textcolor{keywordflow}{if} (lep.idlevel() == SS::IDtight) 
+                \{ 
+                    \textcolor{keywordflow}{if} (lep.pt() > leading\_lep.pt()) 
+                    \{ 
+                        trailing\_lep = leading\_lep;
+                        leading\_lep = lep; 
+                    \}
+                    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (lep.pt() > trailing\_lep.pt()) \{ trailing\_lep = lep; \}
+                    n\_tight\_leps++; 
+                \}
+                \textcolor{keywordflow}{if} (lep.idlevel() == SS::IDfakable) \{ n\_loose\_not\_tight\_leps++; \}
+            \}
+            \textcolor{keywordflow}{if} (n\_tight\_leps == 2 && n\_loose\_not\_tight\_leps == 0) 
+            \{
+                arbol.setLeaf<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"leading\_lep\_id"}, leading\_lep.id());
+                arbol.setLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"leading\_lep\_pt"}, leading\_lep.pt());
+                arbol.setLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"leading\_lep\_eta"}, leading\_lep.eta());
+                arbol.setLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"leading\_lep\_phi"}, leading\_lep.phi());
+                arbol.setLeaf<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"trailing\_lep\_id"}, trailing\_lep.id());
+                arbol.setLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"trailing\_lep\_pt"}, trailing\_lep.pt());
+                arbol.setLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"trailing\_lep\_eta"}, trailing\_lep.eta());
+                arbol.setLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"trailing\_lep\_phi"}, trailing\_lep.phi());
+                \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+            \}
+            \textcolor{keywordflow}{else} \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
+        \}
+    );
+    cutflow.insert(\textcolor{stringliteral}{"Bookkeeping"}, dilep\_presel, Right);
+
+    \hyperlink{classCut}{Cut}* monolep\_or\_fakes = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(\textcolor{stringliteral}{"SingleLepOrFakes"}, [&]() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \});
+    cutflow.insert(\textcolor{stringliteral}{"DileptonPreselection"}, monolep\_or\_fakes, Left);
+
+    \hyperlink{classCut}{Cut}* dilep\_sign = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(
+        \textcolor{stringliteral}{"CheckDilepSign"},
+        [&]()
+        \{
+            \textcolor{keywordtype}{int} leading\_lep\_id = arbol.getLeaf<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"leading\_lep\_id"});
+            \textcolor{keywordtype}{int} trailing\_lep\_id = arbol.getLeaf<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"trailing\_lep\_id"});
+            \textcolor{keywordflow}{return} leading\_lep\_id*trailing\_lep\_id > 0;
+        \}
+    );
+    cutflow.insert(\textcolor{stringliteral}{"DileptonPreselection"}, dilep\_sign, Right);
+
+    \hyperlink{classCut}{Cut}* SS\_presel = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(\textcolor{stringliteral}{"SSPreselection"}, [&]() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \});
+    cutflow.insert(\textcolor{stringliteral}{"CheckDilepSign"}, SS\_presel, Right);
+
+    \hyperlink{classCut}{Cut}* OS\_presel = \textcolor{keyword}{new} \hyperlink{classCut}{Cut}(
+        \textcolor{stringliteral}{"OSPreselection"}, 
+        [&]() 
+        \{ 
+            TH1F& ld\_lep\_pt\_hist = cutflow.globals.getRef<TH1F>(\textcolor{stringliteral}{"ld\_lep\_pt\_hist"});
+            TH1F& tr\_lep\_pt\_hist = cutflow.globals.getRef<TH1F>(\textcolor{stringliteral}{"tr\_lep\_pt\_hist"});
+            ld\_lep\_pt\_hist.Fill(arbol.getLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"leading\_lep\_pt"}));
+            tr\_lep\_pt\_hist.Fill(arbol.getLeaf<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"trailing\_lep\_pt"}));
+            \textcolor{keywordflow}{return} \textcolor{keyword}{true}; 
+        \},
+        [&]()
+        \{
+            \textcolor{comment}{// Dummy weight}
+            \textcolor{keywordflow}{return} 0.25;
+        \}
+    );
+    cutflow.insert(\textcolor{stringliteral}{"CheckDilepSign"}, OS\_presel, Left);
+
+    \textcolor{comment}{// Run looper}
+    tqdm bar; \textcolor{comment}{// progress bar}
+    looper.\hyperlink{classLooper_abfa564ca48778da1f58c8a6444ddd463}{run}(
+        [&]() 
+        \{
+            bar.progress(looper.\hyperlink{classLooper_a97e473848469359cd33cd23771e0eb28}{n\_events\_processed}, looper.
+      \hyperlink{classLooper_a666747cb782bd6082452a6d5ac18f94f}{n\_events\_to\_process});
+            \textcolor{comment}{// Reset tree}
+            arbol.resetBranches();
+            \textcolor{comment}{// Run cutflow}
+            \textcolor{keywordtype}{bool} passed = cutflow.runUntil(\textcolor{stringliteral}{"OSPreselection"});
+            \textcolor{keywordflow}{if} (passed) \{ arbol.fillTTree(); \}
+            \textcolor{keywordflow}{return};
+        \}
+    );
+
+    \textcolor{comment}{// Wrap up}
+    bar.finish();
+    cutflow.print();
+    cutflow.writeCSV();
+    arbol.writeTFile();
+    \textcolor{keywordflow}{return} 0;
+\}
+\end{DoxyCode}
+
 \end{DoxyEnumerate}
+
+where {\ttfamily cutflow.\+print()} yields a visual representation of the cutflow object\+: 
+\begin{DoxyCode}
+1 Cutflow
+2 └☑─Bookkeeping
+3     13564 (raw)
+4     13.564 (weighted)
+5     └☑─DileptonPreselection
+6         13564 (raw)
+7         13.564 (weighted)
+8         ├☒─SingleLepOrFakes
+9         │   4829 (raw)
+10         │   4.829 (weighted)
+11         └☑─CheckDilepSign
+12             8735 (raw)
+13             8.735 (weighted)
+14             ├☒─OSPreselection
+15             │   8628 (raw)
+16             │   2.157 (weighted)
+17             └☑─SSPreselection
+18                 107 (raw)
+19                 0.107 (weighted)
+\end{DoxyCode}
+ 
