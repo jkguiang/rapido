@@ -63,10 +63,12 @@ template<class Type>
 class Looper
 {
 private:
-    /** ROOT TChain of files to loop over */
-    TChain* tchain;
     /** ROOT TTree branch accessor (e.g. ROOT::MakeSelector) */
     Type* selector;
+    /** ROOT TChain of files to loop over */
+    TChain* tchain;
+    /** ROOT TTree name */
+    TString ttree_name;
 public:
     /** Number of events that have been processed */
     unsigned int n_events_processed;
@@ -80,6 +82,14 @@ public:
      * @return none
      */
     Looper(Type* new_selector, TChain* new_tchain);
+    /**
+     * Looper object overload constructor
+     * @param new_selector pointer to ROOT selector object
+     * @param new_tchain pointer to ROOT TChain of files to loop over
+     * @param new_ttree_name name of the ROOT TTree
+     * @return none
+     */
+    Looper(Type* new_selector, TChain* new_tchain, TString new_ttree_name);
     /**
      * Looper object destructor
      * @return none

@@ -89,8 +89,19 @@ void HEPCLI::parse(int argc, char** argv)
 template<class Type>
 Looper<Type>::Looper(Type* new_selector, TChain* new_tchain)
 {
-    tchain = new_tchain;
     selector = new_selector;
+    tchain = new_tchain;
+    ttree_name = "Events";
+    n_events_processed = 0;
+    n_events_to_process = tchain->GetEntries();
+}
+
+template<class Type>
+Looper<Type>::Looper(Type* new_selector, TChain* new_tchain, TString new_ttree_name)
+{
+    selector = new_selector;
+    tchain = new_tchain;
+    ttree_name = new_ttree_name;
     n_events_processed = 0;
     n_events_to_process = tchain->GetEntries();
 }
@@ -109,7 +120,7 @@ void Looper<Type>::run(std::function<void()> evaluate)
     {
         // Open file
         TFile* file = TFile::Open(current_file->GetTitle());
-        TTree* tree = (TTree*)file->Get("Events");
+        TTree* tree = (TTree*)file->Get(ttree_name);
         // Imported TTree configuration
         tree->SetCacheSize(128*1024*1024); // 128 MB
         tree->SetCacheLearnEntries(100);
@@ -119,6 +130,7 @@ void Looper<Type>::run(std::function<void()> evaluate)
         {
             // Load event
             selector->GetEntry(event);
+            selector->Process(event);
             // Run event-level logic
             evaluate();
             n_events_processed++;
