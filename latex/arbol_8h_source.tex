@@ -1,0 +1,90 @@
+\hypertarget{arbol_8h_source}{}\doxysection{arbol.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ARBOL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define ARBOL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}TString.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}TTree.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}TFile.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}utilities.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{20 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classBranch}{Branch}} : \textcolor{keyword}{public} \mbox{\hyperlink{classUtilities_1_1Dynamic}{Utilities::Dynamic}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     Type value;}
+\DoxyCodeLine{27     Type reset\_value;}
+\DoxyCodeLine{29     TBranch* branch;}
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \mbox{\hyperlink{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}{Branch}}(TTree* ttree, TString new\_branch\_name);}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \mbox{\hyperlink{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}{\string~Branch}}();}
+\DoxyCodeLine{47     Type \mbox{\hyperlink{classBranch_abe830de2e0e7c0df57fdb51436631e1e}{getValue}}();}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{classBranch_abe26b3df8dc53eeb1770d853a39865b1}{setValue}}(Type new\_value);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{classBranch_a390e9610f26ce93743237dbe3695b4c1}{setResetValue}}(Type new\_reset\_value);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classBranch_aff52fd008db1471e60107522bc62dfb7}{resetValue}}();}
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71 \textcolor{keyword}{class }\mbox{\hyperlink{classArbol}{Arbol}}}
+\DoxyCodeLine{72 \{}
+\DoxyCodeLine{73 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{75     std::map<TString, Utilities::Dynamic*> \mbox{\hyperlink{classArbol_aa5e8b636ab0e2df59aada12961beb738}{branches}};}
+\DoxyCodeLine{77     std::map<TString, std::function<void()>> \mbox{\hyperlink{classArbol_af8a0eb30b9dbb154a1a68233ef105db1}{branch\_resetters}};}
+\DoxyCodeLine{84     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{85     \mbox{\hyperlink{classBranch}{Branch<Type>}}* \mbox{\hyperlink{classArbol_a76e30b91bd53a34b222f318678ab8fbb}{getBranch}}(TString branch\_name);}
+\DoxyCodeLine{86 \textcolor{keyword}{public}:}
+\DoxyCodeLine{88     TTree* \mbox{\hyperlink{classArbol_abe1c658a04d96bb5bbf6eda7e90acf38}{ttree}};}
+\DoxyCodeLine{90     TFile* \mbox{\hyperlink{classArbol_ae2b0964ee5e90cb2d7beb10810c14b9c}{tfile}};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{97     \mbox{\hyperlink{classArbol_a70f09d1535c225d3d8bc565d468ffe56}{Arbol}}(TFile* new\_tfile);}
+\DoxyCodeLine{102     \textcolor{keyword}{virtual} \mbox{\hyperlink{classArbol_ab9929184ef12844034b5ad4375a09799}{\string~Arbol}}();}
+\DoxyCodeLine{109     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}}(TString new\_branch\_name);}
+\DoxyCodeLine{118     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a5f38b399beb87ec5bf8cb53ff126d501}{newBranch}}(TString new\_branch\_name, Type new\_reset\_value);}
+\DoxyCodeLine{127     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{128     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a38f72c5553a435a5b0e37ca55752126c}{setBranchResetValue}}(TString branch\_name, Type new\_reset\_value);}
+\DoxyCodeLine{135     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{136     Type \mbox{\hyperlink{classArbol_a92be3f8c4258247d65e7f66a8da70453}{getLeaf}}(TString branch\_name);}
+\DoxyCodeLine{144     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{145     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a7a8d3bec0bf5c00635a0b00fcd63cf01}{setLeaf}}(TString branch\_name, Type new\_value);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{154     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{155     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a57b6cf7cca6cbb3b75bb0e0333dbe3c8}{newVecBranch}}(TString new\_branch\_name);}
+\DoxyCodeLine{164     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{165     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_aee48fcb853b21527bb67d733a7c5b1b3}{newVecBranch}}(TString new\_branch\_name, std::vector<Type> new\_reset\_vector);}
+\DoxyCodeLine{174     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{175     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a448653919588717f4dfbe910565a3563}{setVecBranchResetValue}}(TString branch\_name, std::vector<Type> new\_reset\_vector);}
+\DoxyCodeLine{183     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{184     std::vector<Type> \mbox{\hyperlink{classArbol_aefdf6dfa74ceed51b2cb99f45bfebf56}{getVecLeaf}}(TString branch\_name);}
+\DoxyCodeLine{193     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{194     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_aa8547878e687941e4e84fc0e56f814d8}{setVecLeaf}}(TString branch\_name, std::vector<Type> new\_vector);}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{203     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{204     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a811156c9134ca7e0015bbe2ab95434b0}{appendToVecLeaf}}(TString branch\_name, Type new\_value);}
+\DoxyCodeLine{212     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{213     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a4ac9a92f2ac2e82500e342262bee0418}{prependToVecLeaf}}(TString branch\_name, Type new\_value);}
+\DoxyCodeLine{222     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{223     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a7ac9c4d6404c79519d277975a8566e60}{insertIntoVecLeaf}}(TString branch\_name, Type new\_value, \textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{231     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{232     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_aa4066700ccb5ecc42477538734ae6abb}{sortVecLeaf}}(TString branch\_name, std::function<\textcolor{keywordtype}{bool}(Type, Type)> \&lambda);}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{238     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a4c2184d378ab21a9627a57098291a7c4}{resetBranches}}();}
+\DoxyCodeLine{239     }
+\DoxyCodeLine{244     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_a1d029dd97a0451281c774b578d93bcda}{fillTTree}}();}
+\DoxyCodeLine{249     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArbol_ade7d835bbe383a70006e86785ae5672c}{writeTFile}}();}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 \};}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#include "{}arbol.icc"{}}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

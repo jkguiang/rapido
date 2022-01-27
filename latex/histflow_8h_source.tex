@@ -1,0 +1,73 @@
+\hypertarget{histflow_8h_source}{}\doxysection{histflow.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef HISTOS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define HISTOS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}cutflow.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}utilities.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{typedef} std::function<float()> Filler1D;}
+\DoxyCodeLine{11 \textcolor{keyword}{typedef} std::function<pair<float, float>()> Filler2D;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{17 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type1D>}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classHist1D}{Hist1D}} : \textcolor{keyword}{public} \mbox{\hyperlink{classUtilities_1_1Dynamic}{Utilities::Dynamic}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     Type1D* hist;}
+\DoxyCodeLine{24     Filler1D filler;}
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     TString \mbox{\hyperlink{classHist1D_a28f350f4fd9e13199ef560ea6820d65c}{name}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{36     \mbox{\hyperlink{classHist1D_a76378975401f2dcd3635244ca8614664}{Hist1D}}(Type1D* new\_hist, Filler1D new\_filler);}
+\DoxyCodeLine{41     \mbox{\hyperlink{classHist1D_a26a713a3b0f55a885fd6f110407990ee}{\string~Hist1D}}();}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHist1D_af9ae5dd7a2aca46be456dde196db8fba}{fill}}(\textcolor{keywordtype}{float} weight = 1.0);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHist1D_ae45c2073b4c8f25a10ac534012feb22b}{write}}();}
+\DoxyCodeLine{57     \mbox{\hyperlink{classHist1D}{Hist1D<Type1D>}}* \mbox{\hyperlink{classHist1D_a68aaeba84e870ae5a117fe49c21f3a7c}{clone}}();}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type2D>}
+\DoxyCodeLine{65 \textcolor{keyword}{class }\mbox{\hyperlink{classHist2D}{Hist2D}} : \textcolor{keyword}{public} \mbox{\hyperlink{classUtilities_1_1Dynamic}{Utilities::Dynamic}}}
+\DoxyCodeLine{66 \{}
+\DoxyCodeLine{67 \textcolor{keyword}{private}:}
+\DoxyCodeLine{69     Type2D* hist;}
+\DoxyCodeLine{71     Filler2D filler;}
+\DoxyCodeLine{72 \textcolor{keyword}{public}:}
+\DoxyCodeLine{74     TString \mbox{\hyperlink{classHist2D_ac84b99dc72ad3d9f85a46f7620ce1740}{name}};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{83     \mbox{\hyperlink{classHist2D_a85a6f8b45d8752b1c50a3ea1c1436860}{Hist2D}}(Type2D* new\_hist, Filler2D new\_filler);}
+\DoxyCodeLine{88     \mbox{\hyperlink{classHist2D_ae100dde5b1716fc0033102f3db6dece1}{\string~Hist2D}}();}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHist2D_a851f1d896300cb1962e5ac87a176cb08}{fill}}(\textcolor{keywordtype}{float} weight = 1.0);}
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHist2D_aea99923e54c6b1af26c2b399cf648231}{write}}();}
+\DoxyCodeLine{104     \mbox{\hyperlink{classHist2D}{Hist2D}}* \mbox{\hyperlink{classHist2D_aba7e37236e77fcefb39c839c39261c73}{clone}}();}
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{111 \textcolor{keyword}{class }\mbox{\hyperlink{classHistflow}{Histflow}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCutflow}{Cutflow}}}
+\DoxyCodeLine{112 \{}
+\DoxyCodeLine{113 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{115     std::map<std::string, std::vector<std::function<void(\textcolor{keywordtype}{float})>>> \mbox{\hyperlink{classHistflow_a8440049297c1fc5d0c0f71602a940850}{fill\_schedule}};}
+\DoxyCodeLine{117     std::map<TString, std::function<void()>> \mbox{\hyperlink{classHistflow_ab0e1c8893b1afe8b77c886f6c7c043f4}{hist\_writers}};}
+\DoxyCodeLine{125     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classHistflow_a5f82e40b32a417161fbcfa0daaf1f8e0}{recursiveEvaluate}}(\mbox{\hyperlink{classCut}{Cut}}* cut, \textcolor{keywordtype}{float} weight = 1.0);}
+\DoxyCodeLine{126 \textcolor{keyword}{public}:}
+\DoxyCodeLine{131     \mbox{\hyperlink{classHistflow_ae4c76353f6d545eca787fc0abf1a433e}{Histflow}}();}
+\DoxyCodeLine{136     \mbox{\hyperlink{classHistflow_aa1adf4cd5e253c51f4e9febf97e11da1}{\string~Histflow}}();}
+\DoxyCodeLine{143     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type1D>}
+\DoxyCodeLine{144     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHistflow_a0fc41c86984acdd1b2a271be83ecf69d}{bookHist1D}}(std::string target\_cut\_name, \mbox{\hyperlink{classHist1D}{Hist1D<Type1D>}}* hist);}
+\DoxyCodeLine{151     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type2D>}
+\DoxyCodeLine{152     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHistflow_a16858deb3566f6b64c4ac21c309d0a2c}{bookHist2D}}(std::string target\_cut\_name, \mbox{\hyperlink{classHist2D}{Hist2D<Type2D>}}* hist);}
+\DoxyCodeLine{160     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type1D>}
+\DoxyCodeLine{161     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHistflow_a07a698624a6376ebdcef8ef9b025ef33}{bookHist1D}}(std::string target\_cut\_name, Type1D* hist, Filler1D filler);}
+\DoxyCodeLine{169     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type2D>}
+\DoxyCodeLine{170     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHistflow_a425698092efa7ec2389b9fb83d26dc84}{bookHist2D}}(std::string target\_cut\_name, Type2D* hist, Filler2D filler);}
+\DoxyCodeLine{176     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHistflow_a06a2e1683cdc7ac2731b4608abe15eb7}{writeHists}}(TFile* tfile);}
+\DoxyCodeLine{181     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classHistflow_a675b897276d33e146d1c2707023f1edd}{run}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{182 \};}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#include "{}histflow.icc"{}}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

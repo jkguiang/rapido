@@ -1,0 +1,72 @@
+\hypertarget{cutflow_8h_source}{}\doxysection{cutflow.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CUTFLOW\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CUTFLOW\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}utilities.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{enum} Direction}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     Left,}
+\DoxyCodeLine{16     Right}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 \textcolor{keyword}{typedef} std::vector<Direction> Directions;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classCut}{Cut}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     std::string \mbox{\hyperlink{classCut_accf700d2d00746b97a265d4aea3f55c2}{name}};}
+\DoxyCodeLine{29     std::function<bool()> \mbox{\hyperlink{classCut_a4205ad5e62b859536797141f3ace2253}{evaluate}};}
+\DoxyCodeLine{31     std::function<float()> \mbox{\hyperlink{classCut_a908dfdeed9d882ca026427c0942fb999}{compute\_weight}};}
+\DoxyCodeLine{33     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}{right}};}
+\DoxyCodeLine{35     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCut_a2c65e372172dfa0f705d117d3ad0f668}{left}};}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} \mbox{\hyperlink{classCut_a9ec802667c770787a473c622208ef35c}{passes}};}
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} \mbox{\hyperlink{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}{fails}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{47     \mbox{\hyperlink{classCut_aaa89435c5326080296041bc38937ab2d}{Cut}}(std::string new\_name, std::function<\textcolor{keywordtype}{bool}()> new\_evaluate);}
+\DoxyCodeLine{55     \mbox{\hyperlink{classCut_aaa89435c5326080296041bc38937ab2d}{Cut}}(std::string new\_name, std::function<\textcolor{keywordtype}{bool}()> new\_evaluate, }
+\DoxyCodeLine{56         std::function<\textcolor{keywordtype}{float}()> new\_compute\_weight);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCut_af05a93abb03377951fb2e7da79a7e5df}{print}}(\textcolor{keywordtype}{float} weight = 1.0);}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68 \textcolor{keyword}{class }\mbox{\hyperlink{classCutflow}{Cutflow}}}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70 \textcolor{keyword}{private}:}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} recursiveWrite(\mbox{\hyperlink{classCut}{Cut}}* cut, Direction direction, \textcolor{keywordtype}{int} csv\_idx, }
+\DoxyCodeLine{81                         Utilities::CSVFiles csv\_files, \textcolor{keywordtype}{float} weight);}
+\DoxyCodeLine{82 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{84     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{root}};}
+\DoxyCodeLine{86     std::map<std::string, Cut*> \mbox{\hyperlink{classCutflow_a76f5cbd82750844d379384c7b1243cca}{cut\_record}};}
+\DoxyCodeLine{92     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{getCut}}(std::string cut\_name);}
+\DoxyCodeLine{98     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}{recursiveFindTerminus}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}{recursivePrint}}(std::string tabs, \mbox{\hyperlink{classCut}{Cut}}* cut, Direction direction, \textcolor{keywordtype}{float} weight);}
+\DoxyCodeLine{113     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}{recursiveEvaluate}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{recursiveDelete}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
+\DoxyCodeLine{120 \textcolor{keyword}{public}:}
+\DoxyCodeLine{122     std::string \mbox{\hyperlink{classCutflow_a268e204c942ca35895a94f1be7ce111d}{name}};}
+\DoxyCodeLine{124     \mbox{\hyperlink{classUtilities_1_1Variables}{Utilities::Variables}} \mbox{\hyperlink{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{globals}};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{130     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}();}
+\DoxyCodeLine{136     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}(std::string new\_name);}
+\DoxyCodeLine{143     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}(std::string new\_name, \mbox{\hyperlink{classCut}{Cut}}* new\_root);}
+\DoxyCodeLine{148     \mbox{\hyperlink{classCutflow_adb300cd78d57a287934e4d22856a0ffe}{\string~Cutflow}}();}
+\DoxyCodeLine{154     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{setRoot}}(\mbox{\hyperlink{classCut}{Cut}}* new\_root);}
+\DoxyCodeLine{162     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}}(std::string target\_cut\_name, \mbox{\hyperlink{classCut}{Cut}}* new\_cut, Direction direction);}
+\DoxyCodeLine{167     \textcolor{keyword}{virtual} \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}{run}}();}
+\DoxyCodeLine{174     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{runUntil}}(std::string target\_cut\_name);}
+\DoxyCodeLine{180     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a11c1116dc01d4c0679945eeff66ff0a4}{findTerminus}}(std::string starting\_cut\_name);}
+\DoxyCodeLine{185     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}}();}
+\DoxyCodeLine{190     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a56105cb7e5bccd7f9f6ed3b6d79ad753}{writeCSV}}();}
+\DoxyCodeLine{191 \};}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
