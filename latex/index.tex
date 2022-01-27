@@ -73,17 +73,17 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 
 \item A simple Arbol+\+Looper example (using {\ttfamily ROOT\+::\+Make\+Selector} to read an arbitrary ROOT file) 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{myanalysis \$ root}
+\DoxyCodeLine{\$ root}
 \DoxyCodeLine{root[0] TFile* f = new TFile("{}/path/to/myfile.root"{})}
 \DoxyCodeLine{root[1] TreeName-\/>MakeSelector("{}MySelector"{})}
 \DoxyCodeLine{(int) 0}
 \DoxyCodeLine{root [2] .q}
-\DoxyCodeLine{myanalysis \$ mv MySelector.C MySelector.cc}
-\DoxyCodeLine{myanalysis \$ rootcint myselectordict.cc -\/c MySelector.h}
-\DoxyCodeLine{myanalysis \$ mv myselectordict* rapdio/}
-\DoxyCodeLine{myanalysis \$ mv MySelector* rapido/}
-\DoxyCodeLine{myanalysis \$ cd rapido/}
-\DoxyCodeLine{myanalysis \$ make -\/j5}
+\DoxyCodeLine{\$ mv MySelector.C MySelector.cc}
+\DoxyCodeLine{\$ rootcint myselectordict.cc -\/c MySelector.h}
+\DoxyCodeLine{\$ mv myselectordict* rapdio/}
+\DoxyCodeLine{\$ mv MySelector* rapido/}
+\DoxyCodeLine{\$ cd rapido/}
+\DoxyCodeLine{\$ make -\/j5}
 
 \end{DoxyCode}
  
