@@ -71,10 +71,23 @@ int main()
 }
 ```
 
-2. A simple Arbol+Looper example (using [NanoCORE](https://github.com/cmstas/NanoTools) to read NanoAOD)
+2. A simple Arbol+Looper example (using `ROOT::MakeSelector` to read an arbitrary ROOT file)
+```bash
+myanalysis $ root
+root[0] TFile* f = new TFile("/path/to/myfile.root")
+root[1] TreeName->MakeSelector("MySelector")
+(int) 0
+root [2] .q
+myanalysis $ mv MySelector.C MySelector.cc
+myanalysis $ rootcint myselectordict.cc -c MySelector.h
+myanalysis $ mv myselectordict* rapdio/
+myanalysis $ mv MySelector* rapido/
+myanalysis $ cd rapido/
+myanalysis $ make -j5
+```
 ```cpp
-// NanoCORE
-#include "Nano.h"
+// Selector
+#include "MySelector.h"
 // RAPIDO
 #include "arbol.h"
 #include "looper.h"
@@ -93,11 +106,12 @@ int main()
     arbol.newVecBranch<float>("good_jet_pt"); // newVecBranch<float> <--> newBranch<std::vector<float>>
 
     // Get file
-    TChain* tchain = new TChain("Events"); 
-    tchain->Add("root://xcache-redirector.t2.ucsd.edu:2040//store/mc/RunIIAutumn18NanoAODv7/TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/60000/69CAC742-7679-D342-BF99-BF22B6D10BA4.root");
+    TChain* tchain = new TChain("TreeName"); 
+    tchain->Add("/path/to/myfile.root");
 
     // Initialize Looper
-    Looper looper = Looper<Nano>(tchain, &nt); // nt is a global variable from NanoCORE
+    MySelector selector;
+    Looper looper = Looper<Nano>(&selector, tchain, "TreeName");
 
     // Run
     looper.run(
@@ -105,20 +119,20 @@ int main()
         {
             // --> Event-level Logic <--
             // Reset tree
-            arbol.resetBranches(); // variables like arbol and nt are captured by reference
+            arbol.resetBranches(); // variables like arbol and selector are captured by reference
             // Loop over jets
             float ht = 0.;
-            for (unsigned int i = 0; i < nt.nJet(); i++) 
+            for (unsigned int i = 0; i < *selector.nJet; i++) 
             {
-                if (nt.Jet_pt()[i] > 30)
+                if (selector.Jet_pt[i] > 30)
                 {
-                    arbol.appendToVecLeaf<float>("good_jet_pt", Jet_pt()[i]);
-                    ht += Jet_pt()[i];
+                    arbol.appendToVecLeaf<float>("good_jet_pt", selector.Jet_pt[i]);
+                    ht += selector.Jet_pt[i];
                 }
             }
-            arbol.setLeaf<int>("event", event());
+            arbol.setLeaf<int>("event", *selector.event);
             arbol.setLeaf<float>("ht", ht);
-            arbol.setLeaf<float>("met", MET_pt());
+            arbol.setLeaf<float>("met", *selector.MET_pt);
             arbol.setLeaf<int>("n_jets", arbol.getVecLeaf<float>("goot_jet_pt").size());
             arbol.fillTTree();
             return;
@@ -130,7 +144,7 @@ int main()
 }
 ```
 
-3. Arbol+Cutflow+Looper+HEPCLI example (again using [NanoCORE](https://github.com/cmstas/NanoTools/tree/master/NanoCORE) to read NanoAOD)
+3. Arbol+Cutflow+Looper+HEPCLI example (now using [NanoCORE](https://github.com/cmstas/NanoTools/tree/master/NanoCORE) to read NanoAOD)
 ```cpp
 // ROOT
 #include "TH1F.h"
