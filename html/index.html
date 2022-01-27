@@ -136,7 +136,7 @@ Examples</h1>
 <div class="ttc" id="aclassCutflow_html_a8da46f1053a6b97991489ee0920c29a1"><div class="ttname"><a href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">Cutflow::insert</a></div><div class="ttdeci">void insert(std::string target_cut_name, Cut *new_cut, Direction direction)</div><div class="ttdef"><b>Definition:</b> cutflow.cc:83</div></div>
 <div class="ttc" id="aclassCutflow_html_ad27d37141c3748779a5d81fad919ecbb"><div class="ttname"><a href="classCutflow.html#ad27d37141c3748779a5d81fad919ecbb">Cutflow::setRoot</a></div><div class="ttdeci">void setRoot(Cut *new_root)</div><div class="ttdef"><b>Definition:</b> cutflow.cc:69</div></div>
 </div><!-- fragment --></li>
-<li>A simple Arbol+Looper example (using <code>ROOT::MakeSelector</code> to read an arbitrary ROOT file) <div class="fragment"><div class="line">$ root</div>
+<li>A simple Arbol+Looper example (using <code>ROOT::MakeSelector</code> to read an arbitrary ROOT file) <div class="fragment"><div class="line">$ root # only known to work for ROOT v6.22 and greater</div>
 <div class="line">root[0] TFile* f = new TFile(&quot;/path/to/myfile.root&quot;)</div>
 <div class="line">root[1] TreeName-&gt;MakeSelector(&quot;MySelector&quot;)</div>
 <div class="line">(int) 0</div>
@@ -146,6 +146,7 @@ Examples</h1>
 <div class="line">$ mv myselectordict* rapdio/</div>
 <div class="line">$ mv MySelector* rapido/</div>
 <div class="line">$ cd rapido/</div>
+<div class="line">$ make clean</div>
 <div class="line">$ make -j5</div>
 </div><!-- fragment --> <div class="fragment"><div class="line"><span class="comment">// Selector</span></div>
 <div class="line"><span class="preprocessor">#include &quot;MySelector.h&quot;</span></div>
