@@ -73,7 +73,7 @@ int main()
 
 2. A simple Arbol+Looper example (using `ROOT::MakeSelector` to read an arbitrary ROOT file)
 ```bash
-$ root
+$ root # only known to work for ROOT v6.22 and greater
 root[0] TFile* f = new TFile("/path/to/myfile.root")
 root[1] TreeName->MakeSelector("MySelector")
 (int) 0
@@ -83,6 +83,7 @@ $ rootcint myselectordict.cc -c MySelector.h
 $ mv myselectordict* rapdio/
 $ mv MySelector* rapido/
 $ cd rapido/
+$ make clean
 $ make -j5
 ```
 ```cpp
