@@ -311,26 +311,3 @@ int main(int argc, char** argv)
     return 0;
 }
 ```
-
-where `cutflow.print()` yields a visual representation of the cutflow object:
-```
-Cutflow
-└☑─Bookkeeping
-    13564 (raw)
-    13.564 (weighted)
-    └☑─DileptonPreselection
-        13564 (raw)
-        13.564 (weighted)
-        ├☒─SingleLepOrFakes
-        │   4829 (raw)
-        │   4.829 (weighted)
-        └☑─CheckDilepSign
-            8735 (raw)
-            8.735 (weighted)
-            ├☒─OSPreselection
-            │   8628 (raw)
-            │   2.157 (weighted)
-            └☑─SSPreselection
-                107 (raw)
-                0.107 (weighted)
-```
