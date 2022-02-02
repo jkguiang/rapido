@@ -24,8 +24,9 @@ it is structured lends itself to the common workflow of a HEPEx-er.
 3. Write your script (e.g. `main.cc`) and `#include` whatever you need
 4. Compile and run using your favorite `Makefile`:
 ```
-$ g++ main.cc -o ./main -lRAPIDO -Lrapido -Irapido
-$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/rapido
+$ make
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/rapido/src
+$ export ROOT_INCLUDE_PATH=$ROOT_INCLUDE_PATH:$PWD/rapido/src
 $ ./main
 ```
 
