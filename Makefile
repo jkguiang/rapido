@@ -1,8 +1,8 @@
 include Makefile.arch
 
-SOURCES=$(wildcard *.cc)
+SOURCES=$(wildcard ./src/*.cc)
 OBJECTS=$(SOURCES:.cc=.o)
-LIB=libRAPIDO.so
+LIB=./src/libRAPIDO.so
 
 $(LIB): $(OBJECTS) 
 	$(LD) $(LDFLAGS) $(SOFLAGS) $(OBJECTS) $(ROOTLIBS) -lTMVA -lEG -lGenVector -lXMLIO -lMLP -lTreePlayer -o $@
@@ -12,6 +12,6 @@ $(LIB): $(OBJECTS)
 
 all: $(LIB) 
 clean:
-	rm -f *.o \
-	rm -f *.d \
-	rm -f *.so \
+	rm -f ./src/*.o \
+	rm -f ./src/*.d \
+	rm -f ./src/*.so \
