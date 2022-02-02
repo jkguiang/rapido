@@ -1,0 +1,72 @@
+#!/bin/bash
+function print_help() {
+    echo "usage: ./tools/mkselector INPUTFILE [OPTIONAL ARGS]"
+    echo ""
+    echo "Create a ROOT::MakeSelector class and install it in RAPIDO"
+    echo ""
+    echo "required arguments:"
+    echo "  INPUTFILE                    path to input ROOT file"
+    echo ""
+    echo "optional arguments:"
+    echo "  -h, --help                   display this message"
+    echo "  -t, --ttree-name TTREENAME   name of TTree in input ROOT file (default: 'Events')"
+    echo "  -c, --class-name CLASSNAME   desired name of ROOT::MakeSelector class (default: 'Selector')"
+    echo ""
+    exit 0
+}
+
+# Read the CLI options
+TEMP=`getopt -o ht:c: --long help,ttree-name:,class-name: -- "$@"`
+eval set -- "$TEMP"
+# Extract options and their arguments
+ttreename="Events"
+classname="Selector"
+while true; do
+    case "$1" in
+        -h|--help)
+            print_help; shift 1;;
+        -t|--ttree-name)
+            ttreename=$2; shift 2;;
+        -c|--class-name)
+            classname=$2; shift 2;;
+        --) shift; break;;
+        *) echo "Internal error!"; exit 1;;
+    esac
+done
+inputfile="$1"
+rdictname="${classname,,}dict"
+
+if [[ $inputfile == "" ]]; then
+    echo "ERROR: no input ROOT file provided"
+    exit 1
+fi
+
+cat > tempmacro.C << EOL
+void tempmacro(TString input_file, TString ttree_name, TString class_name) 
+{ 
+    TFile* f = TFile::Open(input_file.Data()); 
+    TTree* t = (TTree*) f->Get(ttree_name.Data()); 
+    t->MakeSelector(class_name.Data());
+}
+EOL
+echo "Writing a temporary ROOT macro (tempmacro.C)..."
+echo ""
+cat tempmacro.C
+root -l -b -q tempmacro.C\(\"${inputfile}\",\"${ttreename}\",\"${classname}\"\)
+echo "Deleting temporary ROOT macro..."
+rm tempmacro.C
+
+if [[ $? == 0 ]]; then
+    mv ${classname}.C ${classname}.cc
+else
+    exit 1
+fi
+
+echo "Writing ROOT class dictionary..."
+rootcint ${rdictname}.cc -c ${classname}.h
+
+mv ${classname}* src/
+mv ${rdictname}* src/
+echo "New ROOT::MakeSelector class successfully installed in RAPIDO:"
+ls src/${classname}*
+ls src/${rdictname}*
