@@ -90,6 +90,11 @@ public:
     TFile* tfile;
 
     /**
+     * Arbol object constructor
+     * @return none
+     */
+    Arbol();
+    /**
      * Arbol object overload constructor
      * @param new_tfile pointer to an output TFile
      * @return none

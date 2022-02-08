@@ -19,6 +19,8 @@ void Branch<Type>::setResetValue(Type new_reset_value) { reset_value = new_reset
 template<typename Type>
 void Branch<Type>::resetValue() { value = reset_value; }
 
+Arbol::Arbol() {}
+
 Arbol::Arbol(TFile* new_tfile)
 {
     ttree = new TTree("tree", "tree");
