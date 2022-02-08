@@ -104,7 +104,7 @@ Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
     else
     {
         std::string msg = "Error - "+name+" does not exist.";
-        throw std::runtime_error("Utilities::Variables::new: "+msg);
+        throw std::runtime_error("Utilities::Variables::getVariable: "+msg);
         return nullptr;
     }
 }
