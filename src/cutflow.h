@@ -70,14 +70,15 @@ class Cutflow
 private:
     /**
      * (PRIVATE) Recursively write cutflow level to CSV file(s)
-     * @param Cut* cut pointer to current cut
+     * @param output_dir target directory for output CSV files
+     * @param cut pointer to current cut
      * @param direction direction of cut relative to parent
      * @param ofstreams_idx index of ofstream (in ofstreams) for target CSV file
      * @param ofstreams vector of ofstream objects for all currently opened CSV files
      * @param weight current event weight
      * @return none
      */
-    void recursiveWrite(Cut* cut, Direction direction, int csv_idx, 
+    void recursiveWrite(std::string output_dir, Cut* cut, Direction direction, int csv_idx, 
                         Utilities::CSVFiles csv_files, float weight);
 protected:
     /** Pointer to cut that is used as the root node */
@@ -129,13 +130,13 @@ public:
      */
     Cutflow();
     /**
-     * Cutflow object constructor
+     * Cutflow object overload constructor
      * @param new_name name of cutflow
      * @return none
      */
     Cutflow(std::string new_name);
     /**
-     * Cutflow object constructor
+     * Cutflow object overload constructor
      * @param new_name name of cutflow
      * @param new_root pointer to cut object to use as root node
      * @return none
@@ -184,10 +185,11 @@ public:
      */
     void print();
     /**
-     * Print all cutflow paths to separate CSV files named cutflow_{terminal_cut}.csv
+     * Print all cutflow paths to separate CSV files {output_dir}/{name}_{terminal_cut}.csv
+     * @param output_dir target directory for output CSV files (optional)
      * @return none
      */
-    void writeCSV();
+    void writeCSV(std::string output_dir = "");
 };
 
 #endif

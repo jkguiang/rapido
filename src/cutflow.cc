@@ -136,7 +136,7 @@ void Cutflow::print()
     return;
 }
 
-void Cutflow::writeCSV()
+void Cutflow::writeCSV(std::string output_dir)
 {
     // Get rightmost terminal child
     Cut* terminal_cut = recursiveFindTerminus(root);
@@ -144,12 +144,12 @@ void Cutflow::writeCSV()
     std::ofstream ofstream;
     Utilities::CSVFile first_csv = Utilities::CSVFile(
         ofstream,
-        name+"_"+terminal_cut->name+".csv",
+        output_dir+"/"+name+"_"+terminal_cut->name+".csv",
         {"cut", "weight", "raw_events", "weighted_events"}
     );
     Utilities::CSVFiles csv_files = {first_csv};
     // Write out next cutflow level
-    recursiveWrite(root, Right, 0, csv_files, 1.0);
+    recursiveWrite(output_dir, root, Right, 0, csv_files, 1.0);
     return;
 }
 
@@ -226,8 +226,8 @@ void Cutflow::recursiveDelete(Cut* cut)
     return;
 }
 
-void Cutflow::recursiveWrite(Cut* cut, Direction direction, int csv_idx, 
-                             Utilities::CSVFiles csv_files, float weight)
+void Cutflow::recursiveWrite(std::string output_dir, Cut* cut, Direction direction, 
+                             int csv_idx, Utilities::CSVFiles csv_files, float weight)
 {
     if (cut != nullptr)
     {
@@ -249,7 +249,7 @@ void Cutflow::recursiveWrite(Cut* cut, Direction direction, int csv_idx,
             Cut* terminal_cut = recursiveFindTerminus(cut);
             // Open a new file
             Utilities::CSVFile new_csv = this_csv.clone(
-                name+"_"+terminal_cut->name+".csv"
+                output_dir+"/"+name+"_"+terminal_cut->name+".csv"
             );
             new_csv.pushCol<std::string>(cut->name);
             new_csv.pushCol<float>(cut->compute_weight());
@@ -259,8 +259,8 @@ void Cutflow::recursiveWrite(Cut* cut, Direction direction, int csv_idx,
             csv_files.push_back(new_csv);
         }
         // Write out next cutflow level
-        recursiveWrite(cut->left, Left, csv_idx, csv_files, weight);
-        recursiveWrite(cut->right, Right, csv_idx, csv_files, weight);
+        recursiveWrite(output_dir, cut->left, Left, csv_idx, csv_files, weight);
+        recursiveWrite(output_dir, cut->right, Right, csv_idx, csv_files, weight);
     }
 
     return;
