@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include <stdlib.h>
 #include <getopt.h>
 
@@ -35,6 +36,12 @@ private:
 public:
     /** Verbosity flag */
     bool verbose;
+    /** Name of TTree in input ROOT file(s) */
+    std::string input_ttree;
+    /** Target directory for output file(s) */
+    std::string output_dir;
+    /** Short name for output file(s) */
+    std::string output_name;
     /** Data (as opposed to Monte Carlo) flag */
     bool is_data;
     /** Signal (as opposed to background) flag */
@@ -43,11 +50,15 @@ public:
     float scale_factor;
     /** ROOT TChain with input files */
     TChain* input_tchain;
-    /** ROOT TFile for storing output */
-    TFile* output_tfile;
 
     /**
      * HEPCLI object constructor
+     * @return none
+     */
+    HEPCLI();
+
+    /**
+     * HEPCLI object overload constructor
      * @param argc argument count
      * @param argv argument vector
      * @return none
@@ -70,6 +81,8 @@ private:
     /** ROOT TTree name */
     TString ttree_name;
 public:
+    /** Current index of event loop */
+    unsigned int current_index;
     /** Number of events that have been processed */
     unsigned int n_events_processed;
     /** Number of events in the TChain */
