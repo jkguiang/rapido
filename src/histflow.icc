@@ -156,12 +156,12 @@ void Histflow::writeHists(TFile* tfile)
 
 Cut* Histflow::run()
 {
-    if (root == NULL)
+    if (this->root == NULL)
     {
         std::string msg = "Error - no root node set.";
         throw std::runtime_error("Histflow::run: "+msg);
     }
-    Cut* terminal_cut = recursiveEvaluate(root, 1.0);
+    Cut* terminal_cut = recursiveEvaluate(this->root, 1.0);
     return terminal_cut;
 }
 
