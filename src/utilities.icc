@@ -61,9 +61,13 @@ void Utilities::CSVFile::writeRow(bool append)
 Utilities::Dynamic::~Dynamic() {}
 
 template<typename Type>
-Utilities::Variable<Type>::Variable(Type new_value)
+Utilities::Variable<Type>::Variable() {}
+
+template<typename Type>
+Utilities::Variable<Type>::Variable(Type new_reset_value)
 { 
-    value = new_value;
+    value = new_reset_value;
+    reset_value = new_reset_value;
 }
 
 template<typename Type>
@@ -73,20 +77,26 @@ template<typename Type>
 Type Utilities::Variable<Type>::getValue() { return value; }
 
 template<typename Type>
-Type& Utilities::Variable<Type>::getReference() { return value; }
-
-template<typename Type>
 void Utilities::Variable<Type>::setValue(Type new_value) 
 { 
     value = new_value; 
 }
+
+template<typename Type>
+void Utilities::Variable<Type>::setResetValue(Type new_reset_value) 
+{ 
+    reset_value = new_reset_value; 
+}
+
+template<typename Type>
+void Utilities::Variable<Type>::resetValue() { value = reset_value; }
 
 Utilities::Variables::Variables() {}
 
 Utilities::Variables::~Variables() 
 {
     std::map<std::string, Utilities::Dynamic*>::iterator iter;
-    for(iter = variables.begin(); iter != variables.end(); ++iter)
+    for (iter = variables.begin(); iter != variables.end(); ++iter)
     {
         delete (*iter).second;
     }
@@ -95,7 +105,7 @@ Utilities::Variables::~Variables()
 }
 
 template<typename Type>
-Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
+Utilities::Variable<Type>* Utilities::Variables::getVar(std::string name)
 {
     if (variables.count(name) == 1)
     {
@@ -104,7 +114,7 @@ Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
     else
     {
         std::string msg = "Error - "+name+" does not exist.";
-        throw std::runtime_error("Utilities::Variables::getVariable: "+msg);
+        throw std::runtime_error("Utilities::Variables::getVar: "+msg);
         return nullptr;
     }
 }
@@ -112,34 +122,48 @@ Utilities::Variable<Type>* Utilities::Variables::getVariable(std::string name)
 template<typename Type>
 void Utilities::Variables::newVar(std::string new_name) 
 {
-    variables[new_name] = new Variable<Type>(NULL);
+    Variable<Type>* var = new Variable<Type>();
+    variables[new_name] = var;
+    resetters[new_name] = [var] { return var->resetValue(); };
     return;
 }
 
 template<typename Type>
-void Utilities::Variables::newVar(std::string new_name, Type new_value) 
+void Utilities::Variables::newVar(std::string new_name, Type new_reset_value) 
 {
-    variables[new_name] = new Variable<Type>(new_value);
+    Variable<Type>* var = new Variable<Type>(new_reset_value);
+    variables[new_name] = var;
+    resetters[new_name] = [var] { return var->resetValue(); };
     return;
 }
 
 template<typename Type>
-Type Utilities::Variables::getVar(std::string name)
+Type Utilities::Variables::getVal(std::string name)
 {
-    Variable<Type>* var = getVariable<Type>(name);
+    Variable<Type>* var = getVar<Type>(name);
     return var->getValue();
 }
 
 template<typename Type>
-Type& Utilities::Variables::getRef(std::string name)
+void Utilities::Variables::setVal(std::string name, Type new_value)
 {
-    Variable<Type>* var = getVariable<Type>(name);
-    return var->getReference();
+    Variable<Type>* var = getVar<Type>(name);
+    return var->setValue(new_value);
 }
 
 template<typename Type>
-Type Utilities::Variables::setVar(std::string name, Type new_value)
+void Utilities::Variables::resetVal(std::string name)
 {
-    Variable<Type>* var = getVariable<Type>(name);
-    return var->setValue(new_value);
+    Variable<Type>* var = getVar<Type>(name);
+    return var->resetValue();
+}
+
+void Utilities::Variables::resetVars()
+{
+    std::map<std::string, std::function<void()>>::iterator iter;
+    for (iter = resetters.begin(); iter != resetters.end(); ++iter)
+    {
+        (*iter).second();
+    }
+    return;
 }

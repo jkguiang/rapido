@@ -18,16 +18,17 @@
  * @tparam Type type of branch value
  */
 template<typename Type>
-class Branch : public Utilities::Dynamic
+class Branch : public Utilities::Variable<Type>
 {
 private:
-    /** Value of branch */
-    Type value;
-    /** Reset value of branch */
-    Type reset_value;
     /** Pointer to ROOT TBranch object */
     TBranch* branch;
 public:
+    /**
+     * Branch object default constructor
+     * @return none
+     */
+    Branch();
     /**
      * Branch object constructor
      * @param ttree pointer to TTree
@@ -35,38 +36,10 @@ public:
      * @return none
      */
     Branch(TTree* ttree, TString new_branch_name);
-    /**
-     * Branch object destructor
-     * @return none
-     */
-    virtual ~Branch();
-    /**
-     * Get current leaf value
-     * @return value of current leaf
-     */
-    Type getValue();
-    /**
-     * Set value of current leaf
-     * @param new_value new value
-     * @return none
-     */
-    void setValue(Type new_value);
-    /**
-     * Set the reset value of branch
-     * @param new_reset_value new reset value (e.g. -999; default is the default type 
-     *                        constructor)
-     * @return none
-     */
-    void setResetValue(Type new_reset_value);
-    /**
-     * Reset the current leaf to the reset value
-     * @return none
-     */
-    void resetValue();
 };
 
 /**
- * Wraps TTree object with funcitonality for making branches dynamically
+ * Wraps TTree object with functionality for making branches dynamically
  */
 class Arbol
 {
@@ -252,7 +225,6 @@ public:
      * @return none
      */
     void writeTFile();
-
 };
 
 #include "arbol.icc"

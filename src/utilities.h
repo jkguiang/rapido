@@ -82,36 +82,55 @@ namespace Utilities
     class Variable : public Dynamic
     {
     protected:
-        /** Value of this variable object */
+        /** Variable value */
         Type value;
+        /** Variable reset value */
+        Type reset_value;
     public:
         /**
-         * Variable object constructor
-         * @param new_value value of new variable
+         * Variable object default constructor
          * @return none
          */
-        Variable(Type new_value);
+        Variable();
+        /**
+         * Variable object overload constructor
+         * @param new_reset_value reset value of new variable object
+         * @return none
+         */
+        Variable(Type new_reset_value);
         /**
          * Variable object destructor
          * @return none
          */
         virtual ~Variable();
         /**
-         * Get current value
-         * @return value of current leaf
+         * Get current variable value
+         * @return current value of this variable object
          */
         Type getValue();
         /**
-         * Get current value by reference
-         * @return value of current leaf
+         * Get reference to variable value
+         * @return reference to value for this variable object
          */
         Type& getReference();
         /**
-         * Set value of variable
+         * Set variable value
          * @param new_value new value
          * @return none
          */
         void setValue(Type new_value);
+        /**
+         * Set variable reset value
+         * @param new_reset_value new reset value (e.g. -999; default is the default type 
+         *                        constructor)
+         * @return none
+         */
+        void setResetValue(Type new_reset_value);
+        /**
+         * Reset the current variable value to the reset value
+         * @return none
+         */
+        void resetValue();
     };
 
     /**
@@ -120,8 +139,10 @@ namespace Utilities
     class Variables
     {
     protected:
-        /** Map of dynamic variables */
+        /** Map of Utilities::Variable objects */
         std::map<std::string, Dynamic*> variables;
+        /** Map of Utilities::Variable::resetValue functions captured in lambdas*/
+        std::map<std::string, std::function<void()>> resetters;
         /**
          * (PROTECTED) Retrieve variable object from map if it exists
          * @tparam Type type of variable
@@ -129,7 +150,7 @@ namespace Utilities
          * @return none
          */
         template<typename Type>
-        Variable<Type>* getVariable(std::string name);
+        Variable<Type>* getVar(std::string name);
     public:
         /**
          * Variables object constructor
@@ -150,24 +171,24 @@ namespace Utilities
         template<typename Type>
         void newVar(std::string new_name);
         /**
-         * Add new variable to map
-         * @tparam Type type of new variable
-         * @param new_name name of new variable
-         * @param new_value value of new variable
+         * Add new variable to map with reset value
+         * @tparam Type type of variable
+         * @param new_name name of variable
+         * @param new_reset_value reset value of new variable
          * @return none
          */
         template<typename Type>
-        void newVar(std::string new_name, Type new_value);
+        void newVar(std::string new_name, Type new_reset_value);
         /**
-         * Get value of a variable in map if it exists
+         * Get variable value in map if it exists
          * @tparam Type type of variable
          * @param name name of variable
          * @return none
          */
         template<typename Type>
-        Type getVar(std::string name);
+        Type getVal(std::string name);
         /**
-         * Get variable in map by reference if it exists
+         * Get variable value in map by reference if it exists
          * @tparam Type type of variable
          * @param name name of variable
          * @return none
@@ -182,7 +203,20 @@ namespace Utilities
          * @return none
          */
         template<typename Type>
-        Type setVar(std::string name, Type new_value);
+        void setVal(std::string name, Type new_value);
+        /**
+         * Set value of a variable in map to its reset value if it exists
+         * @tparam Type type of variable
+         * @param name name of variable
+         * @return none
+         */
+        template<typename Type>
+        void resetVal(std::string name);
+        /**
+         * Set value of all variables in map to their respective reset values
+         * @return none
+         */
+        void resetVars();
     };
 }
 

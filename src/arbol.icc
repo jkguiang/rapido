@@ -1,23 +1,11 @@
 template<typename Type>
+Branch<Type>::Branch() {}
+    
+template<typename Type>
 Branch<Type>::Branch(TTree* ttree, TString new_branch_name)
-{ 
-    branch = ttree->Branch(new_branch_name, &value);
+{
+    branch = ttree->Branch(new_branch_name, &this->value);
 }
-
-template<typename Type>
-Branch<Type>::~Branch() {}
-
-template<typename Type>
-Type Branch<Type>::getValue() { return value; }
-
-template<typename Type>
-void Branch<Type>::setValue(Type new_value) { value = new_value; }
-
-template<typename Type>
-void Branch<Type>::setResetValue(Type new_reset_value) { reset_value = new_reset_value; }
-
-template<typename Type>
-void Branch<Type>::resetValue() { value = reset_value; }
 
 Arbol::Arbol() {}
 
@@ -44,8 +32,8 @@ Branch<Type>* Arbol::getBranch(TString branch_name)
     if (branches.count(branch_name) == 0)
     {
         TString msg = "Error - "+branch_name+" does not exist.";
-        throw std::runtime_error("Cutflow::insert: "+msg);
-        return NULL;
+        throw std::runtime_error("Arbol::getBranch: "+msg);
+        return nullptr;
     }
     else
     {
@@ -161,7 +149,7 @@ void Arbol::sortVecLeaf(TString branch_name, std::function<bool(Type, Type)> &la
 void Arbol::resetBranches()
 {
     std::map<TString, std::function<void()>>::iterator iter;
-    for(iter = branch_resetters.begin(); iter != branch_resetters.end(); ++iter)
+    for (iter = branch_resetters.begin(); iter != branch_resetters.end(); ++iter)
     {
         (*iter).second();
     }
