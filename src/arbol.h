@@ -210,7 +210,8 @@ public:
     void sortVecLeaf(TString branch_name, std::function<bool(Type, Type)> &lambda);
 
     /**
-     * Reset all branches to their reset values
+     * Set value of each branch to its respective reset value
+     * Uses a map of "resetters" for the same reason as Utilities::Variables.
      * @return none
      */
     void resetBranches();

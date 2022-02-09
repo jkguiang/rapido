@@ -213,7 +213,12 @@ namespace Utilities
         template<typename Type>
         void resetVal(std::string name);
         /**
-         * Set value of all variables in map to their respective reset values
+         * Set value of each variable in map to its respective reset value 
+         * Uses a map of "resetters" because Utilities::Variable<Type>::resetValue() 
+         * cannot be called across an arbitrary number of such objects, due to the 
+         * fact that the value of Type for each object would need to be supplied. The 
+         * "resetters" circumvent this issue by capturing the function call in a 
+         * lambda function for later use.
          * @return none
          */
         void resetVars();
