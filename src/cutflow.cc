@@ -178,10 +178,13 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction,
 {
     if (cut != nullptr)
     {
-        if (cut->evaluate()) { weight *= cut->compute_weight(); }
         std::cout << tabs;
         if (direction == Left) { std::cout << "\u251C\u2612\u2500"; }
-        else { std::cout << "\u2514\u2611\u2500"; }
+        else 
+        {
+            weight *= cut->compute_weight();
+            std::cout << "\u2514\u2611\u2500"; 
+        }
         // Print cut name
         std::cout << cut->name << std::endl;
         // Print cut info
