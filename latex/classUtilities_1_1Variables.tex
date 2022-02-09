@@ -13,23 +13,29 @@ virtual \mbox{\hyperlink{classUtilities_1_1Variables_a4a67d0d360d70d7a928be6fe48
 \item 
 {\footnotesize template$<$typename Type $>$ }\\void \mbox{\hyperlink{classUtilities_1_1Variables_a7763fc000f45ef3956d61fdf2f783130}{new\+Var}} (std\+::string new\+\_\+name)
 \item 
-{\footnotesize template$<$typename Type $>$ }\\void \mbox{\hyperlink{classUtilities_1_1Variables_a67029a527f5810a298fc6538b6a634d2}{new\+Var}} (std\+::string new\+\_\+name, Type new\+\_\+value)
+{\footnotesize template$<$typename Type $>$ }\\void \mbox{\hyperlink{classUtilities_1_1Variables_af2c4c6114f9cc9084c9ec5a5008cb42f}{new\+Var}} (std\+::string new\+\_\+name, Type new\+\_\+reset\+\_\+value)
 \item 
-{\footnotesize template$<$typename Type $>$ }\\Type \mbox{\hyperlink{classUtilities_1_1Variables_adff493c2ea6249294a35204fd6b3f852}{get\+Var}} (std\+::string name)
+{\footnotesize template$<$typename Type $>$ }\\Type \mbox{\hyperlink{classUtilities_1_1Variables_a3b44673fa83ac4e796e04daf7265b4ca}{get\+Val}} (std\+::string name)
 \item 
 {\footnotesize template$<$typename Type $>$ }\\Type \& \mbox{\hyperlink{classUtilities_1_1Variables_a58011fc344bd7d5eeb70eaa794f8bb78}{get\+Ref}} (std\+::string name)
 \item 
-{\footnotesize template$<$typename Type $>$ }\\Type \mbox{\hyperlink{classUtilities_1_1Variables_ad5f59cff15b008435763a81bdac8bcf3}{set\+Var}} (std\+::string name, Type new\+\_\+value)
+{\footnotesize template$<$typename Type $>$ }\\void \mbox{\hyperlink{classUtilities_1_1Variables_a01d3486d65509cd6db470b4ea99c2b86}{set\+Val}} (std\+::string name, Type new\+\_\+value)
+\item 
+{\footnotesize template$<$typename Type $>$ }\\void \mbox{\hyperlink{classUtilities_1_1Variables_a0b54d767199c068a1324ef138eca433e}{reset\+Val}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{classUtilities_1_1Variables_a50c695d86e58e227049cd8589c7cec98}{reset\+Vars}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Type $>$ }\\\mbox{\hyperlink{classUtilities_1_1Variable}{Variable}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classUtilities_1_1Variables_a609f89b273fec84499bf782a6109e8f2}{get\+Variable}} (std\+::string name)
+{\footnotesize template$<$typename Type $>$ }\\\mbox{\hyperlink{classUtilities_1_1Variable}{Variable}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classUtilities_1_1Variables_a897682928b8e37d4be06ef34f80a3a25}{get\+Var}} (std\+::string name)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::map$<$ std\+::string, \mbox{\hyperlink{classUtilities_1_1Dynamic}{Dynamic}} $\ast$ $>$ \mbox{\hyperlink{classUtilities_1_1Variables_acd0a2a9ec3135923b460cdf4e571d478}{variables}}
+\item 
+std\+::map$<$ std\+::string, std\+::function$<$ void()$>$ $>$ \mbox{\hyperlink{classUtilities_1_1Variables_aad84d1cb3d3f10bb6df1dbae2074f863}{resetters}}
 \end{DoxyCompactItemize}
 
 
@@ -65,7 +71,7 @@ none
 {\footnotesize\ttfamily template$<$typename Type $>$ \\
 Type \& Utilities\+::\+Variables\+::get\+Ref (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
 
-Get variable in map by reference if it exists 
+Get variable value in map by reference if it exists 
 \begin{DoxyTemplParams}{Template Parameters}
 {\em Type} & type of variable \\
 \hline
@@ -78,32 +84,32 @@ Get variable in map by reference if it exists
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classUtilities_1_1Variables_adff493c2ea6249294a35204fd6b3f852}\label{classUtilities_1_1Variables_adff493c2ea6249294a35204fd6b3f852}} 
+\mbox{\Hypertarget{classUtilities_1_1Variables_a3b44673fa83ac4e796e04daf7265b4ca}\label{classUtilities_1_1Variables_a3b44673fa83ac4e796e04daf7265b4ca}} 
+\index{Utilities::Variables@{Utilities::Variables}!getVal@{getVal}}
+\index{getVal@{getVal}!Utilities::Variables@{Utilities::Variables}}
+\doxysubsubsection{\texorpdfstring{getVal()}{getVal()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+Type Utilities\+::\+Variables\+::get\+Val (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Get variable value in map if it exists 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of variable \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtilities_1_1Variables_a897682928b8e37d4be06ef34f80a3a25}\label{classUtilities_1_1Variables_a897682928b8e37d4be06ef34f80a3a25}} 
 \index{Utilities::Variables@{Utilities::Variables}!getVar@{getVar}}
 \index{getVar@{getVar}!Utilities::Variables@{Utilities::Variables}}
 \doxysubsubsection{\texorpdfstring{getVar()}{getVar()}}
 {\footnotesize\ttfamily template$<$typename Type $>$ \\
-Type Utilities\+::\+Variables\+::get\+Var (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
-
-Get value of a variable in map if it exists 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of variable \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em name} & name of variable \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classUtilities_1_1Variables_a609f89b273fec84499bf782a6109e8f2}\label{classUtilities_1_1Variables_a609f89b273fec84499bf782a6109e8f2}} 
-\index{Utilities::Variables@{Utilities::Variables}!getVariable@{getVariable}}
-\index{getVariable@{getVariable}!Utilities::Variables@{Utilities::Variables}}
-\doxysubsubsection{\texorpdfstring{getVariable()}{getVariable()}}
-{\footnotesize\ttfamily template$<$typename Type $>$ \\
-\mbox{\hyperlink{classUtilities_1_1Variable}{Variable}}$<$ Type $>$ $\ast$ Utilities\+::\+Variables\+::get\+Variable (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+\mbox{\hyperlink{classUtilities_1_1Variable}{Variable}}$<$ Type $>$ $\ast$ Utilities\+::\+Variables\+::get\+Var (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 (PROTECTED) Retrieve variable object from map if it exists 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -138,34 +144,63 @@ Add blank variable to map
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classUtilities_1_1Variables_a67029a527f5810a298fc6538b6a634d2}\label{classUtilities_1_1Variables_a67029a527f5810a298fc6538b6a634d2}} 
+\mbox{\Hypertarget{classUtilities_1_1Variables_af2c4c6114f9cc9084c9ec5a5008cb42f}\label{classUtilities_1_1Variables_af2c4c6114f9cc9084c9ec5a5008cb42f}} 
 \index{Utilities::Variables@{Utilities::Variables}!newVar@{newVar}}
 \index{newVar@{newVar}!Utilities::Variables@{Utilities::Variables}}
 \doxysubsubsection{\texorpdfstring{newVar()}{newVar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename Type $>$ \\
-void Utilities\+::\+Variables\+::new\+Var (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name,  }\item[{Type}]{new\+\_\+value }\end{DoxyParamCaption})}
+void Utilities\+::\+Variables\+::new\+Var (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name,  }\item[{Type}]{new\+\_\+reset\+\_\+value }\end{DoxyParamCaption})}
 
-Add new variable to map 
+Add new variable to map with reset value 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & type of new variable \\
+{\em Type} & type of variable \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em new\+\_\+name} & name of new variable \\
+{\em new\+\_\+name} & name of variable \\
 \hline
-{\em new\+\_\+value} & value of new variable \\
+{\em new\+\_\+reset\+\_\+value} & reset value of new variable \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classUtilities_1_1Variables_ad5f59cff15b008435763a81bdac8bcf3}\label{classUtilities_1_1Variables_ad5f59cff15b008435763a81bdac8bcf3}} 
-\index{Utilities::Variables@{Utilities::Variables}!setVar@{setVar}}
-\index{setVar@{setVar}!Utilities::Variables@{Utilities::Variables}}
-\doxysubsubsection{\texorpdfstring{setVar()}{setVar()}}
+\mbox{\Hypertarget{classUtilities_1_1Variables_a0b54d767199c068a1324ef138eca433e}\label{classUtilities_1_1Variables_a0b54d767199c068a1324ef138eca433e}} 
+\index{Utilities::Variables@{Utilities::Variables}!resetVal@{resetVal}}
+\index{resetVal@{resetVal}!Utilities::Variables@{Utilities::Variables}}
+\doxysubsubsection{\texorpdfstring{resetVal()}{resetVal()}}
 {\footnotesize\ttfamily template$<$typename Type $>$ \\
-Type Utilities\+::\+Variables\+::set\+Var (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{Type}]{new\+\_\+value }\end{DoxyParamCaption})}
+void Utilities\+::\+Variables\+::reset\+Val (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Set value of a variable in map to its reset value if it exists 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & type of variable \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtilities_1_1Variables_a50c695d86e58e227049cd8589c7cec98}\label{classUtilities_1_1Variables_a50c695d86e58e227049cd8589c7cec98}} 
+\index{Utilities::Variables@{Utilities::Variables}!resetVars@{resetVars}}
+\index{resetVars@{resetVars}!Utilities::Variables@{Utilities::Variables}}
+\doxysubsubsection{\texorpdfstring{resetVars()}{resetVars()}}
+{\footnotesize\ttfamily void Utilities\+::\+Variables\+::reset\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Set value of each variable in map to its respective reset value Uses a map of \char`\"{}resetters\char`\"{} because \mbox{\hyperlink{classUtilities_1_1Variable_acaff38dda27c6f428bbb232782e0f29b}{Utilities\+::\+Variable$<$\+Type$>$\+::reset\+Value()}} cannot be called across an arbitrary number of such objects, due to the fact that the value of Type for each object would need to be supplied. The \char`\"{}resetters\char`\"{} circumvent this issue by capturing the function call in a lambda function for later use. \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUtilities_1_1Variables_a01d3486d65509cd6db470b4ea99c2b86}\label{classUtilities_1_1Variables_a01d3486d65509cd6db470b4ea99c2b86}} 
+\index{Utilities::Variables@{Utilities::Variables}!setVal@{setVal}}
+\index{setVal@{setVal}!Utilities::Variables@{Utilities::Variables}}
+\doxysubsubsection{\texorpdfstring{setVal()}{setVal()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+void Utilities\+::\+Variables\+::set\+Val (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{Type}]{new\+\_\+value }\end{DoxyParamCaption})}
 
 Set value of a variable in map if it exists 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -185,13 +220,19 @@ none
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classUtilities_1_1Variables_acd0a2a9ec3135923b460cdf4e571d478}\label{classUtilities_1_1Variables_acd0a2a9ec3135923b460cdf4e571d478}} 
+\mbox{\Hypertarget{classUtilities_1_1Variables_aad84d1cb3d3f10bb6df1dbae2074f863}\label{classUtilities_1_1Variables_aad84d1cb3d3f10bb6df1dbae2074f863}} 
+\index{Utilities::Variables@{Utilities::Variables}!resetters@{resetters}}
+\index{resetters@{resetters}!Utilities::Variables@{Utilities::Variables}}
+\doxysubsubsection{\texorpdfstring{resetters}{resetters}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::function$<$void()$>$ $>$ Utilities\+::\+Variables\+::resetters\hspace{0.3cm}{\ttfamily [protected]}}
+
+Map of \mbox{\hyperlink{classUtilities_1_1Variable_acaff38dda27c6f428bbb232782e0f29b}{Utilities\+::\+Variable\+::reset\+Value}} functions captured in lambdas \mbox{\Hypertarget{classUtilities_1_1Variables_acd0a2a9ec3135923b460cdf4e571d478}\label{classUtilities_1_1Variables_acd0a2a9ec3135923b460cdf4e571d478}} 
 \index{Utilities::Variables@{Utilities::Variables}!variables@{variables}}
 \index{variables@{variables}!Utilities::Variables@{Utilities::Variables}}
 \doxysubsubsection{\texorpdfstring{variables}{variables}}
 {\footnotesize\ttfamily std\+::map$<$std\+::string, \mbox{\hyperlink{classUtilities_1_1Dynamic}{Dynamic}}$\ast$$>$ Utilities\+::\+Variables\+::variables\hspace{0.3cm}{\ttfamily [protected]}}
 
-Map of dynamic variables 
+Map of \mbox{\hyperlink{classUtilities_1_1Variable}{Utilities\+::\+Variable}} objects 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

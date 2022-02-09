@@ -8,51 +8,57 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <functional>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iomanip>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <stdlib.h>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <getopt.h>}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}TString.h"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}TChain.h"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}TFile.h"{}}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}TTree.h"{}}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}TTreeCache.h"{}}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}TTreeCacheUnzip.h"{}}}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classHEPCLI}{HEPCLI}}}
-\DoxyCodeLine{21 \{}
-\DoxyCodeLine{22 \textcolor{keyword}{private}:}
-\DoxyCodeLine{27     \textcolor{keywordtype}{void} printHelp();}
-\DoxyCodeLine{34     \textcolor{keywordtype}{void} parse(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv);}
-\DoxyCodeLine{35 \textcolor{keyword}{public}:}
-\DoxyCodeLine{37     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHEPCLI_a50592a47a23f3e33a774a747ee32bf00}{verbose}};}
-\DoxyCodeLine{39     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}{is\_data}};}
-\DoxyCodeLine{41     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHEPCLI_ae1d563a29c5a238e0469442bad714e6e}{is\_signal}};}
-\DoxyCodeLine{43     \textcolor{keywordtype}{float} \mbox{\hyperlink{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}{scale\_factor}};}
-\DoxyCodeLine{45     TChain* \mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain}};}
-\DoxyCodeLine{47     TFile* \mbox{\hyperlink{classHEPCLI_ab900d2e3822e20d636564874440d33f0}{output\_tfile}};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{55     \mbox{\hyperlink{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}{HEPCLI}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv);}
-\DoxyCodeLine{56 \};}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{62 \textcolor{keyword}{template}<\textcolor{keyword}{class} Type>}
-\DoxyCodeLine{63 \textcolor{keyword}{class }\mbox{\hyperlink{classLooper}{Looper}}}
-\DoxyCodeLine{64 \{}
-\DoxyCodeLine{65 \textcolor{keyword}{private}:}
-\DoxyCodeLine{67     Type* selector;}
-\DoxyCodeLine{69     TChain* tchain;}
-\DoxyCodeLine{71     TString ttree\_name;}
-\DoxyCodeLine{72 \textcolor{keyword}{public}:}
-\DoxyCodeLine{74     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_a97e473848469359cd33cd23771e0eb28}{n\_events\_processed}};}
-\DoxyCodeLine{76     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_a666747cb782bd6082452a6d5ac18f94f}{n\_events\_to\_process}};}
-\DoxyCodeLine{77     }
-\DoxyCodeLine{84     \mbox{\hyperlink{classLooper_a34cd93fad2506bf594fc360ca4a72c14}{Looper}}(Type* new\_selector, TChain* new\_tchain);}
-\DoxyCodeLine{92     \mbox{\hyperlink{classLooper_a1acdd5043b0aae75dd39cb1fdcdb674c}{Looper}}(Type* new\_selector, TChain* new\_tchain, TString new\_ttree\_name);}
-\DoxyCodeLine{97     \textcolor{keyword}{virtual} \mbox{\hyperlink{classLooper_a2ab3ca481534b316d9844ada765b74b3}{\string~Looper}}();}
-\DoxyCodeLine{103     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLooper_abfa564ca48778da1f58c8a6444ddd463}{run}}(std::function<\textcolor{keywordtype}{void}()> evaluate);}
-\DoxyCodeLine{104 \};}
-\DoxyCodeLine{105 }
-\DoxyCodeLine{106 \textcolor{preprocessor}{\#include "{}looper.icc"{}}}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <getopt.h>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}TString.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}TChain.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}TFile.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}TTree.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}TTreeCache.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}TTreeCacheUnzip.h"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classHEPCLI}{HEPCLI}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} printHelp();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} parse(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv);}
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHEPCLI_a50592a47a23f3e33a774a747ee32bf00}{verbose}};}
+\DoxyCodeLine{40     std::string \mbox{\hyperlink{classHEPCLI_ad8364ec0fda19a180ccafbdb9866790f}{input\_ttree}};}
+\DoxyCodeLine{42     std::string \mbox{\hyperlink{classHEPCLI_a2c6e1c6b16b1980527bd660175e77bd8}{output\_dir}};}
+\DoxyCodeLine{44     std::string \mbox{\hyperlink{classHEPCLI_a9e5f226adebb7d77fb601c93268868dd}{output\_name}};}
+\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}{is\_data}};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHEPCLI_ae1d563a29c5a238e0469442bad714e6e}{is\_signal}};}
+\DoxyCodeLine{50     \textcolor{keywordtype}{float} \mbox{\hyperlink{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}{scale\_factor}};}
+\DoxyCodeLine{52     TChain* \mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain}};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58     \mbox{\hyperlink{classHEPCLI_a59a123c6834e44908e802b8bbeae35fc}{HEPCLI}}();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{66     \mbox{\hyperlink{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}{HEPCLI}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv);}
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{73 \textcolor{keyword}{template}<\textcolor{keyword}{class} Type>}
+\DoxyCodeLine{74 \textcolor{keyword}{class }\mbox{\hyperlink{classLooper}{Looper}}}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76 \textcolor{keyword}{private}:}
+\DoxyCodeLine{78     Type* selector;}
+\DoxyCodeLine{80     TChain* tchain;}
+\DoxyCodeLine{82     TString ttree\_name;}
+\DoxyCodeLine{83 \textcolor{keyword}{public}:}
+\DoxyCodeLine{85     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_a5ffbcd4fb31c1bdbd40a11c7e715d789}{current\_index}};}
+\DoxyCodeLine{87     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_a97e473848469359cd33cd23771e0eb28}{n\_events\_processed}};}
+\DoxyCodeLine{89     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_a666747cb782bd6082452a6d5ac18f94f}{n\_events\_to\_process}};}
+\DoxyCodeLine{90     }
+\DoxyCodeLine{97     \mbox{\hyperlink{classLooper_a34cd93fad2506bf594fc360ca4a72c14}{Looper}}(Type* new\_selector, TChain* new\_tchain);}
+\DoxyCodeLine{105     \mbox{\hyperlink{classLooper_a1acdd5043b0aae75dd39cb1fdcdb674c}{Looper}}(Type* new\_selector, TChain* new\_tchain, TString new\_ttree\_name);}
+\DoxyCodeLine{110     \textcolor{keyword}{virtual} \mbox{\hyperlink{classLooper_a2ab3ca481534b316d9844ada765b74b3}{\string~Looper}}();}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLooper_abfa564ca48778da1f58c8a6444ddd463}{run}}(std::function<\textcolor{keywordtype}{void}()> evaluate);}
+\DoxyCodeLine{117 \};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#include "{}looper.icc"{}}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -106,8 +106,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">print</a> ()</td></tr>
 <tr class="separator:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56105cb7e5bccd7f9f6ed3b6d79ad753"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a56105cb7e5bccd7f9f6ed3b6d79ad753">writeCSV</a> ()</td></tr>
-<tr class="separator:a56105cb7e5bccd7f9f6ed3b6d79ad753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a43e58326fbce5306e2b3d080c6cd85f0">writeCSV</a> (std::string output_dir=&quot;&quot;)</td></tr>
+<tr class="separator:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -172,7 +172,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p ><a class="el" href="classCutflow.html">Cutflow</a> object constructor </p><dl class="params"><dt>Parameters</dt><dd>
+<p ><a class="el" href="classCutflow.html">Cutflow</a> object overload constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_name</td><td>name of cutflow </td></tr>
   </table>
@@ -207,7 +207,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p ><a class="el" href="classCutflow.html">Cutflow</a> object constructor </p><dl class="params"><dt>Parameters</dt><dd>
+<p ><a class="el" href="classCutflow.html">Cutflow</a> object overload constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_name</td><td>name of cutflow </td></tr>
     <tr><td class="paramname">new_root</td><td>pointer to cut object to use as root node </td></tr>
@@ -592,8 +592,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a56105cb7e5bccd7f9f6ed3b6d79ad753" name="a56105cb7e5bccd7f9f6ed3b6d79ad753"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56105cb7e5bccd7f9f6ed3b6d79ad753">&#9670;&nbsp;</a></span>writeCSV()</h2>
+<a id="a43e58326fbce5306e2b3d080c6cd85f0" name="a43e58326fbce5306e2b3d080c6cd85f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43e58326fbce5306e2b3d080c6cd85f0">&#9670;&nbsp;</a></span>writeCSV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,12 +601,19 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Cutflow::writeCSV </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>output_dir</em> = <code>&quot;&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Print all cutflow paths to separate CSV files named cutflow_{terminal_cut}.csv </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<p >Print all cutflow paths to separate CSV files {output_dir}/{name}_{terminal_cut}.csv </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_dir</td><td>target directory for output CSV files (optional) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>

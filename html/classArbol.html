@@ -77,6 +77,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a4f5d3e25a0e1a40cb09cefa39378b7be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#a4f5d3e25a0e1a40cb09cefa39378b7be">Arbol</a> ()</td></tr>
+<tr class="separator:a4f5d3e25a0e1a40cb09cefa39378b7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70f09d1535c225d3d8bc565d468ffe56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#a70f09d1535c225d3d8bc565d468ffe56">Arbol</a> (TFile *new_tfile)</td></tr>
 <tr class="separator:a70f09d1535c225d3d8bc565d468ffe56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9929184ef12844034b5ad4375a09799"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#ab9929184ef12844034b5ad4375a09799">~Arbol</a> ()</td></tr>
@@ -151,10 +153,28 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:af8a0eb30b9dbb154a1a68233ef105db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Wraps TTree object with funcitonality for making branches dynamically </p>
+<div class="textblock"><p >Wraps TTree object with functionality for making branches dynamically </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4f5d3e25a0e1a40cb09cefa39378b7be" name="a4f5d3e25a0e1a40cb09cefa39378b7be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f5d3e25a0e1a40cb09cefa39378b7be">&#9670;&nbsp;</a></span>Arbol() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Arbol::Arbol </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="classArbol.html">Arbol</a> object constructor </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
 <a id="a70f09d1535c225d3d8bc565d468ffe56" name="a70f09d1535c225d3d8bc565d468ffe56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70f09d1535c225d3d8bc565d468ffe56">&#9670;&nbsp;</a></span>Arbol()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a70f09d1535c225d3d8bc565d468ffe56">&#9670;&nbsp;</a></span>Arbol() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -640,7 +660,7 @@ template&lt;typename Type &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Reset all branches to their reset values </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<p >Set value of each branch to its respective reset value Uses a map of "resetters" for the same reason as <a class="el" href="classUtilities_1_1Variables.html">Utilities::Variables</a>. </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>

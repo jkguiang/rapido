@@ -176,7 +176,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper<Nano>}}(\&nt, cli.\mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Arbol}}
-\DoxyCodeLine{    \mbox{\hyperlink{classArbol}{Arbol}} arbol = \mbox{\hyperlink{classArbol}{Arbol}}(cli.\mbox{\hyperlink{classHEPCLI_ab900d2e3822e20d636564874440d33f0}{output\_tfile}});}
+\DoxyCodeLine{    \mbox{\hyperlink{classArbol}{Arbol}} arbol = \mbox{\hyperlink{classArbol}{Arbol}}(cli.output\_tfile);}
 \DoxyCodeLine{    \textcolor{comment}{// Event branches}}
 \DoxyCodeLine{    arbol.\mbox{\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"{}event"{}}, -\/999);}
 \DoxyCodeLine{    arbol.\mbox{\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"{}met"{}}, -\/999);}

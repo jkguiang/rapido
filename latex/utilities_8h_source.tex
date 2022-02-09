@@ -42,38 +42,46 @@
 \DoxyCodeLine{83     \{}
 \DoxyCodeLine{84     \textcolor{keyword}{protected}:}
 \DoxyCodeLine{86         Type \mbox{\hyperlink{classUtilities_1_1Variable_ab91417296eea0614f336941a2ecc2944}{value}};}
-\DoxyCodeLine{87     \textcolor{keyword}{public}:}
-\DoxyCodeLine{93         \mbox{\hyperlink{classUtilities_1_1Variable_af6f55d5d5c2472b25212828c66b730bc}{Variable}}(Type new\_value);}
-\DoxyCodeLine{98         \textcolor{keyword}{virtual} \mbox{\hyperlink{classUtilities_1_1Variable_a4d2bce0bd082e8464b9f193d1e908e0a}{\string~Variable}}();}
-\DoxyCodeLine{103         Type \mbox{\hyperlink{classUtilities_1_1Variable_a2531a59e087062fab302cf487b6bdfa2}{getValue}}();}
-\DoxyCodeLine{108         Type\& \mbox{\hyperlink{classUtilities_1_1Variable_ab924af4e2bc238affc0df55fb50dd560}{getReference}}();}
-\DoxyCodeLine{114         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variable_af218f1c4f50cbb2f69cc66e8150e05b3}{setValue}}(Type new\_value);}
-\DoxyCodeLine{115     \};}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{120     \textcolor{keyword}{class }\mbox{\hyperlink{classUtilities_1_1Variables}{Variables}}}
-\DoxyCodeLine{121     \{}
-\DoxyCodeLine{122     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{124         std::map<std::string, Dynamic*> \mbox{\hyperlink{classUtilities_1_1Variables_acd0a2a9ec3135923b460cdf4e571d478}{variables}};}
-\DoxyCodeLine{131         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
-\DoxyCodeLine{132         \mbox{\hyperlink{classUtilities_1_1Variable}{Variable<Type>}}* \mbox{\hyperlink{classUtilities_1_1Variables_a609f89b273fec84499bf782a6109e8f2}{getVariable}}(std::string name);}
-\DoxyCodeLine{133     \textcolor{keyword}{public}:}
-\DoxyCodeLine{138         \mbox{\hyperlink{classUtilities_1_1Variables_a60ebf236218fbefc48cb35e6dcabb2d6}{Variables}}();}
-\DoxyCodeLine{143         \textcolor{keyword}{virtual} \mbox{\hyperlink{classUtilities_1_1Variables_a4a67d0d360d70d7a928be6fe48c6753b}{\string~Variables}}();}
-\DoxyCodeLine{150         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
-\DoxyCodeLine{151         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variables_a7763fc000f45ef3956d61fdf2f783130}{newVar}}(std::string new\_name);}
-\DoxyCodeLine{159         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
-\DoxyCodeLine{160         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variables_a67029a527f5810a298fc6538b6a634d2}{newVar}}(std::string new\_name, Type new\_value);}
-\DoxyCodeLine{167         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
-\DoxyCodeLine{168         Type \mbox{\hyperlink{classUtilities_1_1Variables_adff493c2ea6249294a35204fd6b3f852}{getVar}}(std::string name);}
-\DoxyCodeLine{175         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
-\DoxyCodeLine{176         Type\& \mbox{\hyperlink{classUtilities_1_1Variables_a58011fc344bd7d5eeb70eaa794f8bb78}{getRef}}(std::string name);}
-\DoxyCodeLine{184         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
-\DoxyCodeLine{185         Type \mbox{\hyperlink{classUtilities_1_1Variables_ad5f59cff15b008435763a81bdac8bcf3}{setVar}}(std::string name, Type new\_value);}
-\DoxyCodeLine{186     \};}
-\DoxyCodeLine{187 \}}
-\DoxyCodeLine{188 }
-\DoxyCodeLine{189 \textcolor{preprocessor}{\#include "{}utilities.icc"{}}}
-\DoxyCodeLine{190 }
-\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{88         Type \mbox{\hyperlink{classUtilities_1_1Variable_ac1268caf8951df106c1c9fdc0bd2d7b4}{reset\_value}};}
+\DoxyCodeLine{89     \textcolor{keyword}{public}:}
+\DoxyCodeLine{94         \mbox{\hyperlink{classUtilities_1_1Variable_ace9dfa727e6aaecd2d9da8f6e68ad9c6}{Variable}}();}
+\DoxyCodeLine{100         \mbox{\hyperlink{classUtilities_1_1Variable_a9d800e313dbe144bb04b58dff8a68bd4}{Variable}}(Type new\_reset\_value);}
+\DoxyCodeLine{105         \textcolor{keyword}{virtual} \mbox{\hyperlink{classUtilities_1_1Variable_a4d2bce0bd082e8464b9f193d1e908e0a}{\string~Variable}}();}
+\DoxyCodeLine{110         Type \mbox{\hyperlink{classUtilities_1_1Variable_a2531a59e087062fab302cf487b6bdfa2}{getValue}}();}
+\DoxyCodeLine{115         Type\& \mbox{\hyperlink{classUtilities_1_1Variable_ab924af4e2bc238affc0df55fb50dd560}{getReference}}();}
+\DoxyCodeLine{121         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variable_af218f1c4f50cbb2f69cc66e8150e05b3}{setValue}}(Type new\_value);}
+\DoxyCodeLine{128         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variable_a2a7eca01cc12c54ad60843865422ea54}{setResetValue}}(Type new\_reset\_value);}
+\DoxyCodeLine{133         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variable_acaff38dda27c6f428bbb232782e0f29b}{resetValue}}();}
+\DoxyCodeLine{134     \};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{139     \textcolor{keyword}{class }\mbox{\hyperlink{classUtilities_1_1Variables}{Variables}}}
+\DoxyCodeLine{140     \{}
+\DoxyCodeLine{141     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{143         std::map<std::string, Dynamic*> \mbox{\hyperlink{classUtilities_1_1Variables_acd0a2a9ec3135923b460cdf4e571d478}{variables}};}
+\DoxyCodeLine{145         std::map<std::string, std::function<void()>> \mbox{\hyperlink{classUtilities_1_1Variables_aad84d1cb3d3f10bb6df1dbae2074f863}{resetters}};}
+\DoxyCodeLine{152         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{153         \mbox{\hyperlink{classUtilities_1_1Variable}{Variable<Type>}}* \mbox{\hyperlink{classUtilities_1_1Variables_a897682928b8e37d4be06ef34f80a3a25}{getVar}}(std::string name);}
+\DoxyCodeLine{154     \textcolor{keyword}{public}:}
+\DoxyCodeLine{159         \mbox{\hyperlink{classUtilities_1_1Variables_a60ebf236218fbefc48cb35e6dcabb2d6}{Variables}}();}
+\DoxyCodeLine{164         \textcolor{keyword}{virtual} \mbox{\hyperlink{classUtilities_1_1Variables_a4a67d0d360d70d7a928be6fe48c6753b}{\string~Variables}}();}
+\DoxyCodeLine{171         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{172         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variables_a7763fc000f45ef3956d61fdf2f783130}{newVar}}(std::string new\_name);}
+\DoxyCodeLine{180         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{181         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variables_af2c4c6114f9cc9084c9ec5a5008cb42f}{newVar}}(std::string new\_name, Type new\_reset\_value);}
+\DoxyCodeLine{188         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{189         Type \mbox{\hyperlink{classUtilities_1_1Variables_a3b44673fa83ac4e796e04daf7265b4ca}{getVal}}(std::string name);}
+\DoxyCodeLine{196         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{197         Type\& \mbox{\hyperlink{classUtilities_1_1Variables_a58011fc344bd7d5eeb70eaa794f8bb78}{getRef}}(std::string name);}
+\DoxyCodeLine{205         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{206         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variables_a01d3486d65509cd6db470b4ea99c2b86}{setVal}}(std::string name, Type new\_value);}
+\DoxyCodeLine{213         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Type>}
+\DoxyCodeLine{214         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variables_a0b54d767199c068a1324ef138eca433e}{resetVal}}(std::string name);}
+\DoxyCodeLine{224         \textcolor{keywordtype}{void} \mbox{\hyperlink{classUtilities_1_1Variables_a50c695d86e58e227049cd8589c7cec98}{resetVars}}();}
+\DoxyCodeLine{225     \};}
+\DoxyCodeLine{226 \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#include "{}utilities.icc"{}}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

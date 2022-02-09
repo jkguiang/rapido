@@ -7,6 +7,8 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classArbol_a4f5d3e25a0e1a40cb09cefa39378b7be}{Arbol}} ()
+\item 
 \mbox{\hyperlink{classArbol_a70f09d1535c225d3d8bc565d468ffe56}{Arbol}} (TFile $\ast$new\+\_\+tfile)
 \item 
 virtual \mbox{\hyperlink{classArbol_ab9929184ef12844034b5ad4375a09799}{$\sim$\+Arbol}} ()
@@ -67,13 +69,22 @@ std\+::map$<$ TString, std\+::function$<$ void()$>$ $>$ \mbox{\hyperlink{classAr
 
 
 \doxysubsection{Detailed Description}
-Wraps TTree object with funcitonality for making branches dynamically 
+Wraps TTree object with functionality for making branches dynamically 
 
 \doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classArbol_a4f5d3e25a0e1a40cb09cefa39378b7be}\label{classArbol_a4f5d3e25a0e1a40cb09cefa39378b7be}} 
+\index{Arbol@{Arbol}!Arbol@{Arbol}}
+\index{Arbol@{Arbol}!Arbol@{Arbol}}
+\doxysubsubsection{\texorpdfstring{Arbol()}{Arbol()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Arbol\+::\+Arbol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classArbol}{Arbol}} object constructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classArbol_a70f09d1535c225d3d8bc565d468ffe56}\label{classArbol_a70f09d1535c225d3d8bc565d468ffe56}} 
 \index{Arbol@{Arbol}!Arbol@{Arbol}}
 \index{Arbol@{Arbol}!Arbol@{Arbol}}
-\doxysubsubsection{\texorpdfstring{Arbol()}{Arbol()}}
+\doxysubsubsection{\texorpdfstring{Arbol()}{Arbol()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Arbol\+::\+Arbol (\begin{DoxyParamCaption}\item[{TFile $\ast$}]{new\+\_\+tfile }\end{DoxyParamCaption})}
 
 \mbox{\hyperlink{classArbol}{Arbol}} object overload constructor 
@@ -332,7 +343,7 @@ none
 \doxysubsubsection{\texorpdfstring{resetBranches()}{resetBranches()}}
 {\footnotesize\ttfamily void Arbol\+::reset\+Branches (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Reset all branches to their reset values \begin{DoxyReturn}{Returns}
+Set value of each branch to its respective reset value Uses a map of \char`\"{}resetters\char`\"{} for the same reason as \mbox{\hyperlink{classUtilities_1_1Variables}{Utilities\+::\+Variables}}. \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classArbol_a38f72c5553a435a5b0e37ca55752126c}\label{classArbol_a38f72c5553a435a5b0e37ca55752126c}} 

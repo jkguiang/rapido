@@ -7,24 +7,17 @@
 Inheritance diagram for Branch\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classBranch}
+\includegraphics[height=3.000000cm]{classBranch}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classBranch_a689a483024fde9e0f521ac6e27cd737f}{Branch}} ()
+\item 
 \mbox{\hyperlink{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}{Branch}} (TTree $\ast$ttree, TString new\+\_\+branch\+\_\+name)
-\item 
-virtual \mbox{\hyperlink{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}{$\sim$\+Branch}} ()
-\item 
-Type \mbox{\hyperlink{classBranch_abe830de2e0e7c0df57fdb51436631e1e}{get\+Value}} ()
-\item 
-void \mbox{\hyperlink{classBranch_abe26b3df8dc53eeb1770d853a39865b1}{set\+Value}} (Type new\+\_\+value)
-\item 
-void \mbox{\hyperlink{classBranch_a390e9610f26ce93743237dbe3695b4c1}{set\+Reset\+Value}} (Type new\+\_\+reset\+\_\+value)
-\item 
-void \mbox{\hyperlink{classBranch_aff52fd008db1471e60107522bc62dfb7}{reset\+Value}} ()
 \end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
@@ -38,10 +31,20 @@ Wraps TTree branches to allow for making branches on the fly
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBranch_a689a483024fde9e0f521ac6e27cd737f}\label{classBranch_a689a483024fde9e0f521ac6e27cd737f}} 
+\index{Branch$<$ Type $>$@{Branch$<$ Type $>$}!Branch@{Branch}}
+\index{Branch@{Branch}!Branch$<$ Type $>$@{Branch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{Branch()}{Branch()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+\mbox{\hyperlink{classBranch}{Branch}}$<$ Type $>$\mbox{\hyperlink{classBranch}{\+::\+Branch}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classBranch}{Branch}} object default constructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}\label{classBranch_aeb963f83cf85bbcdef023ddbc020a46a}} 
 \index{Branch$<$ Type $>$@{Branch$<$ Type $>$}!Branch@{Branch}}
 \index{Branch@{Branch}!Branch$<$ Type $>$@{Branch$<$ Type $>$}}
-\doxysubsubsection{\texorpdfstring{Branch()}{Branch()}}
+\doxysubsubsection{\texorpdfstring{Branch()}{Branch()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename Type $>$ \\
 \mbox{\hyperlink{classBranch}{Branch}}$<$ Type $>$\mbox{\hyperlink{classBranch}{\+::\+Branch}} (\begin{DoxyParamCaption}\item[{TTree $\ast$}]{ttree,  }\item[{TString}]{new\+\_\+branch\+\_\+name }\end{DoxyParamCaption})}
 
@@ -50,69 +53,6 @@ Wraps TTree branches to allow for making branches on the fly
 {\em ttree} & pointer to TTree \\
 \hline
 {\em new\+\_\+branch\+\_\+name} & new branch name \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}\label{classBranch_a75022b7e676e5f675b98c1bf7922dd4e}} 
-\index{Branch$<$ Type $>$@{Branch$<$ Type $>$}!````~Branch@{$\sim$Branch}}
-\index{````~Branch@{$\sim$Branch}!Branch$<$ Type $>$@{Branch$<$ Type $>$}}
-\doxysubsubsection{\texorpdfstring{$\sim$Branch()}{~Branch()}}
-{\footnotesize\ttfamily template$<$typename Type $>$ \\
-virtual \mbox{\hyperlink{classBranch}{Branch}}$<$ Type $>$\+::$\sim$\mbox{\hyperlink{classBranch}{Branch}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-\mbox{\hyperlink{classBranch}{Branch}} object destructor \begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-
-
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classBranch_abe830de2e0e7c0df57fdb51436631e1e}\label{classBranch_abe830de2e0e7c0df57fdb51436631e1e}} 
-\index{Branch$<$ Type $>$@{Branch$<$ Type $>$}!getValue@{getValue}}
-\index{getValue@{getValue}!Branch$<$ Type $>$@{Branch$<$ Type $>$}}
-\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
-{\footnotesize\ttfamily template$<$typename Type $>$ \\
-Type \mbox{\hyperlink{classBranch}{Branch}}$<$ Type $>$\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Get current leaf value \begin{DoxyReturn}{Returns}
-value of current leaf 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classBranch_aff52fd008db1471e60107522bc62dfb7}\label{classBranch_aff52fd008db1471e60107522bc62dfb7}} 
-\index{Branch$<$ Type $>$@{Branch$<$ Type $>$}!resetValue@{resetValue}}
-\index{resetValue@{resetValue}!Branch$<$ Type $>$@{Branch$<$ Type $>$}}
-\doxysubsubsection{\texorpdfstring{resetValue()}{resetValue()}}
-{\footnotesize\ttfamily template$<$typename Type $>$ \\
-void \mbox{\hyperlink{classBranch}{Branch}}$<$ Type $>$\+::reset\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Reset the current leaf to the reset value \begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classBranch_a390e9610f26ce93743237dbe3695b4c1}\label{classBranch_a390e9610f26ce93743237dbe3695b4c1}} 
-\index{Branch$<$ Type $>$@{Branch$<$ Type $>$}!setResetValue@{setResetValue}}
-\index{setResetValue@{setResetValue}!Branch$<$ Type $>$@{Branch$<$ Type $>$}}
-\doxysubsubsection{\texorpdfstring{setResetValue()}{setResetValue()}}
-{\footnotesize\ttfamily template$<$typename Type $>$ \\
-void \mbox{\hyperlink{classBranch}{Branch}}$<$ Type $>$\+::set\+Reset\+Value (\begin{DoxyParamCaption}\item[{Type}]{new\+\_\+reset\+\_\+value }\end{DoxyParamCaption})}
-
-Set the reset value of branch 
-\begin{DoxyParams}{Parameters}
-{\em new\+\_\+reset\+\_\+value} & new reset value (e.\+g. -\/999; default is the default type constructor) \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classBranch_abe26b3df8dc53eeb1770d853a39865b1}\label{classBranch_abe26b3df8dc53eeb1770d853a39865b1}} 
-\index{Branch$<$ Type $>$@{Branch$<$ Type $>$}!setValue@{setValue}}
-\index{setValue@{setValue}!Branch$<$ Type $>$@{Branch$<$ Type $>$}}
-\doxysubsubsection{\texorpdfstring{setValue()}{setValue()}}
-{\footnotesize\ttfamily template$<$typename Type $>$ \\
-void \mbox{\hyperlink{classBranch}{Branch}}$<$ Type $>$\+::set\+Value (\begin{DoxyParamCaption}\item[{Type}]{new\+\_\+value }\end{DoxyParamCaption})}
-
-Set value of current leaf 
-\begin{DoxyParams}{Parameters}
-{\em new\+\_\+value} & new value \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

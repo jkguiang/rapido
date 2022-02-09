@@ -33,7 +33,7 @@ bool \mbox{\hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{run\+Until
 \item 
 void \mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}} ()
 \item 
-void \mbox{\hyperlink{classCutflow_a56105cb7e5bccd7f9f6ed3b6d79ad753}{write\+CSV}} ()
+void \mbox{\hyperlink{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}{write\+CSV}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{})
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -83,7 +83,7 @@ none
 \doxysubsubsection{\texorpdfstring{Cutflow()}{Cutflow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily Cutflow\+::\+Cutflow (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name }\end{DoxyParamCaption})}
 
-\mbox{\hyperlink{classCutflow}{Cutflow}} object constructor 
+\mbox{\hyperlink{classCutflow}{Cutflow}} object overload constructor 
 \begin{DoxyParams}{Parameters}
 {\em new\+\_\+name} & name of cutflow \\
 \hline
@@ -97,7 +97,7 @@ none
 \doxysubsubsection{\texorpdfstring{Cutflow()}{Cutflow()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily Cutflow\+::\+Cutflow (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name,  }\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{new\+\_\+root }\end{DoxyParamCaption})}
 
-\mbox{\hyperlink{classCutflow}{Cutflow}} object constructor 
+\mbox{\hyperlink{classCutflow}{Cutflow}} object overload constructor 
 \begin{DoxyParams}{Parameters}
 {\em new\+\_\+name} & name of cutflow \\
 \hline
@@ -280,13 +280,18 @@ Set root node of cutflow object
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classCutflow_a56105cb7e5bccd7f9f6ed3b6d79ad753}\label{classCutflow_a56105cb7e5bccd7f9f6ed3b6d79ad753}} 
+\mbox{\Hypertarget{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}\label{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}} 
 \index{Cutflow@{Cutflow}!writeCSV@{writeCSV}}
 \index{writeCSV@{writeCSV}!Cutflow@{Cutflow}}
 \doxysubsubsection{\texorpdfstring{writeCSV()}{writeCSV()}}
-{\footnotesize\ttfamily void Cutflow\+::write\+CSV (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Cutflow\+::write\+CSV (\begin{DoxyParamCaption}\item[{std\+::string}]{output\+\_\+dir = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
 
-Print all cutflow paths to separate CSV files named cutflow\+\_\+\{terminal\+\_\+cut\}.csv \begin{DoxyReturn}{Returns}
+Print all cutflow paths to separate CSV files \{output\+\_\+dir\}/\{name\}\+\_\+\{terminal\+\_\+cut\}.csv 
+\begin{DoxyParams}{Parameters}
+{\em output\+\_\+dir} & target directory for output CSV files (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 

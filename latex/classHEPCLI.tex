@@ -7,12 +7,20 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classHEPCLI_a59a123c6834e44908e802b8bbeae35fc}{HEPCLI}} ()
+\item 
 \mbox{\hyperlink{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}{HEPCLI}} (int argc, char $\ast$$\ast$argv)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{classHEPCLI_a50592a47a23f3e33a774a747ee32bf00}{verbose}}
+\item 
+std\+::string \mbox{\hyperlink{classHEPCLI_ad8364ec0fda19a180ccafbdb9866790f}{input\+\_\+ttree}}
+\item 
+std\+::string \mbox{\hyperlink{classHEPCLI_a2c6e1c6b16b1980527bd660175e77bd8}{output\+\_\+dir}}
+\item 
+std\+::string \mbox{\hyperlink{classHEPCLI_a9e5f226adebb7d77fb601c93268868dd}{output\+\_\+name}}
 \item 
 bool \mbox{\hyperlink{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}{is\+\_\+data}}
 \item 
@@ -21,8 +29,6 @@ bool \mbox{\hyperlink{classHEPCLI_ae1d563a29c5a238e0469442bad714e6e}{is\+\_\+sig
 float \mbox{\hyperlink{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}{scale\+\_\+factor}}
 \item 
 TChain $\ast$ \mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\+\_\+tchain}}
-\item 
-TFile $\ast$ \mbox{\hyperlink{classHEPCLI_ab900d2e3822e20d636564874440d33f0}{output\+\_\+tfile}}
 \end{DoxyCompactItemize}
 
 
@@ -30,13 +36,22 @@ TFile $\ast$ \mbox{\hyperlink{classHEPCLI_ab900d2e3822e20d636564874440d33f0}{out
 Object for handling HEP CLI input (wraps getopt functionality) 
 
 \doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHEPCLI_a59a123c6834e44908e802b8bbeae35fc}\label{classHEPCLI_a59a123c6834e44908e802b8bbeae35fc}} 
+\index{HEPCLI@{HEPCLI}!HEPCLI@{HEPCLI}}
+\index{HEPCLI@{HEPCLI}!HEPCLI@{HEPCLI}}
+\doxysubsubsection{\texorpdfstring{HEPCLI()}{HEPCLI()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily HEPCLI\+::\+HEPCLI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classHEPCLI}{HEPCLI}} object constructor \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}\label{classHEPCLI_a5812761020c8a4401f25e4469b49f6af}} 
 \index{HEPCLI@{HEPCLI}!HEPCLI@{HEPCLI}}
 \index{HEPCLI@{HEPCLI}!HEPCLI@{HEPCLI}}
-\doxysubsubsection{\texorpdfstring{HEPCLI()}{HEPCLI()}}
+\doxysubsubsection{\texorpdfstring{HEPCLI()}{HEPCLI()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily HEPCLI\+::\+HEPCLI (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
 
-\mbox{\hyperlink{classHEPCLI}{HEPCLI}} object constructor 
+\mbox{\hyperlink{classHEPCLI}{HEPCLI}} object overload constructor 
 \begin{DoxyParams}{Parameters}
 {\em argc} & argument count \\
 \hline
@@ -55,7 +70,13 @@ none
 \doxysubsubsection{\texorpdfstring{input\_tchain}{input\_tchain}}
 {\footnotesize\ttfamily TChain$\ast$ HEPCLI\+::input\+\_\+tchain}
 
-ROOT TChain with input files \mbox{\Hypertarget{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}\label{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}} 
+ROOT TChain with input files \mbox{\Hypertarget{classHEPCLI_ad8364ec0fda19a180ccafbdb9866790f}\label{classHEPCLI_ad8364ec0fda19a180ccafbdb9866790f}} 
+\index{HEPCLI@{HEPCLI}!input\_ttree@{input\_ttree}}
+\index{input\_ttree@{input\_ttree}!HEPCLI@{HEPCLI}}
+\doxysubsubsection{\texorpdfstring{input\_ttree}{input\_ttree}}
+{\footnotesize\ttfamily std\+::string HEPCLI\+::input\+\_\+ttree}
+
+Name of TTree in input ROOT file(s) \mbox{\Hypertarget{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}\label{classHEPCLI_a1bb98769c5df4317c50d98bff38002c1}} 
 \index{HEPCLI@{HEPCLI}!is\_data@{is\_data}}
 \index{is\_data@{is\_data}!HEPCLI@{HEPCLI}}
 \doxysubsubsection{\texorpdfstring{is\_data}{is\_data}}
@@ -67,13 +88,19 @@ Data (as opposed to Monte Carlo) flag \mbox{\Hypertarget{classHEPCLI_ae1d563a29c
 \doxysubsubsection{\texorpdfstring{is\_signal}{is\_signal}}
 {\footnotesize\ttfamily bool HEPCLI\+::is\+\_\+signal}
 
-Signal (as opposed to background) flag \mbox{\Hypertarget{classHEPCLI_ab900d2e3822e20d636564874440d33f0}\label{classHEPCLI_ab900d2e3822e20d636564874440d33f0}} 
-\index{HEPCLI@{HEPCLI}!output\_tfile@{output\_tfile}}
-\index{output\_tfile@{output\_tfile}!HEPCLI@{HEPCLI}}
-\doxysubsubsection{\texorpdfstring{output\_tfile}{output\_tfile}}
-{\footnotesize\ttfamily TFile$\ast$ HEPCLI\+::output\+\_\+tfile}
+Signal (as opposed to background) flag \mbox{\Hypertarget{classHEPCLI_a2c6e1c6b16b1980527bd660175e77bd8}\label{classHEPCLI_a2c6e1c6b16b1980527bd660175e77bd8}} 
+\index{HEPCLI@{HEPCLI}!output\_dir@{output\_dir}}
+\index{output\_dir@{output\_dir}!HEPCLI@{HEPCLI}}
+\doxysubsubsection{\texorpdfstring{output\_dir}{output\_dir}}
+{\footnotesize\ttfamily std\+::string HEPCLI\+::output\+\_\+dir}
 
-ROOT TFile for storing output \mbox{\Hypertarget{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}\label{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}} 
+Target directory for output file(s) \mbox{\Hypertarget{classHEPCLI_a9e5f226adebb7d77fb601c93268868dd}\label{classHEPCLI_a9e5f226adebb7d77fb601c93268868dd}} 
+\index{HEPCLI@{HEPCLI}!output\_name@{output\_name}}
+\index{output\_name@{output\_name}!HEPCLI@{HEPCLI}}
+\doxysubsubsection{\texorpdfstring{output\_name}{output\_name}}
+{\footnotesize\ttfamily std\+::string HEPCLI\+::output\+\_\+name}
+
+Short name for output file(s) \mbox{\Hypertarget{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}\label{classHEPCLI_a027e714e73b6fcdd0cb73eb8445bbfa4}} 
 \index{HEPCLI@{HEPCLI}!scale\_factor@{scale\_factor}}
 \index{scale\_factor@{scale\_factor}!HEPCLI@{HEPCLI}}
 \doxysubsubsection{\texorpdfstring{scale\_factor}{scale\_factor}}

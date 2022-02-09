@@ -206,7 +206,7 @@ Examples</h1>
 <div class="line">    arbol.<a class="code hl_function" href="classArbol.html#ade7d835bbe383a70006e86785ae5672c">writeTFile</a>();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassArbol_html"><div class="ttname"><a href="classArbol.html">Arbol</a></div><div class="ttdef"><b>Definition:</b> arbol.h:72</div></div>
+<div class="ttc" id="aclassArbol_html"><div class="ttname"><a href="classArbol.html">Arbol</a></div><div class="ttdef"><b>Definition:</b> arbol.h:45</div></div>
 <div class="ttc" id="aclassArbol_html_a1d029dd97a0451281c774b578d93bcda"><div class="ttname"><a href="classArbol.html#a1d029dd97a0451281c774b578d93bcda">Arbol::fillTTree</a></div><div class="ttdeci">void fillTTree()</div></div>
 <div class="ttc" id="aclassArbol_html_a4c2184d378ab21a9627a57098291a7c4"><div class="ttname"><a href="classArbol.html#a4c2184d378ab21a9627a57098291a7c4">Arbol::resetBranches</a></div><div class="ttdeci">void resetBranches()</div></div>
 <div class="ttc" id="aclassArbol_html_a552622885ffce15f1b1369fe44e729bb"><div class="ttname"><a href="classArbol.html#a552622885ffce15f1b1369fe44e729bb">Arbol::newBranch</a></div><div class="ttdeci">void newBranch(TString new_branch_name)</div></div>
@@ -214,7 +214,7 @@ Examples</h1>
 <div class="ttc" id="aclassArbol_html_a7a8d3bec0bf5c00635a0b00fcd63cf01"><div class="ttname"><a href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">Arbol::setLeaf</a></div><div class="ttdeci">void setLeaf(TString branch_name, Type new_value)</div></div>
 <div class="ttc" id="aclassArbol_html_ade7d835bbe383a70006e86785ae5672c"><div class="ttname"><a href="classArbol.html#ade7d835bbe383a70006e86785ae5672c">Arbol::writeTFile</a></div><div class="ttdeci">void writeTFile()</div></div>
 <div class="ttc" id="aclassArbol_html_aefdf6dfa74ceed51b2cb99f45bfebf56"><div class="ttname"><a href="classArbol.html#aefdf6dfa74ceed51b2cb99f45bfebf56">Arbol::getVecLeaf</a></div><div class="ttdeci">std::vector&lt; Type &gt; getVecLeaf(TString branch_name)</div></div>
-<div class="ttc" id="aclassLooper_html"><div class="ttname"><a href="classLooper.html">Looper</a></div><div class="ttdef"><b>Definition:</b> looper.h:64</div></div>
+<div class="ttc" id="aclassLooper_html"><div class="ttname"><a href="classLooper.html">Looper</a></div><div class="ttdef"><b>Definition:</b> looper.h:75</div></div>
 <div class="ttc" id="aclassLooper_html_abfa564ca48778da1f58c8a6444ddd463"><div class="ttname"><a href="classLooper.html#abfa564ca48778da1f58c8a6444ddd463">Looper::run</a></div><div class="ttdeci">void run(std::function&lt; void()&gt; evaluate)</div></div>
 </div><!-- fragment --></li>
 <li>Arbol+Cutflow+Looper+HEPCLI example (now using <a href="https://github.com/cmstas/NanoTools/tree/master/NanoCORE">NanoCORE</a> to read NanoAOD) <div class="fragment"><div class="line"><span class="comment">// ROOT</span></div>
@@ -242,7 +242,7 @@ Examples</h1>
 <div class="line">    <a class="code hl_class" href="classLooper.html">Looper</a> looper = <a class="code hl_class" href="classLooper.html">Looper&lt;Nano&gt;</a>(&amp;nt, cli.<a class="code hl_variable" href="classHEPCLI.html#a3d4bb4a7c1f1b6d4e008ff76e43bef15">input_tchain</a>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Initialize Arbol</span></div>
-<div class="line">    <a class="code hl_class" href="classArbol.html">Arbol</a> arbol = <a class="code hl_class" href="classArbol.html">Arbol</a>(cli.<a class="code hl_variable" href="classHEPCLI.html#ab900d2e3822e20d636564874440d33f0">output_tfile</a>);</div>
+<div class="line">    <a class="code hl_class" href="classArbol.html">Arbol</a> arbol = <a class="code hl_class" href="classArbol.html">Arbol</a>(cli.output_tfile);</div>
 <div class="line">    <span class="comment">// Event branches</span></div>
 <div class="line">    arbol.<a class="code hl_function" href="classArbol.html#a552622885ffce15f1b1369fe44e729bb">newBranch</a>&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;event&quot;</span>, -999);</div>
 <div class="line">    arbol.<a class="code hl_function" href="classArbol.html#a552622885ffce15f1b1369fe44e729bb">newBranch</a>&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;met&quot;</span>, -999);</div>
@@ -380,11 +380,10 @@ Examples</h1>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassArbol_html_a92be3f8c4258247d65e7f66a8da70453"><div class="ttname"><a href="classArbol.html#a92be3f8c4258247d65e7f66a8da70453">Arbol::getLeaf</a></div><div class="ttdeci">Type getLeaf(TString branch_name)</div></div>
-<div class="ttc" id="aclassHEPCLI_html"><div class="ttname"><a href="classHEPCLI.html">HEPCLI</a></div><div class="ttdef"><b>Definition:</b> looper.h:21</div></div>
-<div class="ttc" id="aclassHEPCLI_html_a3d4bb4a7c1f1b6d4e008ff76e43bef15"><div class="ttname"><a href="classHEPCLI.html#a3d4bb4a7c1f1b6d4e008ff76e43bef15">HEPCLI::input_tchain</a></div><div class="ttdeci">TChain * input_tchain</div><div class="ttdef"><b>Definition:</b> looper.h:45</div></div>
-<div class="ttc" id="aclassHEPCLI_html_ab900d2e3822e20d636564874440d33f0"><div class="ttname"><a href="classHEPCLI.html#ab900d2e3822e20d636564874440d33f0">HEPCLI::output_tfile</a></div><div class="ttdeci">TFile * output_tfile</div><div class="ttdef"><b>Definition:</b> looper.h:47</div></div>
-<div class="ttc" id="aclassLooper_html_a666747cb782bd6082452a6d5ac18f94f"><div class="ttname"><a href="classLooper.html#a666747cb782bd6082452a6d5ac18f94f">Looper::n_events_to_process</a></div><div class="ttdeci">unsigned int n_events_to_process</div><div class="ttdef"><b>Definition:</b> looper.h:76</div></div>
-<div class="ttc" id="aclassLooper_html_a97e473848469359cd33cd23771e0eb28"><div class="ttname"><a href="classLooper.html#a97e473848469359cd33cd23771e0eb28">Looper::n_events_processed</a></div><div class="ttdeci">unsigned int n_events_processed</div><div class="ttdef"><b>Definition:</b> looper.h:74</div></div>
+<div class="ttc" id="aclassHEPCLI_html"><div class="ttname"><a href="classHEPCLI.html">HEPCLI</a></div><div class="ttdef"><b>Definition:</b> looper.h:22</div></div>
+<div class="ttc" id="aclassHEPCLI_html_a3d4bb4a7c1f1b6d4e008ff76e43bef15"><div class="ttname"><a href="classHEPCLI.html#a3d4bb4a7c1f1b6d4e008ff76e43bef15">HEPCLI::input_tchain</a></div><div class="ttdeci">TChain * input_tchain</div><div class="ttdef"><b>Definition:</b> looper.h:52</div></div>
+<div class="ttc" id="aclassLooper_html_a666747cb782bd6082452a6d5ac18f94f"><div class="ttname"><a href="classLooper.html#a666747cb782bd6082452a6d5ac18f94f">Looper::n_events_to_process</a></div><div class="ttdeci">unsigned int n_events_to_process</div><div class="ttdef"><b>Definition:</b> looper.h:89</div></div>
+<div class="ttc" id="aclassLooper_html_a97e473848469359cd33cd23771e0eb28"><div class="ttname"><a href="classLooper.html#a97e473848469359cd33cd23771e0eb28">Looper::n_events_processed</a></div><div class="ttdeci">unsigned int n_events_processed</div><div class="ttdef"><b>Definition:</b> looper.h:87</div></div>
 </div><!-- fragment --> </li>
 </ol>
 </div></div><!-- PageDoc -->
