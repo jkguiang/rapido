@@ -117,8 +117,11 @@ int main()
 
     // Run
     looper.run(
-        [&]()
+        [&](TTree* ttree) { selector.Init(ttree) },
+        [&](int entry)
         {
+            selector.GetEntry(entry);
+            selector.Process(entry);
             // --> Event-level Logic <--
             // Reset tree
             arbol.resetBranches(); // variables like arbol and selector are captured by reference
@@ -291,9 +294,14 @@ int main(int argc, char** argv)
     // Run looper
     tqdm bar; // progress bar
     looper.run(
-        [&]() 
+        [&](TTree* ttree)
+        {
+            nt.Init(ttree);
+        },
+        [&](int entry) 
         {
             bar.progress(looper.n_events_processed, looper.n_events_to_process);
+            nt.GetEntry(entry);
             // Reset tree
             arbol.resetBranches();
             // Run cutflow
