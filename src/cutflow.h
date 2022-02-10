@@ -33,10 +33,10 @@ public:
     Cut* right;
     /** Pointer to next cut to evaluate if this cut evaluates to false */
     Cut* left;
-    /** Number of passes */
-    int passes;
-    /** Number of fails */
-    int fails;
+    /** Number of events that pass cut */
+    int n_pass;
+    /** Number of events that fail cut */
+    int n_fail;
 
     /**
      * Cut object constructor (assumes weight == 1.0)

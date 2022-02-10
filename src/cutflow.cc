@@ -7,8 +7,8 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate)
     compute_weight = [&]() { return 1.0; };
     left = nullptr;
     right = nullptr;
-    passes = 0;
-    fails = 0;
+    n_pass = 0;
+    n_fail = 0;
 }
 
 Cut::Cut(std::string new_name, std::function<bool()> new_evaluate, 
@@ -19,8 +19,8 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate,
     compute_weight = new_compute_weight;
     left = nullptr;
     right = nullptr;
-    passes = 0;
-    fails = 0;
+    n_pass = 0;
+    n_fail = 0;
 }
 
 void Cut::print(float weight)
@@ -28,12 +28,12 @@ void Cut::print(float weight)
     std::cout << "---- " << name << " ----" << std::endl;
     std::cout << " - Total Weight: " << weight << std::endl;
     std::cout << " - Cut Weight: " << compute_weight() << std::endl;
-    std::cout << " - Passes: " << passes << std::endl;
-    std::cout << " - Fails: " << fails << std::endl;
+    std::cout << " - Passes: " << n_pass << std::endl;
+    std::cout << " - Fails: " << n_fail << std::endl;
     if (weight != 1.0)
     {
-        std::cout << " - Passes (weighted): " << passes*weight << std::endl;
-        std::cout << " - Fails (weighted): " << fails*weight << std::endl;
+        std::cout << " - Passes (weighted): " << n_pass*weight << std::endl;
+        std::cout << " - Fails (weighted): " << n_fail*weight << std::endl;
     }
     std::string right_name = (right != nullptr) ? right->name : "None";
     std::cout << " - Right: " << right_name << std::endl;
@@ -179,22 +179,19 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction,
     if (cut != nullptr)
     {
         std::cout << tabs;
+        weight *= cut->compute_weight();
         if (direction == Left) { std::cout << "\u251C\u2612\u2500"; }
-        else 
-        {
-            weight *= cut->compute_weight();
-            std::cout << "\u2514\u2611\u2500"; 
-        }
+        else { std::cout << "\u2514\u2611\u2500"; }
         // Print cut name
         std::cout << cut->name << std::endl;
         // Print cut info
         tabs += (direction == Left) ? "\u2502   " : "    ";
-        float event_count = cut->passes + cut->fails;
-        std::cout << tabs << event_count << " (raw)" << std::endl;
-        if (weight != 1.0)
-        {
-            std::cout << tabs << event_count*weight << " (weighted)" << std::endl;
-        }
+        std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
+        if (weight != 1.0) { std::cout << cut->n_pass*weight << " (weighted)"; }
+        std::cout << std::endl;
+        std::cout << tabs << "fail: " << cut->n_fail << " (raw)";
+        if (weight != 1.0) { std::cout << " " << cut->n_fail*weight << " (weighted)"; }
+        std::cout << std::endl;
         // Print next cutflow level
         recursivePrint(tabs, cut->left, Left, weight);
         recursivePrint(tabs, cut->right, Right, weight);
@@ -206,13 +203,13 @@ Cut* Cutflow::recursiveEvaluate(Cut* cut)
 {
     if (cut->evaluate() == true)
     {
-        cut->passes++;
+        cut->n_pass++;
         if (cut->right == nullptr) { return cut; }
         else { return recursiveEvaluate(cut->right); }
     }
     else
     {
-        cut->fails++;
+        cut->n_fail++;
         if (cut->left == nullptr) { return cut; }
         else { return recursiveEvaluate(cut->left); }
     }
@@ -236,7 +233,7 @@ void Cutflow::recursiveWrite(std::string output_dir, Cut* cut, Direction directi
     {
         Utilities::CSVFile this_csv = csv_files.at(csv_idx);
         // Write out current cut
-        float raw_events = cut->passes + cut->fails;
+        float raw_events = cut->n_pass + cut->n_fail;
         if (direction == Right) { 
             weight *= cut->compute_weight(); 
             this_csv.pushCol<std::string>(cut->name);
