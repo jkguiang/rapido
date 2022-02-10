@@ -397,7 +397,8 @@ template&lt;typename Type &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Set value of each variable in map to its respective reset value Uses a map of "resetters" because <a class="el" href="classUtilities_1_1Variable.html#acaff38dda27c6f428bbb232782e0f29b">Utilities::Variable&lt;Type&gt;::resetValue()</a> cannot be called across an arbitrary number of such objects, due to the fact that the value of Type for each object would need to be supplied. The "resetters" circumvent this issue by capturing the function call in a lambda function for later use. </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<p >Set value of each variable in map to its respective reset value.</p>
+<p >Uses a map of "resetters" because <a class="el" href="classUtilities_1_1Variable.html#acaff38dda27c6f428bbb232782e0f29b">Utilities::Variable&lt;Type&gt;::resetValue()</a> cannot be called across an arbitrary number of such objects, due to the fact that the value of Type for each object would need to be supplied. The "resetters" circumvent this issue by capturing the function call in a lambda function for later use. </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>

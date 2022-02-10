@@ -192,7 +192,9 @@ none
 \doxysubsubsection{\texorpdfstring{resetVars()}{resetVars()}}
 {\footnotesize\ttfamily void Utilities\+::\+Variables\+::reset\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Set value of each variable in map to its respective reset value Uses a map of \char`\"{}resetters\char`\"{} because \mbox{\hyperlink{classUtilities_1_1Variable_acaff38dda27c6f428bbb232782e0f29b}{Utilities\+::\+Variable$<$\+Type$>$\+::reset\+Value()}} cannot be called across an arbitrary number of such objects, due to the fact that the value of Type for each object would need to be supplied. The \char`\"{}resetters\char`\"{} circumvent this issue by capturing the function call in a lambda function for later use. \begin{DoxyReturn}{Returns}
+Set value of each variable in map to its respective reset value.
+
+Uses a map of \char`\"{}resetters\char`\"{} because \mbox{\hyperlink{classUtilities_1_1Variable_acaff38dda27c6f428bbb232782e0f29b}{Utilities\+::\+Variable$<$\+Type$>$\+::reset\+Value()}} cannot be called across an arbitrary number of such objects, due to the fact that the value of Type for each object would need to be supplied. The \char`\"{}resetters\char`\"{} circumvent this issue by capturing the function call in a lambda function for later use. \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classUtilities_1_1Variables_a01d3486d65509cd6db470b4ea99c2b86}\label{classUtilities_1_1Variables_a01d3486d65509cd6db470b4ea99c2b86}} 
