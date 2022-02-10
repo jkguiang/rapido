@@ -1,5 +1,5 @@
-\hypertarget{classLooper}{}\doxysection{Looper\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>} Class Template Reference}
-\label{classLooper}\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}}
+\hypertarget{classLooper}{}\doxysection{Looper Class Reference}
+\label{classLooper}\index{Looper@{Looper}}
 
 
 {\ttfamily \#include $<$looper.\+h$>$}
@@ -7,64 +7,51 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classLooper_a34cd93fad2506bf594fc360ca4a72c14}{Looper}} (Type $\ast$new\+\_\+selector, TChain $\ast$new\+\_\+tchain)
+\mbox{\hyperlink{classLooper_a916868e8a7a8bf73274a82bf47df22f4}{Looper}} (TChain $\ast$new\+\_\+tchain)
 \item 
-\mbox{\hyperlink{classLooper_a1acdd5043b0aae75dd39cb1fdcdb674c}{Looper}} (Type $\ast$new\+\_\+selector, TChain $\ast$new\+\_\+tchain, TString new\+\_\+ttree\+\_\+name)
+\mbox{\hyperlink{classLooper_acded76cf749f47dcb563d19ccd1648dd}{Looper}} (TChain $\ast$new\+\_\+tchain, TString new\+\_\+ttree\+\_\+name)
 \item 
-virtual \mbox{\hyperlink{classLooper_a2ab3ca481534b316d9844ada765b74b3}{$\sim$\+Looper}} ()
+virtual \mbox{\hyperlink{classLooper_a23ff9511f1d99ca1f3753e59a1b3a22b}{$\sim$\+Looper}} ()
 \item 
-void \mbox{\hyperlink{classLooper_abfa564ca48778da1f58c8a6444ddd463}{run}} (std\+::function$<$ void()$>$ evaluate)
+void \mbox{\hyperlink{classLooper_a2b5f8edf08a435a12199ec9f01195e48}{run}} (std\+::function$<$ void(TTree $\ast$ttree)$>$ init, std\+::function$<$ void(int entry)$>$ evaluate)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-unsigned int \mbox{\hyperlink{classLooper_a5ffbcd4fb31c1bdbd40a11c7e715d789}{current\+\_\+index}}
+unsigned int \mbox{\hyperlink{classLooper_ab368e58278fc91c4814e579cb9080d4f}{current\+\_\+entry}}
 \item 
-unsigned int \mbox{\hyperlink{classLooper_a97e473848469359cd33cd23771e0eb28}{n\+\_\+events\+\_\+processed}}
+unsigned int \mbox{\hyperlink{classLooper_abbf626538aced372130172ac86958265}{n\+\_\+events\+\_\+processed}}
 \item 
-unsigned int \mbox{\hyperlink{classLooper_a666747cb782bd6082452a6d5ac18f94f}{n\+\_\+events\+\_\+to\+\_\+process}}
+unsigned int \mbox{\hyperlink{classLooper_a6251eeff0d36df11886ac1a50521a1db}{n\+\_\+events\+\_\+to\+\_\+process}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\subsubsection*{template$<$class Type$>$\newline
-class Looper$<$ Type $>$}
 Object to handle looping over ROOT files 
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Type} & ROOT selector class \\
-\hline
-\end{DoxyTemplParams}
-
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classLooper_a34cd93fad2506bf594fc360ca4a72c14}\label{classLooper_a34cd93fad2506bf594fc360ca4a72c14}} 
-\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}!Looper@{Looper}}
-\index{Looper@{Looper}!Looper$<$ Type $>$@{Looper$<$ Type $>$}}
+\mbox{\Hypertarget{classLooper_a916868e8a7a8bf73274a82bf47df22f4}\label{classLooper_a916868e8a7a8bf73274a82bf47df22f4}} 
+\index{Looper@{Looper}!Looper@{Looper}}
+\index{Looper@{Looper}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{Looper()}{Looper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class Type $>$ \\
-\mbox{\hyperlink{classLooper}{Looper}}$<$ Type $>$\mbox{\hyperlink{classLooper}{\+::\+Looper}} (\begin{DoxyParamCaption}\item[{Type $\ast$}]{new\+\_\+selector,  }\item[{TChain $\ast$}]{new\+\_\+tchain }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Looper\+::\+Looper (\begin{DoxyParamCaption}\item[{TChain $\ast$}]{new\+\_\+tchain }\end{DoxyParamCaption})}
 
 \mbox{\hyperlink{classLooper}{Looper}} object constructor 
 \begin{DoxyParams}{Parameters}
-{\em new\+\_\+selector} & pointer to ROOT selector object \\
-\hline
 {\em new\+\_\+tchain} & pointer to ROOT TChain of files to loop over \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classLooper_a1acdd5043b0aae75dd39cb1fdcdb674c}\label{classLooper_a1acdd5043b0aae75dd39cb1fdcdb674c}} 
-\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}!Looper@{Looper}}
-\index{Looper@{Looper}!Looper$<$ Type $>$@{Looper$<$ Type $>$}}
+\mbox{\Hypertarget{classLooper_acded76cf749f47dcb563d19ccd1648dd}\label{classLooper_acded76cf749f47dcb563d19ccd1648dd}} 
+\index{Looper@{Looper}!Looper@{Looper}}
+\index{Looper@{Looper}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{Looper()}{Looper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class Type $>$ \\
-\mbox{\hyperlink{classLooper}{Looper}}$<$ Type $>$\mbox{\hyperlink{classLooper}{\+::\+Looper}} (\begin{DoxyParamCaption}\item[{Type $\ast$}]{new\+\_\+selector,  }\item[{TChain $\ast$}]{new\+\_\+tchain,  }\item[{TString}]{new\+\_\+ttree\+\_\+name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Looper\+::\+Looper (\begin{DoxyParamCaption}\item[{TChain $\ast$}]{new\+\_\+tchain,  }\item[{TString}]{new\+\_\+ttree\+\_\+name }\end{DoxyParamCaption})}
 
 \mbox{\hyperlink{classLooper}{Looper}} object overload constructor 
 \begin{DoxyParams}{Parameters}
-{\em new\+\_\+selector} & pointer to ROOT selector object \\
-\hline
 {\em new\+\_\+tchain} & pointer to ROOT TChain of files to loop over \\
 \hline
 {\em new\+\_\+ttree\+\_\+name} & name of the ROOT TTree \\
@@ -73,12 +60,11 @@ none
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classLooper_a2ab3ca481534b316d9844ada765b74b3}\label{classLooper_a2ab3ca481534b316d9844ada765b74b3}} 
-\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}!````~Looper@{$\sim$Looper}}
-\index{````~Looper@{$\sim$Looper}!Looper$<$ Type $>$@{Looper$<$ Type $>$}}
+\mbox{\Hypertarget{classLooper_a23ff9511f1d99ca1f3753e59a1b3a22b}\label{classLooper_a23ff9511f1d99ca1f3753e59a1b3a22b}} 
+\index{Looper@{Looper}!````~Looper@{$\sim$Looper}}
+\index{````~Looper@{$\sim$Looper}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{$\sim$Looper()}{~Looper()}}
-{\footnotesize\ttfamily template$<$class Type $>$ \\
-virtual \mbox{\hyperlink{classLooper}{Looper}}$<$ Type $>$\+::$\sim$\mbox{\hyperlink{classLooper}{Looper}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual Looper\+::$\sim$\+Looper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \mbox{\hyperlink{classLooper}{Looper}} object destructor \begin{DoxyReturn}{Returns}
 none 
@@ -86,15 +72,16 @@ none
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classLooper_abfa564ca48778da1f58c8a6444ddd463}\label{classLooper_abfa564ca48778da1f58c8a6444ddd463}} 
-\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}!run@{run}}
-\index{run@{run}!Looper$<$ Type $>$@{Looper$<$ Type $>$}}
+\mbox{\Hypertarget{classLooper_a2b5f8edf08a435a12199ec9f01195e48}\label{classLooper_a2b5f8edf08a435a12199ec9f01195e48}} 
+\index{Looper@{Looper}!run@{run}}
+\index{run@{run}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily template$<$class Type $>$ \\
-void \mbox{\hyperlink{classLooper}{Looper}}$<$ Type $>$\+::run (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{evaluate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Looper\+::run (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(TTree $\ast$ttree)$>$}]{init,  }\item[{std\+::function$<$ void(int entry)$>$}]{evaluate }\end{DoxyParamCaption})}
 
-Run looper 
+Run looper with file-\/ and event-\/processing logic captured in void lambda functions The following example uses a class named \char`\"{}\+Selector\char`\"{} generated by ROOT\+::\+Make\+Selector; this class requires certain file-\/ and event-\/processing initialization steps\+: int main() \{ TChain$\ast$ tchain = new TChain(\char`\"{}\+Events\char`\"{}); tchain-\/\texorpdfstring{$>$}{>}Add(\char`\"{}/path/to/file.\+root\char`\"{}); selector = Selector(); // generated by ROOT\+::\+Make\+Selector looper = \mbox{\hyperlink{classLooper}{Looper}}(tchain, \char`\"{}\+Events\char`\"{}); looper.\+run( \mbox{[}\&\mbox{]}(TTree$\ast$ ttree) \{ selector.\+Init(ttree); \}, \mbox{[}\&\mbox{]}(int entry) \{ selector.\+Get\+Entry(entry); // -\/\texorpdfstring{$>$}{>} insert your favorite cutflow here \texorpdfstring{$<$}{<}-- \} ); \} 
 \begin{DoxyParams}{Parameters}
+{\em init} & file-\/level initialization steps captured in a void lambda function \\
+\hline
 {\em evaluate} & event-\/level logic captured in a void lambda function \\
 \hline
 \end{DoxyParams}
@@ -104,26 +91,23 @@ none
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classLooper_a5ffbcd4fb31c1bdbd40a11c7e715d789}\label{classLooper_a5ffbcd4fb31c1bdbd40a11c7e715d789}} 
-\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}!current\_index@{current\_index}}
-\index{current\_index@{current\_index}!Looper$<$ Type $>$@{Looper$<$ Type $>$}}
-\doxysubsubsection{\texorpdfstring{current\_index}{current\_index}}
-{\footnotesize\ttfamily template$<$class Type $>$ \\
-unsigned int \mbox{\hyperlink{classLooper}{Looper}}$<$ Type $>$\+::current\+\_\+index}
+\mbox{\Hypertarget{classLooper_ab368e58278fc91c4814e579cb9080d4f}\label{classLooper_ab368e58278fc91c4814e579cb9080d4f}} 
+\index{Looper@{Looper}!current\_entry@{current\_entry}}
+\index{current\_entry@{current\_entry}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{current\_entry}{current\_entry}}
+{\footnotesize\ttfamily unsigned int Looper\+::current\+\_\+entry}
 
-Current index of event loop \mbox{\Hypertarget{classLooper_a97e473848469359cd33cd23771e0eb28}\label{classLooper_a97e473848469359cd33cd23771e0eb28}} 
-\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}!n\_events\_processed@{n\_events\_processed}}
-\index{n\_events\_processed@{n\_events\_processed}!Looper$<$ Type $>$@{Looper$<$ Type $>$}}
+Current entry in TTree (i.\+e. current index of event loop) \mbox{\Hypertarget{classLooper_abbf626538aced372130172ac86958265}\label{classLooper_abbf626538aced372130172ac86958265}} 
+\index{Looper@{Looper}!n\_events\_processed@{n\_events\_processed}}
+\index{n\_events\_processed@{n\_events\_processed}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{n\_events\_processed}{n\_events\_processed}}
-{\footnotesize\ttfamily template$<$class Type $>$ \\
-unsigned int \mbox{\hyperlink{classLooper}{Looper}}$<$ Type $>$\+::n\+\_\+events\+\_\+processed}
+{\footnotesize\ttfamily unsigned int Looper\+::n\+\_\+events\+\_\+processed}
 
-Number of events that have been processed \mbox{\Hypertarget{classLooper_a666747cb782bd6082452a6d5ac18f94f}\label{classLooper_a666747cb782bd6082452a6d5ac18f94f}} 
-\index{Looper$<$ Type $>$@{Looper$<$ Type $>$}!n\_events\_to\_process@{n\_events\_to\_process}}
-\index{n\_events\_to\_process@{n\_events\_to\_process}!Looper$<$ Type $>$@{Looper$<$ Type $>$}}
+Number of events that have been processed \mbox{\Hypertarget{classLooper_a6251eeff0d36df11886ac1a50521a1db}\label{classLooper_a6251eeff0d36df11886ac1a50521a1db}} 
+\index{Looper@{Looper}!n\_events\_to\_process@{n\_events\_to\_process}}
+\index{n\_events\_to\_process@{n\_events\_to\_process}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{n\_events\_to\_process}{n\_events\_to\_process}}
-{\footnotesize\ttfamily template$<$class Type $>$ \\
-unsigned int \mbox{\hyperlink{classLooper}{Looper}}$<$ Type $>$\+::n\+\_\+events\+\_\+to\+\_\+process}
+{\footnotesize\ttfamily unsigned int Looper\+::n\+\_\+events\+\_\+to\+\_\+process}
 
 Number of events in the TChain 
 

@@ -26,9 +26,9 @@ std\+::function$<$ float()$>$ \mbox{\hyperlink{classCut_a908dfdeed9d882ca026427c
 \item 
 \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCut_a2c65e372172dfa0f705d117d3ad0f668}{left}}
 \item 
-int \mbox{\hyperlink{classCut_a9ec802667c770787a473c622208ef35c}{passes}}
+int \mbox{\hyperlink{classCut_a01ab47c909e962b3820e2e866c0230a8}{n\+\_\+pass}}
 \item 
-int \mbox{\hyperlink{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}{fails}}
+int \mbox{\hyperlink{classCut_aff7fd0749654bdae7ede4bfbea700c2d}{n\+\_\+fail}}
 \end{DoxyCompactItemize}
 
 
@@ -102,31 +102,31 @@ Lambda function that computes event weight \mbox{\Hypertarget{classCut_a4205ad5e
 \doxysubsubsection{\texorpdfstring{evaluate}{evaluate}}
 {\footnotesize\ttfamily std\+::function$<$bool()$>$ Cut\+::evaluate}
 
-Lambda function that evaluates conditional logic (i.\+e. the cut itself) \mbox{\Hypertarget{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}\label{classCut_a7bfcec46b8c2879a9660ac7656ed7b83}} 
-\index{Cut@{Cut}!fails@{fails}}
-\index{fails@{fails}!Cut@{Cut}}
-\doxysubsubsection{\texorpdfstring{fails}{fails}}
-{\footnotesize\ttfamily int Cut\+::fails}
-
-Number of fails \mbox{\Hypertarget{classCut_a2c65e372172dfa0f705d117d3ad0f668}\label{classCut_a2c65e372172dfa0f705d117d3ad0f668}} 
+Lambda function that evaluates conditional logic (i.\+e. the cut itself) \mbox{\Hypertarget{classCut_a2c65e372172dfa0f705d117d3ad0f668}\label{classCut_a2c65e372172dfa0f705d117d3ad0f668}} 
 \index{Cut@{Cut}!left@{left}}
 \index{left@{left}!Cut@{Cut}}
 \doxysubsubsection{\texorpdfstring{left}{left}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCut}{Cut}}$\ast$ Cut\+::left}
 
-Pointer to next cut to evaluate if this cut evaluates to false \mbox{\Hypertarget{classCut_accf700d2d00746b97a265d4aea3f55c2}\label{classCut_accf700d2d00746b97a265d4aea3f55c2}} 
+Pointer to next cut to evaluate if this cut evaluates to false \mbox{\Hypertarget{classCut_aff7fd0749654bdae7ede4bfbea700c2d}\label{classCut_aff7fd0749654bdae7ede4bfbea700c2d}} 
+\index{Cut@{Cut}!n\_fail@{n\_fail}}
+\index{n\_fail@{n\_fail}!Cut@{Cut}}
+\doxysubsubsection{\texorpdfstring{n\_fail}{n\_fail}}
+{\footnotesize\ttfamily int Cut\+::n\+\_\+fail}
+
+Number of events that fail cut \mbox{\Hypertarget{classCut_a01ab47c909e962b3820e2e866c0230a8}\label{classCut_a01ab47c909e962b3820e2e866c0230a8}} 
+\index{Cut@{Cut}!n\_pass@{n\_pass}}
+\index{n\_pass@{n\_pass}!Cut@{Cut}}
+\doxysubsubsection{\texorpdfstring{n\_pass}{n\_pass}}
+{\footnotesize\ttfamily int Cut\+::n\+\_\+pass}
+
+Number of events that pass cut \mbox{\Hypertarget{classCut_accf700d2d00746b97a265d4aea3f55c2}\label{classCut_accf700d2d00746b97a265d4aea3f55c2}} 
 \index{Cut@{Cut}!name@{name}}
 \index{name@{name}!Cut@{Cut}}
 \doxysubsubsection{\texorpdfstring{name}{name}}
 {\footnotesize\ttfamily std\+::string Cut\+::name}
 
-Unique name of cut \mbox{\Hypertarget{classCut_a9ec802667c770787a473c622208ef35c}\label{classCut_a9ec802667c770787a473c622208ef35c}} 
-\index{Cut@{Cut}!passes@{passes}}
-\index{passes@{passes}!Cut@{Cut}}
-\doxysubsubsection{\texorpdfstring{passes}{passes}}
-{\footnotesize\ttfamily int Cut\+::passes}
-
-Number of passes \mbox{\Hypertarget{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}\label{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}} 
+Unique name of cut \mbox{\Hypertarget{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}\label{classCut_a2142ffe68028bb0c211408c0f5bb8bfb}} 
 \index{Cut@{Cut}!right@{right}}
 \index{right@{right}!Cut@{Cut}}
 \doxysubsubsection{\texorpdfstring{right}{right}}

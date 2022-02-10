@@ -178,7 +178,7 @@ Examples</h1>
 <div class="line">    <a class="code hl_class" href="classLooper.html">Looper</a> looper = <a class="code hl_class" href="classLooper.html">Looper&lt;Nano&gt;</a>(&amp;selector, tchain, <span class="stringliteral">&quot;TreeName&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Run</span></div>
-<div class="line">    looper.<a class="code hl_function" href="classLooper.html#abfa564ca48778da1f58c8a6444ddd463">run</a>(</div>
+<div class="line">    looper.<a class="code hl_function" href="classLooper.html#a2b5f8edf08a435a12199ec9f01195e48">run</a>(</div>
 <div class="line">        [&amp;]()</div>
 <div class="line">        {</div>
 <div class="line">            <span class="comment">// --&gt; Event-level Logic &lt;--</span></div>
@@ -214,8 +214,8 @@ Examples</h1>
 <div class="ttc" id="aclassArbol_html_a7a8d3bec0bf5c00635a0b00fcd63cf01"><div class="ttname"><a href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">Arbol::setLeaf</a></div><div class="ttdeci">void setLeaf(TString branch_name, Type new_value)</div></div>
 <div class="ttc" id="aclassArbol_html_ade7d835bbe383a70006e86785ae5672c"><div class="ttname"><a href="classArbol.html#ade7d835bbe383a70006e86785ae5672c">Arbol::writeTFile</a></div><div class="ttdeci">void writeTFile()</div></div>
 <div class="ttc" id="aclassArbol_html_aefdf6dfa74ceed51b2cb99f45bfebf56"><div class="ttname"><a href="classArbol.html#aefdf6dfa74ceed51b2cb99f45bfebf56">Arbol::getVecLeaf</a></div><div class="ttdeci">std::vector&lt; Type &gt; getVecLeaf(TString branch_name)</div></div>
-<div class="ttc" id="aclassLooper_html"><div class="ttname"><a href="classLooper.html">Looper</a></div><div class="ttdef"><b>Definition:</b> looper.h:75</div></div>
-<div class="ttc" id="aclassLooper_html_abfa564ca48778da1f58c8a6444ddd463"><div class="ttname"><a href="classLooper.html#abfa564ca48778da1f58c8a6444ddd463">Looper::run</a></div><div class="ttdeci">void run(std::function&lt; void()&gt; evaluate)</div></div>
+<div class="ttc" id="aclassLooper_html"><div class="ttname"><a href="classLooper.html">Looper</a></div><div class="ttdef"><b>Definition:</b> looper.h:73</div></div>
+<div class="ttc" id="aclassLooper_html_a2b5f8edf08a435a12199ec9f01195e48"><div class="ttname"><a href="classLooper.html#a2b5f8edf08a435a12199ec9f01195e48">Looper::run</a></div><div class="ttdeci">void run(std::function&lt; void(TTree *ttree)&gt; init, std::function&lt; void(int entry)&gt; evaluate)</div></div>
 </div><!-- fragment --></li>
 <li>Arbol+Cutflow+Looper+HEPCLI example (now using <a href="https://github.com/cmstas/NanoTools/tree/master/NanoCORE">NanoCORE</a> to read NanoAOD) <div class="fragment"><div class="line"><span class="comment">// ROOT</span></div>
 <div class="line"><span class="preprocessor">#include &quot;TH1F.h&quot;</span></div>
@@ -359,10 +359,10 @@ Examples</h1>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Run looper</span></div>
 <div class="line">    tqdm bar; <span class="comment">// progress bar</span></div>
-<div class="line">    looper.<a class="code hl_function" href="classLooper.html#abfa564ca48778da1f58c8a6444ddd463">run</a>(</div>
+<div class="line">    looper.<a class="code hl_function" href="classLooper.html#a2b5f8edf08a435a12199ec9f01195e48">run</a>(</div>
 <div class="line">        [&amp;]() </div>
 <div class="line">        {</div>
-<div class="line">            bar.progress(looper.<a class="code hl_variable" href="classLooper.html#a97e473848469359cd33cd23771e0eb28">n_events_processed</a>, looper.<a class="code hl_variable" href="classLooper.html#a666747cb782bd6082452a6d5ac18f94f">n_events_to_process</a>);</div>
+<div class="line">            bar.progress(looper.<a class="code hl_variable" href="classLooper.html#abbf626538aced372130172ac86958265">n_events_processed</a>, looper.<a class="code hl_variable" href="classLooper.html#a6251eeff0d36df11886ac1a50521a1db">n_events_to_process</a>);</div>
 <div class="line">            <span class="comment">// Reset tree</span></div>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a4c2184d378ab21a9627a57098291a7c4">resetBranches</a>();</div>
 <div class="line">            <span class="comment">// Run cutflow</span></div>
@@ -382,8 +382,8 @@ Examples</h1>
 <div class="ttc" id="aclassArbol_html_a92be3f8c4258247d65e7f66a8da70453"><div class="ttname"><a href="classArbol.html#a92be3f8c4258247d65e7f66a8da70453">Arbol::getLeaf</a></div><div class="ttdeci">Type getLeaf(TString branch_name)</div></div>
 <div class="ttc" id="aclassHEPCLI_html"><div class="ttname"><a href="classHEPCLI.html">HEPCLI</a></div><div class="ttdef"><b>Definition:</b> looper.h:22</div></div>
 <div class="ttc" id="aclassHEPCLI_html_a3d4bb4a7c1f1b6d4e008ff76e43bef15"><div class="ttname"><a href="classHEPCLI.html#a3d4bb4a7c1f1b6d4e008ff76e43bef15">HEPCLI::input_tchain</a></div><div class="ttdeci">TChain * input_tchain</div><div class="ttdef"><b>Definition:</b> looper.h:52</div></div>
-<div class="ttc" id="aclassLooper_html_a666747cb782bd6082452a6d5ac18f94f"><div class="ttname"><a href="classLooper.html#a666747cb782bd6082452a6d5ac18f94f">Looper::n_events_to_process</a></div><div class="ttdeci">unsigned int n_events_to_process</div><div class="ttdef"><b>Definition:</b> looper.h:89</div></div>
-<div class="ttc" id="aclassLooper_html_a97e473848469359cd33cd23771e0eb28"><div class="ttname"><a href="classLooper.html#a97e473848469359cd33cd23771e0eb28">Looper::n_events_processed</a></div><div class="ttdeci">unsigned int n_events_processed</div><div class="ttdef"><b>Definition:</b> looper.h:87</div></div>
+<div class="ttc" id="aclassLooper_html_a6251eeff0d36df11886ac1a50521a1db"><div class="ttname"><a href="classLooper.html#a6251eeff0d36df11886ac1a50521a1db">Looper::n_events_to_process</a></div><div class="ttdeci">unsigned int n_events_to_process</div><div class="ttdef"><b>Definition:</b> looper.h:85</div></div>
+<div class="ttc" id="aclassLooper_html_abbf626538aced372130172ac86958265"><div class="ttname"><a href="classLooper.html#abbf626538aced372130172ac86958265">Looper::n_events_processed</a></div><div class="ttdeci">unsigned int n_events_processed</div><div class="ttdef"><b>Definition:</b> looper.h:83</div></div>
 </div><!-- fragment --> </li>
 </ol>
 </div></div><!-- PageDoc -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RAPIDO: Looper&lt; Type &gt; Class Template Reference</title>
+<title>RAPIDO: Looper Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classLooper-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Looper&lt; Type &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">Looper Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -75,63 +75,44 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a34cd93fad2506bf594fc360ca4a72c14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a34cd93fad2506bf594fc360ca4a72c14">Looper</a> (Type *new_selector, TChain *new_tchain)</td></tr>
-<tr class="separator:a34cd93fad2506bf594fc360ca4a72c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1acdd5043b0aae75dd39cb1fdcdb674c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a1acdd5043b0aae75dd39cb1fdcdb674c">Looper</a> (Type *new_selector, TChain *new_tchain, TString new_ttree_name)</td></tr>
-<tr class="separator:a1acdd5043b0aae75dd39cb1fdcdb674c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ab3ca481534b316d9844ada765b74b3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a2ab3ca481534b316d9844ada765b74b3">~Looper</a> ()</td></tr>
-<tr class="separator:a2ab3ca481534b316d9844ada765b74b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfa564ca48778da1f58c8a6444ddd463"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#abfa564ca48778da1f58c8a6444ddd463">run</a> (std::function&lt; void()&gt; evaluate)</td></tr>
-<tr class="separator:abfa564ca48778da1f58c8a6444ddd463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a916868e8a7a8bf73274a82bf47df22f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a916868e8a7a8bf73274a82bf47df22f4">Looper</a> (TChain *new_tchain)</td></tr>
+<tr class="separator:a916868e8a7a8bf73274a82bf47df22f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acded76cf749f47dcb563d19ccd1648dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#acded76cf749f47dcb563d19ccd1648dd">Looper</a> (TChain *new_tchain, TString new_ttree_name)</td></tr>
+<tr class="separator:acded76cf749f47dcb563d19ccd1648dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ff9511f1d99ca1f3753e59a1b3a22b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a23ff9511f1d99ca1f3753e59a1b3a22b">~Looper</a> ()</td></tr>
+<tr class="separator:a23ff9511f1d99ca1f3753e59a1b3a22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b5f8edf08a435a12199ec9f01195e48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a2b5f8edf08a435a12199ec9f01195e48">run</a> (std::function&lt; void(TTree *ttree)&gt; init, std::function&lt; void(int entry)&gt; evaluate)</td></tr>
+<tr class="separator:a2b5f8edf08a435a12199ec9f01195e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5ffbcd4fb31c1bdbd40a11c7e715d789"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a5ffbcd4fb31c1bdbd40a11c7e715d789">current_index</a></td></tr>
-<tr class="separator:a5ffbcd4fb31c1bdbd40a11c7e715d789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97e473848469359cd33cd23771e0eb28"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a97e473848469359cd33cd23771e0eb28">n_events_processed</a></td></tr>
-<tr class="separator:a97e473848469359cd33cd23771e0eb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a666747cb782bd6082452a6d5ac18f94f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a666747cb782bd6082452a6d5ac18f94f">n_events_to_process</a></td></tr>
-<tr class="separator:a666747cb782bd6082452a6d5ac18f94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab368e58278fc91c4814e579cb9080d4f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#ab368e58278fc91c4814e579cb9080d4f">current_entry</a></td></tr>
+<tr class="separator:ab368e58278fc91c4814e579cb9080d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf626538aced372130172ac86958265"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#abbf626538aced372130172ac86958265">n_events_processed</a></td></tr>
+<tr class="separator:abbf626538aced372130172ac86958265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6251eeff0d36df11886ac1a50521a1db"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a6251eeff0d36df11886ac1a50521a1db">n_events_to_process</a></td></tr>
+<tr class="separator:a6251eeff0d36df11886ac1a50521a1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;class Type&gt;<br />
-class Looper&lt; Type &gt;</div><p >Object to handle looping over ROOT files </p><dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Type</td><td>ROOT selector class </td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p >Object to handle looping over ROOT files </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a34cd93fad2506bf594fc360ca4a72c14" name="a34cd93fad2506bf594fc360ca4a72c14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34cd93fad2506bf594fc360ca4a72c14">&#9670;&nbsp;</a></span>Looper() <span class="overload">[1/2]</span></h2>
+<a id="a916868e8a7a8bf73274a82bf47df22f4" name="a916868e8a7a8bf73274a82bf47df22f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a916868e8a7a8bf73274a82bf47df22f4">&#9670;&nbsp;</a></span>Looper() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classLooper.html">Looper</a>&lt; Type &gt;<a class="el" href="classLooper.html">::Looper</a> </td>
+          <td class="memname">Looper::Looper </td>
           <td>(</td>
-          <td class="paramtype">Type *&#160;</td>
-          <td class="paramname"><em>new_selector</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">TChain *&#160;</td>
-          <td class="paramname"><em>new_tchain</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>new_tchain</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p ><a class="el" href="classLooper.html">Looper</a> object constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_selector</td><td>pointer to ROOT selector object </td></tr>
     <tr><td class="paramname">new_tchain</td><td>pointer to ROOT TChain of files to loop over </td></tr>
   </table>
   </dd>
@@ -140,23 +121,15 @@ template&lt;class Type &gt; </div>
 
 </div>
 </div>
-<a id="a1acdd5043b0aae75dd39cb1fdcdb674c" name="a1acdd5043b0aae75dd39cb1fdcdb674c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1acdd5043b0aae75dd39cb1fdcdb674c">&#9670;&nbsp;</a></span>Looper() <span class="overload">[2/2]</span></h2>
+<a id="acded76cf749f47dcb563d19ccd1648dd" name="acded76cf749f47dcb563d19ccd1648dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acded76cf749f47dcb563d19ccd1648dd">&#9670;&nbsp;</a></span>Looper() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classLooper.html">Looper</a>&lt; Type &gt;<a class="el" href="classLooper.html">::Looper</a> </td>
+          <td class="memname">Looper::Looper </td>
           <td>(</td>
-          <td class="paramtype">Type *&#160;</td>
-          <td class="paramname"><em>new_selector</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">TChain *&#160;</td>
           <td class="paramname"><em>new_tchain</em>, </td>
         </tr>
@@ -175,7 +148,6 @@ template&lt;class Type &gt; </div>
 </div><div class="memdoc">
 <p ><a class="el" href="classLooper.html">Looper</a> object overload constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_selector</td><td>pointer to ROOT selector object </td></tr>
     <tr><td class="paramname">new_tchain</td><td>pointer to ROOT TChain of files to loop over </td></tr>
     <tr><td class="paramname">new_ttree_name</td><td>name of the ROOT TTree </td></tr>
   </table>
@@ -185,19 +157,17 @@ template&lt;class Type &gt; </div>
 
 </div>
 </div>
-<a id="a2ab3ca481534b316d9844ada765b74b3" name="a2ab3ca481534b316d9844ada765b74b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ab3ca481534b316d9844ada765b74b3">&#9670;&nbsp;</a></span>~Looper()</h2>
+<a id="a23ff9511f1d99ca1f3753e59a1b3a22b" name="a23ff9511f1d99ca1f3753e59a1b3a22b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ff9511f1d99ca1f3753e59a1b3a22b">&#9670;&nbsp;</a></span>~Looper()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Type &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classLooper.html">Looper</a>&lt; Type &gt;::~<a class="el" href="classLooper.html">Looper</a> </td>
+          <td class="memname">virtual Looper::~Looper </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -214,25 +184,34 @@ template&lt;class Type &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abfa564ca48778da1f58c8a6444ddd463" name="abfa564ca48778da1f58c8a6444ddd463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfa564ca48778da1f58c8a6444ddd463">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a2b5f8edf08a435a12199ec9f01195e48" name="a2b5f8edf08a435a12199ec9f01195e48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b5f8edf08a435a12199ec9f01195e48">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classLooper.html">Looper</a>&lt; Type &gt;::run </td>
+          <td class="memname">void Looper::run </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
-          <td class="paramname"><em>evaluate</em></td><td>)</td>
+          <td class="paramtype">std::function&lt; void(TTree *ttree)&gt;&#160;</td>
+          <td class="paramname"><em>init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::function&lt; void(int entry)&gt;&#160;</td>
+          <td class="paramname"><em>evaluate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Run looper </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Run looper with file- and event-processing logic captured in void lambda functions The following example uses a class named "Selector" generated by ROOT::MakeSelector; this class requires certain file- and event-processing initialization steps: int main() { TChain* tchain = new TChain("Events"); tchain-&gt;Add("/path/to/file.root"); selector = Selector(); // generated by ROOT::MakeSelector looper = <a class="el" href="classLooper.html">Looper</a>(tchain, "Events"); looper.run( [&amp;](TTree* ttree) { selector.Init(ttree); }, [&amp;](int entry) { selector.GetEntry(entry); // -&gt; insert your favorite cutflow here &lt;&ndash; } ); } </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">init</td><td>file-level initialization steps captured in a void lambda function </td></tr>
     <tr><td class="paramname">evaluate</td><td>event-level logic captured in a void lambda function </td></tr>
   </table>
   </dd>
@@ -242,33 +221,29 @@ template&lt;class Type &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a5ffbcd4fb31c1bdbd40a11c7e715d789" name="a5ffbcd4fb31c1bdbd40a11c7e715d789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ffbcd4fb31c1bdbd40a11c7e715d789">&#9670;&nbsp;</a></span>current_index</h2>
+<a id="ab368e58278fc91c4814e579cb9080d4f" name="ab368e58278fc91c4814e579cb9080d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab368e58278fc91c4814e579cb9080d4f">&#9670;&nbsp;</a></span>current_entry</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="classLooper.html">Looper</a>&lt; Type &gt;::current_index</td>
+          <td class="memname">unsigned int Looper::current_entry</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Current index of event loop </p>
+<p >Current entry in TTree (i.e. current index of event loop) </p>
 
 </div>
 </div>
-<a id="a97e473848469359cd33cd23771e0eb28" name="a97e473848469359cd33cd23771e0eb28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97e473848469359cd33cd23771e0eb28">&#9670;&nbsp;</a></span>n_events_processed</h2>
+<a id="abbf626538aced372130172ac86958265" name="abbf626538aced372130172ac86958265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbf626538aced372130172ac86958265">&#9670;&nbsp;</a></span>n_events_processed</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="classLooper.html">Looper</a>&lt; Type &gt;::n_events_processed</td>
+          <td class="memname">unsigned int Looper::n_events_processed</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -276,16 +251,14 @@ template&lt;class Type &gt; </div>
 
 </div>
 </div>
-<a id="a666747cb782bd6082452a6d5ac18f94f" name="a666747cb782bd6082452a6d5ac18f94f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a666747cb782bd6082452a6d5ac18f94f">&#9670;&nbsp;</a></span>n_events_to_process</h2>
+<a id="a6251eeff0d36df11886ac1a50521a1db" name="a6251eeff0d36df11886ac1a50521a1db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6251eeff0d36df11886ac1a50521a1db">&#9670;&nbsp;</a></span>n_events_to_process</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class Type &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="classLooper.html">Looper</a>&lt; Type &gt;::n_events_to_process</td>
+          <td class="memname">unsigned int Looper::n_events_to_process</td>
         </tr>
       </table>
 </div><div class="memdoc">
