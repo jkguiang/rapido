@@ -121,7 +121,7 @@ Looper::Looper(TChain* new_tchain, TString new_ttree_name)
 
 Looper::~Looper() {}
 
-void Looper::run(std::function<void(TTree* ttree)> init, std::function<void(int entry)> evaluate) 
+void Looper::run(std::function<void(TTree* ttree)> init, std::function<void(int entry)> eval) 
 {
     // Initialize looper variables
     TIter tfile_iterator(tchain->GetListOfFiles());
@@ -141,7 +141,7 @@ void Looper::run(std::function<void(TTree* ttree)> init, std::function<void(int 
         {
             current_entry = entry;
             // Run event-level logic
-            evaluate(entry);
+            eval(entry);
             n_events_processed++;
         } 
         // End event loop
