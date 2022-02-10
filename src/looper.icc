@@ -103,59 +103,52 @@ void HEPCLI::parse(int argc, char** argv)
     return;
 }
 
-template<class Type>
-Looper<Type>::Looper(Type* new_selector, TChain* new_tchain)
+Looper::Looper(TChain* new_tchain)
 {
-    selector = new_selector;
     tchain = new_tchain;
     ttree_name = "Events";
     n_events_processed = 0;
     n_events_to_process = tchain->GetEntries();
 }
 
-template<class Type>
-Looper<Type>::Looper(Type* new_selector, TChain* new_tchain, TString new_ttree_name)
+Looper::Looper(TChain* new_tchain, TString new_ttree_name)
 {
-    selector = new_selector;
     tchain = new_tchain;
     ttree_name = new_ttree_name;
     n_events_processed = 0;
     n_events_to_process = tchain->GetEntries();
 }
 
-template<class Type>
-Looper<Type>::~Looper() {}
+Looper::~Looper() {}
 
-template<class Type>
-void Looper<Type>::run(std::function<void()> evaluate) 
+void Looper::run(std::function<void(TTree* ttree)> init, std::function<void(int entry)> evaluate) 
 {
     // Initialize looper variables
-    TIter file_iterator(tchain->GetListOfFiles());
-    // File loop
-    TFile* current_file = 0;
-    while ((current_file = (TFile*)file_iterator.Next()))
+    TIter tfile_iterator(tchain->GetListOfFiles());
+    // Start file loop
+    TFile* current_tfile = 0;
+    while ((current_tfile = (TFile*)tfile_iterator.Next()))
     {
         // Open file
-        TFile* file = TFile::Open(current_file->GetTitle());
-        TTree* tree = (TTree*)file->Get(ttree_name);
+        TFile* tfile = TFile::Open(current_tfile->GetTitle());
+        TTree* ttree = (TTree*)tfile->Get(ttree_name);
         // Imported TTree configuration
-        tree->SetCacheSize(128*1024*1024); // 128 MB
-        tree->SetCacheLearnEntries(100);
-        selector->Init(tree);
-        // --> START Event loop <--
-        for (unsigned int index = 0; index < tree->GetEntriesFast(); ++index) 
+        ttree->SetCacheSize(128*1024*1024); // 128 MB
+        ttree->SetCacheLearnEntries(100);
+        init(ttree);
+        // Start event loop
+        for (int entry = 0; entry < ttree->GetEntriesFast(); ++entry) 
         {
-            current_index = index;
+            current_entry = entry;
             // Run event-level logic
-            evaluate();
+            evaluate(entry);
             n_events_processed++;
         } 
-        // --> END event loop <--
+        // End event loop
 
         // Clean up
-        delete file;
-
-    } // END file loop
-
+        delete tfile;
+    }
+    // End file loop
     return;
 }
