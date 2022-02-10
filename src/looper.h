@@ -119,16 +119,17 @@ public:
      *         [&](int entry) 
      *         {
      *             selector.GetEntry(entry);
+     *             selector.Process(entry);
      *             // -> insert your favorite cutflow here <--
      *         }
      *     );
      * }
      * @endcode
      * @param init file-level initialization steps captured in a void lambda function
-     * @param evaluate event-level logic captured in a void lambda function
+     * @param eval event-level logic captured in a void lambda function
      * @return none
      */
-    void run(std::function<void(TTree* ttree)> init, std::function<void(int entry)> evaluate);
+    void run(std::function<void(TTree* ttree)> init, std::function<void(int entry)> eval);
 };
 
 #include "looper.icc"
