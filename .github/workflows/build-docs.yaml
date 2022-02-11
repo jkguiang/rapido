@@ -15,12 +15,12 @@ jobs:
           ref: "docs"
           path: "./rapido-docs"
       - name: Build docs
-        uses: mattnotmitt/doxygen-action@v1.9.2
+        uses: mattnotmitt/doxygen-action@v1.9.3
         with:
           working-directory: "./rapido-docs"
           doxyfile-path: "doxyfile"
           enable-latex: true
-      - name: Commit report
+      - name: Commit docs
         uses: EndBug/add-and-commit@v8
         with:
           add: "['html', 'latex']"
