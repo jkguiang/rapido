@@ -29,6 +29,8 @@ public:
     std::function<bool()> evaluate;
     /** Lambda function that computes event weight */
     std::function<float()> compute_weight;
+    /** Pointer to parent cut */
+    Cut* parent;
     /** Pointer to next cut to evaluate if this cut evaluates to true */
     Cut* right;
     /** Pointer to next cut to evaluate if this cut evaluates to false */
@@ -37,6 +39,10 @@ public:
     int n_pass;
     /** Number of events that fail cut */
     int n_fail;
+    /** Weighted number of events that pass cut */
+    float n_pass_weighted;
+    /** Weighted number of events that fail cut */
+    float n_fail_weighted;
 
     /**
      * Cut object constructor (assumes weight == 1.0)
@@ -60,6 +66,11 @@ public:
      * @return none
      */
     void print(float weight = 1.0);
+    /**
+     * Get even weight for this cut (on top of previous cut weights)
+     * @return event weight
+     */
+    float getWeight();
 };
 
 /** 
@@ -109,9 +120,9 @@ protected:
     /**
      * (PROTECTED) Recursively evaulate cuts in the cutflow
      * @param cut pointer to current cut
-     * @return pointer to terminal cut
+     * @return std::pair of a pointer to terminal cut and a boolean (true = pass, false = fail)
      */
-    Cut* recursiveEvaluate(Cut* cut);
+    std::pair<Cut*, bool> recursiveEvaluate(Cut* cut);
     /**
      * (PROTECTED) Recursively delete cuts in the cutflow
      * @param cut pointer to current cut
@@ -162,15 +173,15 @@ public:
      */
     void insert(std::string target_cut_name, Cut* new_cut, Direction direction);
     /**
-     * Run cutflow
-     * @return pointer to terminal cut (final leaf of tree reached)
+     * Run cutflow until any terminus
+     * @return whether or not the terminal cut in the cutflow passed
      */
-    virtual Cut* run();
+    virtual bool run();
     /**
-     * Run cutflow until a target cut
+     * Run cutflow until a target terminal cut
      * @see Cutflow::runUntil
      * @param target_cut_name name of target cut
-     * @return whether or not (true/false) the target cut was reached
+     * @return whether or not (true/false) the target cut was reached and passed
      */
     bool runUntil(std::string target_cut_name);
     /**
