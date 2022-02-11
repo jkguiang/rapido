@@ -1,0 +1,29 @@
+name: Build and push RAPIDO docs
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone RAPIDO
+        run: git clone https://github.com/jkguiang/rapido.git
+      - name: Clone RAPIDO docs
+        uses: actions/checkout@v2
+        with:
+          ref: "docs"
+          path: "./rapido-docs"
+      - name: Build docs
+        uses: mattnotmitt/doxygen-action@v1.9.2
+        with:
+          working-directory: "./rapido-docs"
+          doxyfile-path: "doxyfile"
+          enable-latex: true
+      - name: Commit report
+        uses: EndBug/add-and-commit@v8
+        with:
+          add: "['html', 'latex']"
+          cwd: "./rapido-docs"
+          message: "automated docs update"
+          push: "origin docs"
