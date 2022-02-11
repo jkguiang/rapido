@@ -81,8 +81,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acded76cf749f47dcb563d19ccd1648dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23ff9511f1d99ca1f3753e59a1b3a22b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a23ff9511f1d99ca1f3753e59a1b3a22b">~Looper</a> ()</td></tr>
 <tr class="separator:a23ff9511f1d99ca1f3753e59a1b3a22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b5f8edf08a435a12199ec9f01195e48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a2b5f8edf08a435a12199ec9f01195e48">run</a> (std::function&lt; void(TTree *ttree)&gt; init, std::function&lt; void(int entry)&gt; evaluate)</td></tr>
-<tr class="separator:a2b5f8edf08a435a12199ec9f01195e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b259a7ad0c2aa45ae49d1ec08d37af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a8b259a7ad0c2aa45ae49d1ec08d37af0">run</a> (std::function&lt; void(TTree *ttree)&gt; init, std::function&lt; void(int entry)&gt; eval)</td></tr>
+<tr class="separator:a8b259a7ad0c2aa45ae49d1ec08d37af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -184,8 +184,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2b5f8edf08a435a12199ec9f01195e48" name="a2b5f8edf08a435a12199ec9f01195e48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b5f8edf08a435a12199ec9f01195e48">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a8b259a7ad0c2aa45ae49d1ec08d37af0" name="a8b259a7ad0c2aa45ae49d1ec08d37af0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b259a7ad0c2aa45ae49d1ec08d37af0">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,7 +200,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::function&lt; void(int entry)&gt;&#160;</td>
-          <td class="paramname"><em>evaluate</em>&#160;</td>
+          <td class="paramname"><em>eval</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -221,6 +221,7 @@ Public Attributes</h2></td></tr>
 <div class="line">        [&amp;](<span class="keywordtype">int</span> entry) </div>
 <div class="line">        {</div>
 <div class="line">            selector.GetEntry(entry);</div>
+<div class="line">            selector.Process(entry);</div>
 <div class="line">            <span class="comment">// -&gt; insert your favorite cutflow here &lt;--</span></div>
 <div class="line">        }</div>
 <div class="line">    );</div>
@@ -229,7 +230,7 @@ Public Attributes</h2></td></tr>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">init</td><td>file-level initialization steps captured in a void lambda function </td></tr>
-    <tr><td class="paramname">evaluate</td><td>event-level logic captured in a void lambda function </td></tr>
+    <tr><td class="paramname">eval</td><td>event-level logic captured in a void lambda function </td></tr>
   </table>
   </dd>
 </dl>

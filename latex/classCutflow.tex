@@ -25,7 +25,7 @@ void \mbox{\hyperlink{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{set\+Root}
 \item 
 void \mbox{\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}} (std\+::string target\+\_\+cut\+\_\+name, \mbox{\hyperlink{classCut}{Cut}} $\ast$new\+\_\+cut, Direction direction)
 \item 
-virtual \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}{run}} ()
+virtual bool \mbox{\hyperlink{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}{run}} ()
 \item 
 bool \mbox{\hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{run\+Until}} (std\+::string target\+\_\+cut\+\_\+name)
 \item 
@@ -51,7 +51,7 @@ std\+::string \mbox{\hyperlink{classCutflow_a268e204c942ca35895a94f1be7ce111d}{n
 \item 
 void \mbox{\hyperlink{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}{recursive\+Print}} (std\+::string tabs, \mbox{\hyperlink{classCut}{Cut}} $\ast$cut, Direction direction, float weight)
 \item 
-\mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}{recursive\+Evaluate}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut)
+std\+::pair$<$ \mbox{\hyperlink{classCut}{Cut}} $\ast$, bool $>$ \mbox{\hyperlink{classCutflow_a8298a5ed45d1963271dbe9c7d1f1586f}{recursive\+Evaluate}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut)
 \item 
 void \mbox{\hyperlink{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{recursive\+Delete}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut)
 \end{DoxyCompactItemize}
@@ -188,11 +188,11 @@ none
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}\label{classCutflow_ae4fc37122bc9437fe3cdaa9861c2bcec}} 
+\mbox{\Hypertarget{classCutflow_a8298a5ed45d1963271dbe9c7d1f1586f}\label{classCutflow_a8298a5ed45d1963271dbe9c7d1f1586f}} 
 \index{Cutflow@{Cutflow}!recursiveEvaluate@{recursiveEvaluate}}
 \index{recursiveEvaluate@{recursiveEvaluate}!Cutflow@{Cutflow}}
 \doxysubsubsection{\texorpdfstring{recursiveEvaluate()}{recursiveEvaluate()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classCut}{Cut}} $\ast$ Cutflow\+::recursive\+Evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{classCut}{Cut}} $\ast$, bool $>$ Cutflow\+::recursive\+Evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 (PROTECTED) Recursively evaulate cuts in the cutflow 
 \begin{DoxyParams}{Parameters}
@@ -200,7 +200,7 @@ none
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-pointer to terminal cut 
+std\+::pair of a pointer to terminal cut and a boolean (true = pass, false = fail) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}\label{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}} 
 \index{Cutflow@{Cutflow}!recursiveFindTerminus@{recursiveFindTerminus}}
@@ -236,14 +236,14 @@ terminal cut
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}\label{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}} 
+\mbox{\Hypertarget{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}\label{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}} 
 \index{Cutflow@{Cutflow}!run@{run}}
 \index{run@{run}!Cutflow@{Cutflow}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classCut}{Cut}} $\ast$ Cutflow\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool Cutflow\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Run cutflow \begin{DoxyReturn}{Returns}
-pointer to terminal cut (final leaf of tree reached) 
+Run cutflow until any terminus \begin{DoxyReturn}{Returns}
+whether or not the terminal cut in the cutflow passed 
 \end{DoxyReturn}
 
 
@@ -255,7 +255,7 @@ Reimplemented in \mbox{\hyperlink{classHistflow_a675b897276d33e146d1c2707023f1ed
 \doxysubsubsection{\texorpdfstring{runUntil()}{runUntil()}}
 {\footnotesize\ttfamily bool Cutflow\+::run\+Until (\begin{DoxyParamCaption}\item[{std\+::string}]{target\+\_\+cut\+\_\+name }\end{DoxyParamCaption})}
 
-Run cutflow until a target cut \begin{DoxySeeAlso}{See also}
+Run cutflow until a target terminal cut \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{Cutflow\+::run\+Until}} 
 \end{DoxySeeAlso}
 
@@ -264,7 +264,7 @@ Run cutflow until a target cut \begin{DoxySeeAlso}{See also}
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-whether or not (true/false) the target cut was reached 
+whether or not (true/false) the target cut was reached and passed 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCutflow_ad27d37141c3748779a5d81fad919ecbb}\label{classCutflow_ad27d37141c3748779a5d81fad919ecbb}} 
 \index{Cutflow@{Cutflow}!setRoot@{setRoot}}

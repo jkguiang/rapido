@@ -98,8 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad27d37141c3748779a5d81fad919ecbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da46f1053a6b97991489ee0920c29a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a> (std::string target_cut_name, <a class="el" href="classCut.html">Cut</a> *new_cut, Direction direction)</td></tr>
 <tr class="separator:a8da46f1053a6b97991489ee0920c29a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a563da4fc41aa5c611dd0ce37ce966f2c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a563da4fc41aa5c611dd0ce37ce966f2c">run</a> ()</td></tr>
-<tr class="separator:a563da4fc41aa5c611dd0ce37ce966f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fc98b9c006b80db96576c8bdcf6a0a8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">run</a> ()</td></tr>
+<tr class="separator:a8fc98b9c006b80db96576c8bdcf6a0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5a6dc6e9490037d190eca691295859"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">runUntil</a> (std::string target_cut_name)</td></tr>
 <tr class="separator:a3b5a6dc6e9490037d190eca691295859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a11c1116dc01d4c0679945eeff66ff0a4">findTerminus</a> (std::string starting_cut_name)</td></tr>
@@ -124,8 +124,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a6949f1d9e7d74c6ab8cf0c6f28ac3701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54e6ae7d3e4c9efdb8fd830ab8a0e0e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a54e6ae7d3e4c9efdb8fd830ab8a0e0e9">recursivePrint</a> (std::string tabs, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction, float weight)</td></tr>
 <tr class="separator:a54e6ae7d3e4c9efdb8fd830ab8a0e0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4fc37122bc9437fe3cdaa9861c2bcec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#ae4fc37122bc9437fe3cdaa9861c2bcec">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
-<tr class="separator:ae4fc37122bc9437fe3cdaa9861c2bcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8298a5ed45d1963271dbe9c7d1f1586f"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classCut.html">Cut</a> *, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8298a5ed45d1963271dbe9c7d1f1586f">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
+<tr class="separator:a8298a5ed45d1963271dbe9c7d1f1586f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc7029b27ff8d742d10c75d6f6342dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac">recursiveDelete</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:adc7029b27ff8d742d10c75d6f6342dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -389,8 +389,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae4fc37122bc9437fe3cdaa9861c2bcec" name="ae4fc37122bc9437fe3cdaa9861c2bcec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4fc37122bc9437fe3cdaa9861c2bcec">&#9670;&nbsp;</a></span>recursiveEvaluate()</h2>
+<a id="a8298a5ed45d1963271dbe9c7d1f1586f" name="a8298a5ed45d1963271dbe9c7d1f1586f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8298a5ed45d1963271dbe9c7d1f1586f">&#9670;&nbsp;</a></span>recursiveEvaluate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -399,7 +399,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCut.html">Cut</a> * Cutflow::recursiveEvaluate </td>
+          <td class="memname">std::pair&lt; <a class="el" href="classCut.html">Cut</a> *, bool &gt; Cutflow::recursiveEvaluate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
           <td class="paramname"><em>cut</em></td><td>)</td>
@@ -418,7 +418,7 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>pointer to terminal cut </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::pair of a pointer to terminal cut and a boolean (true = pass, false = fail) </dd></dl>
 
 </div>
 </div>
@@ -513,8 +513,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a563da4fc41aa5c611dd0ce37ce966f2c" name="a563da4fc41aa5c611dd0ce37ce966f2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a563da4fc41aa5c611dd0ce37ce966f2c">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a8fc98b9c006b80db96576c8bdcf6a0a8" name="a8fc98b9c006b80db96576c8bdcf6a0a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fc98b9c006b80db96576c8bdcf6a0a8">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -523,7 +523,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCut.html">Cut</a> * Cutflow::run </td>
+          <td class="memname">bool Cutflow::run </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -535,7 +535,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Run cutflow </p><dl class="section return"><dt>Returns</dt><dd>pointer to terminal cut (final leaf of tree reached) </dd></dl>
+<p >Run cutflow until any terminus </p><dl class="section return"><dt>Returns</dt><dd>whether or not the terminal cut in the cutflow passed </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classHistflow.html#a675b897276d33e146d1c2707023f1edd">Histflow</a>.</p>
 
@@ -556,14 +556,14 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Run cutflow until a target cut </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">Cutflow::runUntil</a> </dd></dl>
+<p >Run cutflow until a target terminal cut </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">Cutflow::runUntil</a> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target_cut_name</td><td>name of target cut </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>whether or not (true/false) the target cut was reached </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>whether or not (true/false) the target cut was reached and passed </dd></dl>
 
 </div>
 </div>

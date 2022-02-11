@@ -118,8 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad27d37141c3748779a5d81fad919ecbb inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da46f1053a6b97991489ee0920c29a1 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a> (std::string target_cut_name, <a class="el" href="classCut.html">Cut</a> *new_cut, Direction direction)</td></tr>
 <tr class="separator:a8da46f1053a6b97991489ee0920c29a1 inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a563da4fc41aa5c611dd0ce37ce966f2c inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a563da4fc41aa5c611dd0ce37ce966f2c">run</a> ()</td></tr>
-<tr class="separator:a563da4fc41aa5c611dd0ce37ce966f2c inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fc98b9c006b80db96576c8bdcf6a0a8 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">run</a> ()</td></tr>
+<tr class="separator:a8fc98b9c006b80db96576c8bdcf6a0a8 inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5a6dc6e9490037d190eca691295859 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">runUntil</a> (std::string target_cut_name)</td></tr>
 <tr class="separator:a3b5a6dc6e9490037d190eca691295859 inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11c1116dc01d4c0679945eeff66ff0a4 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a11c1116dc01d4c0679945eeff66ff0a4">findTerminus</a> (std::string starting_cut_name)</td></tr>
@@ -140,8 +140,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a6949f1d9e7d74c6ab8cf0c6f28ac3701 inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54e6ae7d3e4c9efdb8fd830ab8a0e0e9 inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a54e6ae7d3e4c9efdb8fd830ab8a0e0e9">recursivePrint</a> (std::string tabs, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction, float weight)</td></tr>
 <tr class="separator:a54e6ae7d3e4c9efdb8fd830ab8a0e0e9 inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4fc37122bc9437fe3cdaa9861c2bcec inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#ae4fc37122bc9437fe3cdaa9861c2bcec">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
-<tr class="separator:ae4fc37122bc9437fe3cdaa9861c2bcec inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8298a5ed45d1963271dbe9c7d1f1586f inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classCut.html">Cut</a> *, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8298a5ed45d1963271dbe9c7d1f1586f">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
+<tr class="separator:a8298a5ed45d1963271dbe9c7d1f1586f inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc7029b27ff8d742d10c75d6f6342dac inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac">recursiveDelete</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:adc7029b27ff8d742d10c75d6f6342dac inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -439,7 +439,7 @@ template&lt;typename Type2D &gt; </div>
 </div><div class="memdoc">
 <p >Overriding definition that runs cutflow with <a class="el" href="classHistflow.html#a5f82e40b32a417161fbcfa0daaf1f8e0">Histflow::recursiveEvaluate</a> </p><dl class="section return"><dt>Returns</dt><dd>pointer to terminal cut (final leaf of tree reached) </dd></dl>
 
-<p>Reimplemented from <a class="el" href="classCutflow.html#a563da4fc41aa5c611dd0ce37ce966f2c">Cutflow</a>.</p>
+<p>Reimplemented from <a class="el" href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">Cutflow</a>.</p>
 
 </div>
 </div>

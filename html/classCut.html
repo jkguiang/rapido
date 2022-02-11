@@ -81,6 +81,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adcfec6d2df97f8e84058078f2f736b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05a93abb03377951fb2e7da79a7e5df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#af05a93abb03377951fb2e7da79a7e5df">print</a> (float weight=1.0)</td></tr>
 <tr class="separator:af05a93abb03377951fb2e7da79a7e5df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3201e86949718110994a9301987f0f98"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a3201e86949718110994a9301987f0f98">getWeight</a> ()</td></tr>
+<tr class="separator:a3201e86949718110994a9301987f0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -90,6 +92,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4205ad5e62b859536797141f3ace2253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a908dfdeed9d882ca026427c0942fb999"><td class="memItemLeft" align="right" valign="top">std::function&lt; float()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a908dfdeed9d882ca026427c0942fb999">compute_weight</a></td></tr>
 <tr class="separator:a908dfdeed9d882ca026427c0942fb999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb046f96bc50db055cccdb1f9a601780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#acb046f96bc50db055cccdb1f9a601780">parent</a></td></tr>
+<tr class="separator:acb046f96bc50db055cccdb1f9a601780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2142ffe68028bb0c211408c0f5bb8bfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a2142ffe68028bb0c211408c0f5bb8bfb">right</a></td></tr>
 <tr class="separator:a2142ffe68028bb0c211408c0f5bb8bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c65e372172dfa0f705d117d3ad0f668"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a2c65e372172dfa0f705d117d3ad0f668">left</a></td></tr>
@@ -98,6 +102,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a01ab47c909e962b3820e2e866c0230a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff7fd0749654bdae7ede4bfbea700c2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#aff7fd0749654bdae7ede4bfbea700c2d">n_fail</a></td></tr>
 <tr class="separator:aff7fd0749654bdae7ede4bfbea700c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f58e08d36bad07f9c62ab9c04eb1b7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#ac5f58e08d36bad07f9c62ab9c04eb1b7">n_pass_weighted</a></td></tr>
+<tr class="separator:ac5f58e08d36bad07f9c62ab9c04eb1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad780ce231646c09c612b14180b2772e0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#ad780ce231646c09c612b14180b2772e0">n_fail_weighted</a></td></tr>
+<tr class="separator:ad780ce231646c09c612b14180b2772e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Object that represents a single cut in an analysis </p>
@@ -182,6 +190,24 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3201e86949718110994a9301987f0f98" name="a3201e86949718110994a9301987f0f98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3201e86949718110994a9301987f0f98">&#9670;&nbsp;</a></span>getWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Cut::getWeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Get even weight for this cut (on top of previous cut weights) </p><dl class="section return"><dt>Returns</dt><dd>event weight </dd></dl>
+
+</div>
+</div>
 <a id="af05a93abb03377951fb2e7da79a7e5df" name="af05a93abb03377951fb2e7da79a7e5df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af05a93abb03377951fb2e7da79a7e5df">&#9670;&nbsp;</a></span>print()</h2>
 
@@ -268,6 +294,21 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad780ce231646c09c612b14180b2772e0" name="ad780ce231646c09c612b14180b2772e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad780ce231646c09c612b14180b2772e0">&#9670;&nbsp;</a></span>n_fail_weighted</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Cut::n_fail_weighted</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Weighted number of events that fail cut </p>
+
+</div>
+</div>
 <a id="a01ab47c909e962b3820e2e866c0230a8" name="a01ab47c909e962b3820e2e866c0230a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01ab47c909e962b3820e2e866c0230a8">&#9670;&nbsp;</a></span>n_pass</h2>
 
@@ -283,6 +324,21 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac5f58e08d36bad07f9c62ab9c04eb1b7" name="ac5f58e08d36bad07f9c62ab9c04eb1b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f58e08d36bad07f9c62ab9c04eb1b7">&#9670;&nbsp;</a></span>n_pass_weighted</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Cut::n_pass_weighted</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Weighted number of events that pass cut </p>
+
+</div>
+</div>
 <a id="accf700d2d00746b97a265d4aea3f55c2" name="accf700d2d00746b97a265d4aea3f55c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#accf700d2d00746b97a265d4aea3f55c2">&#9670;&nbsp;</a></span>name</h2>
 
@@ -295,6 +351,21 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Unique name of cut </p>
+
+</div>
+</div>
+<a id="acb046f96bc50db055cccdb1f9a601780" name="acb046f96bc50db055cccdb1f9a601780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb046f96bc50db055cccdb1f9a601780">&#9670;&nbsp;</a></span>parent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCut.html">Cut</a>* Cut::parent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Pointer to parent cut </p>
 
 </div>
 </div>

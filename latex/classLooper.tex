@@ -13,7 +13,7 @@
 \item 
 virtual \mbox{\hyperlink{classLooper_a23ff9511f1d99ca1f3753e59a1b3a22b}{$\sim$\+Looper}} ()
 \item 
-void \mbox{\hyperlink{classLooper_a2b5f8edf08a435a12199ec9f01195e48}{run}} (std\+::function$<$ void(TTree $\ast$ttree)$>$ init, std\+::function$<$ void(int entry)$>$ evaluate)
+void \mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}} (std\+::function$<$ void(TTree $\ast$ttree)$>$ init, std\+::function$<$ void(int entry)$>$ eval)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -72,11 +72,11 @@ none
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classLooper_a2b5f8edf08a435a12199ec9f01195e48}\label{classLooper_a2b5f8edf08a435a12199ec9f01195e48}} 
+\mbox{\Hypertarget{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}\label{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}} 
 \index{Looper@{Looper}!run@{run}}
 \index{run@{run}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily void Looper\+::run (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(TTree $\ast$ttree)$>$}]{init,  }\item[{std\+::function$<$ void(int entry)$>$}]{evaluate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Looper\+::run (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(TTree $\ast$ttree)$>$}]{init,  }\item[{std\+::function$<$ void(int entry)$>$}]{eval }\end{DoxyParamCaption})}
 
 Run looper with file-\/ and event-\/processing logic captured in void lambda functions.
 
@@ -93,6 +93,7 @@ The following example uses a class named \char`\"{}\+Selector\char`\"{} generate
 \DoxyCodeLine{        [\&](\textcolor{keywordtype}{int} entry) }
 \DoxyCodeLine{        \{}
 \DoxyCodeLine{            selector.GetEntry(entry);}
+\DoxyCodeLine{            selector.Process(entry);}
 \DoxyCodeLine{            \textcolor{comment}{// -\/> insert your favorite cutflow here <-\/-\/}}
 \DoxyCodeLine{        \}}
 \DoxyCodeLine{    );}
@@ -103,7 +104,7 @@ The following example uses a class named \char`\"{}\+Selector\char`\"{} generate
 \begin{DoxyParams}{Parameters}
 {\em init} & file-\/level initialization steps captured in a void lambda function \\
 \hline
-{\em evaluate} & event-\/level logic captured in a void lambda function \\
+{\em eval} & event-\/level logic captured in a void lambda function \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

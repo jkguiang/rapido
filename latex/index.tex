@@ -62,7 +62,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 5; i++)}
 \DoxyCodeLine{    \{}
-\DoxyCodeLine{        \mbox{\hyperlink{classCut}{Cut}}* terminal\_node = dummy\_cutflow.\mbox{\hyperlink{classCutflow_a563da4fc41aa5c611dd0ce37ce966f2c}{run}}();}
+\DoxyCodeLine{        \mbox{\hyperlink{classCut}{Cut}}* terminal\_node = dummy\_cutflow.\mbox{\hyperlink{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}{run}}();}
 \DoxyCodeLine{        cout << \textcolor{stringliteral}{"{}terminated at "{}} << terminal\_node-\/>\mbox{\hyperlink{classCut_accf700d2d00746b97a265d4aea3f55c2}{name}} << endl;}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    dummy\_cutflow.\mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}}();}
@@ -118,9 +118,12 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper<Nano>}}(\&selector, tchain, \textcolor{stringliteral}{"{}TreeName"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Run}}
-\DoxyCodeLine{    looper.\mbox{\hyperlink{classLooper_a2b5f8edf08a435a12199ec9f01195e48}{run}}(}
-\DoxyCodeLine{        [\&]()}
+\DoxyCodeLine{    looper.\mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}}(}
+\DoxyCodeLine{        [\&](TTree* ttree) \{ selector.Init(ttree) \},}
+\DoxyCodeLine{        [\&](\textcolor{keywordtype}{int} entry)}
 \DoxyCodeLine{        \{}
+\DoxyCodeLine{            selector.GetEntry(entry);}
+\DoxyCodeLine{            selector.Process(entry);}
 \DoxyCodeLine{            \textcolor{comment}{// -\/-\/> Event-\/level Logic <-\/-\/}}
 \DoxyCodeLine{            \textcolor{comment}{// Reset tree}}
 \DoxyCodeLine{            arbol.\mbox{\hyperlink{classArbol_a4c2184d378ab21a9627a57098291a7c4}{resetBranches}}(); \textcolor{comment}{// variables like arbol and selector are captured by reference}}
@@ -130,7 +133,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{            \{}
 \DoxyCodeLine{                \textcolor{keywordflow}{if} (selector.Jet\_pt[i] > 30)}
 \DoxyCodeLine{                \{}
-\DoxyCodeLine{                    arbol.appendToVecLeaf<float>(\textcolor{stringliteral}{"{}good\_jet\_pt"{}}, selector.Jet\_pt[i]);}
+\DoxyCodeLine{                    arbol.\mbox{\hyperlink{classArbol_a811156c9134ca7e0015bbe2ab95434b0}{appendToVecLeaf}}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"{}good\_jet\_pt"{}}, selector.Jet\_pt[i]);}
 \DoxyCodeLine{                    ht += selector.Jet\_pt[i];}
 \DoxyCodeLine{                \}}
 \DoxyCodeLine{            \}}
@@ -293,10 +296,15 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Run looper}}
 \DoxyCodeLine{    tqdm bar; \textcolor{comment}{// progress bar}}
-\DoxyCodeLine{    looper.\mbox{\hyperlink{classLooper_a2b5f8edf08a435a12199ec9f01195e48}{run}}(}
-\DoxyCodeLine{        [\&]() }
+\DoxyCodeLine{    looper.\mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}}(}
+\DoxyCodeLine{        [\&](TTree* ttree)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            nt.Init(ttree);}
+\DoxyCodeLine{        \},}
+\DoxyCodeLine{        [\&](\textcolor{keywordtype}{int} entry) }
 \DoxyCodeLine{        \{}
 \DoxyCodeLine{            bar.progress(looper.\mbox{\hyperlink{classLooper_abbf626538aced372130172ac86958265}{n\_events\_processed}}, looper.\mbox{\hyperlink{classLooper_a6251eeff0d36df11886ac1a50521a1db}{n\_events\_to\_process}});}
+\DoxyCodeLine{            nt.GetEntry(entry);}
 \DoxyCodeLine{            \textcolor{comment}{// Reset tree}}
 \DoxyCodeLine{            arbol.\mbox{\hyperlink{classArbol_a4c2184d378ab21a9627a57098291a7c4}{resetBranches}}();}
 \DoxyCodeLine{            \textcolor{comment}{// Run cutflow}}
