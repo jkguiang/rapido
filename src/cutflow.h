@@ -61,11 +61,16 @@ public:
     Cut(std::string new_name, std::function<bool()> new_evaluate, 
         std::function<float()> new_compute_weight);
     /**
+     * Create a copy of this cut object
+     * @param new_name name of cut copy
+     * @return pointer to a copy of this cut object
+     */
+    Cut* clone(std::string new_name);
+    /**
      * Print cut object properties
-     * @param weight event weight
      * @return none
      */
-    void print(float weight = 1.0);
+    void print();
     /**
      * Get even weight for this cut (on top of previous cut weights)
      * @return event weight

@@ -29,14 +29,22 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate,
     n_fail_weighted = 0.;
 }
 
-void Cut::print(float weight)
+Cut* Cut::clone(std::string new_name)
+{
+    return new Cut(new_name, evaluate, compute_weight);
+}
+
+void Cut::print()
 {
     std::cout << "---- " << name << " ----" << std::endl;
     std::cout << " - Pass (raw): " << n_pass << std::endl;
     std::cout << " - Fail (raw): " << n_fail << std::endl;
-    if (weight != 1.0)
+    if (n_pass != n_pass_weighted)
     {
         std::cout << " - Pass (wgt): " << n_pass_weighted << std::endl;
+    }
+    if (n_fail != n_fail_weighted)
+    {
         std::cout << " - Fail (wgt): " << n_fail_weighted << std::endl;
     }
     std::string right_name = (right != nullptr) ? right->name : "None";
@@ -256,8 +264,7 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
         else if (direction == Left) { std::cout << "\u2514\u2612\u2500"; }
         else { std::cout << "\u2514\u2611\u2500"; }
         // Print cut name
-        float avg_wgt = cut->n_pass == 0 ? 0. : cut->n_pass_weighted/cut->n_pass;
-        std::cout << cut->name << " (avg wgt = " << avg_wgt << ")" << std::endl;
+        std::cout << cut->name << std::endl;
         // Print cut info
         tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502   " : "    ";
         std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
