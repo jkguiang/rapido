@@ -113,7 +113,7 @@ int main()
 
     // Initialize Looper
     MySelector selector;
-    Looper looper = Looper(tchain, "TreeName");
+    Looper looper = Looper(tchain);
 
     // Run
     looper.run(
@@ -173,7 +173,7 @@ int main(int argc, char** argv)
     HEPCLI cli = HEPCLI(argc, argv);
 
     // Initialize Looper
-    Looper looper = Looper(cli.input_tchain, cli.input_ttree);
+    Looper looper = Looper(cli.input_tchain);
 
     // Initialize Arbol
     output_tfile = cli.output_dir+"/"+cli.output_name+".root"
