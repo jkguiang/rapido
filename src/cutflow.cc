@@ -32,12 +32,12 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate,
 void Cut::print(float weight)
 {
     std::cout << "---- " << name << " ----" << std::endl;
-    std::cout << " - Passes: " << n_pass << std::endl;
-    std::cout << " - Fails: " << n_fail << std::endl;
+    std::cout << " - Pass (raw): " << n_pass << std::endl;
+    std::cout << " - Fail (raw): " << n_fail << std::endl;
     if (weight != 1.0)
     {
-        std::cout << " - Passes (weighted): " << n_pass_weighted << std::endl;
-        std::cout << " - Fails (weighted): " << n_fail_weighted << std::endl;
+        std::cout << " - Pass (wgt): " << n_pass_weighted << std::endl;
+        std::cout << " - Fail (wgt): " << n_fail_weighted << std::endl;
     }
     std::string right_name = (right != nullptr) ? right->name : "None";
     std::cout << " - Right: " << right_name << std::endl;
@@ -221,10 +221,10 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction,
         // Print cut info
         tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502   " : "    ";
         std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
-        if (weight != 1.0) { std::cout << " " << cut->n_pass*weight << " (weighted)"; }
+        if (weight != 1.0) { std::cout << " " << cut->n_pass*weight << " (wgt)"; }
         std::cout << std::endl;
         std::cout << tabs << "fail: " << cut->n_fail << " (raw)";
-        if (weight != 1.0) { std::cout << " " << cut->n_fail*weight << " (weighted)"; }
+        if (weight != 1.0) { std::cout << " " << cut->n_fail*weight << " (wgt)"; }
         std::cout << std::endl;
         // Print next cutflow level
         recursivePrint(tabs, cut->left, Left, weight);
