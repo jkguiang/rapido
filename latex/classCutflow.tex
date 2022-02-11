@@ -29,6 +29,8 @@ virtual bool \mbox{\hyperlink{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}{ru
 \item 
 bool \mbox{\hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{run\+Until}} (std\+::string target\+\_\+cut\+\_\+name)
 \item 
+bool \mbox{\hyperlink{classCutflow_aa076a2ad28bb878a567a30b34f9b40d4}{is\+Progeny}} (std\+::string parent\+\_\+cut\+\_\+name, std\+::string target\+\_\+cut\+\_\+name, Direction direction)
+\item 
 \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCutflow_a11c1116dc01d4c0679945eeff66ff0a4}{find\+Terminus}} (std\+::string starting\+\_\+cut\+\_\+name)
 \item 
 void \mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}} ()
@@ -47,9 +49,11 @@ std\+::string \mbox{\hyperlink{classCutflow_a268e204c942ca35895a94f1be7ce111d}{n
 \item 
 \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{get\+Cut}} (std\+::string cut\+\_\+name)
 \item 
+bool \mbox{\hyperlink{classCutflow_ab90ee0d1a00b9859021afe179eac7d93}{recursive\+Search\+Progeny}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut, \mbox{\hyperlink{classCut}{Cut}} $\ast$target\+\_\+cut)
+\item 
 \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}{recursive\+Find\+Terminus}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut)
 \item 
-void \mbox{\hyperlink{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}{recursive\+Print}} (std\+::string tabs, \mbox{\hyperlink{classCut}{Cut}} $\ast$cut, Direction direction, float weight)
+void \mbox{\hyperlink{classCutflow_a8d49242a5ff302d9654f135f7e478333}{recursive\+Print}} (std\+::string tabs, \mbox{\hyperlink{classCut}{Cut}} $\ast$cut, Direction direction)
 \item 
 std\+::pair$<$ \mbox{\hyperlink{classCut}{Cut}} $\ast$, bool $>$ \mbox{\hyperlink{classCutflow_a8298a5ed45d1963271dbe9c7d1f1586f}{recursive\+Evaluate}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut)
 \item 
@@ -165,6 +169,24 @@ Insert a new node AFTER a given node
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_aa076a2ad28bb878a567a30b34f9b40d4}\label{classCutflow_aa076a2ad28bb878a567a30b34f9b40d4}} 
+\index{Cutflow@{Cutflow}!isProgeny@{isProgeny}}
+\index{isProgeny@{isProgeny}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{isProgeny()}{isProgeny()}}
+{\footnotesize\ttfamily bool Cutflow\+::is\+Progeny (\begin{DoxyParamCaption}\item[{std\+::string}]{parent\+\_\+cut\+\_\+name,  }\item[{std\+::string}]{target\+\_\+cut\+\_\+name,  }\item[{Direction}]{direction }\end{DoxyParamCaption})}
+
+Check if a given cut is amongst the progeny of another cut on a certain side of its family tree 
+\begin{DoxyParams}{Parameters}
+{\em parent\+\_\+cut\+\_\+name} & name of cut whose progeny will be searched \\
+\hline
+{\em target\+\_\+cut\+\_\+name} & name of target descendant cut to look for \\
+\hline
+{\em direction} & side of the family tree to search (Left/false, Right/true) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether or not (true/false) the target cut was found 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}\label{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}} 
 \index{Cutflow@{Cutflow}!print@{print}}
 \index{print@{print}!Cutflow@{Cutflow}}
@@ -216,11 +238,11 @@ std\+::pair of a pointer to terminal cut and a boolean (true = pass, false = fai
 \begin{DoxyReturn}{Returns}
 terminal cut 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}\label{classCutflow_a54e6ae7d3e4c9efdb8fd830ab8a0e0e9}} 
+\mbox{\Hypertarget{classCutflow_a8d49242a5ff302d9654f135f7e478333}\label{classCutflow_a8d49242a5ff302d9654f135f7e478333}} 
 \index{Cutflow@{Cutflow}!recursivePrint@{recursivePrint}}
 \index{recursivePrint@{recursivePrint}!Cutflow@{Cutflow}}
 \doxysubsubsection{\texorpdfstring{recursivePrint()}{recursivePrint()}}
-{\footnotesize\ttfamily void Cutflow\+::recursive\+Print (\begin{DoxyParamCaption}\item[{std\+::string}]{tabs,  }\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut,  }\item[{Direction}]{direction,  }\item[{float}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily void Cutflow\+::recursive\+Print (\begin{DoxyParamCaption}\item[{std\+::string}]{tabs,  }\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut,  }\item[{Direction}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 (PROTECTED) Recursively print cuts 
 \begin{DoxyParams}{Parameters}
@@ -235,6 +257,22 @@ terminal cut
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_ab90ee0d1a00b9859021afe179eac7d93}\label{classCutflow_ab90ee0d1a00b9859021afe179eac7d93}} 
+\index{Cutflow@{Cutflow}!recursiveSearchProgeny@{recursiveSearchProgeny}}
+\index{recursiveSearchProgeny@{recursiveSearchProgeny}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{recursiveSearchProgeny()}{recursiveSearchProgeny()}}
+{\footnotesize\ttfamily bool Cutflow\+::recursive\+Search\+Progeny (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut,  }\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{target\+\_\+cut }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+(PROTECTED) Recursively search for the target cut amongst a given cut\textquotesingle{}s descendants 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+{\em target\+\_\+cut} & pointer to target cut \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether or not the target cut was found amongst the current cut\textquotesingle{}s descendants 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}\label{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}} 
 \index{Cutflow@{Cutflow}!run@{run}}

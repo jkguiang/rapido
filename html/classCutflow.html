@@ -102,6 +102,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8fc98b9c006b80db96576c8bdcf6a0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5a6dc6e9490037d190eca691295859"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">runUntil</a> (std::string target_cut_name)</td></tr>
 <tr class="separator:a3b5a6dc6e9490037d190eca691295859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa076a2ad28bb878a567a30b34f9b40d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#aa076a2ad28bb878a567a30b34f9b40d4">isProgeny</a> (std::string parent_cut_name, std::string target_cut_name, Direction direction)</td></tr>
+<tr class="separator:aa076a2ad28bb878a567a30b34f9b40d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a11c1116dc01d4c0679945eeff66ff0a4">findTerminus</a> (std::string starting_cut_name)</td></tr>
 <tr class="separator:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">print</a> ()</td></tr>
@@ -120,10 +122,12 @@ Public Attributes</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a20193ee89ee39b0fc58ab4f27e2779db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a20193ee89ee39b0fc58ab4f27e2779db">getCut</a> (std::string cut_name)</td></tr>
 <tr class="separator:a20193ee89ee39b0fc58ab4f27e2779db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab90ee0d1a00b9859021afe179eac7d93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#ab90ee0d1a00b9859021afe179eac7d93">recursiveSearchProgeny</a> (<a class="el" href="classCut.html">Cut</a> *cut, <a class="el" href="classCut.html">Cut</a> *target_cut)</td></tr>
+<tr class="separator:ab90ee0d1a00b9859021afe179eac7d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6949f1d9e7d74c6ab8cf0c6f28ac3701"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a6949f1d9e7d74c6ab8cf0c6f28ac3701">recursiveFindTerminus</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:a6949f1d9e7d74c6ab8cf0c6f28ac3701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54e6ae7d3e4c9efdb8fd830ab8a0e0e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a54e6ae7d3e4c9efdb8fd830ab8a0e0e9">recursivePrint</a> (std::string tabs, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction, float weight)</td></tr>
-<tr class="separator:a54e6ae7d3e4c9efdb8fd830ab8a0e0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d49242a5ff302d9654f135f7e478333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8d49242a5ff302d9654f135f7e478333">recursivePrint</a> (std::string tabs, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction)</td></tr>
+<tr class="separator:a8d49242a5ff302d9654f135f7e478333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8298a5ed45d1963271dbe9c7d1f1586f"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classCut.html">Cut</a> *, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8298a5ed45d1963271dbe9c7d1f1586f">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:a8298a5ed45d1963271dbe9c7d1f1586f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc7029b27ff8d742d10c75d6f6342dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac">recursiveDelete</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
@@ -338,6 +342,49 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa076a2ad28bb878a567a30b34f9b40d4" name="aa076a2ad28bb878a567a30b34f9b40d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa076a2ad28bb878a567a30b34f9b40d4">&#9670;&nbsp;</a></span>isProgeny()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cutflow::isProgeny </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>parent_cut_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>target_cut_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Check if a given cut is amongst the progeny of another cut on a certain side of its family tree </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent_cut_name</td><td>name of cut whose progeny will be searched </td></tr>
+    <tr><td class="paramname">target_cut_name</td><td>name of target descendant cut to look for </td></tr>
+    <tr><td class="paramname">direction</td><td>side of the family tree to search (Left/false, Right/true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether or not (true/false) the target cut was found </dd></dl>
+
+</div>
+</div>
 <a id="a0cb4c8bd6d15ace1f85fe0cfb8d9d828" name="a0cb4c8bd6d15ace1f85fe0cfb8d9d828"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">&#9670;&nbsp;</a></span>print()</h2>
 
@@ -455,8 +502,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a54e6ae7d3e4c9efdb8fd830ab8a0e0e9" name="a54e6ae7d3e4c9efdb8fd830ab8a0e0e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54e6ae7d3e4c9efdb8fd830ab8a0e0e9">&#9670;&nbsp;</a></span>recursivePrint()</h2>
+<a id="a8d49242a5ff302d9654f135f7e478333" name="a8d49242a5ff302d9654f135f7e478333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d49242a5ff302d9654f135f7e478333">&#9670;&nbsp;</a></span>recursivePrint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -480,13 +527,7 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Direction&#160;</td>
-          <td class="paramname"><em>direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>weight</em>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -510,6 +551,50 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="ab90ee0d1a00b9859021afe179eac7d93" name="ab90ee0d1a00b9859021afe179eac7d93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab90ee0d1a00b9859021afe179eac7d93">&#9670;&nbsp;</a></span>recursiveSearchProgeny()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cutflow::recursiveSearchProgeny </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target_cut</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >(PROTECTED) Recursively search for the target cut amongst a given cut's descendants </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
+    <tr><td class="paramname">target_cut</td><td>pointer to target cut </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether or not the target cut was found amongst the current cut's descendants </dd></dl>
 
 </div>
 </div>
