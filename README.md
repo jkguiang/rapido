@@ -113,7 +113,7 @@ int main()
 
     // Initialize Looper
     MySelector selector;
-    Looper looper = Looper<Nano>(&selector, tchain, "TreeName");
+    Looper looper = Looper(tchain, "TreeName");
 
     // Run
     looper.run(
@@ -173,10 +173,11 @@ int main(int argc, char** argv)
     HEPCLI cli = HEPCLI(argc, argv);
 
     // Initialize Looper
-    Looper looper = Looper<Nano>(&nt, cli.input_tchain);
+    Looper looper = Looper(cli.input_tchain, cli.input_ttree);
 
     // Initialize Arbol
-    Arbol arbol = Arbol(cli.output_tfile);
+    output_tfile = cli.output_dir+"/"+cli.output_name+".root"
+    Arbol arbol = Arbol(output_tfile);
     // Event branches
     arbol.newBranch<int>("event", -999);
     arbol.newBranch<float>("met", -999);
@@ -191,7 +192,7 @@ int main(int argc, char** argv)
     arbol.newBranch<float>("trailing_lep_phi", -999);
 
     // Initialize Cutflow
-    Cutflow cutflow = Cutflow();
+    Cutflow cutflow = Cutflow(cli.output_name+"_Cutflow");
 
     // Initialize some hists
     TH1F* ld_lep_pt_hist = new TH1F("ld_lep_pt_hist", "ld_lep_pt_hist", 20, 0, 200);
@@ -314,7 +315,7 @@ int main(int argc, char** argv)
     // Wrap up
     bar.finish();
     cutflow.print();
-    cutflow.writeCSV();
+    cutflow.writeCSV(cli.output_dir);
     arbol.writeTFile();
     return 0;
 }
