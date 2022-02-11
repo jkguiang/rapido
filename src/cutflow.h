@@ -103,6 +103,13 @@ protected:
      */
     Cut* getCut(std::string cut_name);
     /**
+     * (PROTECTED) Recursively search for the target cut amongst a given cut's descendants
+     * @param cut pointer to current cut
+     * @param target_cut pointer to target cut
+     * @return whether or not the target cut was found amongst the current cut's descendants
+     */
+    bool recursiveSearchProgeny(Cut* cut, Cut* target_cut);
+    /**
      * (PROTECTED) Recursively search for the rightmost terminal leaf from a given node
      * @param cut pointer to current cut
      * @return terminal cut
@@ -116,7 +123,7 @@ protected:
      * @param weight current event weight
      * @return none
      */
-    void recursivePrint(std::string tabs, Cut* cut, Direction direction, float weight);
+    void recursivePrint(std::string tabs, Cut* cut, Direction direction);
     /**
      * (PROTECTED) Recursively evaulate cuts in the cutflow
      * @param cut pointer to current cut
@@ -184,6 +191,15 @@ public:
      * @return whether or not (true/false) the target cut was reached and passed
      */
     bool runUntil(std::string target_cut_name);
+    /**
+     * Check if a given cut is amongst the progeny of another cut on a certain side of its
+     * family tree
+     * @param parent_cut_name name of cut whose progeny will be searched
+     * @param target_cut_name name of target descendant cut to look for
+     * @param direction side of the family tree to search (Left/false, Right/true)
+     * @return whether or not (true/false) the target cut was found
+     */
+    bool isProgeny(std::string parent_cut_name, std::string target_cut_name, Direction direction);
     /**
      * Find the rightmost terminal leaf from a given node
      * @param starting_cut_name cut from which to start search

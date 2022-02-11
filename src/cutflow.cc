@@ -151,9 +151,35 @@ bool Cutflow::run()
 
 bool Cutflow::runUntil(std::string target_cut_name)
 {
-    Cut* target_cut = getCut(target_cut_name);
     std::pair<Cut*, bool> result = recursiveEvaluate(root);
-    return (target_cut == result.first) && (result.second);
+    if (target_cut_name == result.first->name)
+    {
+        return result.second;
+    }
+    else
+    {
+        return isProgeny(target_cut_name, result.first->name, Right);
+    }
+}
+
+bool Cutflow::isProgeny(std::string parent_cut_name, std::string target_cut_name, Direction direction)
+{
+    Cut* parent_cut = getCut(parent_cut_name);
+    Cut* target_cut = getCut(target_cut_name);
+    if (direction == Right && parent_cut->right != nullptr)
+    {
+        if (parent_cut->right == target_cut) { return true; }
+        else { return recursiveSearchProgeny(parent_cut->right, target_cut); }
+    }
+    else if (direction == Left && parent_cut->left != nullptr)
+    {
+        if (parent_cut->left == target_cut) { return true; }
+        else { return recursiveSearchProgeny(parent_cut->left, target_cut); }
+    }
+    else
+    {
+        return false;
+    }
 }
 
 Cut* Cutflow::findTerminus(std::string starting_cut_name)
@@ -165,7 +191,7 @@ Cut* Cutflow::findTerminus(std::string starting_cut_name)
 void Cutflow::print()
 {
     std::cout << "Cutflow" << std::endl;
-    recursivePrint("", root, Right, 1.0);
+    recursivePrint("", root, Right);
     return;
 }
 
@@ -200,35 +226,49 @@ Cut* Cutflow::getCut(std::string cut_name)
     }
 }
 
+bool Cutflow::recursiveSearchProgeny(Cut* cut, Cut* target_cut)
+{
+    if (cut->right != nullptr)
+    {
+        if (cut->right == target_cut) { return true; }
+        else if (recursiveSearchProgeny(cut->right, target_cut)) { return true; }
+    }
+    if (cut->left != nullptr)
+    {
+        if (cut->left == target_cut) { return true; }
+        else if (recursiveSearchProgeny(cut->left, target_cut)) { return true; }
+    }
+    return false;
+}
+
 Cut* Cutflow::recursiveFindTerminus(Cut* cut)
 {
     if (cut->right != nullptr) { return recursiveFindTerminus(cut->right); }
     return cut;
 }
 
-void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction, 
-                             float weight)
+void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
 {
     if (cut != nullptr)
     {
         std::cout << tabs;
-        weight *= cut->compute_weight();
         if (direction == Left && cut->parent->right != nullptr) { std::cout << "\u251C\u2612\u2500"; }
         else if (direction == Left) { std::cout << "\u2514\u2612\u2500"; }
         else { std::cout << "\u2514\u2611\u2500"; }
         // Print cut name
-        std::cout << cut->name << std::endl;
+        float avg_wgt = cut->n_pass == 0 ? 0. : cut->n_pass_weighted/cut->n_pass;
+        std::cout << cut->name << " (avg wgt = " << avg_wgt << ")" << std::endl;
         // Print cut info
         tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502   " : "    ";
         std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
-        if (weight != 1.0) { std::cout << " " << cut->n_pass*weight << " (wgt)"; }
+        if (cut->n_pass != cut->n_pass_weighted) { std::cout << " " << cut->n_pass_weighted << " (wgt)"; }
         std::cout << std::endl;
         std::cout << tabs << "fail: " << cut->n_fail << " (raw)";
-        if (weight != 1.0) { std::cout << " " << cut->n_fail*weight << " (wgt)"; }
+        if (cut->n_fail != cut->n_fail_weighted) { std::cout << " " << cut->n_fail_weighted << " (wgt)"; }
         std::cout << std::endl;
         // Print next cutflow level
-        recursivePrint(tabs, cut->left, Left, weight);
-        recursivePrint(tabs, cut->right, Right, weight);
+        recursivePrint(tabs, cut->left, Left);
+        recursivePrint(tabs, cut->right, Right);
     }
     return;
 }
