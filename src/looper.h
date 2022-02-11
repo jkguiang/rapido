@@ -71,12 +71,11 @@ public:
  */
 class Looper
 {
-private:
+public:
     /** ROOT TChain of files to loop over */
     TChain* tchain;
     /** ROOT TTree name */
     TString ttree_name;
-public:
     /** Current entry in TTree (i.e. current index of event loop) */
     unsigned int current_entry;
     /** Number of events that have been processed */
@@ -90,13 +89,6 @@ public:
      * @return none
      */
     Looper(TChain* new_tchain);
-    /**
-     * Looper object overload constructor
-     * @param new_tchain pointer to ROOT TChain of files to loop over
-     * @param new_ttree_name name of the ROOT TTree
-     * @return none
-     */
-    Looper(TChain* new_tchain, TString new_ttree_name);
     /**
      * Looper object destructor
      * @return none

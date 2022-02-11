@@ -28,7 +28,7 @@ void HEPCLI::printHelp()
     std::cout << std::setw(25) << "  -d, --output_dir";
     std::cout << std::setw(50) << "target directory for output file(s)";
     std::cout << std::endl;
-    std::cout << std::setw(25) << "  -o, --output_name";
+    std::cout << std::setw(25) << "  -n, --output_name";
     std::cout << std::setw(50) << "short name for output file(s)";
     std::cout << std::endl;
     std::cout << std::setw(25) << "  -s, --scale_factor";
@@ -106,15 +106,7 @@ void HEPCLI::parse(int argc, char** argv)
 Looper::Looper(TChain* new_tchain)
 {
     tchain = new_tchain;
-    ttree_name = "Events";
-    n_events_processed = 0;
-    n_events_to_process = tchain->GetEntries();
-}
-
-Looper::Looper(TChain* new_tchain, TString new_ttree_name)
-{
-    tchain = new_tchain;
-    ttree_name = new_ttree_name;
+    ttree_name = tchain->GetName();
     n_events_processed = 0;
     n_events_to_process = tchain->GetEntries();
 }
