@@ -213,12 +213,13 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction,
     {
         std::cout << tabs;
         weight *= cut->compute_weight();
-        if (direction == Left) { std::cout << "\u251C\u2612\u2500"; }
+        if (direction == Left && cut->parent->right != nullptr) { std::cout << "\u251C\u2612\u2500"; }
+        else if (direction == Left) { std::cout << "\u2514\u2612\u2500"; }
         else { std::cout << "\u2514\u2611\u2500"; }
         // Print cut name
         std::cout << cut->name << std::endl;
         // Print cut info
-        tabs += (direction == Left) ? "\u2502   " : "    ";
+        tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502   " : "    ";
         std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
         if (weight != 1.0) { std::cout << " " << cut->n_pass*weight << " (weighted)"; }
         std::cout << std::endl;
