@@ -11,7 +11,9 @@
 \item 
 \mbox{\hyperlink{classCut_adcfec6d2df97f8e84058078f2f736b03}{Cut}} (std\+::string new\+\_\+name, std\+::function$<$ bool()$>$ new\+\_\+evaluate, std\+::function$<$ float()$>$ new\+\_\+compute\+\_\+weight)
 \item 
-void \mbox{\hyperlink{classCut_af05a93abb03377951fb2e7da79a7e5df}{print}} (float weight=1.\+0)
+\mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCut_a51d128a9d77f6e9e2965ae0a2ea077e1}{clone}} (std\+::string new\+\_\+name)
+\item 
+void \mbox{\hyperlink{classCut_a9b1298219ed1f85bba920e4049d712e3}{print}} ()
 \item 
 float \mbox{\hyperlink{classCut_a3201e86949718110994a9301987f0f98}{get\+Weight}} ()
 \end{DoxyCompactItemize}
@@ -81,6 +83,20 @@ none
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCut_a51d128a9d77f6e9e2965ae0a2ea077e1}\label{classCut_a51d128a9d77f6e9e2965ae0a2ea077e1}} 
+\index{Cut@{Cut}!clone@{clone}}
+\index{clone@{clone}!Cut@{Cut}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCut}{Cut}} $\ast$ Cut\+::clone (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name }\end{DoxyParamCaption})}
+
+Create a copy of this cut object 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+name} & name of cut copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to a copy of this cut object 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCut_a3201e86949718110994a9301987f0f98}\label{classCut_a3201e86949718110994a9301987f0f98}} 
 \index{Cut@{Cut}!getWeight@{getWeight}}
 \index{getWeight@{getWeight}!Cut@{Cut}}
@@ -90,18 +106,13 @@ none
 Get even weight for this cut (on top of previous cut weights) \begin{DoxyReturn}{Returns}
 event weight 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classCut_af05a93abb03377951fb2e7da79a7e5df}\label{classCut_af05a93abb03377951fb2e7da79a7e5df}} 
+\mbox{\Hypertarget{classCut_a9b1298219ed1f85bba920e4049d712e3}\label{classCut_a9b1298219ed1f85bba920e4049d712e3}} 
 \index{Cut@{Cut}!print@{print}}
 \index{print@{print}!Cut@{Cut}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily void Cut\+::print (\begin{DoxyParamCaption}\item[{float}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Cut\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Print cut object properties 
-\begin{DoxyParams}{Parameters}
-{\em weight} & event weight \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+Print cut object properties \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 

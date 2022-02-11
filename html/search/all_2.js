@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['clone_0',['clone',['../classHist1D.html#a68aaeba84e870ae5a117fe49c21f3a7c',1,'Hist1D::clone()'],['../classHist2D.html#aba7e37236e77fcefb39c839c39261c73',1,'Hist2D::clone()'],['../classUtilities_1_1CSVFile.html#a7394abaf33c2cf1bc557bba58cf0e453',1,'Utilities::CSVFile::clone()']]],
+  ['clone_0',['clone',['../classCut.html#a51d128a9d77f6e9e2965ae0a2ea077e1',1,'Cut::clone()'],['../classHist1D.html#a68aaeba84e870ae5a117fe49c21f3a7c',1,'Hist1D::clone()'],['../classHist2D.html#aba7e37236e77fcefb39c839c39261c73',1,'Hist2D::clone()'],['../classUtilities_1_1CSVFile.html#a7394abaf33c2cf1bc557bba58cf0e453',1,'Utilities::CSVFile::clone()']]],
   ['compute_5fweight_1',['compute_weight',['../classCut.html#a908dfdeed9d882ca026427c0942fb999',1,'Cut']]],
   ['csvfile_2',['CSVFile',['../classUtilities_1_1CSVFile.html#a35c6dd1a71618229cdd5f5e1ca6de4e9',1,'Utilities::CSVFile::CSVFile()'],['../classUtilities_1_1CSVFile.html',1,'Utilities::CSVFile']]],
   ['current_5fentry_3',['current_entry',['../classLooper.html#ab368e58278fc91c4814e579cb9080d4f',1,'Looper']]],
