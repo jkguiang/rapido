@@ -41,22 +41,20 @@
 \DoxyCodeLine{68 }
 \DoxyCodeLine{72 \textcolor{keyword}{class }\mbox{\hyperlink{classLooper}{Looper}}}
 \DoxyCodeLine{73 \{}
-\DoxyCodeLine{74 \textcolor{keyword}{private}:}
-\DoxyCodeLine{76     TChain* tchain;}
-\DoxyCodeLine{78     TString ttree\_name;}
-\DoxyCodeLine{79 \textcolor{keyword}{public}:}
-\DoxyCodeLine{81     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_ab368e58278fc91c4814e579cb9080d4f}{current\_entry}};}
-\DoxyCodeLine{83     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_abbf626538aced372130172ac86958265}{n\_events\_processed}};}
-\DoxyCodeLine{85     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_a6251eeff0d36df11886ac1a50521a1db}{n\_events\_to\_process}};}
-\DoxyCodeLine{86     }
-\DoxyCodeLine{92     \mbox{\hyperlink{classLooper_a916868e8a7a8bf73274a82bf47df22f4}{Looper}}(TChain* new\_tchain);}
-\DoxyCodeLine{99     \mbox{\hyperlink{classLooper_acded76cf749f47dcb563d19ccd1648dd}{Looper}}(TChain* new\_tchain, TString new\_ttree\_name);}
-\DoxyCodeLine{104     \textcolor{keyword}{virtual} \mbox{\hyperlink{classLooper_a23ff9511f1d99ca1f3753e59a1b3a22b}{\string~Looper}}();}
-\DoxyCodeLine{132     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}}(std::function<\textcolor{keywordtype}{void}(TTree* ttree)> init, std::function<\textcolor{keywordtype}{void}(\textcolor{keywordtype}{int} entry)> eval);}
-\DoxyCodeLine{133 \};}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{135 \textcolor{preprocessor}{\#include "{}looper.icc"{}}}
-\DoxyCodeLine{136 }
-\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{74 \textcolor{keyword}{public}:}
+\DoxyCodeLine{76     TChain* \mbox{\hyperlink{classLooper_ae804a8c01aea03c415a0277099b7a2a0}{tchain}};}
+\DoxyCodeLine{78     TString \mbox{\hyperlink{classLooper_aa42e5d8d2e16cf7768ea5d582a17868c}{ttree\_name}};}
+\DoxyCodeLine{80     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_ab368e58278fc91c4814e579cb9080d4f}{current\_entry}};}
+\DoxyCodeLine{82     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_abbf626538aced372130172ac86958265}{n\_events\_processed}};}
+\DoxyCodeLine{84     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classLooper_a6251eeff0d36df11886ac1a50521a1db}{n\_events\_to\_process}};}
+\DoxyCodeLine{85     }
+\DoxyCodeLine{91     \mbox{\hyperlink{classLooper_a916868e8a7a8bf73274a82bf47df22f4}{Looper}}(TChain* new\_tchain);}
+\DoxyCodeLine{96     \textcolor{keyword}{virtual} \mbox{\hyperlink{classLooper_a23ff9511f1d99ca1f3753e59a1b3a22b}{\string~Looper}}();}
+\DoxyCodeLine{124     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}}(std::function<\textcolor{keywordtype}{void}(TTree* ttree)> init, std::function<\textcolor{keywordtype}{void}(\textcolor{keywordtype}{int} entry)> eval);}
+\DoxyCodeLine{125 \};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#include "{}looper.icc"{}}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

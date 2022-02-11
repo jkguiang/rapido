@@ -115,7 +115,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Looper}}
 \DoxyCodeLine{    MySelector selector;}
-\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper}}(tchain, \textcolor{stringliteral}{"{}TreeName"{}});}
+\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper}}(tchain);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Run}}
 \DoxyCodeLine{    looper.\mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}}(}
@@ -176,7 +176,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{    \mbox{\hyperlink{classHEPCLI}{HEPCLI}} cli = \mbox{\hyperlink{classHEPCLI}{HEPCLI}}(argc, argv);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Looper}}
-\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper}}(cli.\mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain}}, cli.\mbox{\hyperlink{classHEPCLI_ad8364ec0fda19a180ccafbdb9866790f}{input\_ttree}});}
+\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper}}(cli.\mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Arbol}}
 \DoxyCodeLine{    output\_tfile = cli.\mbox{\hyperlink{classHEPCLI_a2c6e1c6b16b1980527bd660175e77bd8}{output\_dir}}+\textcolor{stringliteral}{"{}/"{}}+cli.\mbox{\hyperlink{classHEPCLI_a9e5f226adebb7d77fb601c93268868dd}{output\_name}}+\textcolor{stringliteral}{"{}.root"{}}}
