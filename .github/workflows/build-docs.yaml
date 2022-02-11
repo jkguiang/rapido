@@ -19,7 +19,6 @@ jobs:
         with:
           working-directory: "./rapido-docs"
           doxyfile-path: "doxyfile"
-          enable-latex: true
       - name: Commit docs
         uses: EndBug/add-and-commit@v8
         with:
