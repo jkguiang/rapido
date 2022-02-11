@@ -115,7 +115,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Looper}}
 \DoxyCodeLine{    MySelector selector;}
-\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper<Nano>}}(\&selector, tchain, \textcolor{stringliteral}{"{}TreeName"{}});}
+\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper}}(tchain, \textcolor{stringliteral}{"{}TreeName"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Run}}
 \DoxyCodeLine{    looper.\mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}}(}
@@ -176,10 +176,11 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{    \mbox{\hyperlink{classHEPCLI}{HEPCLI}} cli = \mbox{\hyperlink{classHEPCLI}{HEPCLI}}(argc, argv);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Looper}}
-\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper<Nano>}}(\&nt, cli.\mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain}});}
+\DoxyCodeLine{    \mbox{\hyperlink{classLooper}{Looper}} looper = \mbox{\hyperlink{classLooper}{Looper}}(cli.\mbox{\hyperlink{classHEPCLI_a3d4bb4a7c1f1b6d4e008ff76e43bef15}{input\_tchain}}, cli.\mbox{\hyperlink{classHEPCLI_ad8364ec0fda19a180ccafbdb9866790f}{input\_ttree}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Arbol}}
-\DoxyCodeLine{    \mbox{\hyperlink{classArbol}{Arbol}} arbol = \mbox{\hyperlink{classArbol}{Arbol}}(cli.output\_tfile);}
+\DoxyCodeLine{    output\_tfile = cli.\mbox{\hyperlink{classHEPCLI_a2c6e1c6b16b1980527bd660175e77bd8}{output\_dir}}+\textcolor{stringliteral}{"{}/"{}}+cli.\mbox{\hyperlink{classHEPCLI_a9e5f226adebb7d77fb601c93268868dd}{output\_name}}+\textcolor{stringliteral}{"{}.root"{}}}
+\DoxyCodeLine{    \mbox{\hyperlink{classArbol}{Arbol}} arbol = \mbox{\hyperlink{classArbol}{Arbol}}(output\_tfile);}
 \DoxyCodeLine{    \textcolor{comment}{// Event branches}}
 \DoxyCodeLine{    arbol.\mbox{\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}}<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"{}event"{}}, -\/999);}
 \DoxyCodeLine{    arbol.\mbox{\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"{}met"{}}, -\/999);}
@@ -194,7 +195,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{    arbol.\mbox{\hyperlink{classArbol_a552622885ffce15f1b1369fe44e729bb}{newBranch}}<\textcolor{keywordtype}{float}>(\textcolor{stringliteral}{"{}trailing\_lep\_phi"{}}, -\/999);}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize Cutflow}}
-\DoxyCodeLine{    \mbox{\hyperlink{classCutflow}{Cutflow}} cutflow = \mbox{\hyperlink{classCutflow}{Cutflow}}();}
+\DoxyCodeLine{    \mbox{\hyperlink{classCutflow}{Cutflow}} cutflow = \mbox{\hyperlink{classCutflow}{Cutflow}}(cli.\mbox{\hyperlink{classHEPCLI_a9e5f226adebb7d77fb601c93268868dd}{output\_name}}+\textcolor{stringliteral}{"{}\_Cutflow"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{    \textcolor{comment}{// Initialize some hists}}
 \DoxyCodeLine{    TH1F* ld\_lep\_pt\_hist = \textcolor{keyword}{new} TH1F(\textcolor{stringliteral}{"{}ld\_lep\_pt\_hist"{}}, \textcolor{stringliteral}{"{}ld\_lep\_pt\_hist"{}}, 20, 0, 200);}
@@ -317,7 +318,7 @@ RAPIDO is a C++ framework designed to make writing HEP analyses more ergonomic a
 \DoxyCodeLine{    \textcolor{comment}{// Wrap up}}
 \DoxyCodeLine{    bar.finish();}
 \DoxyCodeLine{    cutflow.print();}
-\DoxyCodeLine{    cutflow.writeCSV();}
+\DoxyCodeLine{    cutflow.writeCSV(cli.\mbox{\hyperlink{classHEPCLI_a2c6e1c6b16b1980527bd660175e77bd8}{output\_dir}});}
 \DoxyCodeLine{    arbol.\mbox{\hyperlink{classArbol_ade7d835bbe383a70006e86785ae5672c}{writeTFile}}();}
 \DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{\}}
