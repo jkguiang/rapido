@@ -5,10 +5,13 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate)
     name = new_name;
     evaluate = new_evaluate;
     compute_weight = [&]() { return 1.0; };
+    parent = nullptr;
     left = nullptr;
     right = nullptr;
     n_pass = 0;
     n_fail = 0;
+    n_pass_weighted = 0.;
+    n_fail_weighted = 0.;
 }
 
 Cut::Cut(std::string new_name, std::function<bool()> new_evaluate, 
@@ -17,29 +20,42 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate,
     name = new_name;
     evaluate = new_evaluate;
     compute_weight = new_compute_weight;
+    parent = nullptr;
     left = nullptr;
     right = nullptr;
     n_pass = 0;
     n_fail = 0;
+    n_pass_weighted = 0.;
+    n_fail_weighted = 0.;
 }
 
 void Cut::print(float weight)
 {
     std::cout << "---- " << name << " ----" << std::endl;
-    std::cout << " - Total Weight: " << weight << std::endl;
-    std::cout << " - Cut Weight: " << compute_weight() << std::endl;
     std::cout << " - Passes: " << n_pass << std::endl;
     std::cout << " - Fails: " << n_fail << std::endl;
     if (weight != 1.0)
     {
-        std::cout << " - Passes (weighted): " << n_pass*weight << std::endl;
-        std::cout << " - Fails (weighted): " << n_fail*weight << std::endl;
+        std::cout << " - Passes (weighted): " << n_pass_weighted << std::endl;
+        std::cout << " - Fails (weighted): " << n_fail_weighted << std::endl;
     }
     std::string right_name = (right != nullptr) ? right->name : "None";
     std::cout << " - Right: " << right_name << std::endl;
     std::string left_name = (left != nullptr) ? left->name : "None";
     std::cout << " - Left: " << left_name << std::endl;
     return;
+}
+
+float Cut::getWeight()
+{
+    if (parent != nullptr)
+    {
+        return compute_weight()*parent->getWeight();
+    }
+    else
+    {
+        return compute_weight();
+    }
 }
 
 Cutflow::Cutflow()
@@ -60,8 +76,7 @@ Cutflow::Cutflow(std::string new_name, Cut* new_root)
 {
     name = new_name;
     globals = Utilities::Variables();
-    root = new_root;
-    cut_record[new_root->name] = new_root;
+    setRoot(new_root);
 }
 
 Cutflow::~Cutflow() { recursiveDelete(root); }
@@ -70,12 +85,20 @@ void Cutflow::setRoot(Cut* new_root)
 {
     if (root != nullptr)
     {
-        new_root->left = root->left;
-        new_root->right = root->right;
+        if (root->left != nullptr)
+        {
+            new_root->left = root->left;
+            root->left->parent = new_root;
+        }
+        if (root->right != nullptr)
+        {
+            new_root->right = root->right;
+            root->right->parent = new_root;
+        }
         cut_record.erase(root->name);
-        delete root;
     }
     root = new_root;
+    root->parent = nullptr;
     cut_record[new_root->name] = new_root;
     return;
 }
@@ -93,34 +116,44 @@ void Cutflow::insert(std::string target_cut_name, Cut* new_cut, Direction direct
         cut_record[new_cut->name] = new_cut;
         if (direction == Right) 
         {
-            new_cut->right = target_cut->right;
+            new_cut->parent = target_cut;
+            if (target_cut->right != nullptr)
+            {
+                new_cut->right = target_cut->right;
+                target_cut->right->parent = new_cut;
+            }
             target_cut->right = new_cut;
         }
         else
         {
-            new_cut->left = target_cut->left;
+            new_cut->parent = target_cut;
+            if (target_cut->left != nullptr)
+            {
+                new_cut->left = target_cut->left;
+                target_cut->left->parent = new_cut;
+            }
             target_cut->left = new_cut;
         }
     }
     return;
 }
 
-Cut* Cutflow::run()
+bool Cutflow::run()
 {
     if (root == nullptr)
     {
         std::string msg = "Error - no root node set.";
         throw std::runtime_error("Cutflow::run: "+msg);
     }
-    Cut* terminal_cut = recursiveEvaluate(root);
-    return terminal_cut;
+    std::pair<Cut*, bool> result = recursiveEvaluate(root);
+    return result.second;
 }
 
 bool Cutflow::runUntil(std::string target_cut_name)
 {
     Cut* target_cut = getCut(target_cut_name);
-    Cut* terminal_cut = run();
-    return target_cut == terminal_cut;
+    std::pair<Cut*, bool> result = recursiveEvaluate(root);
+    return (target_cut == result.first) && (result.second);
 }
 
 Cut* Cutflow::findTerminus(std::string starting_cut_name)
@@ -187,7 +220,7 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction,
         // Print cut info
         tabs += (direction == Left) ? "\u2502   " : "    ";
         std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
-        if (weight != 1.0) { std::cout << cut->n_pass*weight << " (weighted)"; }
+        if (weight != 1.0) { std::cout << " " << cut->n_pass*weight << " (weighted)"; }
         std::cout << std::endl;
         std::cout << tabs << "fail: " << cut->n_fail << " (raw)";
         if (weight != 1.0) { std::cout << " " << cut->n_fail*weight << " (weighted)"; }
@@ -199,18 +232,20 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction,
     return;
 }
 
-Cut* Cutflow::recursiveEvaluate(Cut* cut)
+std::pair<Cut*, bool> Cutflow::recursiveEvaluate(Cut* cut)
 {
     if (cut->evaluate() == true)
     {
         cut->n_pass++;
-        if (cut->right == nullptr) { return cut; }
+        cut->n_pass_weighted += cut->getWeight();
+        if (cut->right == nullptr) { return std::make_pair(cut, true); }
         else { return recursiveEvaluate(cut->right); }
     }
     else
     {
         cut->n_fail++;
-        if (cut->left == nullptr) { return cut; }
+        cut->n_fail_weighted += cut->getWeight();
+        if (cut->left == nullptr) { return std::make_pair(cut, false); }
         else { return recursiveEvaluate(cut->left); }
     }
 }
