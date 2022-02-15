@@ -110,6 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a43e58326fbce5306e2b3d080c6cd85f0">writeCSV</a> (std::string output_dir=&quot;&quot;)</td></tr>
 <tr class="separator:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd23a4f8f0fef9a0ce8714bd901d23fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#acd23a4f8f0fef9a0ce8714bd901d23fb">writeMermaid</a> (std::string output_dir=&quot;&quot;, std::string orientation=&quot;TD&quot;)</td></tr>
+<tr class="separator:acd23a4f8f0fef9a0ce8714bd901d23fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -695,6 +697,42 @@ Protected Attributes</h2></td></tr>
 <p >Print all cutflow paths to separate CSV files {output_dir}/{name}_{terminal_cut}.csv </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">output_dir</td><td>target directory for output CSV files (optional) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="acd23a4f8f0fef9a0ce8714bd901d23fb" name="acd23a4f8f0fef9a0ce8714bd901d23fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd23a4f8f0fef9a0ce8714bd901d23fb">&#9670;&nbsp;</a></span>writeMermaid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cutflow::writeMermaid </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>output_dir</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>orientation</em> = <code>&quot;TD&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Print cutflow to a Mermaid flowchart </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_dir</td><td>target directory for output .mmd file (optional) </td></tr>
+    <tr><td class="paramname">output_dir</td><td>desired orientation of graph: TD or LR (optional) </td></tr>
   </table>
   </dd>
 </dl>

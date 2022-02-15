@@ -36,6 +36,8 @@ bool \mbox{\hyperlink{classCutflow_aa076a2ad28bb878a567a30b34f9b40d4}{is\+Progen
 void \mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}} ()
 \item 
 void \mbox{\hyperlink{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}{write\+CSV}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{})
+\item 
+void \mbox{\hyperlink{classCutflow_acd23a4f8f0fef9a0ce8714bd901d23fb}{write\+Mermaid}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{}, std\+::string orientation=\char`\"{}TD\char`\"{})
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -327,6 +329,22 @@ none
 Print all cutflow paths to separate CSV files \{output\+\_\+dir\}/\{name\}\+\_\+\{terminal\+\_\+cut\}.csv 
 \begin{DoxyParams}{Parameters}
 {\em output\+\_\+dir} & target directory for output CSV files (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_acd23a4f8f0fef9a0ce8714bd901d23fb}\label{classCutflow_acd23a4f8f0fef9a0ce8714bd901d23fb}} 
+\index{Cutflow@{Cutflow}!writeMermaid@{writeMermaid}}
+\index{writeMermaid@{writeMermaid}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{writeMermaid()}{writeMermaid()}}
+{\footnotesize\ttfamily void Cutflow\+::write\+Mermaid (\begin{DoxyParamCaption}\item[{std\+::string}]{output\+\_\+dir = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::string}]{orientation = {\ttfamily \char`\"{}TD\char`\"{}} }\end{DoxyParamCaption})}
+
+Print cutflow to a Mermaid flowchart 
+\begin{DoxyParams}{Parameters}
+{\em output\+\_\+dir} & target directory for output .mmd file (optional) \\
+\hline
+{\em output\+\_\+dir} & desired orientation of graph\+: TD or LR (optional) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
