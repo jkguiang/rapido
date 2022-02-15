@@ -371,26 +371,26 @@ void Cutflow::recursiveWriteMermaid(Cut* cut, std::ofstream& ofstream, std::stri
     if (cut != nullptr)
     {
         ofstream.open(output_mmd, std::ios::app);
-        if (cut->parent == nullptr)
+        if (cut == root)
         {
-            ofstream << "    " << cut->name+"("+cut->name+")" << std::endl;
+            ofstream << "    " << cut->name+"([\""+cut->name+" <br/> (root node)\"])" << std::endl;
         }
         // Write cut fails
         if (cut->parent != nullptr && cut == cut->parent->left)
         {
-            ofstream << "    " << cut->parent->name+"Fail --> "+cut->name+"("+cut->name+")" << std::endl;
+            ofstream << "    " << cut->parent->name+"Fail --> "+cut->name+"{"+cut->name+"}" << std::endl;
         }
-        ofstream << "    " << cut->name+" -- Fail --> "+cut->name+"Fail[" << cut->n_fail << " raw";
+        ofstream << "    " << cut->name+" -- Fail --> "+cut->name+"Fail[/" << cut->n_fail << " raw";
         if (cut->n_fail != cut->n_fail_weighted) { ofstream << " <br/> " << cut->n_fail_weighted << " wgt"; }
-        ofstream << "]" << std::endl;
+        ofstream << "/]" << std::endl;
         // Write cut passes
         if (cut->parent != nullptr && cut == cut->parent->right)
         {
-            ofstream << "    " << cut->parent->name+"Pass --> "+cut->name+"("+cut->name+")" << std::endl;
+            ofstream << "    " << cut->parent->name+"Pass --> "+cut->name+"{"+cut->name+"}" << std::endl;
         }
-        ofstream << "    " << cut->name+" -- Pass --> "+cut->name+"Pass[" << cut->n_pass << " raw";
+        ofstream << "    " << cut->name+" -- Pass --> "+cut->name+"Pass[/" << cut->n_pass << " raw";
         if (cut->n_pass != cut->n_pass_weighted) { ofstream << " <br/> " << cut->n_pass_weighted << " wgt"; }
-        ofstream << "]" << std::endl;
+        ofstream << "/]" << std::endl;
         // Print next cutflow level
         ofstream.close();
         recursiveWriteMermaid(cut->left, ofstream, output_mmd);
