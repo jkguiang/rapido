@@ -89,13 +89,20 @@ private:
      * @param output_dir target directory for output CSV files
      * @param cut pointer to current cut
      * @param direction direction of cut relative to parent
-     * @param ofstreams_idx index of ofstream (in ofstreams) for target CSV file
-     * @param ofstreams vector of ofstream objects for all currently opened CSV files
-     * @param weight current event weight
+     * @param ofstreams_idx index of std::ofstream (in ofstreams) for target CSV file
+     * @param ofstreams vector of std::ofstream objects for all currently opened CSV files
      * @return none
      */
-    void recursiveWrite(std::string output_dir, Cut* cut, Direction direction, int csv_idx, 
-                        Utilities::CSVFiles csv_files, float weight);
+    void recursiveWriteCSV(std::string output_dir, Cut* cut, Direction direction, int csv_idx, 
+                           Utilities::CSVFiles csv_files);
+    /**
+     * (PRIVATE) Recursively write cutflow to a Mermaid (.mmd) file
+     * @param cut pointer to current cut
+     * @param ofstream std::ofstream object for currently open .mmd file
+     * @param output_dmm target .mmd file
+     * @return none
+     */
+    void recursiveWriteMermaid(Cut* cut, std::ofstream& ofstream, std::string output_dmm);
 protected:
     /** Pointer to cut that is used as the root node */
     Cut* root;
@@ -222,6 +229,13 @@ public:
      * @return none
      */
     void writeCSV(std::string output_dir = "");
+    /**
+     * Print cutflow to a Mermaid flowchart
+     * @param output_dir target directory for output .mmd file (optional)
+     * @param output_dir desired orientation of graph: TD or LR (optional)
+     * @return none
+     */
+    void writeMermaid(std::string output_dir = "", std::string orientation = "TD");
 };
 
 #endif

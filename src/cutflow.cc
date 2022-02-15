@@ -212,11 +212,29 @@ void Cutflow::writeCSV(std::string output_dir)
     Utilities::CSVFile first_csv = Utilities::CSVFile(
         ofstream,
         output_dir+"/"+name+"_"+terminal_cut->name+".csv",
-        {"cut", "weight", "raw_events", "weighted_events"}
+        {"cut", "raw_events", "weighted_events"}
     );
     Utilities::CSVFiles csv_files = {first_csv};
     // Write out next cutflow level
-    recursiveWrite(output_dir, root, Right, 0, csv_files, 1.0);
+    recursiveWriteCSV(output_dir, root, Right, 0, csv_files);
+    return;
+}
+
+void Cutflow::writeMermaid(std::string output_dir, std::string orientation)
+{
+    std::ofstream ofstream;
+    std::string output_mmd = output_dir+"/"+name+".mmd";
+    // Write header
+    ofstream.open(output_mmd);
+    ofstream << "```mermaid" << std::endl;
+    ofstream << "graph " << orientation << std::endl;
+    ofstream.close();
+    // Write body
+    recursiveWriteMermaid(root, ofstream, output_mmd);
+    // Write footer
+    ofstream.open(output_mmd, std::ios::app);
+    ofstream << "```" << std::endl;
+    ofstream.close();
     return;
 }
 
@@ -309,20 +327,19 @@ void Cutflow::recursiveDelete(Cut* cut)
     return;
 }
 
-void Cutflow::recursiveWrite(std::string output_dir, Cut* cut, Direction direction, 
-                             int csv_idx, Utilities::CSVFiles csv_files, float weight)
+void Cutflow::recursiveWriteCSV(std::string output_dir, Cut* cut, Direction direction, 
+                                int csv_idx, Utilities::CSVFiles csv_files)
 {
     if (cut != nullptr)
     {
         Utilities::CSVFile this_csv = csv_files.at(csv_idx);
         // Write out current cut
         float raw_events = cut->n_pass + cut->n_fail;
+        float wgt_events = cut->n_pass_weighted + cut->n_fail_weighted;
         if (direction == Right) { 
-            weight *= cut->compute_weight(); 
             this_csv.pushCol<std::string>(cut->name);
-            this_csv.pushCol<float>(cut->compute_weight());
             this_csv.pushCol<float>(raw_events);
-            this_csv.pushCol<float>(raw_events*weight);
+            this_csv.pushCol<float>(wgt_events);
             this_csv.writeRow();
         }
         else
@@ -335,16 +352,49 @@ void Cutflow::recursiveWrite(std::string output_dir, Cut* cut, Direction directi
                 output_dir+"/"+name+"_"+terminal_cut->name+".csv"
             );
             new_csv.pushCol<std::string>(cut->name);
-            new_csv.pushCol<float>(cut->compute_weight());
             new_csv.pushCol<float>(raw_events);
-            new_csv.pushCol<float>(raw_events*weight);
+            new_csv.pushCol<float>(wgt_events);
             new_csv.writeRow();
             csv_files.push_back(new_csv);
         }
         // Write out next cutflow level
-        recursiveWrite(output_dir, cut->left, Left, csv_idx, csv_files, weight);
-        recursiveWrite(output_dir, cut->right, Right, csv_idx, csv_files, weight);
+        recursiveWriteCSV(output_dir, cut->left, Left, csv_idx, csv_files);
+        recursiveWriteCSV(output_dir, cut->right, Right, csv_idx, csv_files);
     }
 
+    return;
+}
+
+
+void Cutflow::recursiveWriteMermaid(Cut* cut, std::ofstream& ofstream, std::string output_mmd)
+{
+    if (cut != nullptr)
+    {
+        ofstream.open(output_mmd, std::ios::app);
+        if (cut->parent == nullptr)
+        {
+            ofstream << "    " << cut->name+"("+cut->name+")" << std::endl;
+        }
+        // Write cut fails
+        if (cut->parent != nullptr && cut == cut->parent->left)
+        {
+            ofstream << "    " << cut->parent->name+"Fail --> "+cut->name+"("+cut->name+")" << std::endl;
+        }
+        ofstream << "    " << cut->name+" -- Fail --> "+cut->name+"Fail[" << cut->n_fail << " raw";
+        if (cut->n_fail != cut->n_fail_weighted) { ofstream << " <br/> " << cut->n_fail_weighted << " wgt"; }
+        ofstream << "]" << std::endl;
+        // Write cut passes
+        if (cut->parent != nullptr && cut == cut->parent->right)
+        {
+            ofstream << "    " << cut->parent->name+"Pass --> "+cut->name+"("+cut->name+")" << std::endl;
+        }
+        ofstream << "    " << cut->name+" -- Pass --> "+cut->name+"Pass[" << cut->n_pass << " raw";
+        if (cut->n_pass != cut->n_pass_weighted) { ofstream << " <br/> " << cut->n_pass_weighted << " wgt"; }
+        ofstream << "]" << std::endl;
+        // Print next cutflow level
+        ofstream.close();
+        recursiveWriteMermaid(cut->left, ofstream, output_mmd);
+        recursiveWriteMermaid(cut->right, ofstream, output_mmd);
+    }
     return;
 }
