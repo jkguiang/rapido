@@ -45,38 +45,39 @@
 \DoxyCodeLine{80 }
 \DoxyCodeLine{84 \textcolor{keyword}{class }\mbox{\hyperlink{classCutflow}{Cutflow}}}
 \DoxyCodeLine{85 \{}
-\DoxyCodeLine{86 \textcolor{keyword}{private}:}
-\DoxyCodeLine{96     \textcolor{keywordtype}{void} recursiveWriteCSV(std::string output\_dir, \mbox{\hyperlink{classCut}{Cut}}* cut, Direction direction, \textcolor{keywordtype}{int} csv\_idx, }
-\DoxyCodeLine{97                            Utilities::CSVFiles csv\_files);}
-\DoxyCodeLine{105     \textcolor{keywordtype}{void} recursiveWriteMermaid(\mbox{\hyperlink{classCut}{Cut}}* cut, std::ofstream\& ofstream, std::string output\_dmm);}
-\DoxyCodeLine{106 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{108     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{root}};}
-\DoxyCodeLine{110     std::map<std::string, Cut*> \mbox{\hyperlink{classCutflow_a76f5cbd82750844d379384c7b1243cca}{cut\_record}};}
-\DoxyCodeLine{116     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{getCut}}(std::string cut\_name);}
-\DoxyCodeLine{123     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_ab90ee0d1a00b9859021afe179eac7d93}{recursiveSearchProgeny}}(\mbox{\hyperlink{classCut}{Cut}}* cut, \mbox{\hyperlink{classCut}{Cut}}* target\_cut);}
-\DoxyCodeLine{129     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}{recursiveFindTerminus}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
-\DoxyCodeLine{138     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a8d49242a5ff302d9654f135f7e478333}{recursivePrint}}(std::string tabs, \mbox{\hyperlink{classCut}{Cut}}* cut, Direction direction);}
-\DoxyCodeLine{144     std::pair<Cut*, bool> \mbox{\hyperlink{classCutflow_a8298a5ed45d1963271dbe9c7d1f1586f}{recursiveEvaluate}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
-\DoxyCodeLine{150     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{recursiveDelete}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
-\DoxyCodeLine{151 \textcolor{keyword}{public}:}
-\DoxyCodeLine{153     std::string \mbox{\hyperlink{classCutflow_a268e204c942ca35895a94f1be7ce111d}{name}};}
-\DoxyCodeLine{155     \mbox{\hyperlink{classUtilities_1_1Variables}{Utilities::Variables}} \mbox{\hyperlink{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{globals}};}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{161     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}();}
-\DoxyCodeLine{167     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}(std::string new\_name);}
-\DoxyCodeLine{174     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}(std::string new\_name, \mbox{\hyperlink{classCut}{Cut}}* new\_root);}
-\DoxyCodeLine{179     \mbox{\hyperlink{classCutflow_adb300cd78d57a287934e4d22856a0ffe}{\string~Cutflow}}();}
-\DoxyCodeLine{185     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{setRoot}}(\mbox{\hyperlink{classCut}{Cut}}* new\_root);}
-\DoxyCodeLine{193     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}}(std::string target\_cut\_name, \mbox{\hyperlink{classCut}{Cut}}* new\_cut, Direction direction);}
-\DoxyCodeLine{198     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}{run}}();}
-\DoxyCodeLine{205     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{runUntil}}(std::string target\_cut\_name);}
-\DoxyCodeLine{214     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_aa076a2ad28bb878a567a30b34f9b40d4}{isProgeny}}(std::string parent\_cut\_name, std::string target\_cut\_name, Direction direction);}
-\DoxyCodeLine{220     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a11c1116dc01d4c0679945eeff66ff0a4}{findTerminus}}(std::string starting\_cut\_name);}
-\DoxyCodeLine{225     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}}();}
-\DoxyCodeLine{231     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}{writeCSV}}(std::string output\_dir = \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{238     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_acd23a4f8f0fef9a0ce8714bd901d23fb}{writeMermaid}}(std::string output\_dir = \textcolor{stringliteral}{"{}"{}}, std::string orientation = \textcolor{stringliteral}{"{}TD"{}});}
-\DoxyCodeLine{239 \};}
-\DoxyCodeLine{240 }
-\DoxyCodeLine{241 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{86 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{88     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{root}};}
+\DoxyCodeLine{90     std::map<std::string, Cut*> \mbox{\hyperlink{classCutflow_a76f5cbd82750844d379384c7b1243cca}{cut\_record}};}
+\DoxyCodeLine{96     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a20193ee89ee39b0fc58ab4f27e2779db}{getCut}}(std::string cut\_name);}
+\DoxyCodeLine{103     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_ab90ee0d1a00b9859021afe179eac7d93}{recursiveSearchProgeny}}(\mbox{\hyperlink{classCut}{Cut}}* cut, \mbox{\hyperlink{classCut}{Cut}}* target\_cut);}
+\DoxyCodeLine{109     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}{recursiveFindTerminus}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a8d49242a5ff302d9654f135f7e478333}{recursivePrint}}(std::string tabs, \mbox{\hyperlink{classCut}{Cut}}* cut, Direction direction);}
+\DoxyCodeLine{126     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a4f7285409e90c76524ab0148e6fa0aa9}{recursiveWrite}}(\mbox{\hyperlink{classCut}{Cut}}* cut, std::ofstream\& ofstream, std::string output\_cflow);}
+\DoxyCodeLine{136     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a398daefa870d9f58381047324a880701}{recursiveWriteCSV}}(std::string output\_dir, \mbox{\hyperlink{classCut}{Cut}}* cut, Direction direction, \textcolor{keywordtype}{int} csv\_idx, }
+\DoxyCodeLine{137                            Utilities::CSVFiles csv\_files);}
+\DoxyCodeLine{145     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a212a44164cbf1f1608d1b55567890ef7}{recursiveWriteMermaid}}(\mbox{\hyperlink{classCut}{Cut}}* cut, std::ofstream\& ofstream, std::string output\_mmd);}
+\DoxyCodeLine{151     std::pair<Cut*, bool> \mbox{\hyperlink{classCutflow_a8298a5ed45d1963271dbe9c7d1f1586f}{recursiveEvaluate}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
+\DoxyCodeLine{157     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{recursiveDelete}}(\mbox{\hyperlink{classCut}{Cut}}* cut);}
+\DoxyCodeLine{158 \textcolor{keyword}{public}:}
+\DoxyCodeLine{160     std::string \mbox{\hyperlink{classCutflow_a268e204c942ca35895a94f1be7ce111d}{name}};}
+\DoxyCodeLine{162     \mbox{\hyperlink{classUtilities_1_1Variables}{Utilities::Variables}} \mbox{\hyperlink{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}{globals}};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{168     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}();}
+\DoxyCodeLine{174     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}(std::string new\_name);}
+\DoxyCodeLine{181     \mbox{\hyperlink{classCutflow_a17811cb40a7906fc65e79ce69e3b21be}{Cutflow}}(std::string new\_name, \mbox{\hyperlink{classCut}{Cut}}* new\_root);}
+\DoxyCodeLine{186     \mbox{\hyperlink{classCutflow_adb300cd78d57a287934e4d22856a0ffe}{\string~Cutflow}}();}
+\DoxyCodeLine{192     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_ad27d37141c3748779a5d81fad919ecbb}{setRoot}}(\mbox{\hyperlink{classCut}{Cut}}* new\_root);}
+\DoxyCodeLine{200     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a8da46f1053a6b97991489ee0920c29a1}{insert}}(std::string target\_cut\_name, \mbox{\hyperlink{classCut}{Cut}}* new\_cut, Direction direction);}
+\DoxyCodeLine{205     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}{run}}();}
+\DoxyCodeLine{212     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_a3b5a6dc6e9490037d190eca691295859}{runUntil}}(std::string target\_cut\_name);}
+\DoxyCodeLine{221     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCutflow_aa076a2ad28bb878a567a30b34f9b40d4}{isProgeny}}(std::string parent\_cut\_name, std::string target\_cut\_name, Direction direction);}
+\DoxyCodeLine{227     \mbox{\hyperlink{classCut}{Cut}}* \mbox{\hyperlink{classCutflow_a11c1116dc01d4c0679945eeff66ff0a4}{findTerminus}}(std::string starting\_cut\_name);}
+\DoxyCodeLine{232     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}}();}
+\DoxyCodeLine{238     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a42bd2909f9e32bb12e7dbd717248a253}{write}}(std::string output\_dir = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{244     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}{writeCSV}}(std::string output\_dir = \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{251     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCutflow_acd23a4f8f0fef9a0ce8714bd901d23fb}{writeMermaid}}(std::string output\_dir = \textcolor{stringliteral}{"{}"{}}, std::string orientation = \textcolor{stringliteral}{"{}TD"{}});}
+\DoxyCodeLine{252 \};}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

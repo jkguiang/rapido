@@ -35,6 +35,8 @@ bool \mbox{\hyperlink{classCutflow_aa076a2ad28bb878a567a30b34f9b40d4}{is\+Progen
 \item 
 void \mbox{\hyperlink{classCutflow_a0cb4c8bd6d15ace1f85fe0cfb8d9d828}{print}} ()
 \item 
+void \mbox{\hyperlink{classCutflow_a42bd2909f9e32bb12e7dbd717248a253}{write}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{})
+\item 
 void \mbox{\hyperlink{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}{write\+CSV}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{})
 \item 
 void \mbox{\hyperlink{classCutflow_acd23a4f8f0fef9a0ce8714bd901d23fb}{write\+Mermaid}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{}, std\+::string orientation=\char`\"{}TD\char`\"{})
@@ -56,6 +58,12 @@ bool \mbox{\hyperlink{classCutflow_ab90ee0d1a00b9859021afe179eac7d93}{recursive\
 \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCutflow_a6949f1d9e7d74c6ab8cf0c6f28ac3701}{recursive\+Find\+Terminus}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut)
 \item 
 void \mbox{\hyperlink{classCutflow_a8d49242a5ff302d9654f135f7e478333}{recursive\+Print}} (std\+::string tabs, \mbox{\hyperlink{classCut}{Cut}} $\ast$cut, Direction direction)
+\item 
+void \mbox{\hyperlink{classCutflow_a4f7285409e90c76524ab0148e6fa0aa9}{recursive\+Write}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut, std\+::ofstream \&ofstream, std\+::string output\+\_\+cflow)
+\item 
+void \mbox{\hyperlink{classCutflow_a398daefa870d9f58381047324a880701}{recursive\+Write\+CSV}} (std\+::string output\+\_\+dir, \mbox{\hyperlink{classCut}{Cut}} $\ast$cut, Direction direction, int csv\+\_\+idx, Utilities\+::\+CSVFiles csv\+\_\+files)
+\item 
+void \mbox{\hyperlink{classCutflow_a212a44164cbf1f1608d1b55567890ef7}{recursive\+Write\+Mermaid}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut, std\+::ofstream \&ofstream, std\+::string output\+\_\+mmd)
 \item 
 std\+::pair$<$ \mbox{\hyperlink{classCut}{Cut}} $\ast$, bool $>$ \mbox{\hyperlink{classCutflow_a8298a5ed45d1963271dbe9c7d1f1586f}{recursive\+Evaluate}} (\mbox{\hyperlink{classCut}{Cut}} $\ast$cut)
 \item 
@@ -276,6 +284,64 @@ none
 \begin{DoxyReturn}{Returns}
 whether or not the target cut was found amongst the current cut\textquotesingle{}s descendants 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_a4f7285409e90c76524ab0148e6fa0aa9}\label{classCutflow_a4f7285409e90c76524ab0148e6fa0aa9}} 
+\index{Cutflow@{Cutflow}!recursiveWrite@{recursiveWrite}}
+\index{recursiveWrite@{recursiveWrite}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{recursiveWrite()}{recursiveWrite()}}
+{\footnotesize\ttfamily void Cutflow\+::recursive\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut,  }\item[{std\+::ofstream \&}]{ofstream,  }\item[{std\+::string}]{output\+\_\+cflow }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+(PROTECTED) Recursively write RAPIDO cutflow file 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+{\em ofstream} & std\+::ofsteam object for RAPIDO .cflow file \\
+\hline
+{\em output\+\_\+flow} & name of .cflow file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_a398daefa870d9f58381047324a880701}\label{classCutflow_a398daefa870d9f58381047324a880701}} 
+\index{Cutflow@{Cutflow}!recursiveWriteCSV@{recursiveWriteCSV}}
+\index{recursiveWriteCSV@{recursiveWriteCSV}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{recursiveWriteCSV()}{recursiveWriteCSV()}}
+{\footnotesize\ttfamily void Cutflow\+::recursive\+Write\+CSV (\begin{DoxyParamCaption}\item[{std\+::string}]{output\+\_\+dir,  }\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut,  }\item[{Direction}]{direction,  }\item[{int}]{csv\+\_\+idx,  }\item[{Utilities\+::\+CSVFiles}]{csv\+\_\+files }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+(PROTECTED) Recursively write cutflow level to CSV file(s) 
+\begin{DoxyParams}{Parameters}
+{\em output\+\_\+dir} & target directory for output CSV files \\
+\hline
+{\em cut} & pointer to current cut \\
+\hline
+{\em direction} & direction of cut relative to parent \\
+\hline
+{\em ofstreams\+\_\+idx} & index of std\+::ofstream (in ofstreams) for target CSV file \\
+\hline
+{\em ofstreams} & vector of std\+::ofstream objects for all currently opened CSV files \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_a212a44164cbf1f1608d1b55567890ef7}\label{classCutflow_a212a44164cbf1f1608d1b55567890ef7}} 
+\index{Cutflow@{Cutflow}!recursiveWriteMermaid@{recursiveWriteMermaid}}
+\index{recursiveWriteMermaid@{recursiveWriteMermaid}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{recursiveWriteMermaid()}{recursiveWriteMermaid()}}
+{\footnotesize\ttfamily void Cutflow\+::recursive\+Write\+Mermaid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCut}{Cut}} $\ast$}]{cut,  }\item[{std\+::ofstream \&}]{ofstream,  }\item[{std\+::string}]{output\+\_\+mmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+(PROTECTED) Recursively write cutflow to a Mermaid (.mmd) file 
+\begin{DoxyParams}{Parameters}
+{\em cut} & pointer to current cut \\
+\hline
+{\em ofstream} & std\+::ofstream object for .mmd file \\
+\hline
+{\em output\+\_\+mmd} & name of .mmd file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}\label{classCutflow_a8fc98b9c006b80db96576c8bdcf6a0a8}} 
 \index{Cutflow@{Cutflow}!run@{run}}
 \index{run@{run}!Cutflow@{Cutflow}}
@@ -320,6 +386,20 @@ Set root node of cutflow object
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_a42bd2909f9e32bb12e7dbd717248a253}\label{classCutflow_a42bd2909f9e32bb12e7dbd717248a253}} 
+\index{Cutflow@{Cutflow}!write@{write}}
+\index{write@{write}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Cutflow\+::write (\begin{DoxyParamCaption}\item[{std\+::string}]{output\+\_\+dir = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+Write RAPIDO cutflow file 
+\begin{DoxyParams}{Parameters}
+{\em output\+\_\+dir} & target directory for output cutflow files (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}\label{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}} 
 \index{Cutflow@{Cutflow}!writeCSV@{writeCSV}}
 \index{writeCSV@{writeCSV}!Cutflow@{Cutflow}}
@@ -359,7 +439,7 @@ none
 \doxysubsubsection{\texorpdfstring{cut\_record}{cut\_record}}
 {\footnotesize\ttfamily std\+::map$<$std\+::string, \mbox{\hyperlink{classCut}{Cut}}$\ast$$>$ Cutflow\+::cut\+\_\+record\hspace{0.3cm}{\ttfamily [protected]}}
 
-Map (\char`\"{}record\char`\"{}) of all cuts in cutflow \mbox{\Hypertarget{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}\label{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}} 
+(PROTECTED) Map (\char`\"{}record\char`\"{}) of all cuts in cutflow \mbox{\Hypertarget{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}\label{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}} 
 \index{Cutflow@{Cutflow}!globals@{globals}}
 \index{globals@{globals}!Cutflow@{Cutflow}}
 \doxysubsubsection{\texorpdfstring{globals}{globals}}
@@ -377,7 +457,7 @@ Name of cutflow \mbox{\Hypertarget{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6
 \doxysubsubsection{\texorpdfstring{root}{root}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classCut}{Cut}}$\ast$ Cutflow\+::root\hspace{0.3cm}{\ttfamily [protected]}}
 
-Pointer to cut that is used as the root node 
+(PROTECTED) Pointer to cut that is used as the root node 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

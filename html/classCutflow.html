@@ -108,6 +108,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">print</a> ()</td></tr>
 <tr class="separator:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42bd2909f9e32bb12e7dbd717248a253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a42bd2909f9e32bb12e7dbd717248a253">write</a> (std::string output_dir=&quot;&quot;)</td></tr>
+<tr class="separator:a42bd2909f9e32bb12e7dbd717248a253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a43e58326fbce5306e2b3d080c6cd85f0">writeCSV</a> (std::string output_dir=&quot;&quot;)</td></tr>
 <tr class="separator:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd23a4f8f0fef9a0ce8714bd901d23fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#acd23a4f8f0fef9a0ce8714bd901d23fb">writeMermaid</a> (std::string output_dir=&quot;&quot;, std::string orientation=&quot;TD&quot;)</td></tr>
@@ -130,6 +132,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a6949f1d9e7d74c6ab8cf0c6f28ac3701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d49242a5ff302d9654f135f7e478333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8d49242a5ff302d9654f135f7e478333">recursivePrint</a> (std::string tabs, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction)</td></tr>
 <tr class="separator:a8d49242a5ff302d9654f135f7e478333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f7285409e90c76524ab0148e6fa0aa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a4f7285409e90c76524ab0148e6fa0aa9">recursiveWrite</a> (<a class="el" href="classCut.html">Cut</a> *cut, std::ofstream &amp;ofstream, std::string output_cflow)</td></tr>
+<tr class="separator:a4f7285409e90c76524ab0148e6fa0aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a398daefa870d9f58381047324a880701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a398daefa870d9f58381047324a880701">recursiveWriteCSV</a> (std::string output_dir, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction, int csv_idx, Utilities::CSVFiles csv_files)</td></tr>
+<tr class="separator:a398daefa870d9f58381047324a880701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a212a44164cbf1f1608d1b55567890ef7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a212a44164cbf1f1608d1b55567890ef7">recursiveWriteMermaid</a> (<a class="el" href="classCut.html">Cut</a> *cut, std::ofstream &amp;ofstream, std::string output_mmd)</td></tr>
+<tr class="separator:a212a44164cbf1f1608d1b55567890ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8298a5ed45d1963271dbe9c7d1f1586f"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classCut.html">Cut</a> *, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8298a5ed45d1963271dbe9c7d1f1586f">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:a8298a5ed45d1963271dbe9c7d1f1586f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc7029b27ff8d742d10c75d6f6342dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac">recursiveDelete</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
@@ -600,6 +608,173 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4f7285409e90c76524ab0148e6fa0aa9" name="a4f7285409e90c76524ab0148e6fa0aa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7285409e90c76524ab0148e6fa0aa9">&#9670;&nbsp;</a></span>recursiveWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cutflow::recursiveWrite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ofstream &amp;&#160;</td>
+          <td class="paramname"><em>ofstream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>output_cflow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >(PROTECTED) Recursively write RAPIDO cutflow file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
+    <tr><td class="paramname">ofstream</td><td>std::ofsteam object for RAPIDO .cflow file </td></tr>
+    <tr><td class="paramname">output_flow</td><td>name of .cflow file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="a398daefa870d9f58381047324a880701" name="a398daefa870d9f58381047324a880701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a398daefa870d9f58381047324a880701">&#9670;&nbsp;</a></span>recursiveWriteCSV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cutflow::recursiveWriteCSV </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>output_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>csv_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Utilities::CSVFiles&#160;</td>
+          <td class="paramname"><em>csv_files</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >(PROTECTED) Recursively write cutflow level to CSV file(s) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_dir</td><td>target directory for output CSV files </td></tr>
+    <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
+    <tr><td class="paramname">direction</td><td>direction of cut relative to parent </td></tr>
+    <tr><td class="paramname">ofstreams_idx</td><td>index of std::ofstream (in ofstreams) for target CSV file </td></tr>
+    <tr><td class="paramname">ofstreams</td><td>vector of std::ofstream objects for all currently opened CSV files </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="a212a44164cbf1f1608d1b55567890ef7" name="a212a44164cbf1f1608d1b55567890ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a212a44164cbf1f1608d1b55567890ef7">&#9670;&nbsp;</a></span>recursiveWriteMermaid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cutflow::recursiveWriteMermaid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ofstream &amp;&#160;</td>
+          <td class="paramname"><em>ofstream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>output_mmd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >(PROTECTED) Recursively write cutflow to a Mermaid (.mmd) file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
+    <tr><td class="paramname">ofstream</td><td>std::ofstream object for .mmd file </td></tr>
+    <tr><td class="paramname">output_mmd</td><td>name of .mmd file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
 <a id="a8fc98b9c006b80db96576c8bdcf6a0a8" name="a8fc98b9c006b80db96576c8bdcf6a0a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8fc98b9c006b80db96576c8bdcf6a0a8">&#9670;&nbsp;</a></span>run()</h2>
 
@@ -672,6 +847,31 @@ Protected Attributes</h2></td></tr>
 <p >Set root node of cutflow object </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_root</td><td>pointer to cut object to use as new root node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="a42bd2909f9e32bb12e7dbd717248a253" name="a42bd2909f9e32bb12e7dbd717248a253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42bd2909f9e32bb12e7dbd717248a253">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cutflow::write </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>output_dir</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Write RAPIDO cutflow file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_dir</td><td>target directory for output cutflow files (optional) </td></tr>
   </table>
   </dd>
 </dl>
@@ -760,7 +960,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Map ("record") of all cuts in cutflow </p>
+<p >(PROTECTED) Map ("record") of all cuts in cutflow </p>
 
 </div>
 </div>
@@ -813,7 +1013,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Pointer to cut that is used as the root node </p>
+<p >(PROTECTED) Pointer to cut that is used as the root node </p>
 
 </div>
 </div>
