@@ -83,30 +83,10 @@ public:
  */
 class Cutflow
 {
-private:
-    /**
-     * (PRIVATE) Recursively write cutflow level to CSV file(s)
-     * @param output_dir target directory for output CSV files
-     * @param cut pointer to current cut
-     * @param direction direction of cut relative to parent
-     * @param ofstreams_idx index of std::ofstream (in ofstreams) for target CSV file
-     * @param ofstreams vector of std::ofstream objects for all currently opened CSV files
-     * @return none
-     */
-    void recursiveWriteCSV(std::string output_dir, Cut* cut, Direction direction, int csv_idx, 
-                           Utilities::CSVFiles csv_files);
-    /**
-     * (PRIVATE) Recursively write cutflow to a Mermaid (.mmd) file
-     * @param cut pointer to current cut
-     * @param ofstream std::ofstream object for currently open .mmd file
-     * @param output_dmm target .mmd file
-     * @return none
-     */
-    void recursiveWriteMermaid(Cut* cut, std::ofstream& ofstream, std::string output_dmm);
 protected:
-    /** Pointer to cut that is used as the root node */
+    /** (PROTECTED) Pointer to cut that is used as the root node */
     Cut* root;
-    /** Map ("record") of all cuts in cutflow */
+    /** (PROTECTED) Map ("record") of all cuts in cutflow */
     std::map<std::string, Cut*> cut_record;
     /**
      * (PROTECTED) Retrieve cut object from cut record
@@ -136,6 +116,33 @@ protected:
      * @return none
      */
     void recursivePrint(std::string tabs, Cut* cut, Direction direction);
+    /**
+     * (PROTECTED) Recursively write RAPIDO cutflow file
+     * @param cut pointer to current cut
+     * @param ofstream std::ofsteam object for RAPIDO .cflow file
+     * @param output_flow name of .cflow file
+     * @return none
+     */
+    void recursiveWrite(Cut* cut, std::ofstream& ofstream, std::string output_cflow);
+    /**
+     * (PROTECTED) Recursively write cutflow level to CSV file(s)
+     * @param output_dir target directory for output CSV files
+     * @param cut pointer to current cut
+     * @param direction direction of cut relative to parent
+     * @param ofstreams_idx index of std::ofstream (in ofstreams) for target CSV file
+     * @param ofstreams vector of std::ofstream objects for all currently opened CSV files
+     * @return none
+     */
+    void recursiveWriteCSV(std::string output_dir, Cut* cut, Direction direction, int csv_idx, 
+                           Utilities::CSVFiles csv_files);
+    /**
+     * (PROTECTED) Recursively write cutflow to a Mermaid (.mmd) file
+     * @param cut pointer to current cut
+     * @param ofstream std::ofstream object for .mmd file
+     * @param output_mmd name of .mmd file
+     * @return none
+     */
+    void recursiveWriteMermaid(Cut* cut, std::ofstream& ofstream, std::string output_mmd);
     /**
      * (PROTECTED) Recursively evaulate cuts in the cutflow
      * @param cut pointer to current cut
@@ -223,6 +230,12 @@ public:
      * @return none
      */
     void print();
+    /**
+     * Write RAPIDO cutflow file
+     * @param output_dir target directory for output cutflow files (optional)
+     * @return none
+     */
+    void write(std::string output_dir = "");
     /**
      * Print all cutflow paths to separate CSV files {output_dir}/{name}_{terminal_cut}.csv
      * @param output_dir target directory for output CSV files (optional)

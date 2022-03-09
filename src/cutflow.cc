@@ -203,6 +203,14 @@ void Cutflow::print()
     return;
 }
 
+void Cutflow::write(std::string output_dir)
+{
+    std::ofstream ofstream;
+    std::string output_cflow = output_dir+"/"+name+".cflow";
+    recursiveWrite(root, ofstream, output_cflow);
+    return;
+}
+
 void Cutflow::writeCSV(std::string output_dir)
 {
     // Get rightmost terminal child
@@ -327,6 +335,30 @@ void Cutflow::recursiveDelete(Cut* cut)
     return;
 }
 
+void Cutflow::recursiveWrite(Cut* cut, std::ofstream& ofstream, std::string output_cflow)
+{
+    if (cut != nullptr)
+    {
+        if (cut == root) { ofstream.open(output_cflow); }
+        else { ofstream.open(output_cflow, std::ios::app); }
+        ofstream << cut->name << ",";
+        ofstream << cut->n_pass << "," << cut->n_pass_weighted << ",";
+        ofstream << cut->n_fail << "," << cut->n_fail_weighted << ",";
+        std::string parent_name = "null";
+        if (cut->parent != nullptr) { parent_name = cut->parent->name; }
+        std::string left_name = "null";
+        if (cut->left != nullptr) { left_name = cut->left->name; }
+        std::string right_name = "null";
+        if (cut->right != nullptr) { right_name = cut->right->name; }
+        ofstream << parent_name << "," << left_name << "," << right_name << std::endl;
+        // Print next cutflow level
+        ofstream.close();
+        recursiveWrite(cut->left, ofstream, output_cflow);
+        recursiveWrite(cut->right, ofstream, output_cflow);
+    }
+    return;
+}
+
 void Cutflow::recursiveWriteCSV(std::string output_dir, Cut* cut, Direction direction, 
                                 int csv_idx, Utilities::CSVFiles csv_files)
 {
@@ -334,8 +366,8 @@ void Cutflow::recursiveWriteCSV(std::string output_dir, Cut* cut, Direction dire
     {
         Utilities::CSVFile this_csv = csv_files.at(csv_idx);
         // Write out current cut
-        float raw_events = cut->n_pass + cut->n_fail;
-        float wgt_events = cut->n_pass_weighted + cut->n_fail_weighted;
+        float raw_events = cut->n_pass;
+        float wgt_events = cut->n_pass_weighted;
         if (direction == Right) { 
             this_csv.pushCol<std::string>(cut->name);
             this_csv.pushCol<float>(raw_events);
