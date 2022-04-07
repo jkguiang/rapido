@@ -77,6 +77,9 @@ template<typename Type>
 Type Utilities::Variable<Type>::getValue() { return value; }
 
 template<typename Type>
+Type& Utilities::Variable<Type>::getReference() { return value; }
+
+template<typename Type>
 void Utilities::Variable<Type>::setValue(Type new_value) 
 { 
     value = new_value; 
@@ -142,6 +145,13 @@ Type Utilities::Variables::getVal(std::string name)
 {
     Variable<Type>* var = getVar<Type>(name);
     return var->getValue();
+}
+
+template<typename Type>
+Type& Utilities::Variables::getRef(std::string name)
+{
+    Variable<Type>* var = getVar<Type>(name);
+    return var->getReference();
 }
 
 template<typename Type>
