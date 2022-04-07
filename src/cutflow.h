@@ -148,7 +148,7 @@ protected:
      * @param cut pointer to current cut
      * @return std::pair of a pointer to terminal cut and a boolean (true = pass, false = fail)
      */
-    std::pair<Cut*, bool> recursiveEvaluate(Cut* cut);
+    bool recursiveEvaluate(Cut* cut);
     /**
      * (PROTECTED) Recursively delete cuts in the cutflow
      * @param cut pointer to current cut

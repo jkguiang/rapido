@@ -153,21 +153,17 @@ bool Cutflow::run()
         std::string msg = "Error - no root node set.";
         throw std::runtime_error("Cutflow::run: "+msg);
     }
-    std::pair<Cut*, bool> result = recursiveEvaluate(root);
-    return result.second;
+    return recursiveEvaluate(root);
 }
 
 bool Cutflow::runUntil(std::string target_cut_name)
 {
-    std::pair<Cut*, bool> result = recursiveEvaluate(root);
-    if (target_cut_name == result.first->name)
-    {
-        return result.second;
-    }
-    else
-    {
-        return isProgeny(target_cut_name, result.first->name, Right);
-    }
+    // Get number of passing events before running cutflow
+    Cut* target_cut = getCut(target_cut_name);
+    int n_pass_before_eval = target_cut->n_pass;
+    // Run cutflow
+    run();
+    return target_cut->n_pass > n_pass_before_eval;
 }
 
 bool Cutflow::isProgeny(std::string parent_cut_name, std::string target_cut_name, Direction direction)
@@ -306,20 +302,20 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
     return;
 }
 
-std::pair<Cut*, bool> Cutflow::recursiveEvaluate(Cut* cut)
+bool Cutflow::recursiveEvaluate(Cut* cut)
 {
     if (cut->evaluate() == true)
     {
         cut->n_pass++;
         cut->n_pass_weighted += cut->getWeight();
-        if (cut->right == nullptr) { return std::make_pair(cut, true); }
+        if (cut->right == nullptr) { return true; }
         else { return recursiveEvaluate(cut->right); }
     }
     else
     {
         cut->n_fail++;
         cut->n_fail_weighted += cut->getWeight();
-        if (cut->left == nullptr) { return std::make_pair(cut, false); }
+        if (cut->left == nullptr) { return false; }
         else { return recursiveEvaluate(cut->left); }
     }
 }
