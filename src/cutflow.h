@@ -25,10 +25,6 @@ class Cut
 public:
     /** Unique name of cut */
     std::string name;
-    /** Lambda function that evaluates conditional logic (i.e. the cut itself) */
-    std::function<bool()> evaluate;
-    /** Lambda function that computes event weight */
-    std::function<float()> compute_weight;
     /** Pointer to parent cut */
     Cut* parent;
     /** Pointer to next cut to evaluate if this cut evaluates to true */
@@ -45,35 +41,34 @@ public:
     float n_fail_weighted;
 
     /**
-     * Cut object constructor (assumes weight == 1.0)
-     * @param new_name new cut name
-     * @param new_evaluate lambda function that evaluates new cut conditional logic
-     * @return none
-     */
-    Cut(std::string new_name, std::function<bool()> new_evaluate);
-    /**
      * Cut object constructor
      * @param new_name new cut name
-     * @param new_evaluate lambda function that evaluates new cut conditional logic
-     * @param new_compute_weight lambda function that computes event weight
      * @return none
      */
-    Cut(std::string new_name, std::function<bool()> new_evaluate, 
-        std::function<float()> new_compute_weight);
+    Cut(std::string new_name);
     /**
-     * Create a copy of this cut object
-     * @param new_name name of cut copy
-     * @return pointer to a copy of this cut object
+     * Cut object destructor
+     * @return none
      */
-    Cut* clone(std::string new_name);
+    virtual ~Cut();
     /**
      * Print cut object properties
      * @return none
      */
     void print();
     /**
-     * Get even weight for this cut (on top of previous cut weights)
+     * Evaluate cut logic
+     * @return passed/failed (true/false)
+     */
+    virtual bool evaluate();
+    /**
+     * Get even weight for this cut only
      * @return event weight
+     */
+    virtual float weight();
+    /**
+     * Get even weight for this cut (on top of previous cut weights)
+     * @return product(event weight, parent weight, grandparent weight, ...)
      */
     float getWeight();
 };
