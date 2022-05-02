@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['looper_0',['Looper',['../classLooper.html',1,'']]]
+  ['lambdacut_0',['LambdaCut',['../classLambdaCut.html',1,'']]],
+  ['looper_1',['Looper',['../classLooper.html',1,'']]]
 ];

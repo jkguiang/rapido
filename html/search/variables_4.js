@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['headers_0',['headers',['../classUtilities_1_1CSVFile.html#a17822ae335f168e68498b8b1b69b8dbe',1,'Utilities::CSVFile']]],
-  ['hist_5fwriters_1',['hist_writers',['../classHistflow.html#ab0e1c8893b1afe8b77c886f6c7c043f4',1,'Histflow']]]
+  ['globals_0',['globals',['../classCutflow.html#a71390324488ac6ed4a72c41f4a2c1c10',1,'Cutflow']]]
 ];
