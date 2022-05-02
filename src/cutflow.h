@@ -74,6 +74,51 @@ public:
 };
 
 /** 
+ * Object that represents a single cut in an analysis with functionality defined
+ * in lambda functions
+ */
+class LambdaCut : public Cut
+{
+public:
+    /** Lambda function that evaluates conditional logic (i.e. the cut itself) */
+    std::function<bool()> evaluator;
+    /** Lambda function that computes event weight */
+    std::function<float()> weigher;
+    /**
+     * LambadCut object constructor (assumes weight == 1.0)
+     * @param new_name new cut name
+     * @param new_evaluator lambda function that evaluates new cut conditional logic
+     * @return none
+     */
+    LambdaCut(std::string new_name, std::function<bool()> new_evaluator);
+    /**
+     * LambdaCut object constructor
+     * @param new_name new cut name
+     * @param new_evaluator lambda function that evaluates new cut conditional logic
+     * @param new_weigher lambda function that computes event weight
+     * @return none
+     */
+    LambdaCut(std::string new_name, std::function<bool()> new_evaluator, 
+              std::function<float()> new_weigher);
+    /**
+     * Create a copy of this cut object
+     * @param new_name name of cut copy
+     * @return pointer to a copy of this cut object
+     */
+    LambdaCut* clone(std::string new_name);
+    /**
+     * Evaluate cut logic
+     * @return passed/failed (true/false)
+     */
+    bool evaluate();
+    /**
+     * Get even weight for this cut only
+     * @return event weight
+     */
+    float weight();
+};
+
+/** 
  * An analysis represented as a binary search tree (i.e. analysis = tree, cut = node)
  */
 class Cutflow

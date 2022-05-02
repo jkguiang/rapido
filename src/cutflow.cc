@@ -56,6 +56,36 @@ float Cut::getWeight()
     }
 }
 
+LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluator)
+: Cut(new_name)
+{
+    evaluator = new_evaluator;
+    weigher = [&]() { return 1.0; };
+}
+
+LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluator, 
+                     std::function<float()> new_weigher)
+: Cut(new_name)
+{
+    evaluator = new_evaluator;
+    weigher = new_weigher;
+}
+
+bool LambdaCut::evaluate()
+{
+    return evaluator();
+}
+
+float LambdaCut::weight()
+{
+    return weigher();
+}
+
+LambdaCut* LambdaCut::clone(std::string new_name)
+{
+    return new LambdaCut(new_name, evaluator, weigher);
+}
+
 Cutflow::Cutflow()
 {
     name = "cutflow";
