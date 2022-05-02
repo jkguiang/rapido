@@ -1,10 +1,8 @@
 #include "cutflow.h"
 
-Cut::Cut(std::string new_name, std::function<bool()> new_evaluate)
+Cut::Cut(std::string new_name)
 {
     name = new_name;
-    evaluate = new_evaluate;
-    compute_weight = [&]() { return 1.0; };
     parent = nullptr;
     left = nullptr;
     right = nullptr;
@@ -14,25 +12,7 @@ Cut::Cut(std::string new_name, std::function<bool()> new_evaluate)
     n_fail_weighted = 0.;
 }
 
-Cut::Cut(std::string new_name, std::function<bool()> new_evaluate, 
-         std::function<float()> new_compute_weight)
-{
-    name = new_name;
-    evaluate = new_evaluate;
-    compute_weight = new_compute_weight;
-    parent = nullptr;
-    left = nullptr;
-    right = nullptr;
-    n_pass = 0;
-    n_fail = 0;
-    n_pass_weighted = 0.;
-    n_fail_weighted = 0.;
-}
-
-Cut* Cut::clone(std::string new_name)
-{
-    return new Cut(new_name, evaluate, compute_weight);
-}
+Cut::~Cut() {}
 
 void Cut::print()
 {
@@ -54,15 +34,25 @@ void Cut::print()
     return;
 }
 
+bool Cut::evaluate()
+{
+    return true;
+}
+
+float Cut::weight()
+{
+    return 1.0;
+}
+
 float Cut::getWeight()
 {
     if (parent != nullptr)
     {
-        return compute_weight()*parent->getWeight();
+        return weight()*parent->getWeight();
     }
     else
     {
-        return compute_weight();
+        return weight();
     }
 }
 
