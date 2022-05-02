@@ -1,7 +1,13 @@
 var searchData=
 [
-  ['hepcli_0',['HEPCLI',['../classHEPCLI.html#a59a123c6834e44908e802b8bbeae35fc',1,'HEPCLI::HEPCLI()'],['../classHEPCLI.html#a5812761020c8a4401f25e4469b49f6af',1,'HEPCLI::HEPCLI(int argc, char **argv)']]],
-  ['hist1d_1',['Hist1D',['../classHist1D.html#a76378975401f2dcd3635244ca8614664',1,'Hist1D']]],
-  ['hist2d_2',['Hist2D',['../classHist2D.html#a85a6f8b45d8752b1c50a3ea1c1436860',1,'Hist2D']]],
-  ['histflow_3',['Histflow',['../classHistflow.html#ae4c76353f6d545eca787fc0abf1a433e',1,'Histflow']]]
+  ['getbranch_0',['getBranch',['../classArbol.html#a76e30b91bd53a34b222f318678ab8fbb',1,'Arbol']]],
+  ['getcut_1',['getCut',['../classCutflow.html#a20193ee89ee39b0fc58ab4f27e2779db',1,'Cutflow']]],
+  ['getleaf_2',['getLeaf',['../classArbol.html#a92be3f8c4258247d65e7f66a8da70453',1,'Arbol']]],
+  ['getref_3',['getRef',['../classUtilities_1_1Variables.html#a58011fc344bd7d5eeb70eaa794f8bb78',1,'Utilities::Variables']]],
+  ['getreference_4',['getReference',['../classUtilities_1_1Variable.html#ab924af4e2bc238affc0df55fb50dd560',1,'Utilities::Variable']]],
+  ['getval_5',['getVal',['../classUtilities_1_1Variables.html#a3b44673fa83ac4e796e04daf7265b4ca',1,'Utilities::Variables']]],
+  ['getvalue_6',['getValue',['../classUtilities_1_1Variable.html#a2531a59e087062fab302cf487b6bdfa2',1,'Utilities::Variable']]],
+  ['getvar_7',['getVar',['../classUtilities_1_1Variables.html#a897682928b8e37d4be06ef34f80a3a25',1,'Utilities::Variables']]],
+  ['getvecleaf_8',['getVecLeaf',['../classArbol.html#aefdf6dfa74ceed51b2cb99f45bfebf56',1,'Arbol']]],
+  ['getweight_9',['getWeight',['../classCut.html#a3201e86949718110994a9301987f0f98',1,'Cut']]]
 ];

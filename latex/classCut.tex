@@ -7,13 +7,15 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classCut_aaa89435c5326080296041bc38937ab2d}{Cut}} (std\+::string new\+\_\+name, std\+::function$<$ bool()$>$ new\+\_\+evaluate)
+\mbox{\hyperlink{classCut_ad11280d56a8d40eb200cde38ac29cd7f}{Cut}} (std\+::string new\+\_\+name)
 \item 
-\mbox{\hyperlink{classCut_adcfec6d2df97f8e84058078f2f736b03}{Cut}} (std\+::string new\+\_\+name, std\+::function$<$ bool()$>$ new\+\_\+evaluate, std\+::function$<$ float()$>$ new\+\_\+compute\+\_\+weight)
-\item 
-\mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCut_a51d128a9d77f6e9e2965ae0a2ea077e1}{clone}} (std\+::string new\+\_\+name)
+virtual \mbox{\hyperlink{classCut_a891e1f1b0c661e8f4984b4f9d4d4bde3}{$\sim$\+Cut}} ()
 \item 
 void \mbox{\hyperlink{classCut_a9b1298219ed1f85bba920e4049d712e3}{print}} ()
+\item 
+virtual bool \mbox{\hyperlink{classCut_a3222edd50632f5c97d411e0cac2e67f9}{evaluate}} ()
+\item 
+virtual float \mbox{\hyperlink{classCut_a3c4a423a59d637cd05df772a5373fb63}{weight}} ()
 \item 
 float \mbox{\hyperlink{classCut_a3201e86949718110994a9301987f0f98}{get\+Weight}} ()
 \end{DoxyCompactItemize}
@@ -21,10 +23,6 @@ float \mbox{\hyperlink{classCut_a3201e86949718110994a9301987f0f98}{get\+Weight}}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string \mbox{\hyperlink{classCut_accf700d2d00746b97a265d4aea3f55c2}{name}}
-\item 
-std\+::function$<$ bool()$>$ \mbox{\hyperlink{classCut_a4205ad5e62b859536797141f3ace2253}{evaluate}}
-\item 
-std\+::function$<$ float()$>$ \mbox{\hyperlink{classCut_a908dfdeed9d882ca026427c0942fb999}{compute\+\_\+weight}}
 \item 
 \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCut_acb046f96bc50db055cccdb1f9a601780}{parent}}
 \item 
@@ -46,56 +44,40 @@ float \mbox{\hyperlink{classCut_ad780ce231646c09c612b14180b2772e0}{n\+\_\+fail\+
 Object that represents a single cut in an analysis 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classCut_aaa89435c5326080296041bc38937ab2d}\label{classCut_aaa89435c5326080296041bc38937ab2d}} 
+\mbox{\Hypertarget{classCut_ad11280d56a8d40eb200cde38ac29cd7f}\label{classCut_ad11280d56a8d40eb200cde38ac29cd7f}} 
 \index{Cut@{Cut}!Cut@{Cut}}
 \index{Cut@{Cut}!Cut@{Cut}}
-\doxysubsubsection{\texorpdfstring{Cut()}{Cut()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Cut\+::\+Cut (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name,  }\item[{std\+::function$<$ bool()$>$}]{new\+\_\+evaluate }\end{DoxyParamCaption})}
-
-\mbox{\hyperlink{classCut}{Cut}} object constructor (assumes weight == 1.\+0) 
-\begin{DoxyParams}{Parameters}
-{\em new\+\_\+name} & new cut name \\
-\hline
-{\em new\+\_\+evaluate} & lambda function that evaluates new cut conditional logic \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classCut_adcfec6d2df97f8e84058078f2f736b03}\label{classCut_adcfec6d2df97f8e84058078f2f736b03}} 
-\index{Cut@{Cut}!Cut@{Cut}}
-\index{Cut@{Cut}!Cut@{Cut}}
-\doxysubsubsection{\texorpdfstring{Cut()}{Cut()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Cut\+::\+Cut (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name,  }\item[{std\+::function$<$ bool()$>$}]{new\+\_\+evaluate,  }\item[{std\+::function$<$ float()$>$}]{new\+\_\+compute\+\_\+weight }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{Cut()}{Cut()}}
+{\footnotesize\ttfamily Cut\+::\+Cut (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name }\end{DoxyParamCaption})}
 
 \mbox{\hyperlink{classCut}{Cut}} object constructor 
 \begin{DoxyParams}{Parameters}
 {\em new\+\_\+name} & new cut name \\
 \hline
-{\em new\+\_\+evaluate} & lambda function that evaluates new cut conditional logic \\
-\hline
-{\em new\+\_\+compute\+\_\+weight} & lambda function that computes event weight \\
-\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCut_a891e1f1b0c661e8f4984b4f9d4d4bde3}\label{classCut_a891e1f1b0c661e8f4984b4f9d4d4bde3}} 
+\index{Cut@{Cut}!````~Cut@{$\sim$Cut}}
+\index{````~Cut@{$\sim$Cut}!Cut@{Cut}}
+\doxysubsubsection{\texorpdfstring{$\sim$Cut()}{~Cut()}}
+{\footnotesize\ttfamily Cut\+::$\sim$\+Cut (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\hyperlink{classCut}{Cut}} object destructor \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classCut_a51d128a9d77f6e9e2965ae0a2ea077e1}\label{classCut_a51d128a9d77f6e9e2965ae0a2ea077e1}} 
-\index{Cut@{Cut}!clone@{clone}}
-\index{clone@{clone}!Cut@{Cut}}
-\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classCut}{Cut}} $\ast$ Cut\+::clone (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+name }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classCut_a3222edd50632f5c97d411e0cac2e67f9}\label{classCut_a3222edd50632f5c97d411e0cac2e67f9}} 
+\index{Cut@{Cut}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Cut@{Cut}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily bool Cut\+::evaluate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Create a copy of this cut object 
-\begin{DoxyParams}{Parameters}
-{\em new\+\_\+name} & name of cut copy \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-pointer to a copy of this cut object 
+Evaluate cut logic \begin{DoxyReturn}{Returns}
+passed/failed (true/false) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCut_a3201e86949718110994a9301987f0f98}\label{classCut_a3201e86949718110994a9301987f0f98}} 
 \index{Cut@{Cut}!getWeight@{getWeight}}
@@ -104,7 +86,7 @@ pointer to a copy of this cut object
 {\footnotesize\ttfamily float Cut\+::get\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Get even weight for this cut (on top of previous cut weights) \begin{DoxyReturn}{Returns}
-event weight 
+product(event weight, parent weight, grandparent weight, ...) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classCut_a9b1298219ed1f85bba920e4049d712e3}\label{classCut_a9b1298219ed1f85bba920e4049d712e3}} 
 \index{Cut@{Cut}!print@{print}}
@@ -115,22 +97,19 @@ event weight
 Print cut object properties \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCut_a3c4a423a59d637cd05df772a5373fb63}\label{classCut_a3c4a423a59d637cd05df772a5373fb63}} 
+\index{Cut@{Cut}!weight@{weight}}
+\index{weight@{weight}!Cut@{Cut}}
+\doxysubsubsection{\texorpdfstring{weight()}{weight()}}
+{\footnotesize\ttfamily float Cut\+::weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get even weight for this cut only \begin{DoxyReturn}{Returns}
+event weight 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classCut_a908dfdeed9d882ca026427c0942fb999}\label{classCut_a908dfdeed9d882ca026427c0942fb999}} 
-\index{Cut@{Cut}!compute\_weight@{compute\_weight}}
-\index{compute\_weight@{compute\_weight}!Cut@{Cut}}
-\doxysubsubsection{\texorpdfstring{compute\_weight}{compute\_weight}}
-{\footnotesize\ttfamily std\+::function$<$float()$>$ Cut\+::compute\+\_\+weight}
-
-Lambda function that computes event weight \mbox{\Hypertarget{classCut_a4205ad5e62b859536797141f3ace2253}\label{classCut_a4205ad5e62b859536797141f3ace2253}} 
-\index{Cut@{Cut}!evaluate@{evaluate}}
-\index{evaluate@{evaluate}!Cut@{Cut}}
-\doxysubsubsection{\texorpdfstring{evaluate}{evaluate}}
-{\footnotesize\ttfamily std\+::function$<$bool()$>$ Cut\+::evaluate}
-
-Lambda function that evaluates conditional logic (i.\+e. the cut itself) \mbox{\Hypertarget{classCut_a2c65e372172dfa0f705d117d3ad0f668}\label{classCut_a2c65e372172dfa0f705d117d3ad0f668}} 
+\mbox{\Hypertarget{classCut_a2c65e372172dfa0f705d117d3ad0f668}\label{classCut_a2c65e372172dfa0f705d117d3ad0f668}} 
 \index{Cut@{Cut}!left@{left}}
 \index{left@{left}!Cut@{Cut}}
 \doxysubsubsection{\texorpdfstring{left}{left}}

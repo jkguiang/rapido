@@ -75,14 +75,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaa89435c5326080296041bc38937ab2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#aaa89435c5326080296041bc38937ab2d">Cut</a> (std::string new_name, std::function&lt; bool()&gt; new_evaluate)</td></tr>
-<tr class="separator:aaa89435c5326080296041bc38937ab2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcfec6d2df97f8e84058078f2f736b03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#adcfec6d2df97f8e84058078f2f736b03">Cut</a> (std::string new_name, std::function&lt; bool()&gt; new_evaluate, std::function&lt; float()&gt; new_compute_weight)</td></tr>
-<tr class="separator:adcfec6d2df97f8e84058078f2f736b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51d128a9d77f6e9e2965ae0a2ea077e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a51d128a9d77f6e9e2965ae0a2ea077e1">clone</a> (std::string new_name)</td></tr>
-<tr class="separator:a51d128a9d77f6e9e2965ae0a2ea077e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11280d56a8d40eb200cde38ac29cd7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#ad11280d56a8d40eb200cde38ac29cd7f">Cut</a> (std::string new_name)</td></tr>
+<tr class="separator:ad11280d56a8d40eb200cde38ac29cd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891e1f1b0c661e8f4984b4f9d4d4bde3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a891e1f1b0c661e8f4984b4f9d4d4bde3">~Cut</a> ()</td></tr>
+<tr class="separator:a891e1f1b0c661e8f4984b4f9d4d4bde3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b1298219ed1f85bba920e4049d712e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a9b1298219ed1f85bba920e4049d712e3">print</a> ()</td></tr>
 <tr class="separator:a9b1298219ed1f85bba920e4049d712e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3222edd50632f5c97d411e0cac2e67f9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a3222edd50632f5c97d411e0cac2e67f9">evaluate</a> ()</td></tr>
+<tr class="separator:a3222edd50632f5c97d411e0cac2e67f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c4a423a59d637cd05df772a5373fb63"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a3c4a423a59d637cd05df772a5373fb63">weight</a> ()</td></tr>
+<tr class="separator:a3c4a423a59d637cd05df772a5373fb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3201e86949718110994a9301987f0f98"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a3201e86949718110994a9301987f0f98">getWeight</a> ()</td></tr>
 <tr class="separator:a3201e86949718110994a9301987f0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -90,10 +92,6 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:accf700d2d00746b97a265d4aea3f55c2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#accf700d2d00746b97a265d4aea3f55c2">name</a></td></tr>
 <tr class="separator:accf700d2d00746b97a265d4aea3f55c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4205ad5e62b859536797141f3ace2253"><td class="memItemLeft" align="right" valign="top">std::function&lt; bool()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a4205ad5e62b859536797141f3ace2253">evaluate</a></td></tr>
-<tr class="separator:a4205ad5e62b859536797141f3ace2253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a908dfdeed9d882ca026427c0942fb999"><td class="memItemLeft" align="right" valign="top">std::function&lt; float()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a908dfdeed9d882ca026427c0942fb999">compute_weight</a></td></tr>
-<tr class="separator:a908dfdeed9d882ca026427c0942fb999"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb046f96bc50db055cccdb1f9a601780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#acb046f96bc50db055cccdb1f9a601780">parent</a></td></tr>
 <tr class="separator:acb046f96bc50db055cccdb1f9a601780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2142ffe68028bb0c211408c0f5bb8bfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCut.html#a2142ffe68028bb0c211408c0f5bb8bfb">right</a></td></tr>
@@ -112,94 +110,14 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Object that represents a single cut in an analysis </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aaa89435c5326080296041bc38937ab2d" name="aaa89435c5326080296041bc38937ab2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa89435c5326080296041bc38937ab2d">&#9670;&nbsp;</a></span>Cut() <span class="overload">[1/2]</span></h2>
+<a id="ad11280d56a8d40eb200cde38ac29cd7f" name="ad11280d56a8d40eb200cde38ac29cd7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11280d56a8d40eb200cde38ac29cd7f">&#9670;&nbsp;</a></span>Cut()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Cut::Cut </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>new_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::function&lt; bool()&gt;&#160;</td>
-          <td class="paramname"><em>new_evaluate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p ><a class="el" href="classCut.html">Cut</a> object constructor (assumes weight == 1.0) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_name</td><td>new cut name </td></tr>
-    <tr><td class="paramname">new_evaluate</td><td>lambda function that evaluates new cut conditional logic </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-</div>
-</div>
-<a id="adcfec6d2df97f8e84058078f2f736b03" name="adcfec6d2df97f8e84058078f2f736b03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcfec6d2df97f8e84058078f2f736b03">&#9670;&nbsp;</a></span>Cut() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Cut::Cut </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>new_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::function&lt; bool()&gt;&#160;</td>
-          <td class="paramname"><em>new_evaluate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::function&lt; float()&gt;&#160;</td>
-          <td class="paramname"><em>new_compute_weight</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p ><a class="el" href="classCut.html">Cut</a> object constructor </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_name</td><td>new cut name </td></tr>
-    <tr><td class="paramname">new_evaluate</td><td>lambda function that evaluates new cut conditional logic </td></tr>
-    <tr><td class="paramname">new_compute_weight</td><td>lambda function that computes event weight </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a51d128a9d77f6e9e2965ae0a2ea077e1" name="a51d128a9d77f6e9e2965ae0a2ea077e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51d128a9d77f6e9e2965ae0a2ea077e1">&#9670;&nbsp;</a></span>clone()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classCut.html">Cut</a> * Cut::clone </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>new_name</em></td><td>)</td>
@@ -207,13 +125,66 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Create a copy of this cut object </p><dl class="params"><dt>Parameters</dt><dd>
+<p ><a class="el" href="classCut.html">Cut</a> object constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_name</td><td>name of cut copy </td></tr>
+    <tr><td class="paramname">new_name</td><td>new cut name </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>pointer to a copy of this cut object </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="a891e1f1b0c661e8f4984b4f9d4d4bde3" name="a891e1f1b0c661e8f4984b4f9d4d4bde3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a891e1f1b0c661e8f4984b4f9d4d4bde3">&#9670;&nbsp;</a></span>~Cut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cut::~Cut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p ><a class="el" href="classCut.html">Cut</a> object destructor </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3222edd50632f5c97d411e0cac2e67f9" name="a3222edd50632f5c97d411e0cac2e67f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3222edd50632f5c97d411e0cac2e67f9">&#9670;&nbsp;</a></span>evaluate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cut::evaluate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Evaluate cut logic </p><dl class="section return"><dt>Returns</dt><dd>passed/failed (true/false) </dd></dl>
 
 </div>
 </div>
@@ -231,7 +202,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Get even weight for this cut (on top of previous cut weights) </p><dl class="section return"><dt>Returns</dt><dd>event weight </dd></dl>
+<p >Get even weight for this cut (on top of previous cut weights) </p><dl class="section return"><dt>Returns</dt><dd>product(event weight, parent weight, grandparent weight, ...) </dd></dl>
 
 </div>
 </div>
@@ -253,37 +224,33 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3c4a423a59d637cd05df772a5373fb63" name="a3c4a423a59d637cd05df772a5373fb63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c4a423a59d637cd05df772a5373fb63">&#9670;&nbsp;</a></span>weight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Cut::weight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Get even weight for this cut only </p><dl class="section return"><dt>Returns</dt><dd>event weight </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a908dfdeed9d882ca026427c0942fb999" name="a908dfdeed9d882ca026427c0942fb999"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a908dfdeed9d882ca026427c0942fb999">&#9670;&nbsp;</a></span>compute_weight</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;float()&gt; Cut::compute_weight</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Lambda function that computes event weight </p>
-
-</div>
-</div>
-<a id="a4205ad5e62b859536797141f3ace2253" name="a4205ad5e62b859536797141f3ace2253"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4205ad5e62b859536797141f3ace2253">&#9670;&nbsp;</a></span>evaluate</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;bool()&gt; Cut::evaluate</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Lambda function that evaluates conditional logic (i.e. the cut itself) </p>
-
-</div>
-</div>
 <a id="a2c65e372172dfa0f705d117d3ad0f668" name="a2c65e372172dfa0f705d117d3ad0f668"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c65e372172dfa0f705d117d3ad0f668">&#9670;&nbsp;</a></span>left</h2>
 
