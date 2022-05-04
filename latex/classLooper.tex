@@ -12,6 +12,8 @@
 virtual \mbox{\hyperlink{classLooper_a23ff9511f1d99ca1f3753e59a1b3a22b}{$\sim$\+Looper}} ()
 \item 
 void \mbox{\hyperlink{classLooper_a8b259a7ad0c2aa45ae49d1ec08d37af0}{run}} (std\+::function$<$ void(TTree $\ast$ttree)$>$ init, std\+::function$<$ void(int entry)$>$ eval)
+\item 
+void \mbox{\hyperlink{classLooper_a7a05da3ed2280cce54e04cc90a61f36a}{stop}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -25,6 +27,11 @@ unsigned int \mbox{\hyperlink{classLooper_ab368e58278fc91c4814e579cb9080d4f}{cur
 unsigned int \mbox{\hyperlink{classLooper_abbf626538aced372130172ac86958265}{n\+\_\+events\+\_\+processed}}
 \item 
 unsigned int \mbox{\hyperlink{classLooper_a6251eeff0d36df11886ac1a50521a1db}{n\+\_\+events\+\_\+to\+\_\+process}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classLooper_aec6b2faa30ddf9191dcfa044c72ea49b}{keep\+\_\+alive}}
 \end{DoxyCompactItemize}
 
 
@@ -96,6 +103,15 @@ The following example uses a class named \char`\"{}\+Selector\char`\"{} generate
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classLooper_a7a05da3ed2280cce54e04cc90a61f36a}\label{classLooper_a7a05da3ed2280cce54e04cc90a61f36a}} 
+\index{Looper@{Looper}!stop@{stop}}
+\index{stop@{stop}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Looper\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stop event loop \begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
@@ -105,7 +121,13 @@ none
 \doxysubsubsection{\texorpdfstring{current\_entry}{current\_entry}}
 {\footnotesize\ttfamily unsigned int Looper\+::current\+\_\+entry}
 
-Current entry in TTree (i.\+e. current index of event loop) \mbox{\Hypertarget{classLooper_abbf626538aced372130172ac86958265}\label{classLooper_abbf626538aced372130172ac86958265}} 
+Current entry in TTree (i.\+e. current index of event loop) \mbox{\Hypertarget{classLooper_aec6b2faa30ddf9191dcfa044c72ea49b}\label{classLooper_aec6b2faa30ddf9191dcfa044c72ea49b}} 
+\index{Looper@{Looper}!keep\_alive@{keep\_alive}}
+\index{keep\_alive@{keep\_alive}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{keep\_alive}{keep\_alive}}
+{\footnotesize\ttfamily bool Looper\+::keep\+\_\+alive\hspace{0.3cm}{\ttfamily [protected]}}
+
+Flag for continuing event loop \mbox{\Hypertarget{classLooper_abbf626538aced372130172ac86958265}\label{classLooper_abbf626538aced372130172ac86958265}} 
 \index{Looper@{Looper}!n\_events\_processed@{n\_events\_processed}}
 \index{n\_events\_processed@{n\_events\_processed}!Looper@{Looper}}
 \doxysubsubsection{\texorpdfstring{n\_events\_processed}{n\_events\_processed}}

@@ -66,6 +66,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classLooper-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Looper Class Reference</div></div>
 </div><!--header-->
@@ -81,6 +82,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a23ff9511f1d99ca1f3753e59a1b3a22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b259a7ad0c2aa45ae49d1ec08d37af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a8b259a7ad0c2aa45ae49d1ec08d37af0">run</a> (std::function&lt; void(TTree *ttree)&gt; init, std::function&lt; void(int entry)&gt; eval)</td></tr>
 <tr class="separator:a8b259a7ad0c2aa45ae49d1ec08d37af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a05da3ed2280cce54e04cc90a61f36a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a7a05da3ed2280cce54e04cc90a61f36a">stop</a> ()</td></tr>
+<tr class="separator:a7a05da3ed2280cce54e04cc90a61f36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -94,6 +97,11 @@ Public Attributes</h2></td></tr>
 <tr class="separator:abbf626538aced372130172ac86958265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6251eeff0d36df11886ac1a50521a1db"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#a6251eeff0d36df11886ac1a50521a1db">n_events_to_process</a></td></tr>
 <tr class="separator:a6251eeff0d36df11886ac1a50521a1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aec6b2faa30ddf9191dcfa044c72ea49b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLooper.html#aec6b2faa30ddf9191dcfa044c72ea49b">keep_alive</a></td></tr>
+<tr class="separator:aec6b2faa30ddf9191dcfa044c72ea49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Object to handle looping over ROOT files </p>
@@ -193,7 +201,7 @@ Public Attributes</h2></td></tr>
 <div class="line">    );</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassLooper_html_a916868e8a7a8bf73274a82bf47df22f4"><div class="ttname"><a href="classLooper.html#a916868e8a7a8bf73274a82bf47df22f4">Looper::Looper</a></div><div class="ttdeci">Looper(TChain *new_tchain)</div></div>
-<div class="ttc" id="aclassLooper_html_ae804a8c01aea03c415a0277099b7a2a0"><div class="ttname"><a href="classLooper.html#ae804a8c01aea03c415a0277099b7a2a0">Looper::tchain</a></div><div class="ttdeci">TChain * tchain</div><div class="ttdef"><b>Definition:</b> looper.h:76</div></div>
+<div class="ttc" id="aclassLooper_html_ae804a8c01aea03c415a0277099b7a2a0"><div class="ttname"><a href="classLooper.html#ae804a8c01aea03c415a0277099b7a2a0">Looper::tchain</a></div><div class="ttdeci">TChain * tchain</div><div class="ttdef"><b>Definition:</b> looper.h:81</div></div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">init</td><td>file-level initialization steps captured in a void lambda function </td></tr>
@@ -202,6 +210,24 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="a7a05da3ed2280cce54e04cc90a61f36a" name="a7a05da3ed2280cce54e04cc90a61f36a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a05da3ed2280cce54e04cc90a61f36a">&#9670;&nbsp;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Looper::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Stop event loop </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>
@@ -218,6 +244,29 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Current entry in TTree (i.e. current index of event loop) </p>
+
+</div>
+</div>
+<a id="aec6b2faa30ddf9191dcfa044c72ea49b" name="aec6b2faa30ddf9191dcfa044c72ea49b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6b2faa30ddf9191dcfa044c72ea49b">&#9670;&nbsp;</a></span>keep_alive</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Looper::keep_alive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Flag for continuing event loop </p>
 
 </div>
 </div>

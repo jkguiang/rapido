@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['weigher_0',['weigher',['../classLambdaCut.html#aee594dadad6b1de92ee45fed42e234bd',1,'LambdaCut']]],
-  ['weight_1',['weight',['../classCut.html#a3c4a423a59d637cd05df772a5373fb63',1,'Cut::weight()'],['../classLambdaCut.html#af24a036a017fab987c03d101298644ba',1,'LambdaCut::weight()']]],
-  ['write_2',['write',['../classCutflow.html#a42bd2909f9e32bb12e7dbd717248a253',1,'Cutflow::write()'],['../classHist1D.html#ae45c2073b4c8f25a10ac534012feb22b',1,'Hist1D::write()'],['../classHist2D.html#aea99923e54c6b1af26c2b399cf648231',1,'Hist2D::write()']]],
-  ['writecsv_3',['writeCSV',['../classCutflow.html#a43e58326fbce5306e2b3d080c6cd85f0',1,'Cutflow']]],
-  ['writehists_4',['writeHists',['../classHistflow.html#a06a2e1683cdc7ac2731b4608abe15eb7',1,'Histflow']]],
-  ['writemermaid_5',['writeMermaid',['../classCutflow.html#acd23a4f8f0fef9a0ce8714bd901d23fb',1,'Cutflow']]],
-  ['writerow_6',['writeRow',['../classUtilities_1_1CSVFile.html#a592fc96c51382efb35c6708acbfa69c2',1,'Utilities::CSVFile']]],
-  ['writetfile_7',['writeTFile',['../classArbol.html#ade7d835bbe383a70006e86785ae5672c',1,'Arbol']]]
+  ['value_0',['value',['../classUtilities_1_1Variable.html#ab91417296eea0614f336941a2ecc2944',1,'Utilities::Variable']]],
+  ['variable_1',['Variable',['../classUtilities_1_1Variable.html',1,'Utilities::Variable&lt; Type &gt;'],['../classUtilities_1_1Variable.html#ace9dfa727e6aaecd2d9da8f6e68ad9c6',1,'Utilities::Variable::Variable()'],['../classUtilities_1_1Variable.html#a9d800e313dbe144bb04b58dff8a68bd4',1,'Utilities::Variable::Variable(Type new_reset_value)']]],
+  ['variables_2',['Variables',['../classUtilities_1_1Variables.html',1,'Utilities::Variables'],['../classUtilities_1_1Variables.html#a60ebf236218fbefc48cb35e6dcabb2d6',1,'Utilities::Variables::Variables()']]],
+  ['variables_3',['variables',['../classUtilities_1_1Variables.html#acd0a2a9ec3135923b460cdf4e571d478',1,'Utilities::Variables']]],
+  ['verbose_4',['verbose',['../classHEPCLI.html#a50592a47a23f3e33a774a747ee32bf00',1,'HEPCLI']]]
 ];

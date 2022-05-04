@@ -40,6 +40,8 @@ void \mbox{\hyperlink{classCutflow_a42bd2909f9e32bb12e7dbd717248a253}{write}} (s
 void \mbox{\hyperlink{classCutflow_a43e58326fbce5306e2b3d080c6cd85f0}{write\+CSV}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{})
 \item 
 void \mbox{\hyperlink{classCutflow_acd23a4f8f0fef9a0ce8714bd901d23fb}{write\+Mermaid}} (std\+::string output\+\_\+dir=\char`\"{}\char`\"{}, std\+::string orientation=\char`\"{}TD\char`\"{})
+\item 
+void \mbox{\hyperlink{classCutflow_a1657305fa62637aff34e1cece3d49d73}{set\+Debug\+Lambda}} (std\+::function$<$ void(\mbox{\hyperlink{classCut}{Cut}} $\ast$)$>$ new\+\_\+debugger)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -75,6 +77,10 @@ void \mbox{\hyperlink{classCutflow_adc7029b27ff8d742d10c75d6f6342dac}{recursive\
 \mbox{\hyperlink{classCut}{Cut}} $\ast$ \mbox{\hyperlink{classCutflow_a96f2343bfae77c94f2e87b5f3a128d6d}{root}}
 \item 
 std\+::map$<$ std\+::string, \mbox{\hyperlink{classCut}{Cut}} $\ast$ $>$ \mbox{\hyperlink{classCutflow_a76f5cbd82750844d379384c7b1243cca}{cut\+\_\+record}}
+\item 
+std\+::function$<$ void(\mbox{\hyperlink{classCut}{Cut}} $\ast$)$>$ \mbox{\hyperlink{classCutflow_abb96db5e150faecc23c88456f27a2764}{debugger}}
+\item 
+bool \mbox{\hyperlink{classCutflow_ae8792b03dddaac635316012514ed33a3}{debugger\+\_\+is\+\_\+set}}
 \end{DoxyCompactItemize}
 
 
@@ -372,6 +378,20 @@ Run cutflow until a target terminal cut \begin{DoxySeeAlso}{See also}
 \begin{DoxyReturn}{Returns}
 whether or not (true/false) the target cut was reached and passed 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCutflow_a1657305fa62637aff34e1cece3d49d73}\label{classCutflow_a1657305fa62637aff34e1cece3d49d73}} 
+\index{Cutflow@{Cutflow}!setDebugLambda@{setDebugLambda}}
+\index{setDebugLambda@{setDebugLambda}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{setDebugLambda()}{setDebugLambda()}}
+{\footnotesize\ttfamily void Cutflow\+::set\+Debug\+Lambda (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{classCut}{Cut}} $\ast$)$>$}]{new\+\_\+debugger }\end{DoxyParamCaption})}
+
+Set debug function 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+debugger} & lambda function that will be run before every cut \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCutflow_ad27d37141c3748779a5d81fad919ecbb}\label{classCutflow_ad27d37141c3748779a5d81fad919ecbb}} 
 \index{Cutflow@{Cutflow}!setRoot@{setRoot}}
 \index{setRoot@{setRoot}!Cutflow@{Cutflow}}
@@ -439,7 +459,19 @@ none
 \doxysubsubsection{\texorpdfstring{cut\_record}{cut\_record}}
 {\footnotesize\ttfamily std\+::map$<$std\+::string, \mbox{\hyperlink{classCut}{Cut}}$\ast$$>$ Cutflow\+::cut\+\_\+record\hspace{0.3cm}{\ttfamily [protected]}}
 
-(PROTECTED) Map (\char`\"{}record\char`\"{}) of all cuts in cutflow \mbox{\Hypertarget{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}\label{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}} 
+(PROTECTED) Map (\char`\"{}record\char`\"{}) of all cuts in cutflow \mbox{\Hypertarget{classCutflow_abb96db5e150faecc23c88456f27a2764}\label{classCutflow_abb96db5e150faecc23c88456f27a2764}} 
+\index{Cutflow@{Cutflow}!debugger@{debugger}}
+\index{debugger@{debugger}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{debugger}{debugger}}
+{\footnotesize\ttfamily std\+::function$<$void(\mbox{\hyperlink{classCut}{Cut}}$\ast$)$>$ Cutflow\+::debugger\hspace{0.3cm}{\ttfamily [protected]}}
+
+(PROTECTED) Lambda function that runs before every cut for debugging purposes \mbox{\Hypertarget{classCutflow_ae8792b03dddaac635316012514ed33a3}\label{classCutflow_ae8792b03dddaac635316012514ed33a3}} 
+\index{Cutflow@{Cutflow}!debugger\_is\_set@{debugger\_is\_set}}
+\index{debugger\_is\_set@{debugger\_is\_set}!Cutflow@{Cutflow}}
+\doxysubsubsection{\texorpdfstring{debugger\_is\_set}{debugger\_is\_set}}
+{\footnotesize\ttfamily bool Cutflow\+::debugger\+\_\+is\+\_\+set\hspace{0.3cm}{\ttfamily [protected]}}
+
+(PROTECTED) Flag indicating that a debugger lambda function has been set \mbox{\Hypertarget{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}\label{classCutflow_a71390324488ac6ed4a72c41f4a2c1c10}} 
 \index{Cutflow@{Cutflow}!globals@{globals}}
 \index{globals@{globals}!Cutflow@{Cutflow}}
 \doxysubsubsection{\texorpdfstring{globals}{globals}}

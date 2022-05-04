@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scale_5ffactor_0',['scale_factor',['../classHEPCLI.html#a027e714e73b6fcdd0cb73eb8445bbfa4',1,'HEPCLI']]]
+  ['parent_0',['parent',['../classCut.html#acb046f96bc50db055cccdb1f9a601780',1,'Cut']]]
 ];

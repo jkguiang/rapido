@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd23a4f8f0fef9a0ce8714bd901d23fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#acd23a4f8f0fef9a0ce8714bd901d23fb">writeMermaid</a> (std::string output_dir=&quot;&quot;, std::string orientation=&quot;TD&quot;)</td></tr>
 <tr class="separator:acd23a4f8f0fef9a0ce8714bd901d23fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1657305fa62637aff34e1cece3d49d73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a1657305fa62637aff34e1cece3d49d73">setDebugLambda</a> (std::function&lt; void(<a class="el" href="classCut.html">Cut</a> *)&gt; new_debugger)</td></tr>
+<tr class="separator:a1657305fa62637aff34e1cece3d49d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -149,6 +151,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a96f2343bfae77c94f2e87b5f3a128d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76f5cbd82750844d379384c7b1243cca"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="classCut.html">Cut</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a76f5cbd82750844d379384c7b1243cca">cut_record</a></td></tr>
 <tr class="separator:a76f5cbd82750844d379384c7b1243cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb96db5e150faecc23c88456f27a2764"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(<a class="el" href="classCut.html">Cut</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#abb96db5e150faecc23c88456f27a2764">debugger</a></td></tr>
+<tr class="separator:abb96db5e150faecc23c88456f27a2764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8792b03dddaac635316012514ed33a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#ae8792b03dddaac635316012514ed33a3">debugger_is_set</a></td></tr>
+<tr class="separator:ae8792b03dddaac635316012514ed33a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >An analysis represented as a binary search tree (i.e. analysis = tree, cut = node) </p>
@@ -829,6 +835,31 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1657305fa62637aff34e1cece3d49d73" name="a1657305fa62637aff34e1cece3d49d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1657305fa62637aff34e1cece3d49d73">&#9670;&nbsp;</a></span>setDebugLambda()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cutflow::setDebugLambda </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classCut.html">Cut</a> *)&gt;&#160;</td>
+          <td class="paramname"><em>new_debugger</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Set debug function </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_debugger</td><td>lambda function that will be run before every cut </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
 <a id="ad27d37141c3748779a5d81fad919ecbb" name="ad27d37141c3748779a5d81fad919ecbb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad27d37141c3748779a5d81fad919ecbb">&#9670;&nbsp;</a></span>setRoot()</h2>
 
@@ -961,6 +992,52 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >(PROTECTED) Map ("record") of all cuts in cutflow </p>
+
+</div>
+</div>
+<a id="abb96db5e150faecc23c88456f27a2764" name="abb96db5e150faecc23c88456f27a2764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb96db5e150faecc23c88456f27a2764">&#9670;&nbsp;</a></span>debugger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void(<a class="el" href="classCut.html">Cut</a>*)&gt; Cutflow::debugger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >(PROTECTED) Lambda function that runs before every cut for debugging purposes </p>
+
+</div>
+</div>
+<a id="ae8792b03dddaac635316012514ed33a3" name="ae8792b03dddaac635316012514ed33a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8792b03dddaac635316012514ed33a3">&#9670;&nbsp;</a></span>debugger_is_set</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cutflow::debugger_is_set</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >(PROTECTED) Flag indicating that a debugger lambda function has been set </p>
 
 </div>
 </div>
