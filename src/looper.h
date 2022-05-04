@@ -46,6 +46,8 @@ public:
     bool is_data;
     /** Signal (as opposed to background) flag */
     bool is_signal;
+    /** Debug flag */
+    bool debug;
     /** Global event weight */
     float scale_factor;
     /** ROOT TChain with input files */
@@ -71,6 +73,9 @@ public:
  */
 class Looper
 {
+protected:
+    /** Flag for continuing event loop */
+    bool keep_alive;
 public:
     /** ROOT TChain of files to loop over */
     TChain* tchain;
@@ -122,6 +127,12 @@ public:
      * @return none
      */
     void run(std::function<void(TTree* ttree)> init, std::function<void(int entry)> eval);
+
+    /**
+     * Stop event loop
+     * @return none
+     */
+    void stop();
 };
 
 #include "looper.icc"

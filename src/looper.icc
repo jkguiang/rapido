@@ -5,6 +5,7 @@ HEPCLI::HEPCLI(int argc, char** argv)
     verbose = false;
     is_data = false;
     is_signal = false;
+    debug = false;
     scale_factor = 1.;
     parse(argc, argv);
 }
@@ -38,13 +39,17 @@ void HEPCLI::printHelp()
     std::cout << std::endl;
     std::cout << std::setw(25) << "  --is_signal" << std::setw(50) << "signal flag";
     std::cout << std::endl;
+    std::cout << std::setw(25) << "  --debug" << std::setw(50) << "debug flag";
+    std::cout << std::endl;
     return;
 }
 
 void HEPCLI::parse(int argc, char** argv)
 {
     // Initialize getopts-relevant variables
-    int value;
+    int is_data_flag = 0;
+    int is_signal_flag = 0;
+    int debug_flag = 0;
     static struct option options[] = {
         {"verbose", no_argument, 0, 'v'},
         {"input_ttree", required_argument, 0, 't'},
@@ -52,15 +57,16 @@ void HEPCLI::parse(int argc, char** argv)
         {"output_name", required_argument, 0, 'n'},
         {"scale_factor", required_argument, 0, 's'},
         {"help", no_argument, 0, 'h'},
-        {"is_data", no_argument, 0, 0},
-        {"is_signal", no_argument, 0, 0},
+        {"is_data", no_argument, &is_data_flag, 1},
+        {"is_signal", no_argument, &is_signal_flag, 1},
+        {"debug", no_argument, &debug_flag, 1},
     };
+    int value;
     while (true) 
     {
         int option_index = 0;
         value = getopt_long(argc, argv, "vt:d:n:s:h", options, &option_index);
-        if (value == -1)
-            break;
+        if (value == -1) { break; }
         switch(value)
         {
             case 'v':
@@ -84,6 +90,10 @@ void HEPCLI::parse(int argc, char** argv)
                 break;
         }
     }
+    // Read flag values
+    is_data = is_data_flag;
+    is_signal = is_signal_flag;
+    debug = debug_flag;
     // Read all non-optioned arguments as input file paths
     int n_input_files = 0;
     input_tchain = new TChain(input_ttree.c_str());
@@ -105,6 +115,7 @@ void HEPCLI::parse(int argc, char** argv)
 
 Looper::Looper(TChain* new_tchain)
 {
+    keep_alive = true;
     tchain = new_tchain;
     ttree_name = tchain->GetName();
     n_events_processed = 0;
@@ -119,7 +130,7 @@ void Looper::run(std::function<void(TTree* ttree)> init, std::function<void(int 
     TIter tfile_iterator(tchain->GetListOfFiles());
     // Start file loop
     TFile* current_tfile = 0;
-    while ((current_tfile = (TFile*)tfile_iterator.Next()))
+    while (keep_alive && (current_tfile = (TFile*)tfile_iterator.Next()))
     {
         // Open file
         TFile* tfile = TFile::Open(current_tfile->GetTitle());
@@ -129,10 +140,9 @@ void Looper::run(std::function<void(TTree* ttree)> init, std::function<void(int 
         ttree->SetCacheLearnEntries(100);
         init(ttree);
         // Start event loop
-        for (int entry = 0; entry < ttree->GetEntriesFast(); ++entry) 
+        for (int entry = 0; keep_alive && entry < ttree->GetEntriesFast(); ++entry) 
         {
             current_entry = entry;
-            // Run event-level logic
             eval(entry);
             n_events_processed++;
         } 
@@ -141,6 +151,13 @@ void Looper::run(std::function<void(TTree* ttree)> init, std::function<void(int 
         // Clean up
         delete tfile;
     }
+    // Reset keep_alive flag
+    keep_alive = true;
     // End file loop
     return;
+}
+
+void Looper::stop()
+{
+    keep_alive = false;
 }
