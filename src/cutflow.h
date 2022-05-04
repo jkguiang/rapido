@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <chrono>
 
 #include "utilities.h"
 
@@ -39,6 +40,8 @@ public:
     float n_pass_weighted;
     /** Weighted number of events that fail cut */
     float n_fail_weighted;
+    /** Sum of all cut runtimes */
+    float runtime_sum;
 
     /**
      * Cut object constructor
@@ -128,6 +131,10 @@ protected:
     Cut* root;
     /** (PROTECTED) Map ("record") of all cuts in cutflow */
     std::map<std::string, Cut*> cut_record;
+    /** (PROTECTED) Lambda function that runs before every cut for debugging purposes */
+    std::function<void(Cut*)> debugger;
+    /** (PROTECTED) Flag indicating that a debugger lambda function has been set */
+    bool debugger_is_set;
     /**
      * (PROTECTED) Retrieve cut object from cut record
      * @param cut_name cut name 
@@ -289,6 +296,12 @@ public:
      * @return none
      */
     void writeMermaid(std::string output_dir = "", std::string orientation = "TD");
+    /**
+     * Set debug function
+     * @param new_debugger lambda function that will be run before every cut
+     * @return none
+     */
+    void setDebugLambda(std::function<void(Cut*)> new_debugger);
 };
 
 #endif

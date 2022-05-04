@@ -10,6 +10,7 @@ Cut::Cut(std::string new_name)
     n_fail = 0;
     n_pass_weighted = 0.;
     n_fail_weighted = 0.;
+    runtime_sum = 0.;
 }
 
 Cut::~Cut() {}
@@ -91,6 +92,7 @@ Cutflow::Cutflow()
     name = "cutflow";
     globals = Utilities::Variables();
     root = nullptr;
+    debugger_is_set = false;
 }
 
 Cutflow::Cutflow(std::string new_name)
@@ -98,6 +100,7 @@ Cutflow::Cutflow(std::string new_name)
     name = new_name;
     globals = Utilities::Variables();
     root = nullptr;
+    debugger_is_set = false;
 }
 
 Cutflow::Cutflow(std::string new_name, Cut* new_root)
@@ -105,6 +108,7 @@ Cutflow::Cutflow(std::string new_name, Cut* new_root)
     name = new_name;
     globals = Utilities::Variables();
     setRoot(new_root);
+    debugger_is_set = false;
 }
 
 Cutflow::~Cutflow() { recursiveDelete(root); }
@@ -306,15 +310,20 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
         else if (direction == Left) { std::cout << "\u2514\u2612\u2500"; }
         else { std::cout << "\u2514\u2611\u2500"; }
         // Print cut name
-        std::cout << cut->name << std::endl;
-        // Print cut info
-        tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502   " : "    ";
-        std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
-        if (cut->n_pass != cut->n_pass_weighted) { std::cout << " " << cut->n_pass_weighted << " (wgt)"; }
-        std::cout << std::endl;
-        std::cout << tabs << "fail: " << cut->n_fail << " (raw)";
-        if (cut->n_fail != cut->n_fail_weighted) { std::cout << " " << cut->n_fail_weighted << " (wgt)"; }
-        std::cout << std::endl;
+        float avg_runtime = cut->runtime_sum/(cut->n_pass + cut->n_fail);
+        std::cout << cut->name << " (" << cut->runtime_sum << " ms total, " << avg_runtime  << " ms/event)" << std::endl;
+        // Print pass/fail if next cut is not identical
+        tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502  " : "   ";
+        if (cut->right == nullptr || cut->n_pass != cut->right->n_pass)
+        {
+            // Print cut info
+            std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
+            if (cut->n_pass != cut->n_pass_weighted) { std::cout << " " << cut->n_pass_weighted << " (wgt)"; }
+            std::cout << std::endl;
+            std::cout << tabs << "fail: " << cut->n_fail << " (raw)";
+            if (cut->n_fail != cut->n_fail_weighted) { std::cout << " " << cut->n_fail_weighted << " (wgt)"; }
+            std::cout << std::endl;
+        }
         // Print next cutflow level
         recursivePrint(tabs, cut->left, Left);
         recursivePrint(tabs, cut->right, Right);
@@ -324,17 +333,28 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
 
 bool Cutflow::recursiveEvaluate(Cut* cut)
 {
-    if (cut->evaluate() == true)
+    if (debugger_is_set) { debugger(cut); }
+    // Start timer
+    std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+    // Run cut logic and compute weight
+    bool passed = cut->evaluate();
+    float weight = cut->getWeight();
+    // Stop timer and calculate runtime
+    std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::milli> runtime = t2 - t1;
+    cut->runtime_sum += runtime.count();
+    // Continue down the tree
+    if (passed)
     {
         cut->n_pass++;
-        cut->n_pass_weighted += cut->getWeight();
+        cut->n_pass_weighted += weight;
         if (cut->right == nullptr) { return true; }
         else { return recursiveEvaluate(cut->right); }
     }
     else
     {
         cut->n_fail++;
-        cut->n_fail_weighted += cut->getWeight();
+        cut->n_fail_weighted += weight;
         if (cut->left == nullptr) { return false; }
         else { return recursiveEvaluate(cut->left); }
     }
@@ -444,5 +464,12 @@ void Cutflow::recursiveWriteMermaid(Cut* cut, std::ofstream& ofstream, std::stri
         recursiveWriteMermaid(cut->left, ofstream, output_mmd);
         recursiveWriteMermaid(cut->right, ofstream, output_mmd);
     }
+    return;
+}
+
+void Cutflow::setDebugLambda(std::function<void(Cut*)> new_debugger)
+{
+    debugger = new_debugger;
+    debugger_is_set = true;
     return;
 }
