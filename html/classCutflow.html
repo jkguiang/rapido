@@ -18,11 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="custom.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
-<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
 <script type="text/javascript">
     DoxygenAwesomeDarkModeToggle.init()
@@ -600,7 +595,6 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">tabs</td><td>string with the prefix tabs for current cut </td></tr>
     <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
     <tr><td class="paramname">direction</td><td>direction of cut relative to parent </td></tr>
-    <tr><td class="paramname">weight</td><td>current event weight </td></tr>
   </table>
   </dd>
 </dl>
@@ -695,7 +689,7 @@ Protected Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
     <tr><td class="paramname">ofstream</td><td>std::ofsteam object for RAPIDO .cflow file </td></tr>
-    <tr><td class="paramname">output_flow</td><td>name of .cflow file </td></tr>
+    <tr><td class="paramname">output_cflow</td><td>name of .cflow file </td></tr>
   </table>
   </dd>
 </dl>
@@ -759,8 +753,8 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">output_dir</td><td>target directory for output CSV files </td></tr>
     <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
     <tr><td class="paramname">direction</td><td>direction of cut relative to parent </td></tr>
-    <tr><td class="paramname">ofstreams_idx</td><td>index of std::ofstream (in ofstreams) for target CSV file </td></tr>
-    <tr><td class="paramname">ofstreams</td><td>vector of std::ofstream objects for all currently opened CSV files </td></tr>
+    <tr><td class="paramname">csv_idx</td><td>index of target CSV file </td></tr>
+    <tr><td class="paramname">csv_files</td><td><a class="el" href="classUtilities_1_1CSVFile.html">Utilities::CSVFile</a> object containing for all currently opened CSV files </td></tr>
   </table>
   </dd>
 </dl>
@@ -1001,7 +995,7 @@ Protected Attributes</h2></td></tr>
 <p >Print cutflow to a Mermaid flowchart </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">output_dir</td><td>target directory for output .mmd file (optional) </td></tr>
-    <tr><td class="paramname">output_dir</td><td>desired orientation of graph: TD or LR (optional) </td></tr>
+    <tr><td class="paramname">orientation</td><td>desired orientation of graph: TD or LR (optional) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1133,8 +1127,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/jguiang/Projects/rapido/src/<a class="el" href="cutflow_8h_source.html">cutflow.h</a></li>
-<li>/Users/jguiang/Projects/rapido/src/cutflow.cc</li>
+<li>/github/workspace/rapido/src/<a class="el" href="cutflow_8h_source.html">cutflow.h</a></li>
+<li>/github/workspace/rapido/src/cutflow.cc</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -17,5 +17,6 @@ var hierarchy =
     ] ],
     [ "HEPCLI", "classHEPCLI.html", null ],
     [ "Looper", "classLooper.html", null ],
+    [ "Utilities::RunningStat", "classUtilities_1_1RunningStat.html", null ],
     [ "Utilities::Variables", "classUtilities_1_1Variables.html", null ]
 ];

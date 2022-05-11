@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['prependtovecleaf_0',['prependToVecLeaf',['../classArbol.html#a4ac9a92f2ac2e82500e342262bee0418',1,'Arbol']]],
-  ['print_1',['print',['../classCut.html#a9b1298219ed1f85bba920e4049d712e3',1,'Cut::print()'],['../classCutflow.html#a0cb4c8bd6d15ace1f85fe0cfb8d9d828',1,'Cutflow::print()']]],
-  ['pushcol_2',['pushCol',['../classUtilities_1_1CSVFile.html#ad0fc6d028ca1010f6597fa9a18f3db7a',1,'Utilities::CSVFile']]]
+  ['newbranch_0',['newBranch',['../classArbol.html#a552622885ffce15f1b1369fe44e729bb',1,'Arbol::newBranch(TString new_branch_name)'],['../classArbol.html#a5f38b399beb87ec5bf8cb53ff126d501',1,'Arbol::newBranch(TString new_branch_name, Type new_reset_value)']]],
+  ['newvar_1',['newVar',['../classUtilities_1_1Variables.html#a7763fc000f45ef3956d61fdf2f783130',1,'Utilities::Variables::newVar(std::string new_name)'],['../classUtilities_1_1Variables.html#af2c4c6114f9cc9084c9ec5a5008cb42f',1,'Utilities::Variables::newVar(std::string new_name, Type new_reset_value)']]],
+  ['newvecbranch_2',['newVecBranch',['../classArbol.html#a57b6cf7cca6cbb3b75bb0e0333dbe3c8',1,'Arbol::newVecBranch(TString new_branch_name)'],['../classArbol.html#aee48fcb853b21527bb67d733a7c5b1b3',1,'Arbol::newVecBranch(TString new_branch_name, std::vector&lt; Type &gt; new_reset_vector)']]]
 ];

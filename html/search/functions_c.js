@@ -1,14 +1,18 @@
 var searchData=
 [
-  ['setbranchresetvalue_0',['setBranchResetValue',['../classArbol.html#a38f72c5553a435a5b0e37ca55752126c',1,'Arbol']]],
-  ['setdebuglambda_1',['setDebugLambda',['../classCutflow.html#a1657305fa62637aff34e1cece3d49d73',1,'Cutflow']]],
-  ['setleaf_2',['setLeaf',['../classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01',1,'Arbol']]],
-  ['setresetvalue_3',['setResetValue',['../classUtilities_1_1Variable.html#a2a7eca01cc12c54ad60843865422ea54',1,'Utilities::Variable']]],
-  ['setroot_4',['setRoot',['../classCutflow.html#ad27d37141c3748779a5d81fad919ecbb',1,'Cutflow']]],
-  ['setval_5',['setVal',['../classUtilities_1_1Variables.html#a01d3486d65509cd6db470b4ea99c2b86',1,'Utilities::Variables']]],
-  ['setvalue_6',['setValue',['../classUtilities_1_1Variable.html#af218f1c4f50cbb2f69cc66e8150e05b3',1,'Utilities::Variable']]],
-  ['setvecbranchresetvalue_7',['setVecBranchResetValue',['../classArbol.html#a448653919588717f4dfbe910565a3563',1,'Arbol']]],
-  ['setvecleaf_8',['setVecLeaf',['../classArbol.html#aa8547878e687941e4e84fc0e56f814d8',1,'Arbol']]],
-  ['sortvecleaf_9',['sortVecLeaf',['../classArbol.html#aa4066700ccb5ecc42477538734ae6abb',1,'Arbol']]],
-  ['stop_10',['stop',['../classLooper.html#a7a05da3ed2280cce54e04cc90a61f36a',1,'Looper']]]
+  ['recursivedelete_0',['recursiveDelete',['../classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac',1,'Cutflow']]],
+  ['recursiveevaluate_1',['recursiveEvaluate',['../classCutflow.html#a3756a365662151832c84fe86031f10d6',1,'Cutflow::recursiveEvaluate()'],['../classHistflow.html#a5f82e40b32a417161fbcfa0daaf1f8e0',1,'Histflow::recursiveEvaluate()']]],
+  ['recursivefindterminus_2',['recursiveFindTerminus',['../classCutflow.html#a6949f1d9e7d74c6ab8cf0c6f28ac3701',1,'Cutflow']]],
+  ['recursiveprint_3',['recursivePrint',['../classCutflow.html#a8d49242a5ff302d9654f135f7e478333',1,'Cutflow']]],
+  ['recursivesearchprogeny_4',['recursiveSearchProgeny',['../classCutflow.html#ab90ee0d1a00b9859021afe179eac7d93',1,'Cutflow']]],
+  ['recursivewrite_5',['recursiveWrite',['../classCutflow.html#a4f7285409e90c76524ab0148e6fa0aa9',1,'Cutflow']]],
+  ['recursivewritecsv_6',['recursiveWriteCSV',['../classCutflow.html#a398daefa870d9f58381047324a880701',1,'Cutflow']]],
+  ['recursivewritemermaid_7',['recursiveWriteMermaid',['../classCutflow.html#a212a44164cbf1f1608d1b55567890ef7',1,'Cutflow']]],
+  ['resetbranches_8',['resetBranches',['../classArbol.html#a4c2184d378ab21a9627a57098291a7c4',1,'Arbol']]],
+  ['resetval_9',['resetVal',['../classUtilities_1_1Variables.html#a0b54d767199c068a1324ef138eca433e',1,'Utilities::Variables']]],
+  ['resetvalue_10',['resetValue',['../classUtilities_1_1Variable.html#acaff38dda27c6f428bbb232782e0f29b',1,'Utilities::Variable']]],
+  ['resetvars_11',['resetVars',['../classUtilities_1_1Variables.html#a50c695d86e58e227049cd8589c7cec98',1,'Utilities::Variables']]],
+  ['run_12',['run',['../classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8',1,'Cutflow::run()'],['../classHistflow.html#a675b897276d33e146d1c2707023f1edd',1,'Histflow::run()'],['../classLooper.html#a8b259a7ad0c2aa45ae49d1ec08d37af0',1,'Looper::run()']]],
+  ['runningstat_13',['RunningStat',['../classUtilities_1_1RunningStat.html#a4311a3dddfa70a15ed8a904a7a9394c8',1,'Utilities::RunningStat']]],
+  ['rununtil_14',['runUntil',['../classCutflow.html#a3b5a6dc6e9490037d190eca691295859',1,'Cutflow']]]
 ];

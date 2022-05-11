@@ -14,5 +14,5 @@ var classCut =
     [ "name", "classCut.html#accf700d2d00746b97a265d4aea3f55c2", null ],
     [ "parent", "classCut.html#acb046f96bc50db055cccdb1f9a601780", null ],
     [ "right", "classCut.html#a2142ffe68028bb0c211408c0f5bb8bfb", null ],
-    [ "runtime_sum", "classCut.html#aa4ecf381dff81771bccba7087a25c825", null ]
+    [ "runtimes", "classCut.html#a57569c85d925684eeb1a3412530aa82c", null ]
 ];
