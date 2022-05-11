@@ -10,10 +10,7 @@ jobs:
       - name: Clone RAPIDO
         run: git clone https://github.com/jkguiang/rapido.git
       - name: Clone RAPIDO docs
-        uses: actions/checkout@v2
-        with:
-          ref: "docs"
-          path: "./rapido-docs"
+        run: git clone --recursive -b docs https://github.com/jkguiang/rapido.git rapido-docs
       - name: Build docs
         uses: mattnotmitt/doxygen-action@v1.9.3
         with:
