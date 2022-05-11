@@ -40,8 +40,10 @@ public:
     float n_pass_weighted;
     /** Weighted number of events that fail cut */
     float n_fail_weighted;
-    /** Sum of all cut runtimes */
-    float runtime_sum;
+    // /** Sum of cut runtimes */
+    // float runtime_sum;
+    /** RunningStat object for cut runtimes */
+    Utilities::RunningStat runtimes;
 
     /**
      * Cut object constructor
@@ -159,7 +161,6 @@ protected:
      * @param tabs string with the prefix tabs for current cut
      * @param cut pointer to current cut
      * @param direction direction of cut relative to parent
-     * @param weight current event weight
      * @return none
      */
     void recursivePrint(std::string tabs, Cut* cut, Direction direction);
@@ -167,7 +168,7 @@ protected:
      * (PROTECTED) Recursively write RAPIDO cutflow file
      * @param cut pointer to current cut
      * @param ofstream std::ofsteam object for RAPIDO .cflow file
-     * @param output_flow name of .cflow file
+     * @param output_cflow name of .cflow file
      * @return none
      */
     void recursiveWrite(Cut* cut, std::ofstream& ofstream, std::string output_cflow);
@@ -176,8 +177,8 @@ protected:
      * @param output_dir target directory for output CSV files
      * @param cut pointer to current cut
      * @param direction direction of cut relative to parent
-     * @param ofstreams_idx index of std::ofstream (in ofstreams) for target CSV file
-     * @param ofstreams vector of std::ofstream objects for all currently opened CSV files
+     * @param csv_idx index of target CSV file
+     * @param csv_files Utilities::CSVFile object containing for all currently opened CSV files
      * @return none
      */
     void recursiveWriteCSV(std::string output_dir, Cut* cut, Direction direction, int csv_idx, 
@@ -292,7 +293,7 @@ public:
     /**
      * Print cutflow to a Mermaid flowchart
      * @param output_dir target directory for output .mmd file (optional)
-     * @param output_dir desired orientation of graph: TD or LR (optional)
+     * @param orientation desired orientation of graph: TD or LR (optional)
      * @return none
      */
     void writeMermaid(std::string output_dir = "", std::string orientation = "TD");

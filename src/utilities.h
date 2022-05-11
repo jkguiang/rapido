@@ -6,9 +6,84 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <cmath>
 
 namespace Utilities 
 {
+    /**
+     * Object for computing variance of a data set without having to store every data 
+     * point for a second pass
+     *
+     * Stolen from D. Knuth, Art of Computer Programming, Vol 2, page 232, 3rd edition
+     */
+    class RunningStat
+    {
+    private:
+        /** Number of values pushed */
+        int n_values;
+        /** Sum of values pushed */
+        float summed_values;
+        /** Max of values pushed */
+        float max_value;
+        /** Min of values pushed */
+        float min_value;
+        /** Current value of mean */
+        float new_M;
+        /** Previous value of mean */
+        float old_M;
+        /** Current value of S (proportional to variance) */
+        float new_S;
+        /** Previous value of S (proportional to variance) */
+        float old_S;
+    public:
+        /**
+         * RunningStat object constructor
+         * @return none
+         */
+        RunningStat();
+        /**
+         * Push a new value and update running statistics
+         * @param value new value to push
+         * @return none
+         */
+        void push(float value);
+        /**
+         * Get number of values pushed
+         * @return number of values pushed
+         */
+        int size();
+        /**
+         * Get sum of values pushed
+         * @return sum of values pushed
+         */
+        float sum();
+        /**
+         * Get max of values pushed
+         * @return max of values pushed
+         */
+        float max();
+        /**
+         * Get min of values pushed
+         * @return min of values pushed
+         */
+        float min();
+        /**
+         * Get approximate mean of values pushed
+         * @return approximate mean of values pushed
+         */
+        float mean();
+        /**
+         * Get approximate variance of values pushed
+         * @return approximate variance of values pushed
+         */
+        float variance();
+        /**
+         * Get approximate standard deviation of values pushed
+         * @return approximate standard deviation of values pushed
+         */
+        float stddev();
+    };
+
     /**
      * Object for handling CSV I/O
      */

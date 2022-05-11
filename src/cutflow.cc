@@ -10,7 +10,7 @@ Cut::Cut(std::string new_name)
     n_fail = 0;
     n_pass_weighted = 0.;
     n_fail_weighted = 0.;
-    runtime_sum = 0.;
+    runtimes = Utilities::RunningStat();
 }
 
 Cut::~Cut() {}
@@ -310,8 +310,10 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
         else if (direction == Left) { std::cout << "\u2514\u2612\u2500"; }
         else { std::cout << "\u2514\u2611\u2500"; }
         // Print cut name
-        float avg_runtime = cut->runtime_sum/(cut->n_pass + cut->n_fail);
-        std::cout << cut->name << " (" << cut->runtime_sum << " ms total, " << avg_runtime  << " ms/event)" << std::endl;
+        std::cout << cut->name << " (" << cut->runtimes.sum() << " ms total, ";
+        std::cout << cut->runtimes.max() << " ms max, ";
+        std::cout << cut->runtimes.min() << " ms min, ";
+        std::cout << cut->runtimes.mean()  << " \u00B1 " << cut->runtimes.stddev() <<  " ms/event)" << std::endl;
         // Print pass/fail if next cut is not identical
         tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502  " : "   ";
         if (cut->right == nullptr || cut->n_pass != cut->right->n_pass)
@@ -342,7 +344,7 @@ bool Cutflow::recursiveEvaluate(Cut* cut)
     // Stop timer and calculate runtime
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> runtime = t2 - t1;
-    cut->runtime_sum += runtime.count();
+    cut->runtimes.push(runtime.count());
     // Continue down the tree
     if (passed)
     {
