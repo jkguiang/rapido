@@ -1,3 +1,58 @@
+Utilities::RunningStat::RunningStat() 
+{
+    n_values = 0;
+    summed_values = 0.;
+    max_value = 0.;
+    min_value = 0.;
+    new_M = 0.;
+    old_M = 0.;
+    new_S = 0.;
+    old_S = 0.;
+}
+
+void Utilities::RunningStat::push(float value)
+{
+    n_values++;
+    summed_values += value;
+    if (value > max_value)
+    {
+        max_value = value;
+    }
+    else if (value < min_value)
+    {
+        min_value = value;
+    }
+
+    if (n_values == 1)
+    {
+        max_value = value;
+        min_value = value;
+        new_M = value;
+        old_M = value;
+    }
+    else
+    {
+        new_M = old_M + (value - old_M)/n_values;
+        new_S = old_S + (value - old_M)*(value - new_M);
+        old_M = new_M;
+        old_S = new_S;
+    }
+}
+
+int Utilities::RunningStat::size() { return n_values; }
+
+float Utilities::RunningStat::sum() { return summed_values; }
+
+float Utilities::RunningStat::max() { return max_value; }
+
+float Utilities::RunningStat::min() { return min_value; }
+
+float Utilities::RunningStat::mean() { return new_M; }
+
+float Utilities::RunningStat::variance() { return (n_values > 1) ? new_S/(n_values - 1) : 0.; }
+
+float Utilities::RunningStat::stddev() { return std::sqrt(variance()); }
+
 Utilities::CSVFile::CSVFile(std::ofstream& new_ofstream, std::string new_name, 
                             std::vector<std::string> new_headers) 
 : ofstream(new_ofstream)
