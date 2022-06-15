@@ -16,7 +16,7 @@ jobs:
           path: "./rapido-docs"
           submodules: true
       - name: Build docs
-        uses: mattnotmitt/doxygen-action@v1.9.3
+        uses: mattnotmitt/doxygen-action@edge
         with:
           working-directory: "./rapido-docs"
           doxyfile-path: "doxyfile"
