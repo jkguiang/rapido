@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['weight_0',['weight',['../classCut.html#a3c4a423a59d637cd05df772a5373fb63',1,'Cut::weight()'],['../classLambdaCut.html#af24a036a017fab987c03d101298644ba',1,'LambdaCut::weight()']]],
+  ['weight_0',['weight',['../classCut.html#a384ec7948ab2e775f994576eaf1e4f30',1,'Cut::weight()'],['../classLambdaCut.html#a8d776eca841db192c68066ea48653189',1,'LambdaCut::weight()']]],
   ['write_1',['write',['../classCutflow.html#a42bd2909f9e32bb12e7dbd717248a253',1,'Cutflow::write()'],['../classHist1D.html#ae45c2073b4c8f25a10ac534012feb22b',1,'Hist1D::write()'],['../classHist2D.html#aea99923e54c6b1af26c2b399cf648231',1,'Hist2D::write()']]],
   ['writecsv_2',['writeCSV',['../classCutflow.html#a43e58326fbce5306e2b3d080c6cd85f0',1,'Cutflow']]],
   ['writehists_3',['writeHists',['../classHistflow.html#a06a2e1683cdc7ac2731b4608abe15eb7',1,'Histflow']]],

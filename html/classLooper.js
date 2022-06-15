@@ -7,7 +7,7 @@ var classLooper =
     [ "current_entry", "classLooper.html#ab368e58278fc91c4814e579cb9080d4f", null ],
     [ "keep_alive", "classLooper.html#aec6b2faa30ddf9191dcfa044c72ea49b", null ],
     [ "n_events_processed", "classLooper.html#abbf626538aced372130172ac86958265", null ],
-    [ "n_events_to_process", "classLooper.html#a6251eeff0d36df11886ac1a50521a1db", null ],
+    [ "n_events_total", "classLooper.html#a4639b4ad175c52af2e9f19bf4fdc27e3", null ],
     [ "tchain", "classLooper.html#ae804a8c01aea03c415a0277099b7a2a0", null ],
     [ "ttree_name", "classLooper.html#aa42e5d8d2e16cf7768ea5d582a17868c", null ]
 ];
