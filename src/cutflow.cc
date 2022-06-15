@@ -40,12 +40,12 @@ bool Cut::evaluate()
     return true;
 }
 
-float Cut::weight()
+double Cut::weight()
 {
     return 1.0;
 }
 
-float Cut::getWeight()
+double Cut::getWeight()
 {
     if (parent != nullptr)
     {
@@ -65,7 +65,7 @@ LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluator)
 }
 
 LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluator, 
-                     std::function<float()> new_weigher)
+                     std::function<double()> new_weigher)
 : Cut(new_name)
 {
     evaluator = new_evaluator;
@@ -77,7 +77,7 @@ bool LambdaCut::evaluate()
     return evaluator();
 }
 
-float LambdaCut::weight()
+double LambdaCut::weight()
 {
     return weigher();
 }
@@ -314,9 +314,9 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
         std::cout << cut->runtimes.max() << " ms max, ";
         std::cout << cut->runtimes.min() << " ms min, ";
         std::cout << cut->runtimes.mean()  << " \u00B1 " << cut->runtimes.stddev() <<  " ms/event)" << std::endl;
-        // Print pass/fail if next cut is not identical
+        // Print pass/fail if parent cut yields are not identical
         tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502  " : "   ";
-        if (cut->right == nullptr || cut->n_pass != cut->right->n_pass)
+        if (cut->parent == nullptr || cut->n_pass != cut->parent->n_pass)
         {
             // Print cut info
             std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
@@ -340,7 +340,7 @@ bool Cutflow::recursiveEvaluate(Cut* cut)
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
     // Run cut logic and compute weight
     bool passed = cut->evaluate();
-    float weight = cut->getWeight();
+    double weight = cut->getWeight();
     // Stop timer and calculate runtime
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> runtime = t2 - t1;
@@ -404,12 +404,12 @@ void Cutflow::recursiveWriteCSV(std::string output_dir, Cut* cut, Direction dire
     {
         Utilities::CSVFile this_csv = csv_files.at(csv_idx);
         // Write out current cut
-        float raw_events = cut->n_pass;
-        float wgt_events = cut->n_pass_weighted;
+        double raw_events = cut->n_pass;
+        double wgt_events = cut->n_pass_weighted;
         if (direction == Right) { 
             this_csv.pushCol<std::string>(cut->name);
-            this_csv.pushCol<float>(raw_events);
-            this_csv.pushCol<float>(wgt_events);
+            this_csv.pushCol<double>(raw_events);
+            this_csv.pushCol<double>(wgt_events);
             this_csv.writeRow();
         }
         else
@@ -422,8 +422,8 @@ void Cutflow::recursiveWriteCSV(std::string output_dir, Cut* cut, Direction dire
                 output_dir+"/"+name+"_"+terminal_cut->name+".csv"
             );
             new_csv.pushCol<std::string>(cut->name);
-            new_csv.pushCol<float>(raw_events);
-            new_csv.pushCol<float>(wgt_events);
+            new_csv.pushCol<double>(raw_events);
+            new_csv.pushCol<double>(wgt_events);
             new_csv.writeRow();
             csv_files.push_back(new_csv);
         }

@@ -37,11 +37,11 @@ public:
     /** Number of events that fail cut */
     int n_fail;
     /** Weighted number of events that pass cut */
-    float n_pass_weighted;
+    double n_pass_weighted;
     /** Weighted number of events that fail cut */
-    float n_fail_weighted;
+    double n_fail_weighted;
     // /** Sum of cut runtimes */
-    // float runtime_sum;
+    // double runtime_sum;
     /** RunningStat object for cut runtimes */
     Utilities::RunningStat runtimes;
 
@@ -70,12 +70,12 @@ public:
      * Get even weight for this cut only
      * @return event weight
      */
-    virtual float weight();
+    virtual double weight();
     /**
      * Get even weight for this cut (on top of previous cut weights)
      * @return product(event weight, parent weight, grandparent weight, ...)
      */
-    float getWeight();
+    double getWeight();
 };
 
 /** 
@@ -88,7 +88,7 @@ public:
     /** Lambda function that evaluates conditional logic (i.e. the cut itself) */
     std::function<bool()> evaluator;
     /** Lambda function that computes event weight */
-    std::function<float()> weigher;
+    std::function<double()> weigher;
     /**
      * LambadCut object constructor (assumes weight == 1.0)
      * @param new_name new cut name
@@ -104,7 +104,7 @@ public:
      * @return none
      */
     LambdaCut(std::string new_name, std::function<bool()> new_evaluator, 
-              std::function<float()> new_weigher);
+              std::function<double()> new_weigher);
     /**
      * Create a copy of this cut object
      * @param new_name name of cut copy
@@ -120,7 +120,7 @@ public:
      * Get even weight for this cut only
      * @return event weight
      */
-    float weight();
+    double weight();
 };
 
 /** 
