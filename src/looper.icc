@@ -119,7 +119,7 @@ Looper::Looper(TChain* new_tchain)
     tchain = new_tchain;
     ttree_name = tchain->GetName();
     n_events_processed = 0;
-    n_events_to_process = tchain->GetEntries();
+    n_events_total = tchain->GetEntries();
 }
 
 Looper::~Looper() {}

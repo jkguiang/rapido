@@ -86,7 +86,7 @@ public:
     /** Number of events that have been processed */
     unsigned int n_events_processed;
     /** Number of events in the TChain */
-    unsigned int n_events_to_process;
+    unsigned int n_events_total;
     
     /**
      * Looper object constructor
