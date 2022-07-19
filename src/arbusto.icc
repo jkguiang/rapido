@@ -1,0 +1,38 @@
+Arbusto::Arbusto() {}
+
+Arbusto::Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> keep_branch_names) 
+: keep_branch_names(keep_branch_names)
+{
+    tfile = new_tfile;
+    // Disable all branches
+    tchain->SetBranchStatus("*", 0); 
+    // Enable selected branches
+    for (auto branch_name : keep_branch_names)
+    {
+        tchain->SetBranchStatus(branch_name, 1);
+    }
+    ttree = (TTree*)tchain->CloneTree(0);
+}
+
+Arbusto::~Arbusto() 
+{
+    std::map<TString, Utilities::Dynamic*>::iterator iter;
+    for(iter = branches.begin(); iter != branches.end(); ++iter)
+    {
+        delete (*iter).second;
+    }
+
+    branches.clear();
+}
+
+void Arbusto::init(TTree* next_ttree)
+{
+    // Disable all branches
+    next_ttree->SetBranchStatus("*", 0); 
+    // Enable selected branches
+    for (auto branch_name : keep_branch_names)
+    {
+        next_ttree->SetBranchStatus(branch_name, 1);
+    }
+    next_ttree->CopyAddresses(ttree);
+}
