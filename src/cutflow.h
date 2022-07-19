@@ -40,8 +40,6 @@ public:
     double n_pass_weighted;
     /** Weighted number of events that fail cut */
     double n_fail_weighted;
-    // /** Sum of cut runtimes */
-    // double runtime_sum;
     /** RunningStat object for cut runtimes */
     Utilities::RunningStat runtimes;
 
