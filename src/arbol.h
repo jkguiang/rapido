@@ -220,12 +220,12 @@ public:
      * Fill TTree with all current leaves
      * @return none
      */
-    void fillTTree();
+    virtual void fill();
     /**
      * Write TTree to TFile
      * @return none
      */
-    void writeTFile();
+    virtual void write();
 };
 
 #include "arbol.icc"

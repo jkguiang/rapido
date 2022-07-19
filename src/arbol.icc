@@ -31,8 +31,8 @@ Branch<Type>* Arbol::getBranch(TString branch_name)
 {
     if (branches.count(branch_name) == 0)
     {
-        TString msg = "Error - "+branch_name+" does not exist.";
-        throw std::runtime_error("Arbol::getBranch: "+msg);
+        TString msg = "Error - " + branch_name + " does not exist.";
+        throw std::runtime_error("Arbol::getBranch: " + msg);
         return nullptr;
     }
     else
@@ -156,13 +156,13 @@ void Arbol::resetBranches()
     return;
 }
 
-void Arbol::fillTTree()
+void Arbol::fill()
 {
     ttree->Fill();
     return;
 }
 
-void Arbol::writeTFile()
+void Arbol::write()
 {
     tfile->cd();
     ttree->Write();
