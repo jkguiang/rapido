@@ -170,7 +170,7 @@ Examples</h1>
 <div class="line">}</div>
 <div class="ttc" id="aclassCut_html"><div class="ttname"><a href="classCut.html">Cut</a></div><div class="ttdef"><b>Definition:</b> cutflow.h:25</div></div>
 <div class="ttc" id="aclassCut_html_accf700d2d00746b97a265d4aea3f55c2"><div class="ttname"><a href="classCut.html#accf700d2d00746b97a265d4aea3f55c2">Cut::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> cutflow.h:28</div></div>
-<div class="ttc" id="aclassCutflow_html"><div class="ttname"><a href="classCutflow.html">Cutflow</a></div><div class="ttdef"><b>Definition:</b> cutflow.h:130</div></div>
+<div class="ttc" id="aclassCutflow_html"><div class="ttname"><a href="classCutflow.html">Cutflow</a></div><div class="ttdef"><b>Definition:</b> cutflow.h:128</div></div>
 <div class="ttc" id="aclassCutflow_html_a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><div class="ttname"><a href="classCutflow.html#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">Cutflow::print</a></div><div class="ttdeci">void print()</div><div class="ttdef"><b>Definition:</b> cutflow.cc:219</div></div>
 <div class="ttc" id="aclassCutflow_html_a8da46f1053a6b97991489ee0920c29a1"><div class="ttname"><a href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">Cutflow::insert</a></div><div class="ttdeci">void insert(std::string target_cut_name, Cut *new_cut, Direction direction)</div><div class="ttdef"><b>Definition:</b> cutflow.cc:138</div></div>
 <div class="ttc" id="aclassCutflow_html_a8fc98b9c006b80db96576c8bdcf6a0a8"><div class="ttname"><a href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">Cutflow::run</a></div><div class="ttdeci">virtual bool run()</div><div class="ttdef"><b>Definition:</b> cutflow.cc:173</div></div>
@@ -239,22 +239,20 @@ Examples</h1>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">setLeaf</a>&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;ht&quot;</span>, ht);</div>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">setLeaf</a>&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;met&quot;</span>, *selector.MET_pt);</div>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">setLeaf</a>&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;n_jets&quot;</span>, arbol.<a class="code hl_function" href="classArbol.html#aefdf6dfa74ceed51b2cb99f45bfebf56">getVecLeaf</a>&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;goot_jet_pt&quot;</span>).size());</div>
-<div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a1d029dd97a0451281c774b578d93bcda">fillTTree</a>();</div>
+<div class="line">            arbol.fillTTree();</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 <div class="line">    );</div>
 <div class="line">    <span class="comment">// Write results to a ROOT file</span></div>
-<div class="line">    arbol.<a class="code hl_function" href="classArbol.html#ade7d835bbe383a70006e86785ae5672c">writeTFile</a>();</div>
+<div class="line">    arbol.writeTFile();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassArbol_html"><div class="ttname"><a href="classArbol.html">Arbol</a></div><div class="ttdef"><b>Definition:</b> arbol.h:45</div></div>
-<div class="ttc" id="aclassArbol_html_a1d029dd97a0451281c774b578d93bcda"><div class="ttname"><a href="classArbol.html#a1d029dd97a0451281c774b578d93bcda">Arbol::fillTTree</a></div><div class="ttdeci">void fillTTree()</div></div>
 <div class="ttc" id="aclassArbol_html_a4c2184d378ab21a9627a57098291a7c4"><div class="ttname"><a href="classArbol.html#a4c2184d378ab21a9627a57098291a7c4">Arbol::resetBranches</a></div><div class="ttdeci">void resetBranches()</div></div>
 <div class="ttc" id="aclassArbol_html_a552622885ffce15f1b1369fe44e729bb"><div class="ttname"><a href="classArbol.html#a552622885ffce15f1b1369fe44e729bb">Arbol::newBranch</a></div><div class="ttdeci">void newBranch(TString new_branch_name)</div></div>
 <div class="ttc" id="aclassArbol_html_a57b6cf7cca6cbb3b75bb0e0333dbe3c8"><div class="ttname"><a href="classArbol.html#a57b6cf7cca6cbb3b75bb0e0333dbe3c8">Arbol::newVecBranch</a></div><div class="ttdeci">void newVecBranch(TString new_branch_name)</div></div>
 <div class="ttc" id="aclassArbol_html_a7a8d3bec0bf5c00635a0b00fcd63cf01"><div class="ttname"><a href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">Arbol::setLeaf</a></div><div class="ttdeci">void setLeaf(TString branch_name, Type new_value)</div></div>
 <div class="ttc" id="aclassArbol_html_a811156c9134ca7e0015bbe2ab95434b0"><div class="ttname"><a href="classArbol.html#a811156c9134ca7e0015bbe2ab95434b0">Arbol::appendToVecLeaf</a></div><div class="ttdeci">void appendToVecLeaf(TString branch_name, Type new_value)</div></div>
-<div class="ttc" id="aclassArbol_html_ade7d835bbe383a70006e86785ae5672c"><div class="ttname"><a href="classArbol.html#ade7d835bbe383a70006e86785ae5672c">Arbol::writeTFile</a></div><div class="ttdeci">void writeTFile()</div></div>
 <div class="ttc" id="aclassArbol_html_aefdf6dfa74ceed51b2cb99f45bfebf56"><div class="ttname"><a href="classArbol.html#aefdf6dfa74ceed51b2cb99f45bfebf56">Arbol::getVecLeaf</a></div><div class="ttdeci">std::vector&lt; Type &gt; getVecLeaf(TString branch_name)</div></div>
 <div class="ttc" id="aclassLooper_html"><div class="ttname"><a href="classLooper.html">Looper</a></div><div class="ttdef"><b>Definition:</b> looper.h:75</div></div>
 <div class="ttc" id="aclassLooper_html_a8b259a7ad0c2aa45ae49d1ec08d37af0"><div class="ttname"><a href="classLooper.html#a8b259a7ad0c2aa45ae49d1ec08d37af0">Looper::run</a></div><div class="ttdeci">void run(std::function&lt; void(TTree *ttree)&gt; init, std::function&lt; void(int entry)&gt; eval)</div></div>
@@ -415,7 +413,7 @@ Examples</h1>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a4c2184d378ab21a9627a57098291a7c4">resetBranches</a>();</div>
 <div class="line">            <span class="comment">// Run cutflow</span></div>
 <div class="line">            <span class="keywordtype">bool</span> passed = cutflow.runUntil(<span class="stringliteral">&quot;OSPreselection&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">if</span> (passed) { arbol.<a class="code hl_function" href="classArbol.html#a1d029dd97a0451281c774b578d93bcda">fillTTree</a>(); }</div>
+<div class="line">            <span class="keywordflow">if</span> (passed) { arbol.fillTTree(); }</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 <div class="line">    );</div>
@@ -424,7 +422,7 @@ Examples</h1>
 <div class="line">    bar.finish();</div>
 <div class="line">    cutflow.print();</div>
 <div class="line">    cutflow.writeCSV(cli.<a class="code hl_variable" href="classHEPCLI.html#a2c6e1c6b16b1980527bd660175e77bd8">output_dir</a>);</div>
-<div class="line">    arbol.<a class="code hl_function" href="classArbol.html#ade7d835bbe383a70006e86785ae5672c">writeTFile</a>();</div>
+<div class="line">    arbol.writeTFile();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassArbol_html_a92be3f8c4258247d65e7f66a8da70453"><div class="ttname"><a href="classArbol.html#a92be3f8c4258247d65e7f66a8da70453">Arbol::getLeaf</a></div><div class="ttdeci">Type getLeaf(TString branch_name)</div></div>

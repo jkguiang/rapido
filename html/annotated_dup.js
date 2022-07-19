@@ -8,6 +8,7 @@ var annotated_dup =
       [ "Variables", "classUtilities_1_1Variables.html", "classUtilities_1_1Variables" ]
     ] ],
     [ "Arbol", "classArbol.html", "classArbol" ],
+    [ "Arbusto", "classArbusto.html", "classArbusto" ],
     [ "Branch", "classBranch.html", "classBranch" ],
     [ "Cut", "classCut.html", "classCut" ],
     [ "Cutflow", "classCutflow.html", "classCutflow" ],

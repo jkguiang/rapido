@@ -1,6 +1,8 @@
 var hierarchy =
 [
-    [ "Arbol", "classArbol.html", null ],
+    [ "Arbol", "classArbol.html", [
+      [ "Arbusto", "classArbusto.html", null ]
+    ] ],
     [ "Utilities::CSVFile", "classUtilities_1_1CSVFile.html", null ],
     [ "Cut", "classCut.html", [
       [ "LambdaCut", "classLambdaCut.html", null ]
