@@ -245,6 +245,14 @@ public:
      */
     void insert(std::string target_cut_name, Cut* new_cut, Direction direction);
     /**
+     * Insert a new node AFTER a given node
+     * @param target_cut pointer to target node
+     * @param new_cut pointer to new node
+     * @param direction direction (Left/false, Right/true)
+     * @return none
+     */
+    void insert(Cut* target_cut, Cut* new_cut, Direction direction);
+    /**
      * Run cutflow until any terminus
      * @return whether or not the terminal cut in the cutflow passed
      */
@@ -257,6 +265,13 @@ public:
      */
     bool runUntil(std::string target_cut_name);
     /**
+     * Run cutflow until a target terminal cut
+     * @see Cutflow::runUntil
+     * @param target_cut pointer to target cut
+     * @return whether or not (true/false) the target cut was reached and passed
+     */
+    bool runUntil(Cut* target);
+    /**
      * Check if a given cut is amongst the progeny of another cut on a certain side of its
      * family tree
      * @param parent_cut_name name of cut whose progeny will be searched
@@ -266,11 +281,26 @@ public:
      */
     bool isProgeny(std::string parent_cut_name, std::string target_cut_name, Direction direction);
     /**
+     * Check if a given cut is amongst the progeny of another cut on a certain side of its
+     * family tree
+     * @param parent_cut pointer to cut whose progeny will be searched
+     * @param target_cut pointer to target descendant cut to look for
+     * @param direction side of the family tree to search (Left/false, Right/true)
+     * @return whether or not (true/false) the target cut was found
+     */
+    bool isProgeny(Cut* parent_cut, Cut* target_cut, Direction direction);
+    /**
      * Find the rightmost terminal leaf from a given node
      * @param starting_cut_name cut from which to start search
      * @return terminal cut
      */
     Cut* findTerminus(std::string starting_cut_name);
+    /**
+     * Find the rightmost terminal leaf from a given node
+     * @param starting_cut cut from which to start search
+     * @return terminal cut
+     */
+    Cut* findTerminus(Cut* starting_cut);
     /**
      * Print cutflow
      * @return none

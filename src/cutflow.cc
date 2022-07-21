@@ -138,9 +138,19 @@ void Cutflow::setRoot(Cut* new_root)
 void Cutflow::insert(std::string target_cut_name, Cut* new_cut, Direction direction)
 {
     Cut* target_cut = getCut(target_cut_name);
+    return insert(target_cut, new_cut, direction);
+}
+
+void Cutflow::insert(Cut* target_cut, Cut* new_cut, Direction direction)
+{
+    if (cut_record.count(target_cut->name) != 1)
+    {
+        std::string msg = "Error - "+new_cut->name+" does not exist in cutflow.";
+        throw std::runtime_error("Cutflow::insert: "+msg);
+    }
     if (cut_record.count(new_cut->name) == 1)
     {
-        std::string msg = "Error - "+new_cut->name+" already exists.";
+        std::string msg = "Error - "+new_cut->name+" already exists in cutflow.";
         throw std::runtime_error("Cutflow::insert: "+msg);
     }
     else
@@ -182,8 +192,13 @@ bool Cutflow::run()
 
 bool Cutflow::runUntil(std::string target_cut_name)
 {
-    // Get number of passing events before running cutflow
     Cut* target_cut = getCut(target_cut_name);
+    return runUntil(target_cut);
+}
+
+bool Cutflow::runUntil(Cut* target_cut)
+{
+    // Get number of passing events before running cutflow
     int n_pass_before_eval = target_cut->n_pass;
     // Run cutflow
     run();
@@ -194,6 +209,11 @@ bool Cutflow::isProgeny(std::string parent_cut_name, std::string target_cut_name
 {
     Cut* parent_cut = getCut(parent_cut_name);
     Cut* target_cut = getCut(target_cut_name);
+    return isProgeny(parent_cut, target_cut, direction);
+}
+
+bool Cutflow::isProgeny(Cut* parent_cut, Cut* target_cut, Direction direction)
+{
     if (direction == Right && parent_cut->right != nullptr)
     {
         if (parent_cut->right == target_cut) { return true; }
@@ -212,8 +232,13 @@ bool Cutflow::isProgeny(std::string parent_cut_name, std::string target_cut_name
 
 Cut* Cutflow::findTerminus(std::string starting_cut_name)
 {
-    Cut* terminal_cut = recursiveFindTerminus(getCut(starting_cut_name));
-    return terminal_cut;
+    Cut* starting_cut = getCut(starting_cut_name);
+    return findTerminus(starting_cut);
+}
+
+Cut* Cutflow::findTerminus(Cut* starting_cut)
+{
+    return recursiveFindTerminus(starting_cut);
 }
 
 void Cutflow::print()
