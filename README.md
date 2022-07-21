@@ -42,22 +42,22 @@ int main()
 {
     Cutflow dummy_cutflow = Cutflow();
 
-    Cut* dummy_root = new Cut("root", []() { return bool(rand() % 2); });
+    Cut* dummy_root = new LambdaCut("root", []() { return bool(rand() % 2); });
     dummy_cutflow.setRoot(dummy_root);
 
-    Cut* node0 = new Cut("node0", []() { return bool(rand() % 2); });
+    Cut* node0 = new LambdaCut("node0", []() { return bool(rand() % 2); });
     dummy_cutflow.insert("root", node0, Left);
 
-    Cut* node1 = new Cut("node1", []() { return bool(rand() % 2); });
+    Cut* node1 = new LambdaCut("node1", []() { return bool(rand() % 2); });
     dummy_cutflow.insert("root", node1, Right);
 
-    Cut* node2 = new Cut("node2", []() { return bool(rand() % 2); });
+    Cut* node2 = new LambdaCut("node2", []() { return bool(rand() % 2); });
     dummy_cutflow.insert("node1", node2, Right);
 
-    Cut* node3 = new Cut("node3", []() { return bool(rand() % 2); });
+    Cut* node3 = new LambdaCut("node3", []() { return bool(rand() % 2); });
     dummy_cutflow.insert("node1", node3, Left);
 
-    Cut* node4 = new Cut("node4", []() { return bool(rand() % 2); });
+    Cut* node4 = new LambdaCut("node4", []() { return bool(rand() % 2); });
     dummy_cutflow.insert("node2", node4, Right);
 
     for (int i = 0; i < 5; i++)
@@ -138,12 +138,12 @@ int main()
             arbol.setLeaf<float>("ht", ht);
             arbol.setLeaf<float>("met", *selector.MET_pt);
             arbol.setLeaf<int>("n_jets", arbol.getVecLeaf<float>("goot_jet_pt").size());
-            arbol.fillTTree();
+            arbol.fill();
             return;
         }
     );
     // Write results to a ROOT file
-    arbol.writeTFile();
+    arbol.write();
     return 0;
 }
 ```
@@ -199,7 +199,7 @@ int main(int argc, char** argv)
     cutflow.globals.newVar<TH1F>("ld_lep_pt_hist", *ld_lep_pt_hist);
     cutflow.globals.newVar<TH1F>("tr_lep_pt_hist", *tr_lep_pt_hist);
 
-    Cut* root = new Cut(
+    Cut* root = new LambdaCut(
         "Bookkeeping",
         [&]()
         {
@@ -215,7 +215,7 @@ int main(int argc, char** argv)
     );
     cutflow.setRoot(root);
 
-    Cut* dilep_presel = new Cut(
+    Cut* dilep_presel = new LambdaCut(
         "DileptonPreselection",
         [&]()
         {
@@ -256,10 +256,10 @@ int main(int argc, char** argv)
     );
     cutflow.insert("Bookkeeping", dilep_presel, Right);
 
-    Cut* monolep_or_fakes = new Cut("SingleLepOrFakes", [&]() { return true; });
+    Cut* monolep_or_fakes = new LambdaCut("SingleLepOrFakes", [&]() { return true; });
     cutflow.insert("DileptonPreselection", monolep_or_fakes, Left);
 
-    Cut* dilep_sign = new Cut(
+    Cut* dilep_sign = new LambdaCut(
         "CheckDilepSign",
         [&]()
         {
@@ -270,10 +270,10 @@ int main(int argc, char** argv)
     );
     cutflow.insert("DileptonPreselection", dilep_sign, Right);
 
-    Cut* SS_presel = new Cut("SSPreselection", [&]() { return true; });
+    Cut* SS_presel = new LambdaCut("SSPreselection", [&]() { return true; });
     cutflow.insert("CheckDilepSign", SS_presel, Right);
 
-    Cut* OS_presel = new Cut(
+    Cut* OS_presel = new LambdaCut(
         "OSPreselection", 
         [&]() 
         { 
@@ -296,17 +296,19 @@ int main(int argc, char** argv)
     looper.run(
         [&](TTree* ttree)
         {
+            // Runs once per file
             nt.Init(ttree);
         },
         [&](int entry) 
         {
+            // Runs once per event
             bar.progress(looper.n_events_processed, looper.n_events_to_process);
             nt.GetEntry(entry);
             // Reset tree
             arbol.resetBranches();
             // Run cutflow
             bool passed = cutflow.runUntil("OSPreselection");
-            if (passed) { arbol.fillTTree(); }
+            if (passed) { arbol.fill(); }
             return;
         }
     );
@@ -315,7 +317,7 @@ int main(int argc, char** argv)
     bar.finish();
     cutflow.print();
     cutflow.writeCSV(cli.output_dir);
-    arbol.writeTFile();
+    arbol.write();
     return 0;
 }
 ```
