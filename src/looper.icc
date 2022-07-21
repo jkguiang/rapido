@@ -86,7 +86,6 @@ void HEPCLI::parse(int argc, char** argv)
             case 'h':
                 printHelp();
                 exit(EXIT_SUCCESS);
-                // Terminate entire process
                 break;
         }
     }
