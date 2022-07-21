@@ -136,14 +136,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad27d37141c3748779a5d81fad919ecbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da46f1053a6b97991489ee0920c29a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a> (std::string target_cut_name, <a class="el" href="classCut.html">Cut</a> *new_cut, Direction direction)</td></tr>
 <tr class="separator:a8da46f1053a6b97991489ee0920c29a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35cf443b602a92cab92012da3ab5a93b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a35cf443b602a92cab92012da3ab5a93b">insert</a> (<a class="el" href="classCut.html">Cut</a> *target_cut, <a class="el" href="classCut.html">Cut</a> *new_cut, Direction direction)</td></tr>
+<tr class="separator:a35cf443b602a92cab92012da3ab5a93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fc98b9c006b80db96576c8bdcf6a0a8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">run</a> ()</td></tr>
 <tr class="separator:a8fc98b9c006b80db96576c8bdcf6a0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5a6dc6e9490037d190eca691295859"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">runUntil</a> (std::string target_cut_name)</td></tr>
 <tr class="separator:a3b5a6dc6e9490037d190eca691295859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30431b16b649c521869c7e06293d1dec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a30431b16b649c521869c7e06293d1dec">runUntil</a> (<a class="el" href="classCut.html">Cut</a> *target)</td></tr>
+<tr class="separator:a30431b16b649c521869c7e06293d1dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa076a2ad28bb878a567a30b34f9b40d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#aa076a2ad28bb878a567a30b34f9b40d4">isProgeny</a> (std::string parent_cut_name, std::string target_cut_name, Direction direction)</td></tr>
 <tr class="separator:aa076a2ad28bb878a567a30b34f9b40d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463eb7919194ad8f3a9cc82af4f70585"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a463eb7919194ad8f3a9cc82af4f70585">isProgeny</a> (<a class="el" href="classCut.html">Cut</a> *parent_cut, <a class="el" href="classCut.html">Cut</a> *target_cut, Direction direction)</td></tr>
+<tr class="separator:a463eb7919194ad8f3a9cc82af4f70585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a11c1116dc01d4c0679945eeff66ff0a4">findTerminus</a> (std::string starting_cut_name)</td></tr>
 <tr class="separator:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fcdaaa72867042eed426e0d6fc8739d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8fcdaaa72867042eed426e0d6fc8739d">findTerminus</a> (<a class="el" href="classCut.html">Cut</a> *starting_cut)</td></tr>
+<tr class="separator:a8fcdaaa72867042eed426e0d6fc8739d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">print</a> ()</td></tr>
 <tr class="separator:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42bd2909f9e32bb12e7dbd717248a253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a42bd2909f9e32bb12e7dbd717248a253">write</a> (std::string output_dir=&quot;&quot;)</td></tr>
@@ -295,8 +303,33 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8fcdaaa72867042eed426e0d6fc8739d" name="a8fcdaaa72867042eed426e0d6fc8739d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fcdaaa72867042eed426e0d6fc8739d">&#9670;&nbsp;</a></span>findTerminus() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCut.html">Cut</a> * Cutflow::findTerminus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>starting_cut</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Find the rightmost terminal leaf from a given node </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">starting_cut</td><td>cut from which to start search </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>terminal cut </dd></dl>
+
+</div>
+</div>
 <a id="a11c1116dc01d4c0679945eeff66ff0a4" name="a11c1116dc01d4c0679945eeff66ff0a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11c1116dc01d4c0679945eeff66ff0a4">&#9670;&nbsp;</a></span>findTerminus()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a11c1116dc01d4c0679945eeff66ff0a4">&#9670;&nbsp;</a></span>findTerminus() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -353,8 +386,51 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a35cf443b602a92cab92012da3ab5a93b" name="a35cf443b602a92cab92012da3ab5a93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35cf443b602a92cab92012da3ab5a93b">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cutflow::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target_cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>new_cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Insert a new node AFTER a given node </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_cut</td><td>pointer to target node </td></tr>
+    <tr><td class="paramname">new_cut</td><td>pointer to new node </td></tr>
+    <tr><td class="paramname">direction</td><td>direction (Left/false, Right/true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
 <a id="a8da46f1053a6b97991489ee0920c29a1" name="a8da46f1053a6b97991489ee0920c29a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8da46f1053a6b97991489ee0920c29a1">&#9670;&nbsp;</a></span>insert()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8da46f1053a6b97991489ee0920c29a1">&#9670;&nbsp;</a></span>insert() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -396,8 +472,51 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a463eb7919194ad8f3a9cc82af4f70585" name="a463eb7919194ad8f3a9cc82af4f70585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a463eb7919194ad8f3a9cc82af4f70585">&#9670;&nbsp;</a></span>isProgeny() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cutflow::isProgeny </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>parent_cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target_cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Direction&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Check if a given cut is amongst the progeny of another cut on a certain side of its family tree </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent_cut</td><td>pointer to cut whose progeny will be searched </td></tr>
+    <tr><td class="paramname">target_cut</td><td>pointer to target descendant cut to look for </td></tr>
+    <tr><td class="paramname">direction</td><td>side of the family tree to search (Left/false, Right/true) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether or not (true/false) the target cut was found </dd></dl>
+
+</div>
+</div>
 <a id="aa076a2ad28bb878a567a30b34f9b40d4" name="aa076a2ad28bb878a567a30b34f9b40d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa076a2ad28bb878a567a30b34f9b40d4">&#9670;&nbsp;</a></span>isProgeny()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa076a2ad28bb878a567a30b34f9b40d4">&#9670;&nbsp;</a></span>isProgeny() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -846,8 +965,34 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a30431b16b649c521869c7e06293d1dec" name="a30431b16b649c521869c7e06293d1dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30431b16b649c521869c7e06293d1dec">&#9670;&nbsp;</a></span>runUntil() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cutflow::runUntil </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Run cutflow until a target terminal cut </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">Cutflow::runUntil</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_cut</td><td>pointer to target cut </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether or not (true/false) the target cut was reached and passed </dd></dl>
+
+</div>
+</div>
 <a id="a3b5a6dc6e9490037d190eca691295859" name="a3b5a6dc6e9490037d190eca691295859"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b5a6dc6e9490037d190eca691295859">&#9670;&nbsp;</a></span>runUntil()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b5a6dc6e9490037d190eca691295859">&#9670;&nbsp;</a></span>runUntil() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
