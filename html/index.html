@@ -141,22 +141,22 @@ Examples</h1>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_class" href="classCutflow.html">Cutflow</a> dummy_cutflow = <a class="code hl_class" href="classCutflow.html">Cutflow</a>();</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* dummy_root = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;root&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* dummy_root = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;root&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
 <div class="line">    dummy_cutflow.<a class="code hl_function" href="classCutflow.html#ad27d37141c3748779a5d81fad919ecbb">setRoot</a>(dummy_root);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node0 = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;node0&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node0 = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;node0&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
 <div class="line">    dummy_cutflow.<a class="code hl_function" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a>(<span class="stringliteral">&quot;root&quot;</span>, node0, Left);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node1 = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;node1&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node1 = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;node1&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
 <div class="line">    dummy_cutflow.<a class="code hl_function" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a>(<span class="stringliteral">&quot;root&quot;</span>, node1, Right);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node2 = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;node2&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node2 = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;node2&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
 <div class="line">    dummy_cutflow.<a class="code hl_function" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a>(<span class="stringliteral">&quot;node1&quot;</span>, node2, Right);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node3 = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;node3&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node3 = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;node3&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
 <div class="line">    dummy_cutflow.<a class="code hl_function" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a>(<span class="stringliteral">&quot;node1&quot;</span>, node3, Left);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node4 = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;node4&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* node4 = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;node4&quot;</span>, []() { <span class="keywordflow">return</span> bool(rand() % 2); });</div>
 <div class="line">    dummy_cutflow.<a class="code hl_function" href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">insert</a>(<span class="stringliteral">&quot;node2&quot;</span>, node4, Right);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 5; i++)</div>
@@ -175,6 +175,7 @@ Examples</h1>
 <div class="ttc" id="aclassCutflow_html_a8da46f1053a6b97991489ee0920c29a1"><div class="ttname"><a href="classCutflow.html#a8da46f1053a6b97991489ee0920c29a1">Cutflow::insert</a></div><div class="ttdeci">void insert(std::string target_cut_name, Cut *new_cut, Direction direction)</div><div class="ttdef"><b>Definition:</b> cutflow.cc:138</div></div>
 <div class="ttc" id="aclassCutflow_html_a8fc98b9c006b80db96576c8bdcf6a0a8"><div class="ttname"><a href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">Cutflow::run</a></div><div class="ttdeci">virtual bool run()</div><div class="ttdef"><b>Definition:</b> cutflow.cc:173</div></div>
 <div class="ttc" id="aclassCutflow_html_ad27d37141c3748779a5d81fad919ecbb"><div class="ttname"><a href="classCutflow.html#ad27d37141c3748779a5d81fad919ecbb">Cutflow::setRoot</a></div><div class="ttdeci">void setRoot(Cut *new_root)</div><div class="ttdef"><b>Definition:</b> cutflow.cc:116</div></div>
+<div class="ttc" id="aclassLambdaCut_html"><div class="ttname"><a href="classLambdaCut.html">LambdaCut</a></div><div class="ttdef"><b>Definition:</b> cutflow.h:84</div></div>
 </div><!-- fragment --></li>
 <li>A simple Arbol+Looper example (using <code>ROOT::MakeSelector</code> to read an arbitrary ROOT file) <div class="fragment"><div class="line">$ root # only known to work for ROOT v6.22 and greater</div>
 <div class="line">root[0] TFile* f = new TFile(&quot;/path/to/myfile.root&quot;)</div>
@@ -239,20 +240,22 @@ Examples</h1>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">setLeaf</a>&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;ht&quot;</span>, ht);</div>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">setLeaf</a>&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;met&quot;</span>, *selector.MET_pt);</div>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">setLeaf</a>&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;n_jets&quot;</span>, arbol.<a class="code hl_function" href="classArbol.html#aefdf6dfa74ceed51b2cb99f45bfebf56">getVecLeaf</a>&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;goot_jet_pt&quot;</span>).size());</div>
-<div class="line">            arbol.fillTTree();</div>
+<div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a31c4d469f7df8bbc581f829a0e17d667">fill</a>();</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 <div class="line">    );</div>
 <div class="line">    <span class="comment">// Write results to a ROOT file</span></div>
-<div class="line">    arbol.writeTFile();</div>
+<div class="line">    arbol.<a class="code hl_function" href="classArbol.html#a8205213f91913095ee613b618ae6eb03">write</a>();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassArbol_html"><div class="ttname"><a href="classArbol.html">Arbol</a></div><div class="ttdef"><b>Definition:</b> arbol.h:45</div></div>
+<div class="ttc" id="aclassArbol_html_a31c4d469f7df8bbc581f829a0e17d667"><div class="ttname"><a href="classArbol.html#a31c4d469f7df8bbc581f829a0e17d667">Arbol::fill</a></div><div class="ttdeci">virtual void fill()</div></div>
 <div class="ttc" id="aclassArbol_html_a4c2184d378ab21a9627a57098291a7c4"><div class="ttname"><a href="classArbol.html#a4c2184d378ab21a9627a57098291a7c4">Arbol::resetBranches</a></div><div class="ttdeci">void resetBranches()</div></div>
 <div class="ttc" id="aclassArbol_html_a552622885ffce15f1b1369fe44e729bb"><div class="ttname"><a href="classArbol.html#a552622885ffce15f1b1369fe44e729bb">Arbol::newBranch</a></div><div class="ttdeci">void newBranch(TString new_branch_name)</div></div>
 <div class="ttc" id="aclassArbol_html_a57b6cf7cca6cbb3b75bb0e0333dbe3c8"><div class="ttname"><a href="classArbol.html#a57b6cf7cca6cbb3b75bb0e0333dbe3c8">Arbol::newVecBranch</a></div><div class="ttdeci">void newVecBranch(TString new_branch_name)</div></div>
 <div class="ttc" id="aclassArbol_html_a7a8d3bec0bf5c00635a0b00fcd63cf01"><div class="ttname"><a href="classArbol.html#a7a8d3bec0bf5c00635a0b00fcd63cf01">Arbol::setLeaf</a></div><div class="ttdeci">void setLeaf(TString branch_name, Type new_value)</div></div>
 <div class="ttc" id="aclassArbol_html_a811156c9134ca7e0015bbe2ab95434b0"><div class="ttname"><a href="classArbol.html#a811156c9134ca7e0015bbe2ab95434b0">Arbol::appendToVecLeaf</a></div><div class="ttdeci">void appendToVecLeaf(TString branch_name, Type new_value)</div></div>
+<div class="ttc" id="aclassArbol_html_a8205213f91913095ee613b618ae6eb03"><div class="ttname"><a href="classArbol.html#a8205213f91913095ee613b618ae6eb03">Arbol::write</a></div><div class="ttdeci">virtual void write()</div></div>
 <div class="ttc" id="aclassArbol_html_aefdf6dfa74ceed51b2cb99f45bfebf56"><div class="ttname"><a href="classArbol.html#aefdf6dfa74ceed51b2cb99f45bfebf56">Arbol::getVecLeaf</a></div><div class="ttdeci">std::vector&lt; Type &gt; getVecLeaf(TString branch_name)</div></div>
 <div class="ttc" id="aclassLooper_html"><div class="ttname"><a href="classLooper.html">Looper</a></div><div class="ttdef"><b>Definition:</b> looper.h:75</div></div>
 <div class="ttc" id="aclassLooper_html_a8b259a7ad0c2aa45ae49d1ec08d37af0"><div class="ttname"><a href="classLooper.html#a8b259a7ad0c2aa45ae49d1ec08d37af0">Looper::run</a></div><div class="ttdeci">void run(std::function&lt; void(TTree *ttree)&gt; init, std::function&lt; void(int entry)&gt; eval)</div></div>
@@ -306,7 +309,7 @@ Examples</h1>
 <div class="line">    cutflow.globals.newVar&lt;TH1F&gt;(<span class="stringliteral">&quot;ld_lep_pt_hist&quot;</span>, *ld_lep_pt_hist);</div>
 <div class="line">    cutflow.globals.newVar&lt;TH1F&gt;(<span class="stringliteral">&quot;tr_lep_pt_hist&quot;</span>, *tr_lep_pt_hist);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* root = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* root = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(</div>
 <div class="line">        <span class="stringliteral">&quot;Bookkeeping&quot;</span>,</div>
 <div class="line">        [&amp;]()</div>
 <div class="line">        {</div>
@@ -322,7 +325,7 @@ Examples</h1>
 <div class="line">    );</div>
 <div class="line">    cutflow.setRoot(root);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* dilep_presel = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* dilep_presel = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(</div>
 <div class="line">        <span class="stringliteral">&quot;DileptonPreselection&quot;</span>,</div>
 <div class="line">        [&amp;]()</div>
 <div class="line">        {</div>
@@ -363,10 +366,10 @@ Examples</h1>
 <div class="line">    );</div>
 <div class="line">    cutflow.insert(<span class="stringliteral">&quot;Bookkeeping&quot;</span>, dilep_presel, Right);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* monolep_or_fakes = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;SingleLepOrFakes&quot;</span>, [&amp;]() { <span class="keywordflow">return</span> <span class="keyword">true</span>; });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* monolep_or_fakes = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;SingleLepOrFakes&quot;</span>, [&amp;]() { <span class="keywordflow">return</span> <span class="keyword">true</span>; });</div>
 <div class="line">    cutflow.insert(<span class="stringliteral">&quot;DileptonPreselection&quot;</span>, monolep_or_fakes, Left);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* dilep_sign = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* dilep_sign = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(</div>
 <div class="line">        <span class="stringliteral">&quot;CheckDilepSign&quot;</span>,</div>
 <div class="line">        [&amp;]()</div>
 <div class="line">        {</div>
@@ -377,10 +380,10 @@ Examples</h1>
 <div class="line">    );</div>
 <div class="line">    cutflow.insert(<span class="stringliteral">&quot;DileptonPreselection&quot;</span>, dilep_sign, Right);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* SS_presel = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(<span class="stringliteral">&quot;SSPreselection&quot;</span>, [&amp;]() { <span class="keywordflow">return</span> <span class="keyword">true</span>; });</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* SS_presel = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(<span class="stringliteral">&quot;SSPreselection&quot;</span>, [&amp;]() { <span class="keywordflow">return</span> <span class="keyword">true</span>; });</div>
 <div class="line">    cutflow.insert(<span class="stringliteral">&quot;CheckDilepSign&quot;</span>, SS_presel, Right);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* OS_presel = <span class="keyword">new</span> <a class="code hl_class" href="classCut.html">Cut</a>(</div>
+<div class="line">    <a class="code hl_class" href="classCut.html">Cut</a>* OS_presel = <span class="keyword">new</span> <a class="code hl_class" href="classLambdaCut.html">LambdaCut</a>(</div>
 <div class="line">        <span class="stringliteral">&quot;OSPreselection&quot;</span>, </div>
 <div class="line">        [&amp;]() </div>
 <div class="line">        { </div>
@@ -403,17 +406,19 @@ Examples</h1>
 <div class="line">    looper.<a class="code hl_function" href="classLooper.html#a8b259a7ad0c2aa45ae49d1ec08d37af0">run</a>(</div>
 <div class="line">        [&amp;](TTree* ttree)</div>
 <div class="line">        {</div>
+<div class="line">            <span class="comment">// Runs once per file</span></div>
 <div class="line">            nt.Init(ttree);</div>
 <div class="line">        },</div>
 <div class="line">        [&amp;](<span class="keywordtype">int</span> entry) </div>
 <div class="line">        {</div>
+<div class="line">            <span class="comment">// Runs once per event</span></div>
 <div class="line">            bar.progress(looper.<a class="code hl_variable" href="classLooper.html#abbf626538aced372130172ac86958265">n_events_processed</a>, looper.n_events_to_process);</div>
 <div class="line">            nt.GetEntry(entry);</div>
 <div class="line">            <span class="comment">// Reset tree</span></div>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a4c2184d378ab21a9627a57098291a7c4">resetBranches</a>();</div>
 <div class="line">            <span class="comment">// Run cutflow</span></div>
 <div class="line">            <span class="keywordtype">bool</span> passed = cutflow.runUntil(<span class="stringliteral">&quot;OSPreselection&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">if</span> (passed) { arbol.fillTTree(); }</div>
+<div class="line">            <span class="keywordflow">if</span> (passed) { arbol.<a class="code hl_function" href="classArbol.html#a31c4d469f7df8bbc581f829a0e17d667">fill</a>(); }</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 <div class="line">    );</div>
@@ -422,7 +427,7 @@ Examples</h1>
 <div class="line">    bar.finish();</div>
 <div class="line">    cutflow.print();</div>
 <div class="line">    cutflow.writeCSV(cli.<a class="code hl_variable" href="classHEPCLI.html#a2c6e1c6b16b1980527bd660175e77bd8">output_dir</a>);</div>
-<div class="line">    arbol.writeTFile();</div>
+<div class="line">    arbol.<a class="code hl_function" href="classArbol.html#a8205213f91913095ee613b618ae6eb03">write</a>();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassArbol_html_a92be3f8c4258247d65e7f66a8da70453"><div class="ttname"><a href="classArbol.html#a92be3f8c4258247d65e7f66a8da70453">Arbol::getLeaf</a></div><div class="ttdeci">Type getLeaf(TString branch_name)</div></div>
