@@ -13,6 +13,8 @@ class Arbusto : public Arbol
 protected:
     /** Names of branches in original ROOT TTree to keep */
     std::vector<TString> keep_branch_names;
+    /** Pointer to current TTree to skim */
+    TTree* orig_ttree;
 public:
     /**
      * Arbusto object constructor
@@ -38,6 +40,12 @@ public:
      * @return none
      */
     void init(TTree* next_ttree);
+    /**
+     * Fill TTree with all current leaves
+     * @param entry current entry
+     * @return none
+     */
+    void fill(int entry);
 };
 
 #include "arbusto.icc"

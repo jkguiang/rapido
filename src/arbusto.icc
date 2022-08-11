@@ -35,4 +35,12 @@ void Arbusto::init(TTree* next_ttree)
         next_ttree->SetBranchStatus(branch_name, 1);
     }
     next_ttree->CopyAddresses(ttree);
+    orig_ttree = next_ttree;
+}
+
+void Arbusto::fill(int entry)
+{
+    orig_ttree->GetEntry(entry);
+    ttree->Fill();
+    return;
 }
