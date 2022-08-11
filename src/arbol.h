@@ -121,7 +121,6 @@ public:
      */
     template<typename Type>
     void setLeaf(TString branch_name, Type new_value);
-
     /**
      * Calls Arbol::newBranch, but supplies std::vector<Type> for tparam
      * @see Arbol::newBranch
@@ -208,14 +207,12 @@ public:
      */
     template<typename Type>
     void sortVecLeaf(TString branch_name, std::function<bool(Type, Type)> &lambda);
-
     /**
      * Set value of each branch to its respective reset value
      * Uses a map of "resetters" for the same reason as Utilities::Variables.
      * @return none
      */
     void resetBranches();
-    
     /**
      * Fill TTree with all current leaves
      * @return none
