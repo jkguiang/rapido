@@ -115,23 +115,27 @@ $(document).ready(function(){initNavTree('arbusto_8h_source.html',''); initResiz
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classArbusto.html#ad3dba0cbd9747912ba0b978f3b0ca60f">   15</a></span>    std::vector&lt;TString&gt; <a class="code hl_variable" href="classArbusto.html#ad3dba0cbd9747912ba0b978f3b0ca60f">keep_branch_names</a>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classArbusto.html#a74d2da33962ce8ab5386e690146dc16d">   21</a></span>    <a class="code hl_function" href="classArbusto.html#a74d2da33962ce8ab5386e690146dc16d">Arbusto</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classArbusto.html#a61dd706e32460f7d695892b33a66599f">   29</a></span>    <a class="code hl_function" href="classArbusto.html#a61dd706e32460f7d695892b33a66599f">Arbusto</a>(TFile* new_tfile, TChain* tchain, std::vector&lt;TString&gt; branch_names);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classArbusto.html#ac0e7dc4a5a89df51fd5ac8a7b25f4cc3">   34</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classArbusto.html#ac0e7dc4a5a89df51fd5ac8a7b25f4cc3">~Arbusto</a>();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classArbusto.html#a0b16917f2f868d502294408741eaac67">   40</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classArbusto.html#a0b16917f2f868d502294408741eaac67">init</a>(TTree* next_ttree);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &quot;arbusto.icc&quot;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classArbusto.html#a1d2fa85227f816ddbe865750b4dafe71">   17</a></span>    TTree* <a class="code hl_variable" href="classArbusto.html#a1d2fa85227f816ddbe865750b4dafe71">orig_ttree</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classArbusto.html#a74d2da33962ce8ab5386e690146dc16d">   23</a></span>    <a class="code hl_function" href="classArbusto.html#a74d2da33962ce8ab5386e690146dc16d">Arbusto</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classArbusto.html#a61dd706e32460f7d695892b33a66599f">   31</a></span>    <a class="code hl_function" href="classArbusto.html#a61dd706e32460f7d695892b33a66599f">Arbusto</a>(TFile* new_tfile, TChain* tchain, std::vector&lt;TString&gt; branch_names);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classArbusto.html#ac0e7dc4a5a89df51fd5ac8a7b25f4cc3">   36</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classArbusto.html#ac0e7dc4a5a89df51fd5ac8a7b25f4cc3">~Arbusto</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classArbusto.html#a0b16917f2f868d502294408741eaac67">   42</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classArbusto.html#a0b16917f2f868d502294408741eaac67">init</a>(TTree* next_ttree);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classArbusto.html#ad3e7b018a8b5a761bd7f3790a776337f">   48</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classArbusto.html#ad3e7b018a8b5a761bd7f3790a776337f">fill</a>(<span class="keywordtype">int</span> entry);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &quot;arbusto.icc&quot;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassArbol_html"><div class="ttname"><a href="classArbol.html">Arbol</a></div><div class="ttdef"><b>Definition:</b> arbol.h:45</div></div>
 <div class="ttc" id="aclassArbusto_html"><div class="ttname"><a href="classArbusto.html">Arbusto</a></div><div class="ttdef"><b>Definition:</b> arbusto.h:12</div></div>
 <div class="ttc" id="aclassArbusto_html_a0b16917f2f868d502294408741eaac67"><div class="ttname"><a href="classArbusto.html#a0b16917f2f868d502294408741eaac67">Arbusto::init</a></div><div class="ttdeci">void init(TTree *next_ttree)</div></div>
+<div class="ttc" id="aclassArbusto_html_a1d2fa85227f816ddbe865750b4dafe71"><div class="ttname"><a href="classArbusto.html#a1d2fa85227f816ddbe865750b4dafe71">Arbusto::orig_ttree</a></div><div class="ttdeci">TTree * orig_ttree</div><div class="ttdef"><b>Definition:</b> arbusto.h:17</div></div>
 <div class="ttc" id="aclassArbusto_html_a61dd706e32460f7d695892b33a66599f"><div class="ttname"><a href="classArbusto.html#a61dd706e32460f7d695892b33a66599f">Arbusto::Arbusto</a></div><div class="ttdeci">Arbusto(TFile *new_tfile, TChain *tchain, std::vector&lt; TString &gt; branch_names)</div></div>
 <div class="ttc" id="aclassArbusto_html_a74d2da33962ce8ab5386e690146dc16d"><div class="ttname"><a href="classArbusto.html#a74d2da33962ce8ab5386e690146dc16d">Arbusto::Arbusto</a></div><div class="ttdeci">Arbusto()</div></div>
 <div class="ttc" id="aclassArbusto_html_ac0e7dc4a5a89df51fd5ac8a7b25f4cc3"><div class="ttname"><a href="classArbusto.html#ac0e7dc4a5a89df51fd5ac8a7b25f4cc3">Arbusto::~Arbusto</a></div><div class="ttdeci">virtual ~Arbusto()</div></div>
 <div class="ttc" id="aclassArbusto_html_ad3dba0cbd9747912ba0b978f3b0ca60f"><div class="ttname"><a href="classArbusto.html#ad3dba0cbd9747912ba0b978f3b0ca60f">Arbusto::keep_branch_names</a></div><div class="ttdeci">std::vector&lt; TString &gt; keep_branch_names</div><div class="ttdef"><b>Definition:</b> arbusto.h:15</div></div>
+<div class="ttc" id="aclassArbusto_html_ad3e7b018a8b5a761bd7f3790a776337f"><div class="ttname"><a href="classArbusto.html#ad3e7b018a8b5a761bd7f3790a776337f">Arbusto::fill</a></div><div class="ttdeci">void fill(int entry)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
