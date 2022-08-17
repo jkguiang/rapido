@@ -9,10 +9,16 @@ Branch<Type>::Branch(TTree* ttree, TString new_branch_name)
 
 Arbol::Arbol() {}
 
-Arbol::Arbol(TFile* new_tfile)
+Arbol::Arbol(TFile* new_tfile, TString ttree_name)
 {
-    ttree = new TTree("tree", "tree");
     tfile = new_tfile;
+    ttree = new TTree(ttree_name, ttree_name);
+}
+
+Arbol::Arbol(HEPCLI& cli)
+{
+    tfile = new TFile(TString(cli.output_dir+"/"+cli.output_name+".root"), "RECREATE");
+    ttree = new TTree(TString(cli.output_ttree), TString(cli.output_ttree));
 }
 
 Arbol::~Arbol() 

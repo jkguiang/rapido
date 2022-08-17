@@ -14,6 +14,20 @@ Arbusto::Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> keep_bra
     ttree = (TTree*)tchain->CloneTree(0);
 }
 
+Arbusto::Arbusto(HEPCLI& cli, std::vector<TString> keep_branch_names) 
+: keep_branch_names(keep_branch_names)
+{
+    tfile = new TFile(TString(cli.output_dir+"/"+cli.output_name+".root"), "RECREATE");
+    // Disable all branches
+    cli.input_tchain->SetBranchStatus("*", 0); 
+    // Enable selected branches
+    for (auto branch_name : keep_branch_names)
+    {
+        cli.input_tchain->SetBranchStatus(branch_name, 1);
+    }
+    ttree = (TTree*)cli.input_tchain->CloneTree(0);
+}
+
 Arbusto::~Arbusto() 
 {
     std::map<TString, Utilities::Dynamic*>::iterator iter;

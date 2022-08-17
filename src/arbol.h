@@ -11,6 +11,7 @@
 #include "TTree.h"
 #include "TFile.h"
 
+#include "hepcli.h"
 #include "utilities.h"
 
 /**
@@ -72,7 +73,13 @@ public:
      * @param new_tfile pointer to an output TFile
      * @return none
      */
-    Arbol(TFile* new_tfile);
+    Arbol(TFile* new_tfile, TString ttree_name = "tree");
+    /**
+     * Arbol object overload constructor
+     * @param cli HEPCLI object
+     * @return none
+     */
+    Arbol(HEPCLI& cli);
     /**
      * Arbol object destructor
      * @return none

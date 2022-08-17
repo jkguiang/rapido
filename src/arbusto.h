@@ -4,6 +4,7 @@
 #include "TChain.h"
 
 #include "arbol.h"
+#include "hepcli.h"
 
 /**
  * Wraps Arbol object with functionality for skimming
@@ -29,6 +30,13 @@ public:
      * @return none
      */
     Arbusto(TFile* new_tfile, TChain* tchain, std::vector<TString> branch_names);
+    /**
+     * Arbusto object overload constructor
+     * @param cli HEPCLI object
+     * @param branch_names std::vector of branch names to keep
+     * @return none
+     */
+    Arbusto(HEPCLI& cli, std::vector<TString> branch_names);
     /**
      * Arbusto object destructor
      * @return none
