@@ -109,7 +109,7 @@ $(document).ready(function(){initNavTree('classHEPCLI.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="looper_8h_source.html">looper.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="hepcli_8h_source.html">hepcli.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -128,14 +128,18 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a2c6e1c6b16b1980527bd660175e77bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e5f226adebb7d77fb601c93268868dd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#a9e5f226adebb7d77fb601c93268868dd">output_name</a></td></tr>
 <tr class="separator:a9e5f226adebb7d77fb601c93268868dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f477f2df8e2b4a7b2be760b540c479e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#a5f477f2df8e2b4a7b2be760b540c479e">output_ttree</a></td></tr>
+<tr class="separator:a5f477f2df8e2b4a7b2be760b540c479e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9636ec2841ee531cbe5bf81324f68d89"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#a9636ec2841ee531cbe5bf81324f68d89">variation</a></td></tr>
+<tr class="separator:a9636ec2841ee531cbe5bf81324f68d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bb98769c5df4317c50d98bff38002c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#a1bb98769c5df4317c50d98bff38002c1">is_data</a></td></tr>
 <tr class="separator:a1bb98769c5df4317c50d98bff38002c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1d563a29c5a238e0469442bad714e6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#ae1d563a29c5a238e0469442bad714e6e">is_signal</a></td></tr>
 <tr class="separator:ae1d563a29c5a238e0469442bad714e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf4dee2a50d85b2a2a5069550ddc679d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#acf4dee2a50d85b2a2a5069550ddc679d">debug</a></td></tr>
 <tr class="separator:acf4dee2a50d85b2a2a5069550ddc679d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a027e714e73b6fcdd0cb73eb8445bbfa4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#a027e714e73b6fcdd0cb73eb8445bbfa4">scale_factor</a></td></tr>
-<tr class="separator:a027e714e73b6fcdd0cb73eb8445bbfa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ee284f1e3fbb898d60e1d246942845e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#a3ee284f1e3fbb898d60e1d246942845e">scale_factor</a></td></tr>
+<tr class="separator:a3ee284f1e3fbb898d60e1d246942845e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d4bb4a7c1f1b6d4e008ff76e43bef15"><td class="memItemLeft" align="right" valign="top">TChain *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHEPCLI.html#a3d4bb4a7c1f1b6d4e008ff76e43bef15">input_tchain</a></td></tr>
 <tr class="separator:a3d4bb4a7c1f1b6d4e008ff76e43bef15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -283,7 +287,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Target directory for output file(s) </p>
+<p >Target directory for output file </p>
 
 </div>
 </div>
@@ -298,22 +302,52 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Short name for output file(s) </p>
+<p >Short name for output file </p>
 
 </div>
 </div>
-<a id="a027e714e73b6fcdd0cb73eb8445bbfa4" name="a027e714e73b6fcdd0cb73eb8445bbfa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a027e714e73b6fcdd0cb73eb8445bbfa4">&#9670;&nbsp;</a></span>scale_factor</h2>
+<a id="a5f477f2df8e2b4a7b2be760b540c479e" name="a5f477f2df8e2b4a7b2be760b540c479e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f477f2df8e2b4a7b2be760b540c479e">&#9670;&nbsp;</a></span>output_ttree</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float HEPCLI::scale_factor</td>
+          <td class="memname">std::string HEPCLI::output_ttree</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Name of TTree in output ROOT file </p>
+
+</div>
+</div>
+<a id="a3ee284f1e3fbb898d60e1d246942845e" name="a3ee284f1e3fbb898d60e1d246942845e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ee284f1e3fbb898d60e1d246942845e">&#9670;&nbsp;</a></span>scale_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double HEPCLI::scale_factor</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >Global event weight </p>
+
+</div>
+</div>
+<a id="a9636ec2841ee531cbe5bf81324f68d89" name="a9636ec2841ee531cbe5bf81324f68d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9636ec2841ee531cbe5bf81324f68d89">&#9670;&nbsp;</a></span>variation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string HEPCLI::variation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Variation type (e.g. "up", "down", "nominal", ...) </p>
 
 </div>
 </div>
@@ -332,8 +366,9 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/github/workspace/rapido/src/<a class="el" href="looper_8h_source.html">looper.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/github/workspace/rapido/src/<a class="el" href="hepcli_8h_source.html">hepcli.h</a></li>
+<li>/github/workspace/rapido/src/hepcli.cc</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

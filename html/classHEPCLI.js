@@ -9,6 +9,8 @@ var classHEPCLI =
     [ "is_signal", "classHEPCLI.html#ae1d563a29c5a238e0469442bad714e6e", null ],
     [ "output_dir", "classHEPCLI.html#a2c6e1c6b16b1980527bd660175e77bd8", null ],
     [ "output_name", "classHEPCLI.html#a9e5f226adebb7d77fb601c93268868dd", null ],
-    [ "scale_factor", "classHEPCLI.html#a027e714e73b6fcdd0cb73eb8445bbfa4", null ],
+    [ "output_ttree", "classHEPCLI.html#a5f477f2df8e2b4a7b2be760b540c479e", null ],
+    [ "scale_factor", "classHEPCLI.html#a3ee284f1e3fbb898d60e1d246942845e", null ],
+    [ "variation", "classHEPCLI.html#a9636ec2841ee531cbe5bf81324f68d89", null ],
     [ "verbose", "classHEPCLI.html#a50592a47a23f3e33a774a747ee32bf00", null ]
 ];

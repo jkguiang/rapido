@@ -126,8 +126,10 @@ Inheritance diagram for Arbol:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4f5d3e25a0e1a40cb09cefa39378b7be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#a4f5d3e25a0e1a40cb09cefa39378b7be">Arbol</a> ()</td></tr>
 <tr class="separator:a4f5d3e25a0e1a40cb09cefa39378b7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70f09d1535c225d3d8bc565d468ffe56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#a70f09d1535c225d3d8bc565d468ffe56">Arbol</a> (TFile *new_tfile)</td></tr>
-<tr class="separator:a70f09d1535c225d3d8bc565d468ffe56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a6a1e24015fc9489e1eb15207aae223"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#a4a6a1e24015fc9489e1eb15207aae223">Arbol</a> (TFile *new_tfile, TString ttree_name=&quot;tree&quot;)</td></tr>
+<tr class="separator:a4a6a1e24015fc9489e1eb15207aae223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac503c78c010c0d6579a4a1e8f89cce25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#ac503c78c010c0d6579a4a1e8f89cce25">Arbol</a> (<a class="el" href="classHEPCLI.html">HEPCLI</a> &amp;cli)</td></tr>
+<tr class="separator:ac503c78c010c0d6579a4a1e8f89cce25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9929184ef12844034b5ad4375a09799"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classArbol.html#ab9929184ef12844034b5ad4375a09799">~Arbol</a> ()</td></tr>
 <tr class="separator:ab9929184ef12844034b5ad4375a09799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a552622885ffce15f1b1369fe44e729bb"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
@@ -203,7 +205,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><p >Wraps TTree object with functionality for making branches dynamically </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4f5d3e25a0e1a40cb09cefa39378b7be" name="a4f5d3e25a0e1a40cb09cefa39378b7be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f5d3e25a0e1a40cb09cefa39378b7be">&#9670;&nbsp;</a></span>Arbol() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f5d3e25a0e1a40cb09cefa39378b7be">&#9670;&nbsp;</a></span>Arbol() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,8 +222,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a70f09d1535c225d3d8bc565d468ffe56" name="a70f09d1535c225d3d8bc565d468ffe56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70f09d1535c225d3d8bc565d468ffe56">&#9670;&nbsp;</a></span>Arbol() <span class="overload">[2/2]</span></h2>
+<a id="a4a6a1e24015fc9489e1eb15207aae223" name="a4a6a1e24015fc9489e1eb15207aae223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a6a1e24015fc9489e1eb15207aae223">&#9670;&nbsp;</a></span>Arbol() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,14 +232,49 @@ Protected Attributes</h2></td></tr>
           <td class="memname">Arbol::Arbol </td>
           <td>(</td>
           <td class="paramtype">TFile *&#160;</td>
-          <td class="paramname"><em>new_tfile</em></td><td>)</td>
+          <td class="paramname"><em>new_tfile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">TString&#160;</td>
+          <td class="paramname"><em>ttree_name</em> = <code>&quot;tree&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p ><a class="el" href="classArbol.html">Arbol</a> object overload constructor </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">new_tfile</td><td>pointer to an output TFile </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="ac503c78c010c0d6579a4a1e8f89cce25" name="ac503c78c010c0d6579a4a1e8f89cce25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac503c78c010c0d6579a4a1e8f89cce25">&#9670;&nbsp;</a></span>Arbol() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Arbol::Arbol </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classHEPCLI.html">HEPCLI</a> &amp;&#160;</td>
+          <td class="paramname"><em>cli</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="classArbol.html">Arbol</a> object overload constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cli</td><td><a class="el" href="classHEPCLI.html">HEPCLI</a> object </td></tr>
   </table>
   </dd>
 </dl>
