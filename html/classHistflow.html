@@ -123,26 +123,38 @@ Inheritance diagram for Histflow:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae4c76353f6d545eca787fc0abf1a433e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#ae4c76353f6d545eca787fc0abf1a433e">Histflow</a> ()</td></tr>
-<tr class="separator:ae4c76353f6d545eca787fc0abf1a433e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d27f1ad6aaf73765a9045463f7784c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#a40d27f1ad6aaf73765a9045463f7784c">Histflow</a> (std::string new_name)</td></tr>
+<tr class="separator:a40d27f1ad6aaf73765a9045463f7784c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50df07c96c25e4839c1561d48664b01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#aa50df07c96c25e4839c1561d48664b01">Histflow</a> (std::string new_name, <a class="el" href="classCut.html">Cut</a> *new_root)</td></tr>
+<tr class="separator:aa50df07c96c25e4839c1561d48664b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1adf4cd5e253c51f4e9febf97e11da1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#aa1adf4cd5e253c51f4e9febf97e11da1">~Histflow</a> ()</td></tr>
 <tr class="separator:aa1adf4cd5e253c51f4e9febf97e11da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fc41c86984acdd1b2a271be83ecf69d"><td class="memTemplParams" colspan="2">template&lt;typename Type1D &gt; </td></tr>
-<tr class="memitem:a0fc41c86984acdd1b2a271be83ecf69d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a0fc41c86984acdd1b2a271be83ecf69d">bookHist1D</a> (std::string target_cut_name, <a class="el" href="classHist1D.html">Hist1D</a>&lt; Type1D &gt; *hist)</td></tr>
-<tr class="separator:a0fc41c86984acdd1b2a271be83ecf69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16858deb3566f6b64c4ac21c309d0a2c"><td class="memTemplParams" colspan="2">template&lt;typename Type2D &gt; </td></tr>
-<tr class="memitem:a16858deb3566f6b64c4ac21c309d0a2c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a16858deb3566f6b64c4ac21c309d0a2c">bookHist2D</a> (std::string target_cut_name, <a class="el" href="classHist2D.html">Hist2D</a>&lt; Type2D &gt; *hist)</td></tr>
-<tr class="separator:a16858deb3566f6b64c4ac21c309d0a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07a698624a6376ebdcef8ef9b025ef33"><td class="memTemplParams" colspan="2">template&lt;typename Type1D &gt; </td></tr>
-<tr class="memitem:a07a698624a6376ebdcef8ef9b025ef33"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a07a698624a6376ebdcef8ef9b025ef33">bookHist1D</a> (std::string target_cut_name, Type1D *hist, Filler1D filler)</td></tr>
-<tr class="separator:a07a698624a6376ebdcef8ef9b025ef33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a425698092efa7ec2389b9fb83d26dc84"><td class="memTemplParams" colspan="2">template&lt;typename Type2D &gt; </td></tr>
-<tr class="memitem:a425698092efa7ec2389b9fb83d26dc84"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a425698092efa7ec2389b9fb83d26dc84">bookHist2D</a> (std::string target_cut_name, Type2D *hist, Filler2D filler)</td></tr>
-<tr class="separator:a425698092efa7ec2389b9fb83d26dc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaed4a2e05eee591b8b4af58706c9168"><td class="memTemplParams" colspan="2">template&lt;typename THist1D &gt; </td></tr>
+<tr class="memitem:afaed4a2e05eee591b8b4af58706c9168"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#afaed4a2e05eee591b8b4af58706c9168">bookHist1D</a> (std::string target_cut_name, THist1D *hist, std::function&lt; float()&gt; fill_lambda)</td></tr>
+<tr class="separator:afaed4a2e05eee591b8b4af58706c9168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3216bc2e94e097ae211c07a699ea7542"><td class="memTemplParams" colspan="2">template&lt;typename THist1D &gt; </td></tr>
+<tr class="memitem:a3216bc2e94e097ae211c07a699ea7542"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a3216bc2e94e097ae211c07a699ea7542">bookHist1D</a> (<a class="el" href="classCut.html">Cut</a> *target_cut, THist1D *hist, std::function&lt; float()&gt; fill_lambda)</td></tr>
+<tr class="separator:a3216bc2e94e097ae211c07a699ea7542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb32eab2f4555dcd4a4b034f2afdd810"><td class="memTemplParams" colspan="2">template&lt;typename THist1D &gt; </td></tr>
+<tr class="memitem:acb32eab2f4555dcd4a4b034f2afdd810"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#acb32eab2f4555dcd4a4b034f2afdd810">bookHist1D</a> (std::string target_cut_name, THist1D *hist)</td></tr>
+<tr class="separator:acb32eab2f4555dcd4a4b034f2afdd810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29f08f2966ace40275838153f301b360"><td class="memTemplParams" colspan="2">template&lt;typename THist1D &gt; </td></tr>
+<tr class="memitem:a29f08f2966ace40275838153f301b360"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a29f08f2966ace40275838153f301b360">bookHist1D</a> (<a class="el" href="classCut.html">Cut</a> *target_cut, THist1D *hist)</td></tr>
+<tr class="separator:a29f08f2966ace40275838153f301b360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25a13a6ff4043faff49210baa3af0a62"><td class="memTemplParams" colspan="2">template&lt;typename THist2D &gt; </td></tr>
+<tr class="memitem:a25a13a6ff4043faff49210baa3af0a62"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a25a13a6ff4043faff49210baa3af0a62">bookHist2D</a> (std::string target_cut_name, THist2D *hist, std::function&lt; std::pair&lt; float, float &gt;()&gt; fill_lambda)</td></tr>
+<tr class="separator:a25a13a6ff4043faff49210baa3af0a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5119e80ace8cbbb5f980427bbd1f2c67"><td class="memTemplParams" colspan="2">template&lt;typename THist2D &gt; </td></tr>
+<tr class="memitem:a5119e80ace8cbbb5f980427bbd1f2c67"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a5119e80ace8cbbb5f980427bbd1f2c67">bookHist2D</a> (<a class="el" href="classCut.html">Cut</a> *target_cut, THist2D *hist, std::function&lt; std::pair&lt; float, float &gt;()&gt; fill_lambda)</td></tr>
+<tr class="separator:a5119e80ace8cbbb5f980427bbd1f2c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334784912968545469c26ba2e3bffc2c"><td class="memTemplParams" colspan="2">template&lt;typename THist2D &gt; </td></tr>
+<tr class="memitem:a334784912968545469c26ba2e3bffc2c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#a334784912968545469c26ba2e3bffc2c">bookHist2D</a> (std::string target_cut_name, THist2D *hist)</td></tr>
+<tr class="separator:a334784912968545469c26ba2e3bffc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9666ed8471fc5782a036dbfe9b7045f"><td class="memTemplParams" colspan="2">template&lt;typename THist2D &gt; </td></tr>
+<tr class="memitem:ac9666ed8471fc5782a036dbfe9b7045f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHistflow.html#ac9666ed8471fc5782a036dbfe9b7045f">bookHist2D</a> (<a class="el" href="classCut.html">Cut</a> *target_cut, THist2D *hist)</td></tr>
+<tr class="separator:ac9666ed8471fc5782a036dbfe9b7045f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06a2e1683cdc7ac2731b4608abe15eb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#a06a2e1683cdc7ac2731b4608abe15eb7">writeHists</a> (TFile *tfile)</td></tr>
 <tr class="separator:a06a2e1683cdc7ac2731b4608abe15eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a675b897276d33e146d1c2707023f1edd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#a675b897276d33e146d1c2707023f1edd">run</a> () override</td></tr>
-<tr class="separator:a675b897276d33e146d1c2707023f1edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCutflow"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCutflow')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCutflow.html">Cutflow</a></td></tr>
 <tr class="memitem:a17811cb40a7906fc65e79ce69e3b21be inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a17811cb40a7906fc65e79ce69e3b21be">Cutflow</a> ()</td></tr>
 <tr class="separator:a17811cb40a7906fc65e79ce69e3b21be inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,10 +172,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35cf443b602a92cab92012da3ab5a93b inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fc98b9c006b80db96576c8bdcf6a0a8 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">run</a> ()</td></tr>
 <tr class="separator:a8fc98b9c006b80db96576c8bdcf6a0a8 inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b5a6dc6e9490037d190eca691295859 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3b5a6dc6e9490037d190eca691295859">runUntil</a> (std::string target_cut_name)</td></tr>
-<tr class="separator:a3b5a6dc6e9490037d190eca691295859 inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30431b16b649c521869c7e06293d1dec inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a30431b16b649c521869c7e06293d1dec">runUntil</a> (<a class="el" href="classCut.html">Cut</a> *target)</td></tr>
-<tr class="separator:a30431b16b649c521869c7e06293d1dec inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a313f3266431c84c6213fb4a6d0feb04d inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a313f3266431c84c6213fb4a6d0feb04d">runThrough</a> (<a class="el" href="classCut.html">Cut</a> *target_cut)</td></tr>
+<tr class="separator:a313f3266431c84c6213fb4a6d0feb04d inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63443374f6f8f317eedcdf1696a33ee1 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a63443374f6f8f317eedcdf1696a33ee1">runThrough</a> (std::string target_cut_name)</td></tr>
+<tr class="separator:a63443374f6f8f317eedcdf1696a33ee1 inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55916f71fa82b6c0675a7a2c27c366ac inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a55916f71fa82b6c0675a7a2c27c366ac">runThrough</a> (std::vector&lt; <a class="el" href="classCut.html">Cut</a> * &gt; target_cuts)</td></tr>
+<tr class="separator:a55916f71fa82b6c0675a7a2c27c366ac inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa076a2ad28bb878a567a30b34f9b40d4 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#aa076a2ad28bb878a567a30b34f9b40d4">isProgeny</a> (std::string parent_cut_name, std::string target_cut_name, Direction direction)</td></tr>
 <tr class="separator:aa076a2ad28bb878a567a30b34f9b40d4 inherit pub_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a463eb7919194ad8f3a9cc82af4f70585 inherit pub_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a463eb7919194ad8f3a9cc82af4f70585">isProgeny</a> (<a class="el" href="classCut.html">Cut</a> *parent_cut, <a class="el" href="classCut.html">Cut</a> *target_cut, Direction direction)</td></tr>
@@ -185,8 +199,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a5f82e40b32a417161fbcfa0daaf1f8e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#a5f82e40b32a417161fbcfa0daaf1f8e0">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut, float weight=1.0)</td></tr>
-<tr class="separator:a5f82e40b32a417161fbcfa0daaf1f8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219ffd57f8844f8c02fd6df442202bab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHistflow.html#a219ffd57f8844f8c02fd6df442202bab">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut) override</td></tr>
+<tr class="separator:a219ffd57f8844f8c02fd6df442202bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCutflow"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCutflow')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCutflow.html">Cutflow</a></td></tr>
 <tr class="memitem:a20193ee89ee39b0fc58ab4f27e2779db inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a20193ee89ee39b0fc58ab4f27e2779db">getCut</a> (std::string cut_name)</td></tr>
 <tr class="separator:a20193ee89ee39b0fc58ab4f27e2779db inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,7 +216,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a398daefa870d9f58381047324a880701 inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a212a44164cbf1f1608d1b55567890ef7 inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a212a44164cbf1f1608d1b55567890ef7">recursiveWriteMermaid</a> (<a class="el" href="classCut.html">Cut</a> *cut, std::ofstream &amp;ofstream, std::string output_mmd)</td></tr>
 <tr class="separator:a212a44164cbf1f1608d1b55567890ef7 inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3756a365662151832c84fe86031f10d6 inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3756a365662151832c84fe86031f10d6">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
+<tr class="memitem:a3756a365662151832c84fe86031f10d6 inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a3756a365662151832c84fe86031f10d6">recursiveEvaluate</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:a3756a365662151832c84fe86031f10d6 inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc7029b27ff8d742d10c75d6f6342dac inherit pro_methods_classCutflow"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#adc7029b27ff8d742d10c75d6f6342dac">recursiveDelete</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:adc7029b27ff8d742d10c75d6f6342dac inherit pro_methods_classCutflow"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,8 +248,8 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Modified <a class="el" href="classCutflow.html">Cutflow</a> object that fills booked histograms after passing a given set of cuts </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae4c76353f6d545eca787fc0abf1a433e" name="ae4c76353f6d545eca787fc0abf1a433e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4c76353f6d545eca787fc0abf1a433e">&#9670;&nbsp;</a></span>Histflow()</h2>
+<a id="a40d27f1ad6aaf73765a9045463f7784c" name="a40d27f1ad6aaf73765a9045463f7784c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d27f1ad6aaf73765a9045463f7784c">&#9670;&nbsp;</a></span>Histflow() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,12 +257,55 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">Histflow::Histflow </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_name</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p ><a class="el" href="classHistflow.html">Histflow</a> constructor </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<p ><a class="el" href="classHistflow.html">Histflow</a> overload constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_name</td><td>name of histflow </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="aa50df07c96c25e4839c1561d48664b01" name="aa50df07c96c25e4839c1561d48664b01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50df07c96c25e4839c1561d48664b01">&#9670;&nbsp;</a></span>Histflow() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Histflow::Histflow </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>new_root</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p ><a class="el" href="classHistflow.html">Histflow</a> overload constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_name</td><td>name of histflow </td></tr>
+    <tr><td class="paramname">new_root</td><td>pointer to cut object to use as root node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>
@@ -271,24 +328,24 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0fc41c86984acdd1b2a271be83ecf69d" name="a0fc41c86984acdd1b2a271be83ecf69d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fc41c86984acdd1b2a271be83ecf69d">&#9670;&nbsp;</a></span>bookHist1D() <span class="overload">[1/2]</span></h2>
+<a id="a29f08f2966ace40275838153f301b360" name="a29f08f2966ace40275838153f301b360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29f08f2966ace40275838153f301b360">&#9670;&nbsp;</a></span>bookHist1D() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Type1D &gt; </div>
+template&lt;typename THist1D &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void Histflow::bookHist1D </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>target_cut_name</em>, </td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target_cut</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classHist1D.html">Hist1D</a>&lt; Type1D &gt; *&#160;</td>
+          <td class="paramtype">THist1D *&#160;</td>
           <td class="paramname"><em>hist</em>&#160;</td>
         </tr>
         <tr>
@@ -298,10 +355,10 @@ template&lt;typename Type1D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Schedule a "dynamic" 1D histogram object for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Schedule a ROOT 1D histogram object for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">target_cut_name</td><td>target node name </td></tr>
-    <tr><td class="paramname">hist</td><td>pointer to "dynamic" 1D histogram object to schedule </td></tr>
+    <tr><td class="paramname">target_cut</td><td>pointer to target node </td></tr>
+    <tr><td class="paramname">hist</td><td>pointer to ROOT 1D histogram object to schedule </td></tr>
   </table>
   </dd>
 </dl>
@@ -309,13 +366,58 @@ template&lt;typename Type1D &gt; </div>
 
 </div>
 </div>
-<a id="a07a698624a6376ebdcef8ef9b025ef33" name="a07a698624a6376ebdcef8ef9b025ef33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07a698624a6376ebdcef8ef9b025ef33">&#9670;&nbsp;</a></span>bookHist1D() <span class="overload">[2/2]</span></h2>
+<a id="a3216bc2e94e097ae211c07a699ea7542" name="a3216bc2e94e097ae211c07a699ea7542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3216bc2e94e097ae211c07a699ea7542">&#9670;&nbsp;</a></span>bookHist1D() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Type1D &gt; </div>
+template&lt;typename THist1D &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Histflow::bookHist1D </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target_cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THist1D *&#160;</td>
+          <td class="paramname"><em>hist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; float()&gt;&#160;</td>
+          <td class="paramname"><em>fill_lambda</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Schedule a ROOT 1D histogram for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_cut</td><td>pointer to target node </td></tr>
+    <tr><td class="paramname">hist</td><td>pointer to 1D ROOT histogram to schedule </td></tr>
+    <tr><td class="paramname">fill_lambda</td><td>lambda function that computes the value used to fill the histogram </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="acb32eab2f4555dcd4a4b034f2afdd810" name="acb32eab2f4555dcd4a4b034f2afdd810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb32eab2f4555dcd4a4b034f2afdd810">&#9670;&nbsp;</a></span>bookHist1D() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename THist1D &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void Histflow::bookHist1D </td>
@@ -326,14 +428,8 @@ template&lt;typename Type1D &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Type1D *&#160;</td>
-          <td class="paramname"><em>hist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Filler1D&#160;</td>
-          <td class="paramname"><em>filler</em>&#160;</td>
+          <td class="paramtype">THist1D *&#160;</td>
+          <td class="paramname"><em>hist</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -342,11 +438,55 @@ template&lt;typename Type1D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Schedule a 1D ROOT histogram for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Schedule a ROOT 1D histogram object for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_cut_name</td><td>target node name </td></tr>
+    <tr><td class="paramname">hist</td><td>pointer to ROOT 1D histogram object to schedule </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="afaed4a2e05eee591b8b4af58706c9168" name="afaed4a2e05eee591b8b4af58706c9168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaed4a2e05eee591b8b4af58706c9168">&#9670;&nbsp;</a></span>bookHist1D() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename THist1D &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Histflow::bookHist1D </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>target_cut_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THist1D *&#160;</td>
+          <td class="paramname"><em>hist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; float()&gt;&#160;</td>
+          <td class="paramname"><em>fill_lambda</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Schedule a ROOT 1D histogram for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target_cut_name</td><td>target node name </td></tr>
     <tr><td class="paramname">hist</td><td>pointer to 1D ROOT histogram to schedule </td></tr>
-    <tr><td class="paramname">filler</td><td>lambda function that computes the value used to fill the histogram </td></tr>
+    <tr><td class="paramname">fill_lambda</td><td>lambda function that computes the value used to fill the histogram </td></tr>
   </table>
   </dd>
 </dl>
@@ -354,24 +494,24 @@ template&lt;typename Type1D &gt; </div>
 
 </div>
 </div>
-<a id="a16858deb3566f6b64c4ac21c309d0a2c" name="a16858deb3566f6b64c4ac21c309d0a2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16858deb3566f6b64c4ac21c309d0a2c">&#9670;&nbsp;</a></span>bookHist2D() <span class="overload">[1/2]</span></h2>
+<a id="ac9666ed8471fc5782a036dbfe9b7045f" name="ac9666ed8471fc5782a036dbfe9b7045f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9666ed8471fc5782a036dbfe9b7045f">&#9670;&nbsp;</a></span>bookHist2D() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Type2D &gt; </div>
+template&lt;typename THist2D &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void Histflow::bookHist2D </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>target_cut_name</em>, </td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target_cut</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classHist2D.html">Hist2D</a>&lt; Type2D &gt; *&#160;</td>
+          <td class="paramtype">THist2D *&#160;</td>
           <td class="paramname"><em>hist</em>&#160;</td>
         </tr>
         <tr>
@@ -381,10 +521,10 @@ template&lt;typename Type2D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Schedule a "dynamic" 2D histogram object for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Schedule a ROOT 2D histogram object for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">target_cut_name</td><td>target node name </td></tr>
-    <tr><td class="paramname">hist</td><td>pointer to "dynamic" 2D histogram object to schedule </td></tr>
+    <tr><td class="paramname">target_cut</td><td>pointer to target node </td></tr>
+    <tr><td class="paramname">hist</td><td>pointer to ROOT 2D histogram object to schedule </td></tr>
   </table>
   </dd>
 </dl>
@@ -392,13 +532,58 @@ template&lt;typename Type2D &gt; </div>
 
 </div>
 </div>
-<a id="a425698092efa7ec2389b9fb83d26dc84" name="a425698092efa7ec2389b9fb83d26dc84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a425698092efa7ec2389b9fb83d26dc84">&#9670;&nbsp;</a></span>bookHist2D() <span class="overload">[2/2]</span></h2>
+<a id="a5119e80ace8cbbb5f980427bbd1f2c67" name="a5119e80ace8cbbb5f980427bbd1f2c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5119e80ace8cbbb5f980427bbd1f2c67">&#9670;&nbsp;</a></span>bookHist2D() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Type2D &gt; </div>
+template&lt;typename THist2D &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Histflow::bookHist2D </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
+          <td class="paramname"><em>target_cut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THist2D *&#160;</td>
+          <td class="paramname"><em>hist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; std::pair&lt; float, float &gt;()&gt;&#160;</td>
+          <td class="paramname"><em>fill_lambda</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Schedule a ROOT 2D histogram for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_cut</td><td>pointer to target node </td></tr>
+    <tr><td class="paramname">hist</td><td>pointer to ROOT 2D histogram to schedule </td></tr>
+    <tr><td class="paramname">fill_lambda</td><td>lambda function that computes the value used to fill the histogram </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="a334784912968545469c26ba2e3bffc2c" name="a334784912968545469c26ba2e3bffc2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334784912968545469c26ba2e3bffc2c">&#9670;&nbsp;</a></span>bookHist2D() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename THist2D &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void Histflow::bookHist2D </td>
@@ -409,14 +594,8 @@ template&lt;typename Type2D &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Type2D *&#160;</td>
-          <td class="paramname"><em>hist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Filler2D&#160;</td>
-          <td class="paramname"><em>filler</em>&#160;</td>
+          <td class="paramtype">THist2D *&#160;</td>
+          <td class="paramname"><em>hist</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -425,11 +604,10 @@ template&lt;typename Type2D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Schedule a 2D ROOT histogram for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Schedule a ROOT 2D histogram object for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target_cut_name</td><td>target node name </td></tr>
-    <tr><td class="paramname">hist</td><td>pointer to 2D ROOT histogram to schedule </td></tr>
-    <tr><td class="paramname">filler</td><td>lambda function that computes the value used to fill the histogram </td></tr>
+    <tr><td class="paramname">hist</td><td>pointer to ROOT 2D histogram object to schedule </td></tr>
   </table>
   </dd>
 </dl>
@@ -437,8 +615,53 @@ template&lt;typename Type2D &gt; </div>
 
 </div>
 </div>
-<a id="a5f82e40b32a417161fbcfa0daaf1f8e0" name="a5f82e40b32a417161fbcfa0daaf1f8e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f82e40b32a417161fbcfa0daaf1f8e0">&#9670;&nbsp;</a></span>recursiveEvaluate()</h2>
+<a id="a25a13a6ff4043faff49210baa3af0a62" name="a25a13a6ff4043faff49210baa3af0a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25a13a6ff4043faff49210baa3af0a62">&#9670;&nbsp;</a></span>bookHist2D() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename THist2D &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Histflow::bookHist2D </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>target_cut_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THist2D *&#160;</td>
+          <td class="paramname"><em>hist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; std::pair&lt; float, float &gt;()&gt;&#160;</td>
+          <td class="paramname"><em>fill_lambda</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Schedule a ROOT 2D histogram for a given cut </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_cut_name</td><td>target node name </td></tr>
+    <tr><td class="paramname">hist</td><td>pointer to ROOT 2D histogram to schedule </td></tr>
+    <tr><td class="paramname">fill_lambda</td><td>lambda function that computes the value used to fill the histogram </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+</div>
+</div>
+<a id="a219ffd57f8844f8c02fd6df442202bab" name="a219ffd57f8844f8c02fd6df442202bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a219ffd57f8844f8c02fd6df442202bab">&#9670;&nbsp;</a></span>recursiveEvaluate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,65 +670,28 @@ template&lt;typename Type2D &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCut.html">Cut</a> * Histflow::recursiveEvaluate </td>
+          <td class="memname">bool Histflow::recursiveEvaluate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCut.html">Cut</a> *&#160;</td>
-          <td class="paramname"><em>cut</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>cut</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>weight</em> = <code>1.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p >(PROTECTED) Additional definition that recursively evaluates cuts in cutflow and fills scheduled histograms when appropriate cuts are passed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
-    <tr><td class="paramname">weight</td><td>current event weight (optional) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>return whether final terminus passed </dd></dl>
 
-</div>
-</div>
-<a id="a675b897276d33e146d1c2707023f1edd" name="a675b897276d33e146d1c2707023f1edd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a675b897276d33e146d1c2707023f1edd">&#9670;&nbsp;</a></span>run()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classCut.html">Cut</a> * Histflow::run </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Overriding definition that runs cutflow with <a class="el" href="classHistflow.html#a5f82e40b32a417161fbcfa0daaf1f8e0">Histflow::recursiveEvaluate</a> </p><dl class="section return"><dt>Returns</dt><dd>pointer to terminal cut (final leaf of tree reached) </dd></dl>
-
-<p>Reimplemented from <a class="el" href="classCutflow.html#a8fc98b9c006b80db96576c8bdcf6a0a8">Cutflow</a>.</p>
+<p>Reimplemented from <a class="el" href="classCutflow.html#a3756a365662151832c84fe86031f10d6">Cutflow</a>.</p>
 
 </div>
 </div>

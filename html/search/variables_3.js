@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['evaluator_0',['evaluator',['../classLambdaCut.html#af3f7168fb053f3ec86bf17b60833f7ab',1,'LambdaCut']]]
+  ['evaluate_5flambda_0',['evaluate_lambda',['../classLambdaCut.html#a181a6ca23d8fff475df54c173bc2fcd7',1,'LambdaCut']]]
 ];

@@ -11,8 +11,6 @@ var hierarchy =
       [ "Histflow", "classHistflow.html", null ]
     ] ],
     [ "Utilities::Dynamic", "classUtilities_1_1Dynamic.html", [
-      [ "Hist1D< Type1D >", "classHist1D.html", null ],
-      [ "Hist2D< Type2D >", "classHist2D.html", null ],
       [ "Utilities::Variable< Type >", "classUtilities_1_1Variable.html", [
         [ "Branch< Type >", "classBranch.html", null ]
       ] ]

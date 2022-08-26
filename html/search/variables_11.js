@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weigher_0',['weigher',['../classLambdaCut.html#a504aff14140d755e087d81086f6efb6b',1,'LambdaCut']]]
+  ['weight_5flambda_0',['weight_lambda',['../classLambdaCut.html#a2646ec5090b72641ee51b173f5a1e8e3',1,'LambdaCut']]]
 ];
