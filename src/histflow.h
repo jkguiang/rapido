@@ -7,103 +7,6 @@
 #include "cutflow.h"
 #include "utilities.h"
 
-typedef std::function<float()> Filler1D;
-typedef std::function<pair<float, float>()> Filler2D;
-
-/** 
- * "Dynamic" 1D ROOT histogram object
- *  @tparam Type1D type of 1D ROOT histogram (e.g. TH1F)
- */
-template<typename Type1D>
-class Hist1D : public Utilities::Dynamic
-{
-private:
-    /** Pointer to 1D ROOT histogram */
-    Type1D* hist;
-    /** Lambda function that returns a single float */
-    Filler1D filler;
-public:
-    /** Name of histogram */
-    TString name;
-
-    /**
-     * 1D Histogram constructor
-     * @param new_hist pointer to a 1D ROOT histogram
-     * @param new_filler lambda function that computes the value used to fill the 
-     *        histogram
-     * @return none
-     */
-    Hist1D(Type1D* new_hist, Filler1D new_filler);
-    /**
-     * 1D Histogram destructor
-     * @return none
-     */
-    ~Hist1D();
-    /**
-     * Call filler to fill histogram with an optional weight
-     * @param weight float to weigh new histogram entry (optional)
-     * @return none
-     */
-    void fill(float weight = 1.0);
-    /**
-     * Write ROOT histogram to currently opened TFile
-     * @return none
-     */
-    void write();
-    /**
-     * Clone this "dynamic" histogram object
-     * @return none
-     */
-    Hist1D<Type1D>* clone();
-};
-
-/** 
- * "Dynamic" 2D ROOT histogram object
- *  @tparam Type2D type of 2D ROOT histogram (e.g. TH2F)
- */
-template<typename Type2D>
-class Hist2D : public Utilities::Dynamic
-{
-private:
-    /** Pointer to 2D ROOT histogram */
-    Type2D* hist;
-    /** Lambda function that returns two floats */
-    Filler2D filler;
-public:
-    /** Name of histogram */
-    TString name;
-
-    /**
-     * 2D Histogram constructor
-     * @param new_hist pointer to a 2D ROOT histogram
-     * @param new_filler lambda function that computes the value used to fill the 
-     *        histogram
-     * @return none
-     */
-    Hist2D(Type2D* new_hist, Filler2D new_filler);
-    /**
-     * 2D Histogram destructor
-     * @return none
-     */
-    ~Hist2D();
-    /**
-     * Call filler to fill histogram with an optional weight
-     * @param weight float to weigh new histogram entry (optional)
-     * @return none
-     */
-    void fill(float weight = 1.0);
-    /**
-     * Write ROOT histogram to currently opened TFile
-     * @return none
-     */
-    void write();
-    /**
-     * Clone this "dynamic" histogram object
-     * @return none
-     */
-    Hist2D* clone();
-};
-
 /** 
  * Modified Cutflow object that fills booked histograms after passing a given set of 
  * cuts
@@ -115,70 +18,119 @@ protected:
     std::map<std::string, std::vector<std::function<void(float)>>> fill_schedule;
     /** Collection of functions that write histograms to opened TFile */
     std::map<TString, std::function<void()>> hist_writers;
+
     /**
      * (PROTECTED) Additional definition that recursively evaluates cuts in cutflow and 
      * fills scheduled histograms when appropriate cuts are passed
      * @param cut pointer to current cut
-     * @param weight current event weight (optional)
-     * @return none
+     * @return return whether final terminus passed
      */
-    Cut* recursiveEvaluate(Cut* cut, float weight = 1.0);
+    bool recursiveEvaluate(Cut* cut) override;
 public:
     /**
-     * Histflow constructor
+     * Histflow overload constructor
+     * @param new_name name of histflow
      * @return none
      */
-    Histflow();
+    Histflow(std::string new_name);
+
+    /**
+     * Histflow overload constructor
+     * @param new_name name of histflow
+     * @param new_root pointer to cut object to use as root node
+     * @return none
+     */
+    Histflow(std::string new_name, Cut* new_root);
+
     /**
      * Histflow destructor
      * @return none
      */
     ~Histflow();
+
     /**
-     * Schedule a "dynamic" 1D histogram object for a given cut
-     * @param target_cut_name target node name
-     * @param hist pointer to "dynamic" 1D histogram object to schedule
-     * @return none
-     */
-    template<typename Type1D>
-    void bookHist1D(std::string target_cut_name, Hist1D<Type1D>* hist);
-    /**
-     * Schedule a "dynamic" 2D histogram object for a given cut
-     * @param target_cut_name target node name
-     * @param hist pointer to "dynamic" 2D histogram object to schedule
-     * @return none
-     */
-    template<typename Type2D>
-    void bookHist2D(std::string target_cut_name, Hist2D<Type2D>* hist);
-    /**
-     * Schedule a 1D ROOT histogram for a given cut
+     * Schedule a ROOT 1D histogram for a given cut
      * @param target_cut_name target node name
      * @param hist pointer to 1D ROOT histogram to schedule
-     * @param filler lambda function that computes the value used to fill the histogram
+     * @param fill_lambda lambda function that computes the value used to fill the histogram
      * @return none
      */
-    template<typename Type1D>
-    void bookHist1D(std::string target_cut_name, Type1D* hist, Filler1D filler);
+    template<typename THist1D>
+    void bookHist1D(std::string target_cut_name, THist1D* hist, std::function<float()> fill_lambda);
+
     /**
-     * Schedule a 2D ROOT histogram for a given cut
-     * @param target_cut_name target node name
-     * @param hist pointer to 2D ROOT histogram to schedule
-     * @param filler lambda function that computes the value used to fill the histogram
+     * Schedule a ROOT 1D histogram for a given cut
+     * @param target_cut pointer to target node
+     * @param hist pointer to 1D ROOT histogram to schedule
+     * @param fill_lambda lambda function that computes the value used to fill the histogram
      * @return none
      */
-    template<typename Type2D>
-    void bookHist2D(std::string target_cut_name, Type2D* hist, Filler2D filler);
+    template<typename THist1D>
+    void bookHist1D(Cut* target_cut, THist1D* hist, std::function<float()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 1D histogram object for a given cut
+     * @param target_cut_name target node name
+     * @param hist pointer to ROOT 1D histogram object to schedule
+     * @return none
+     */
+    template<typename THist1D>
+    void bookHist1D(std::string target_cut_name, THist1D* hist);
+
+    /**
+     * Schedule a ROOT 1D histogram object for a given cut
+     * @param target_cut pointer to target node
+     * @param hist pointer to ROOT 1D histogram object to schedule
+     * @return none
+     */
+    template<typename THist1D>
+    void bookHist1D(Cut* target_cut, THist1D* hist);
+
+    /**
+     * Schedule a ROOT 2D histogram for a given cut
+     * @param target_cut_name target node name
+     * @param hist pointer to ROOT 2D histogram to schedule
+     * @param fill_lambda lambda function that computes the value used to fill the histogram
+     * @return none
+     */
+    template<typename THist2D>
+    void bookHist2D(std::string target_cut_name, THist2D* hist, 
+                    std::function<std::pair<float, float>()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 2D histogram for a given cut
+     * @param target_cut pointer to target node
+     * @param hist pointer to ROOT 2D histogram to schedule
+     * @param fill_lambda lambda function that computes the value used to fill the histogram
+     * @return none
+     */
+    template<typename THist2D>
+    void bookHist2D(Cut* target_cut, THist2D* hist, std::function<std::pair<float, float>()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 2D histogram object for a given cut
+     * @param target_cut_name target node name
+     * @param hist pointer to ROOT 2D histogram object to schedule
+     * @return none
+     */
+    template<typename THist2D>
+    void bookHist2D(std::string target_cut_name, THist2D* hist);
+
+    /**
+     * Schedule a ROOT 2D histogram object for a given cut
+     * @param target_cut pointer to target node
+     * @param hist pointer to ROOT 2D histogram object to schedule
+     * @return none
+     */
+    template<typename THist2D>
+    void bookHist2D(Cut* target_cut, THist2D* hist);
+
     /**
      * Write all histograms to a given TFile
      * @param tfile pointer to ROOT TFile to write histograms to
      * @return none
      */
     void writeHists(TFile* tfile);
-    /**
-     * Overriding definition that runs cutflow with Histflow::recursiveEvaluate
-     * @return pointer to terminal cut (final leaf of tree reached)
-     */
-    Cut* run() override;
 };
 
 #include "histflow.icc"

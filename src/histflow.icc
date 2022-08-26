@@ -1,147 +1,96 @@
-template<typename Type1D>
-Hist1D<Type1D>::Hist1D(Type1D* new_hist, Filler1D new_filler)
+Histflow::Histflow(std::string new_name)
+: Cutflow(new_name)
 {
-    hist = (Type1D*) new_hist->Clone(new_hist->GetName());
-    filler = new_filler;
-    name = new_hist->GetName();
+    /* Do nothing */
 }
 
-template<typename Type1D>
-Hist1D<Type1D>::~Hist1D() {};
-
-template<typename Type1D>
-void Hist1D<Type1D>::fill(float weight)
+Histflow::Histflow(std::string new_name, Cut* new_root)
+: Cutflow(new_name, new_root)
 {
-    hist->Fill(filler(), weight);
-    return;
+    /* Do nothing */
 }
-
-template<typename Type1D>
-void Hist1D<Type1D>::write()
-{
-    hist->Write();
-    return;
-}
-
-template<typename Type1D>
-Hist1D<Type1D>* Hist1D<Type1D>::clone()
-{
-    return (new Hist1D<Type1D>(*this));
-}
-
-template<typename Type2D>
-Hist2D<Type2D>::Hist2D(Type2D* new_hist, Filler2D new_filler)
-{
-    hist = (Type2D*) new_hist->Clone(new_hist->GetName());
-    filler = new_filler;
-    name = new_hist->GetName();
-}
-
-template<typename Type2D>
-Hist2D<Type2D>::~Hist2D() {};
-
-template<typename Type2D>
-void Hist2D<Type2D>::fill(float weight)
-{
-    hist->Fill(filler(), weight);
-    return;
-}
-
-template<typename Type2D>
-void Hist2D<Type2D>::write()
-{
-    hist->Write();
-    return;
-}
-
-template<typename Type2D>
-Hist2D<Type2D>* Hist2D<Type2D>::clone()
-{
-    return (new Hist2D<Type2D>(*this));
-}
-
-Histflow::Histflow() {};
 
 Histflow::~Histflow() {};
 
-template<typename Type1D>
-void Histflow::bookHist1D(std::string target_cut_name, Hist1D<Type1D>* hist)
-{
-    // Make new hist name with cut name prepended
-    TString new_hist_name = TString(target_cut_name)+"__"+hist->GetName();
-    // Clone original hist, change name
-    Hist1D<Type1D>* new_hist = hist->clone();
-    new_hist->name = new_hist_name;
-    // Track new hist
-    hist_writers[new_hist_name] = [new_hist] { return new_hist->write(); };
-    if (fill_schedule.count(target_cut_name) == 0) 
-    {
-        fill_schedule[target_cut_name] = {};
-    }
-    fill_schedule[target_cut_name].push_back(
-        [new_hist](float weight) { return new_hist->fill(weight); }
-    );
-    return;
-}
-
-template<typename Type2D>
-void Histflow::bookHist2D(std::string target_cut_name, Hist2D<Type2D>* hist)
-{
-    // Make new hist name with cut name prepended
-    TString new_hist_name = TString(target_cut_name)+"__"+hist->GetName();
-    // Clone original hist, change name
-    Hist2D<Type2D>* new_hist = hist->clone();
-    new_hist->name = new_hist_name;
-    // Track new hist
-    hist_writers[new_hist_name] = [new_hist] { return new_hist->write(); };
-    if (fill_schedule.count(target_cut_name) == 0) 
-    {
-        fill_schedule[target_cut_name] = {};
-    }
-    fill_schedule[target_cut_name].push_back(
-        [new_hist](float weight) { return new_hist->fill(weight); }
-    );
-    return;
-}
-
-template<typename Type1D>
-void Histflow::bookHist1D(std::string target_cut_name, Type1D* hist, Filler1D filler)
+template<typename THist1D>
+void Histflow::bookHist1D(std::string target_cut_name, THist1D* hist, 
+                          std::function<float()> fill_lambda)
 {
     // Prepend cut name to hist name
     TString new_hist_name = TString(target_cut_name)+"__"+hist->GetName();
-    hist->SetName(new_hist_name);
     // Make new dynamic hist object
-    Hist1D<Type1D>* new_hist = new Hist1D<Type1D>(hist, filler);
+    THist1D* new_hist = (THist1D*)hist->Clone(new_hist_name);
     // Track new hist
-    hist_writers[new_hist_name] = [new_hist] { return new_hist->write(); };
+    hist_writers[new_hist_name] = [new_hist] { return new_hist->Write(); };
     if (fill_schedule.count(target_cut_name) == 0) 
     {
         fill_schedule[target_cut_name] = {};
     }
     fill_schedule[target_cut_name].push_back(
-        [new_hist](float weight) { return new_hist->fill(weight); }
+        [fill_lambda, new_hist](float weight) 
+        { 
+            return new_hist->Fill(fill_lambda(), weight); 
+        }
     );
-    return;
 }
 
-template<typename Type2D>
-void Histflow::bookHist2D(std::string target_cut_name, Type2D* hist, Filler2D filler)
+template<typename THist1D>
+void Histflow::bookHist1D(Cut* target_cut, THist1D* hist, std::function<float()> fill_lambda)
+{
+    return bookHist1D(target_cut->name, hist, fill_lambda);
+}
+
+template<typename THist1D>
+void Histflow::bookHist1D(std::string target_cut_name, THist1D* hist)
+{
+    return bookHist1D(target_cut_name, hist, [&]() { return 1.; });
+}
+
+template<typename THist1D>
+void Histflow::bookHist1D(Cut* target_cut, THist1D* hist)
+{
+    return bookHist1D(target_cut->name, hist);
+}
+
+template<typename THist2D>
+void Histflow::bookHist2D(std::string target_cut_name, THist2D* hist, 
+                          std::function<std::pair<float, float>()> fill_lambda)
 {
     // Prepend hist name with cut name
     TString new_hist_name = TString(target_cut_name)+"__"+hist->GetName();
-    hist->SetName(new_hist_name);
     // Make new dynamic hist object
-    Hist2D<Type2D>* new_hist = new Hist2D<Type2D>(hist, filler);
+    THist2D* new_hist = (THist2D*)hist->Clone(new_hist_name);
     // Track new hist
-    hist_writers[new_hist_name] = [new_hist] { return new_hist->write(); };
+    hist_writers[new_hist_name] = [new_hist] { return new_hist->Write(); };
     if (fill_schedule.count(target_cut_name) == 0) 
     {
         fill_schedule[target_cut_name] = {};
     }
     fill_schedule[target_cut_name].push_back(
-        [new_hist](float weight) { return new_hist->fill(weight); }
+        [fill_lambda, new_hist](float weight) 
+        { 
+            return new_hist->Fill(fill_lambda(), weight); 
+        }
     );
-    return;
+}
+
+template<typename THist2D>
+void Histflow::bookHist2D(Cut* target_cut, THist2D* hist, 
+                          std::function<std::pair<float, float>()> fill_lambda)
+{
+    return bookHist2D(target_cut->name, hist, fill_lambda);
+}
+
+template<typename THist2D>
+void Histflow::bookHist2D(std::string target_cut_name, THist2D* hist)
+{
+    return bookHist2D(target_cut_name, hist, [&]() { return 1.; });
+}
+
+template<typename THist2D>
+void Histflow::bookHist2D(Cut* target_cut, THist2D* hist)
+{
+    return bookHist2D(target_cut->name, hist);
 }
 
 void Histflow::writeHists(TFile* tfile)
@@ -152,37 +101,40 @@ void Histflow::writeHists(TFile* tfile)
     {
         (*iter).second();
     }
+    tfile->Close();
 }
 
-Cut* Histflow::run()
+bool Histflow::recursiveEvaluate(Cut* cut)
 {
-    if (this->root == NULL)
+    if (debugger_is_set) { debugger(cut); }
+    // Start timer
+    std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+    // Run cut logic and compute weight
+    bool passed = cut->evaluate();
+    double weight = cut->getWeight();
+    // Stop timer and calculate runtime
+    std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::milli> runtime = t2 - t1;
+    cut->runtimes.push(runtime.count());
+    // Continue down the tree
+    if (passed)
     {
-        std::string msg = "Error - no root node set.";
-        throw std::runtime_error("Histflow::run: "+msg);
-    }
-    Cut* terminal_cut = recursiveEvaluate(this->root, 1.0);
-    return terminal_cut;
-}
-
-Cut* Histflow::recursiveEvaluate(Cut* cut, float weight)
-{
-    if (cut->evaluate() == true)
-    {
-        cut->passes++;
-        weight *= cut->compute_weight();
+        cut->n_pass++;
+        cut->n_pass_weighted += weight;
         if (fill_schedule.count(cut->name) == 1)
         {
-            std::vector<std::function<void(float)>> fillers = fill_schedule[cut->name];
-            for (auto& fill : fillers) { fill(weight); }
+            // Fill histograms
+            std::vector<std::function<void(float)>> fill_lambdas = fill_schedule[cut->name];
+            for (auto& fill : fill_lambdas) { fill(weight); }
         }
-        if (cut->right == NULL) { return cut; }
-        else { return recursiveEvaluate(cut->right, weight); }
+        if (cut->right == nullptr) { return true; }
+        else { return recursiveEvaluate(cut->right); }
     }
     else
     {
-        cut->fails++;
-        if (cut->left == NULL) { return cut; }
-        else { return recursiveEvaluate(cut->left, weight); }
+        cut->n_fail++;
+        cut->n_fail_weighted += weight;
+        if (cut->left == nullptr) { return false; }
+        else { return recursiveEvaluate(cut->left); }
     }
 }
