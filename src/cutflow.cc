@@ -57,34 +57,34 @@ double Cut::getWeight()
     }
 }
 
-LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluator)
+LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluate_lambda)
 : Cut(new_name)
 {
-    evaluator = new_evaluator;
-    weigher = [&]() { return 1.0; };
+    evaluate_lambda = new_evaluate_lambda;
+    weight_lambda = [&]() { return 1.0; };
 }
 
-LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluator, 
-                     std::function<double()> new_weigher)
+LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluate_lambda, 
+                     std::function<double()> new_weight_lambda)
 : Cut(new_name)
 {
-    evaluator = new_evaluator;
-    weigher = new_weigher;
+    evaluate_lambda = new_evaluate_lambda;
+    weight_lambda = new_weight_lambda;
 }
 
 bool LambdaCut::evaluate()
 {
-    return evaluator();
+    return evaluate_lambda();
 }
 
 double LambdaCut::weight()
 {
-    return weigher();
+    return weight_lambda();
 }
 
 LambdaCut* LambdaCut::clone(std::string new_name)
 {
-    return new LambdaCut(new_name, evaluator, weigher);
+    return new LambdaCut(new_name, evaluate_lambda, weight_lambda);
 }
 
 Cutflow::Cutflow()
@@ -190,19 +190,37 @@ bool Cutflow::run()
     return recursiveEvaluate(root);
 }
 
-bool Cutflow::runUntil(std::string target_cut_name)
-{
-    Cut* target_cut = getCut(target_cut_name);
-    return runUntil(target_cut);
-}
-
-bool Cutflow::runUntil(Cut* target_cut)
+bool Cutflow::runThrough(Cut* target_cut)
 {
     // Get number of passing events before running cutflow
     int n_pass_before_eval = target_cut->n_pass;
-    // Run cutflow
+    // Run cutflow, then check if number of passing events has increased
     run();
     return target_cut->n_pass > n_pass_before_eval;
+}
+
+bool Cutflow::runThrough(std::string target_cut_name)
+{
+    Cut* target_cut = getCut(target_cut_name);
+    return runThrough(target_cut);
+}
+
+bool Cutflow::runThrough(std::vector<Cut*> target_cuts)
+{
+    // Get number of passing events before running cutflow
+    int n_pass_before_evals = 0;
+    for (auto* target_cut : target_cuts)
+    {
+        n_pass_before_evals += target_cut->n_pass;
+    }
+    // Run cutflow, then check if number of passing events has increased
+    run();
+    int n_pass_after_evals = 0;
+    for (auto* target_cut : target_cuts)
+    {
+        n_pass_after_evals += target_cut->n_pass;
+    }
+    return n_pass_after_evals > n_pass_before_evals;
 }
 
 bool Cutflow::isProgeny(std::string parent_cut_name, std::string target_cut_name, Direction direction)

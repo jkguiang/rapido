@@ -49,26 +49,31 @@ public:
      * @return none
      */
     Cut(std::string new_name);
+
     /**
      * Cut object destructor
      * @return none
      */
     virtual ~Cut();
+
     /**
      * Print cut object properties
      * @return none
      */
     void print();
+
     /**
      * Evaluate cut logic
      * @return passed/failed (true/false)
      */
     virtual bool evaluate();
+
     /**
      * Get even weight for this cut only
      * @return event weight
      */
     virtual double weight();
+
     /**
      * Get even weight for this cut (on top of previous cut weights)
      * @return product(event weight, parent weight, grandparent weight, ...)
@@ -84,36 +89,41 @@ class LambdaCut : public Cut
 {
 public:
     /** Lambda function that evaluates conditional logic (i.e. the cut itself) */
-    std::function<bool()> evaluator;
+    std::function<bool()> evaluate_lambda;
     /** Lambda function that computes event weight */
-    std::function<double()> weigher;
+    std::function<double()> weight_lambda;
+
     /**
      * LambadCut object constructor (assumes weight == 1.0)
      * @param new_name new cut name
-     * @param new_evaluator lambda function that evaluates new cut conditional logic
+     * @param new_evaluate_lambda lambda function that evaluates new cut conditional logic
      * @return none
      */
-    LambdaCut(std::string new_name, std::function<bool()> new_evaluator);
+    LambdaCut(std::string new_name, std::function<bool()> new_evaluate_lambda);
+
     /**
      * LambdaCut object constructor
      * @param new_name new cut name
-     * @param new_evaluator lambda function that evaluates new cut conditional logic
-     * @param new_weigher lambda function that computes event weight
+     * @param new_evaluate_lambda lambda function that evaluates new cut conditional logic
+     * @param new_weight_lambda lambda function that computes event weight
      * @return none
      */
-    LambdaCut(std::string new_name, std::function<bool()> new_evaluator, 
-              std::function<double()> new_weigher);
+    LambdaCut(std::string new_name, std::function<bool()> new_evaluate_lambda, 
+              std::function<double()> new_weight_lambda);
+
     /**
      * Create a copy of this cut object
      * @param new_name name of cut copy
      * @return pointer to a copy of this cut object
      */
     LambdaCut* clone(std::string new_name);
+
     /**
      * Evaluate cut logic
      * @return passed/failed (true/false)
      */
     bool evaluate();
+
     /**
      * Get even weight for this cut only
      * @return event weight
@@ -135,12 +145,14 @@ protected:
     std::function<void(Cut*)> debugger;
     /** (PROTECTED) Flag indicating that a debugger lambda function has been set */
     bool debugger_is_set;
+
     /**
      * (PROTECTED) Retrieve cut object from cut record
      * @param cut_name cut name 
      * @return pointer to cut
      */
     Cut* getCut(std::string cut_name);
+
     /**
      * (PROTECTED) Recursively search for the target cut amongst a given cut's descendants
      * @param cut pointer to current cut
@@ -148,12 +160,14 @@ protected:
      * @return whether or not the target cut was found amongst the current cut's descendants
      */
     bool recursiveSearchProgeny(Cut* cut, Cut* target_cut);
+
     /**
      * (PROTECTED) Recursively search for the rightmost terminal leaf from a given node
      * @param cut pointer to current cut
      * @return terminal cut
      */
     Cut* recursiveFindTerminus(Cut* cut);
+
     /**
      * (PROTECTED) Recursively print cuts
      * @param tabs string with the prefix tabs for current cut
@@ -162,6 +176,7 @@ protected:
      * @return none
      */
     void recursivePrint(std::string tabs, Cut* cut, Direction direction);
+
     /**
      * (PROTECTED) Recursively write RAPIDO cutflow file
      * @param cut pointer to current cut
@@ -170,6 +185,7 @@ protected:
      * @return none
      */
     void recursiveWrite(Cut* cut, std::ofstream& ofstream, std::string output_cflow);
+
     /**
      * (PROTECTED) Recursively write cutflow level to CSV file(s)
      * @param output_dir target directory for output CSV files
@@ -181,6 +197,7 @@ protected:
      */
     void recursiveWriteCSV(std::string output_dir, Cut* cut, Direction direction, int csv_idx, 
                            Utilities::CSVFiles csv_files);
+
     /**
      * (PROTECTED) Recursively write cutflow to a Mermaid (.mmd) file
      * @param cut pointer to current cut
@@ -189,12 +206,14 @@ protected:
      * @return none
      */
     void recursiveWriteMermaid(Cut* cut, std::ofstream& ofstream, std::string output_mmd);
+
     /**
      * (PROTECTED) Recursively evaulate cuts in the cutflow
      * @param cut pointer to current cut
-     * @return std::pair of a pointer to terminal cut and a boolean (true = pass, false = fail)
+     * @return return whether final terminus passed
      */
-    bool recursiveEvaluate(Cut* cut);
+    virtual bool recursiveEvaluate(Cut* cut);
+
     /**
      * (PROTECTED) Recursively delete cuts in the cutflow
      * @param cut pointer to current cut
@@ -212,12 +231,14 @@ public:
      * @return none
      */
     Cutflow();
+
     /**
      * Cutflow object overload constructor
      * @param new_name name of cutflow
      * @return none
      */
     Cutflow(std::string new_name);
+
     /**
      * Cutflow object overload constructor
      * @param new_name name of cutflow
@@ -225,17 +246,20 @@ public:
      * @return none
      */
     Cutflow(std::string new_name, Cut* new_root);
+
     /**
      * Cutflow object destructor
      * @return none
      */
     ~Cutflow();
+
     /**
      * Set root node of cutflow object
      * @param new_root pointer to cut object to use as new root node
      * @return none
      */
     void setRoot(Cut* new_root);
+
     /**
      * Insert a new node AFTER a given node
      * @param target_cut_name target node name
@@ -244,6 +268,7 @@ public:
      * @return none
      */
     void insert(std::string target_cut_name, Cut* new_cut, Direction direction);
+
     /**
      * Insert a new node AFTER a given node
      * @param target_cut pointer to target node
@@ -252,25 +277,37 @@ public:
      * @return none
      */
     void insert(Cut* target_cut, Cut* new_cut, Direction direction);
+
     /**
      * Run cutflow until any terminus
-     * @return whether or not the terminal cut in the cutflow passed
+     * @return whether or not (true/false) the final terminus passed
      */
     virtual bool run();
+
     /**
      * Run cutflow until a target terminal cut
-     * @see Cutflow::runUntil
-     * @param target_cut_name name of target cut
-     * @return whether or not (true/false) the target cut was reached and passed
-     */
-    bool runUntil(std::string target_cut_name);
-    /**
-     * Run cutflow until a target terminal cut
-     * @see Cutflow::runUntil
+     * @see Cutflow::run
      * @param target_cut pointer to target cut
      * @return whether or not (true/false) the target cut was reached and passed
      */
-    bool runUntil(Cut* target);
+    bool runThrough(Cut* target_cut);
+
+    /**
+     * Run cutflow and check if a target terminal cut has passed
+     * @see Cutflow::run
+     * @param target_cut_name name of target cut
+     * @return whether or not (true/false) the target cut was reached and passed
+     */
+    bool runThrough(std::string target_cut_name);
+
+    /**
+     * Run cutflow and check if any target terminal cut in a given set has passed
+     * @see Cutflow::run
+     * @param target_cuts std::vector of pointers to target cuts
+     * @return whether or not (true/false) any of the target cuts were reached and passed
+     */
+    bool runThrough(std::vector<Cut*> target_cuts);
+
     /**
      * Check if a given cut is amongst the progeny of another cut on a certain side of its
      * family tree
@@ -280,6 +317,7 @@ public:
      * @return whether or not (true/false) the target cut was found
      */
     bool isProgeny(std::string parent_cut_name, std::string target_cut_name, Direction direction);
+
     /**
      * Check if a given cut is amongst the progeny of another cut on a certain side of its
      * family tree
@@ -289,35 +327,41 @@ public:
      * @return whether or not (true/false) the target cut was found
      */
     bool isProgeny(Cut* parent_cut, Cut* target_cut, Direction direction);
+
     /**
      * Find the rightmost terminal leaf from a given node
      * @param starting_cut_name cut from which to start search
      * @return terminal cut
      */
     Cut* findTerminus(std::string starting_cut_name);
+
     /**
      * Find the rightmost terminal leaf from a given node
      * @param starting_cut cut from which to start search
      * @return terminal cut
      */
     Cut* findTerminus(Cut* starting_cut);
+
     /**
      * Print cutflow
      * @return none
      */
     void print();
+
     /**
      * Write RAPIDO cutflow file
      * @param output_dir target directory for output cutflow files (optional)
      * @return none
      */
     void write(std::string output_dir = "");
+
     /**
      * Print all cutflow paths to separate CSV files {output_dir}/{name}_{terminal_cut}.csv
      * @param output_dir target directory for output CSV files (optional)
      * @return none
      */
     void writeCSV(std::string output_dir = "");
+
     /**
      * Print cutflow to a Mermaid flowchart
      * @param output_dir target directory for output .mmd file (optional)
@@ -325,6 +369,7 @@ public:
      * @return none
      */
     void writeMermaid(std::string output_dir = "", std::string orientation = "TD");
+
     /**
      * Set debug function
      * @param new_debugger lambda function that will be run before every cut
