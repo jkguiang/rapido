@@ -12,26 +12,52 @@ Histflow::Histflow(std::string new_name, Cut* new_root)
 
 Histflow::~Histflow() {};
 
-template<typename THist1D>
-void Histflow::bookHist1D(std::string target_cut_name, THist1D* hist, 
-                          std::function<float()> fill_lambda)
+template<typename THist>
+THist* Histflow::bookHist(std::string target_cut_name, THist* hist)
 {
     // Prepend cut name to hist name
     TString new_hist_name = TString(target_cut_name)+"__"+hist->GetName();
     // Make new dynamic hist object
-    THist1D* new_hist = (THist1D*)hist->Clone(new_hist_name);
+    THist* new_hist = (THist*)hist->Clone(new_hist_name);
     // Track new hist
     hist_writers[new_hist_name] = [new_hist] { return new_hist->Write(); };
     if (fill_schedule.count(target_cut_name) == 0) 
     {
         fill_schedule[target_cut_name] = {};
     }
+    return new_hist;
+}
+
+template<typename THist1D>
+void Histflow::bookHist1D(std::string target_cut_name, THist1D* hist, 
+                          std::function<bool()> eval_lambda, 
+                          std::function<float()> fill_lambda)
+{
+    THist1D* new_hist = bookHist<THist1D>(target_cut_name, hist);
     fill_schedule[target_cut_name].push_back(
-        [fill_lambda, new_hist](float weight) 
+        [new_hist, fill_lambda, eval_lambda](float weight) 
         { 
-            return new_hist->Fill(fill_lambda(), weight); 
+            if (eval_lambda())
+            {
+                new_hist->Fill(fill_lambda(), weight); 
+            }
+            return;
         }
     );
+}
+
+template<typename THist1D>
+void Histflow::bookHist1D(Cut* target_cut, THist1D* hist, std::function<bool()> eval_lambda, 
+                          std::function<float()> fill_lambda)
+{
+    return bookHist1D(target_cut->name, hist, eval_lambda, fill_lambda);
+}
+
+template<typename THist1D>
+void Histflow::bookHist1D(std::string target_cut_name, THist1D* hist, 
+                          std::function<float()> fill_lambda)
+{
+    return bookHist1D(target_cut_name, hist, []() { return true; }, fill_lambda);
 }
 
 template<typename THist1D>
@@ -43,7 +69,7 @@ void Histflow::bookHist1D(Cut* target_cut, THist1D* hist, std::function<float()>
 template<typename THist1D>
 void Histflow::bookHist1D(std::string target_cut_name, THist1D* hist)
 {
-    return bookHist1D(target_cut_name, hist, [&]() { return 1.; });
+    return bookHist1D(target_cut_name, hist, []() { return 1.; });
 }
 
 template<typename THist1D>
@@ -54,24 +80,35 @@ void Histflow::bookHist1D(Cut* target_cut, THist1D* hist)
 
 template<typename THist2D>
 void Histflow::bookHist2D(std::string target_cut_name, THist2D* hist, 
+                          std::function<bool()> eval_lambda, 
                           std::function<std::pair<float, float>()> fill_lambda)
 {
-    // Prepend hist name with cut name
-    TString new_hist_name = TString(target_cut_name)+"__"+hist->GetName();
-    // Make new dynamic hist object
-    THist2D* new_hist = (THist2D*)hist->Clone(new_hist_name);
-    // Track new hist
-    hist_writers[new_hist_name] = [new_hist] { return new_hist->Write(); };
-    if (fill_schedule.count(target_cut_name) == 0) 
-    {
-        fill_schedule[target_cut_name] = {};
-    }
+    THist2D* new_hist = bookHist<THist2D>(target_cut_name, hist);
     fill_schedule[target_cut_name].push_back(
-        [fill_lambda, new_hist](float weight) 
+        [new_hist, fill_lambda, eval_lambda](float weight) 
         { 
-            return new_hist->Fill(fill_lambda(), weight); 
+            if (eval_lambda())
+            {
+                new_hist->Fill(fill_lambda(), weight); 
+            }
+            return;
         }
     );
+}
+
+template<typename THist2D>
+void Histflow::bookHist2D(Cut* target_cut, THist2D* hist, 
+                          std::function<bool()> eval_lambda,
+                          std::function<std::pair<float, float>()> fill_lambda)
+{
+    return bookHist2D(target_cut->name, hist, eval_lambda, fill_lambda);
+}
+
+template<typename THist2D>
+void Histflow::bookHist2D(std::string target_cut_name, THist2D* hist, 
+                          std::function<std::pair<float, float>()> fill_lambda)
+{
+    return bookHist2D(target_cut_name, hist, []() { return true; }, fill_lambda);
 }
 
 template<typename THist2D>
@@ -101,7 +138,6 @@ void Histflow::writeHists(TFile* tfile)
     {
         (*iter).second();
     }
-    tfile->Close();
 }
 
 bool Histflow::recursiveEvaluate(Cut* cut)

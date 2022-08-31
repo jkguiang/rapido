@@ -26,6 +26,16 @@ protected:
      * @return return whether final terminus passed
      */
     bool recursiveEvaluate(Cut* cut) override;
+
+    /**
+     * (PROTECTED) Handle internal scheduling for Histflow::bookHist1D and Histflow::bookHist2D
+     * @param target_cut_name target node name
+     * @param hist pointer to 1D ROOT histogram to schedule
+     * @return pointer to new copy of input histogram
+     */
+    template<typename THist>
+    THist* bookHist(std::string target_cut_name, THist* hist);
+
 public:
     /**
      * Histflow overload constructor
@@ -47,6 +57,30 @@ public:
      * @return none
      */
     ~Histflow();
+
+    /**
+     * Schedule a ROOT 1D histogram for a given cut
+     * @param target_cut_name target node name
+     * @param hist pointer to 1D ROOT histogram to schedule
+     * @param eval_lambda lambda function that computes whether histogram should be filled
+     * @param fill_lambda lambda function that computes the value used to fill the histogram
+     * @return none
+     */
+    template<typename THist1D>
+    void bookHist1D(std::string target_cut_name, THist1D* hist, std::function<bool()> eval_lambda, 
+                    std::function<float()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 1D histogram for a given cut
+     * @param target_cut pointer to target node
+     * @param hist pointer to 1D ROOT histogram to schedule
+     * @param eval_lambda lambda function that computes whether histogram should be filled
+     * @param fill_lambda lambda function that computes the value used to fill the histogram
+     * @return none
+     */
+    template<typename THist1D>
+    void bookHist1D(Cut* target_cut, THist1D* hist, std::function<bool()> eval_lambda, 
+                    std::function<float()> fill_lambda);
 
     /**
      * Schedule a ROOT 1D histogram for a given cut
@@ -89,8 +123,34 @@ public:
     /**
      * Schedule a ROOT 2D histogram for a given cut
      * @param target_cut_name target node name
+     * @param hist pointer to 2D ROOT histogram to schedule
+     * @param eval_lambda lambda function that computes whether histogram should be filled
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
+     * @return none
+     */
+    template<typename THist2D>
+    void bookHist2D(std::string target_cut_name, THist2D* hist, 
+                    std::function<bool()> eval_lambda, 
+                    std::function<std::pair<float, float>()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 2D histogram for a given cut
+     * @param target_cut pointer to target node
+     * @param hist pointer to 2D ROOT histogram to schedule
+     * @param eval_lambda lambda function that computes whether histogram should be filled
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
+     * @return none
+     */
+    template<typename THist2D>
+    void bookHist2D(Cut* target_cut, THist2D* hist, 
+                    std::function<bool()> eval_lambda, 
+                    std::function<std::pair<float, float>()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 2D histogram for a given cut
+     * @param target_cut_name target node name
      * @param hist pointer to ROOT 2D histogram to schedule
-     * @param fill_lambda lambda function that computes the value used to fill the histogram
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
      * @return none
      */
     template<typename THist2D>
@@ -101,7 +161,7 @@ public:
      * Schedule a ROOT 2D histogram for a given cut
      * @param target_cut pointer to target node
      * @param hist pointer to ROOT 2D histogram to schedule
-     * @param fill_lambda lambda function that computes the value used to fill the histogram
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
      * @return none
      */
     template<typename THist2D>
