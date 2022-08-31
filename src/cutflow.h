@@ -220,6 +220,7 @@ protected:
      * @return none
      */
     void recursiveDelete(Cut* cut);
+
 public:
     /** Name of cutflow */
     std::string name;
