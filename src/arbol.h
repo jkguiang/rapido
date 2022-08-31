@@ -10,6 +10,7 @@
 #include "TString.h"
 #include "TTree.h"
 #include "TFile.h"
+#include "TObject.h"
 
 #include "hepcli.h"
 #include "utilities.h"
