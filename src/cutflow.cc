@@ -72,6 +72,11 @@ LambdaCut::LambdaCut(std::string new_name, std::function<bool()> new_evaluate_la
     weight_lambda = new_weight_lambda;
 }
 
+LambdaCut* LambdaCut::clone(std::string new_name)
+{
+    return new LambdaCut(new_name, evaluate_lambda, weight_lambda);
+}
+
 bool LambdaCut::evaluate()
 {
     return evaluate_lambda();
@@ -80,11 +85,6 @@ bool LambdaCut::evaluate()
 double LambdaCut::weight()
 {
     return weight_lambda();
-}
-
-LambdaCut* LambdaCut::clone(std::string new_name)
-{
-    return new LambdaCut(new_name, evaluate_lambda, weight_lambda);
 }
 
 Cutflow::Cutflow()
@@ -352,14 +352,21 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
         if (direction == Left && cut->parent->right != nullptr) { std::cout << "\u251C\u2612\u2500"; }
         else if (direction == Left) { std::cout << "\u2514\u2612\u2500"; }
         else { std::cout << "\u2514\u2611\u2500"; }
-        // Print cut name
+        // Print cut name and timing information
         std::cout << cut->name << " (" << cut->runtimes.sum() << " ms total, ";
         std::cout << cut->runtimes.max() << " ms max, ";
         std::cout << cut->runtimes.min() << " ms min, ";
         std::cout << cut->runtimes.mean()  << " \u00B1 " << cut->runtimes.stddev() <<  " ms/event)" << std::endl;
         // Print pass/fail if parent cut yields are not identical
         tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502  " : "   ";
-        if (cut->parent == nullptr || cut->n_pass != cut->parent->n_pass)
+        bool identical_yield = false;
+        if (cut->parent != nullptr) 
+        {
+            if (direction == Right) { identical_yield = (cut->n_pass == cut->parent->n_pass); }
+            else { identical_yield = (cut->n_pass == cut->parent->n_fail); }
+        }
+        if (direction == Right)
+        if (cut->parent == nullptr || !identical_yield)
         {
             // Print cut info
             std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
