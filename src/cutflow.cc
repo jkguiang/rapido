@@ -190,7 +190,7 @@ bool Cutflow::run()
     return recursiveEvaluate(root);
 }
 
-bool Cutflow::runThrough(Cut* target_cut)
+bool Cutflow::run(Cut* target_cut)
 {
     // Get number of passing events before running cutflow
     int n_pass_before_eval = target_cut->n_pass;
@@ -199,13 +199,13 @@ bool Cutflow::runThrough(Cut* target_cut)
     return target_cut->n_pass > n_pass_before_eval;
 }
 
-bool Cutflow::runThrough(std::string target_cut_name)
+bool Cutflow::run(std::string target_cut_name)
 {
     Cut* target_cut = getCut(target_cut_name);
-    return runThrough(target_cut);
+    return run(target_cut);
 }
 
-bool Cutflow::runThrough(std::vector<Cut*> target_cuts)
+bool Cutflow::run(std::vector<Cut*> target_cuts)
 {
     // Get number of passing events before running cutflow
     int n_pass_before_evals = 0;

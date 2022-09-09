@@ -291,7 +291,7 @@ public:
      * @param target_cut pointer to target cut
      * @return whether or not (true/false) the target cut was reached and passed
      */
-    bool runThrough(Cut* target_cut);
+    bool run(Cut* target_cut);
 
     /**
      * Run cutflow and check if a target terminal cut has passed
@@ -299,7 +299,7 @@ public:
      * @param target_cut_name name of target cut
      * @return whether or not (true/false) the target cut was reached and passed
      */
-    bool runThrough(std::string target_cut_name);
+    bool run(std::string target_cut_name);
 
     /**
      * Run cutflow and check if any target terminal cut in a given set has passed
@@ -307,7 +307,7 @@ public:
      * @param target_cuts std::vector of pointers to target cuts
      * @return whether or not (true/false) any of the target cuts were reached and passed
      */
-    bool runThrough(std::vector<Cut*> target_cuts);
+    bool run(std::vector<Cut*> target_cuts);
 
     /**
      * Check if a given cut is amongst the progeny of another cut on a certain side of its
