@@ -117,12 +117,18 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <h1><a class="anchor" id="autotoc_md1"></a>
 RAPIDO Tools</h1>
 <ol type="1">
-<li><a class="el" href="classArbol.html">Arbol</a>: TTree wrapper that reduces the hassle of setting up and using TTrees</li>
+<li><a class="el" href="classArbol.html">Arbol</a>: TTree wrapper that reduces the hassle of setting up and using TTrees<ul>
+<li><a class="el" href="classArbusto.html">Arbusto</a>: TTree wrapper for skimming</li>
+</ul>
+</li>
 <li><a class="el" href="classCutflow.html">Cutflow</a>: Binary search tree with lambda nodes and other bells and whistles<ul>
 <li><a class="el" href="classHistflow.html">Histflow</a>: An extension of the <a class="el" href="classCutflow.html">Cutflow</a> object that handles histogramming at any given step of the cutflow</li>
 </ul>
 </li>
 <li><a class="el" href="classLooper.html">Looper</a>: Basic looper for a TChain of TFiles that uses any selector</li>
+</ol>
+<ol type="1">
+<li><a class="el" href="classHEPCLI.html">HEPCLI</a>: Command Line Interface (CLI) with relevant arguments for physics analysis</li>
 </ol>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Set Up Instructions</h1>
@@ -270,11 +276,10 @@ Examples</h1>
 <li>Arbol+Cutflow+Looper+HEPCLI example (now using <a href="https://github.com/cmstas/NanoTools/tree/master/NanoCORE">NanoCORE</a> to read NanoAOD) <div class="fragment"><div class="line"><span class="comment">// ROOT</span></div>
 <div class="line"><span class="preprocessor">#include &quot;TH1F.h&quot;</span></div>
 <div class="line"><span class="comment">// NanoCORE</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Nano.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;tqdm.h&quot;</span> <span class="comment">// progress bar</span></div>
-<div class="line"><span class="preprocessor">#include &quot;SSSelections.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;ElectronSelections.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;MuonSelections.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Nano.h&quot;</span>               <span class="comment">// nt</span></div>
+<div class="line"><span class="preprocessor">#include &quot;tqdm.h&quot;</span>               <span class="comment">// bar</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ElectronSelections.h&quot;</span> <span class="comment">// Electron IDs</span></div>
+<div class="line"><span class="preprocessor">#include &quot;MuonSelections.h&quot;</span>     <span class="comment">// Muon IDs</span></div>
 <div class="line"><span class="comment">// RAPIDO</span></div>
 <div class="line"><span class="preprocessor">#include &quot;arbol.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;cutflow.h&quot;</span></div>
@@ -424,7 +429,7 @@ Examples</h1>
 <div class="line">            <span class="comment">// Reset tree</span></div>
 <div class="line">            arbol.<a class="code hl_function" href="classArbol.html#a4c2184d378ab21a9627a57098291a7c4">resetBranches</a>();</div>
 <div class="line">            <span class="comment">// Run cutflow</span></div>
-<div class="line">            <span class="keywordtype">bool</span> passed = cutflow.runUntil(<span class="stringliteral">&quot;OSPreselection&quot;</span>);</div>
+<div class="line">            <span class="keywordtype">bool</span> passed = cutflow.run(<span class="stringliteral">&quot;OSPreselection&quot;</span>);</div>
 <div class="line">            <span class="keywordflow">if</span> (passed) { arbol.<a class="code hl_function" href="classArbol.html#a31c4d469f7df8bbc581f829a0e17d667">fill</a>(); }</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
