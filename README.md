@@ -13,9 +13,11 @@ it is structured lends itself to the common workflow of a HEPEx-er.
 
 ## RAPIDO Tools
 1. Arbol: TTree wrapper that reduces the hassle of setting up and using TTrees
+    - Arbusto: TTree wrapper for skimming
 2. Cutflow: Binary search tree with lambda nodes and other bells and whistles
     - Histflow: An extension of the Cutflow object that handles histogramming at any given step of the cutflow
 3. Looper: Basic looper for a TChain of TFiles that uses any selector
+3. HEPCLI: Command Line Interface (CLI) with relevant arguments for physics analysis
 
 ## Set Up Instructions
 1. Clone this repository
@@ -153,11 +155,10 @@ int main()
 // ROOT
 #include "TH1F.h"
 // NanoCORE
-#include "Nano.h"
-#include "tqdm.h" // progress bar
-#include "SSSelections.h"
-#include "ElectronSelections.h"
-#include "MuonSelections.h"
+#include "Nano.h"               // nt
+#include "tqdm.h"               // bar
+#include "ElectronSelections.h" // Electron IDs
+#include "MuonSelections.h"     // Muon IDs
 // RAPIDO
 #include "arbol.h"
 #include "cutflow.h"
@@ -307,7 +308,7 @@ int main(int argc, char** argv)
             // Reset tree
             arbol.resetBranches();
             // Run cutflow
-            bool passed = cutflow.runUntil("OSPreselection");
+            bool passed = cutflow.run("OSPreselection");
             if (passed) { arbol.fill(); }
             return;
         }
