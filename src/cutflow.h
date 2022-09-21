@@ -69,13 +69,19 @@ public:
     virtual bool evaluate();
 
     /**
+     * Get result for this cut (runs Cut::evaluate); catches exceptions and prints cut name
+     * @return whether cut has passed or failed
+     */
+    bool getResult();
+
+    /**
      * Get even weight for this cut only
      * @return event weight
      */
     virtual double weight();
-
     /**
-     * Get even weight for this cut (on top of previous cut weights)
+     * Get even weight for this cut (on top of previous cut weights); catches exceptions 
+     * and prints cut name
      * @return product(event weight, parent weight, grandparent weight, ...)
      */
     double getWeight();
@@ -278,6 +284,38 @@ public:
      * @return none
      */
     void insert(Cut* target_cut, Cut* new_cut, Direction direction);
+
+    /**
+     * Replace a given node with a new node
+     * @param target_cut_name target node name
+     * @param new_cut pointer to new node
+     * @return none
+     */
+    void replace(std::string target_cut_name, Cut* new_cut);
+
+    /**
+     * Replace a given node with a new node
+     * @param target_cut pointer to target node
+     * @param new_cut pointer to new node
+     * @return none
+     */
+    void replace(Cut* target_cut, Cut* new_cut);
+
+    /**
+     * Remove a given node from the cutflow; will not work with the root node if it has both 
+     * a left and right child
+     * @param target_cut_name target node name
+     * @return none
+     */
+    void remove(std::string target_cut_name);
+
+    /**
+     * Remove a given node from the cutflow; will not work with the root node if it has both 
+     * a left and right child
+     * @param target_cut pointer to target node
+     * @return none
+     */
+    void remove(Cut* target_cut);
 
     /**
      * Run cutflow until any terminus

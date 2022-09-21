@@ -40,6 +40,19 @@ bool Cut::evaluate()
     return true;
 }
 
+bool Cut::getResult()
+{
+    try 
+    {
+        return evaluate();
+    } 
+    catch(...) 
+    {
+        std::cout << "Cut '" << name << "' raised an exception during eval execution:" << std::endl;
+        throw;
+    }
+}
+
 double Cut::weight()
 {
     return 1.0;
@@ -47,13 +60,21 @@ double Cut::weight()
 
 double Cut::getWeight()
 {
-    if (parent != nullptr)
+    try 
     {
-        return weight()*parent->getWeight();
-    }
-    else
+        if (parent != nullptr)
+        {
+            return weight()*parent->getWeight();
+        }
+        else
+        {
+            return weight();
+        }
+    } 
+    catch(...) 
     {
-        return weight();
+        std::cout << "Cut '" << name << "' raised an exception during weight computation:" << std::endl;
+        throw;
     }
 }
 
@@ -117,21 +138,13 @@ void Cutflow::setRoot(Cut* new_root)
 {
     if (root != nullptr)
     {
-        if (root->left != nullptr)
-        {
-            new_root->left = root->left;
-            root->left->parent = new_root;
-        }
-        if (root->right != nullptr)
-        {
-            new_root->right = root->right;
-            root->right->parent = new_root;
-        }
-        cut_record.erase(root->name);
+        replace(root, new_root);
+    }
+    else
+    {
+        cut_record[new_root->name] = new_root;
     }
     root = new_root;
-    root->parent = nullptr;
-    cut_record[new_root->name] = new_root;
     return;
 }
 
@@ -145,7 +158,7 @@ void Cutflow::insert(Cut* target_cut, Cut* new_cut, Direction direction)
 {
     if (cut_record.count(target_cut->name) != 1)
     {
-        std::string msg = "Error - "+new_cut->name+" does not exist in cutflow.";
+        std::string msg = "Error - "+target_cut->name+" does not exist in cutflow.";
         throw std::runtime_error("Cutflow::insert: "+msg);
     }
     if (cut_record.count(new_cut->name) == 1)
@@ -155,10 +168,9 @@ void Cutflow::insert(Cut* target_cut, Cut* new_cut, Direction direction)
     }
     else
     {
-        cut_record[new_cut->name] = new_cut;
+        new_cut->parent = target_cut;
         if (direction == Right) 
         {
-            new_cut->parent = target_cut;
             if (target_cut->right != nullptr)
             {
                 new_cut->right = target_cut->right;
@@ -168,7 +180,6 @@ void Cutflow::insert(Cut* target_cut, Cut* new_cut, Direction direction)
         }
         else
         {
-            new_cut->parent = target_cut;
             if (target_cut->left != nullptr)
             {
                 new_cut->left = target_cut->left;
@@ -176,6 +187,99 @@ void Cutflow::insert(Cut* target_cut, Cut* new_cut, Direction direction)
             }
             target_cut->left = new_cut;
         }
+        cut_record[new_cut->name] = new_cut;
+    }
+    return;
+}
+
+void Cutflow::replace(std::string target_cut_name, Cut* new_cut)
+{
+    Cut* target_cut = getCut(target_cut_name);
+    return replace(target_cut, new_cut);
+}
+
+void Cutflow::replace(Cut* target_cut, Cut* new_cut)
+{
+    if (cut_record.count(target_cut->name) != 1)
+    {
+        std::string msg = "Error - "+target_cut->name+" does not exist in cutflow.";
+        throw std::runtime_error("Cutflow::replace: "+msg);
+    }
+    else
+    {
+        new_cut->parent = target_cut->parent;
+        if (target_cut->parent != nullptr)
+        {
+            if (target_cut->parent->right == target_cut)
+            {
+                target_cut->parent->right = new_cut;
+            }
+            else
+            {
+                target_cut->parent->left = new_cut;
+            }
+        }
+        if (target_cut->right != nullptr)
+        {
+            new_cut->right = target_cut->right;
+            target_cut->right->parent = new_cut;
+        }
+        if (target_cut->left != nullptr)
+        {
+            new_cut->left = target_cut->left;
+            target_cut->left->parent = new_cut;
+        }
+        cut_record.erase(target_cut->name);
+        cut_record[new_cut->name] = new_cut;
+    }
+    return;
+}
+
+void Cutflow::remove(std::string target_cut_name)
+{
+    Cut* target_cut = getCut(target_cut_name);
+    return remove(target_cut);
+}
+
+void Cutflow::remove(Cut* target_cut)
+{
+    if (cut_record.count(target_cut->name) != 1)
+    {
+        std::string msg = "Error - "+target_cut->name+" does not exist in cutflow.";
+        throw std::runtime_error("Cutflow::remove: "+msg);
+    }
+    else if (target_cut == root && target_cut->left != nullptr && target_cut->right != nullptr)
+    {
+        std::string msg = (
+            "Error - "+target_cut->name+" is the root node and has both a left and right cut;"
+            +" use Cutflow::setRoot or Cutflow::replace to modify it instead"
+        );
+        throw std::runtime_error("Cutflow::remove: "+msg);
+    }
+    else
+    {
+        if (target_cut->parent != nullptr)
+        {
+            target_cut->parent->right = target_cut->right;
+            target_cut->parent->left = target_cut->left;
+        }
+        if (target_cut->right != nullptr)
+        {
+            target_cut->right->parent = target_cut->parent;
+            if (target_cut == root)
+            {
+                root = target_cut->right;
+            }
+        }
+        if (target_cut->left != nullptr)
+        {
+            target_cut->left->parent = target_cut->parent;
+            if (target_cut == root)
+            {
+                root = target_cut->left;
+            }
+        }
+        cut_record.erase(target_cut->name);
     }
     return;
 }
@@ -389,7 +493,7 @@ bool Cutflow::recursiveEvaluate(Cut* cut)
     // Start timer
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
     // Run cut logic and compute weight
-    bool passed = cut->evaluate();
+    bool passed = cut->getResult();
     double weight = cut->getWeight();
     // Stop timer and calculate runtime
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();

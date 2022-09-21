@@ -146,7 +146,7 @@ bool Histflow::recursiveEvaluate(Cut* cut)
     // Start timer
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
     // Run cut logic and compute weight
-    bool passed = cut->evaluate();
+    bool passed = cut->getResult();
     double weight = cut->getWeight();
     // Stop timer and calculate runtime
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
