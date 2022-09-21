@@ -3,6 +3,7 @@ var classCut =
     [ "Cut", "classCut.html#ad11280d56a8d40eb200cde38ac29cd7f", null ],
     [ "~Cut", "classCut.html#a891e1f1b0c661e8f4984b4f9d4d4bde3", null ],
     [ "evaluate", "classCut.html#a3222edd50632f5c97d411e0cac2e67f9", null ],
+    [ "getResult", "classCut.html#a601de12d348ab93672d5b3487bc9e211", null ],
     [ "getWeight", "classCut.html#ae26ecb5b87409e8975af81b87a6557fa", null ],
     [ "print", "classCut.html#a9b1298219ed1f85bba920e4049d712e3", null ],
     [ "weight", "classCut.html#a384ec7948ab2e775f994576eaf1e4f30", null ],
