@@ -71,10 +71,11 @@ public:
     Arbol();
     /**
      * Arbol object overload constructor
-     * @param new_tfile pointer to an output TFile
+     * @param tfile_name name of output TFile
+     * @param ttree_name name of output TTree (default: 'tree')
      * @return none
      */
-    Arbol(TFile* new_tfile, TString ttree_name = "tree");
+    Arbol(TString tfile_name, TString ttree_name = "tree");
     /**
      * Arbol object overload constructor
      * @param cli HEPCLI object

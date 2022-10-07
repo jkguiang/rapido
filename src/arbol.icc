@@ -9,9 +9,9 @@ Branch<Type>::Branch(TTree* ttree, TString new_branch_name)
 
 Arbol::Arbol() {}
 
-Arbol::Arbol(TFile* new_tfile, TString ttree_name)
+Arbol::Arbol(TString tfile_name, TString ttree_name)
 {
-    tfile = new_tfile;
+    tfile = new TFile(tfile_name, "RECREATE");
     ttree = new TTree(ttree_name, ttree_name);
 }
 
