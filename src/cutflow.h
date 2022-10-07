@@ -343,9 +343,17 @@ public:
      * Run cutflow and check if any target terminal cut in a given set has passed
      * @see Cutflow::run
      * @param target_cuts std::vector of pointers to target cuts
-     * @return whether or not (true/false) any of the target cuts were reached and passed
+     * @return whether or not (true/false) each of the target cuts were reached and passed
      */
-    bool run(std::vector<Cut*> target_cuts);
+    std::vector<bool> run(std::vector<Cut*> target_cuts);
+
+    /**
+     * Run cutflow and check if any target terminal cut in a given set has passed
+     * @see Cutflow::run
+     * @param target_cuts std::vector of target cut names
+     * @return whether or not (true/false) each of the target cuts were reached and passed
+     */
+    std::vector<bool> run(std::vector<std::string> target_cuts);
 
     /**
      * Check if a given cut is amongst the progeny of another cut on a certain side of its

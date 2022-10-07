@@ -309,22 +309,35 @@ bool Cutflow::run(std::string target_cut_name)
     return run(target_cut);
 }
 
-bool Cutflow::run(std::vector<Cut*> target_cuts)
+std::vector<bool> Cutflow::run(std::vector<Cut*> target_cuts)
 {
     // Get number of passing events before running cutflow
-    int n_pass_before_evals = 0;
+    std::vector<int> n_pass_before_evals;
     for (auto* target_cut : target_cuts)
     {
-        n_pass_before_evals += target_cut->n_pass;
+        n_pass_before_evals.push_back(target_cut->n_pass);
     }
-    // Run cutflow, then check if number of passing events has increased
+
     run();
-    int n_pass_after_evals = 0;
-    for (auto* target_cut : target_cuts)
+
+    // Store if number of passing events has increased
+    std::vector<bool> checkpoints;
+    for (unsigned int cut_i = 0; cut_i < target_cuts.size(); ++cut_i)
     {
-        n_pass_after_evals += target_cut->n_pass;
+        Cut* target_cut = target_cuts.at(cut_i);
+        checkpoints.push_back(target_cut->n_pass > n_pass_before_evals.at(cut_i));
     }
-    return n_pass_after_evals > n_pass_before_evals;
+    return checkpoints;
+}
+
+std::vector<bool> Cutflow::run(std::vector<std::string> target_cut_names)
+{
+    std::vector<Cut*> target_cuts;
+    for (auto& target_cut_name : target_cut_names)
+    {
+        target_cuts.push_back(getCut(target_cut_name));
+    }
+    return run(target_cuts);
 }
 
 bool Cutflow::isProgeny(std::string parent_cut_name, std::string target_cut_name, Direction direction)
