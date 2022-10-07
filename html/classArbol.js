@@ -1,7 +1,7 @@
 var classArbol =
 [
     [ "Arbol", "classArbol.html#a4f5d3e25a0e1a40cb09cefa39378b7be", null ],
-    [ "Arbol", "classArbol.html#a4a6a1e24015fc9489e1eb15207aae223", null ],
+    [ "Arbol", "classArbol.html#a5dab3252a932795d35546dbc2a45a911", null ],
     [ "Arbol", "classArbol.html#ac503c78c010c0d6579a4a1e8f89cce25", null ],
     [ "~Arbol", "classArbol.html#ab9929184ef12844034b5ad4375a09799", null ],
     [ "appendToVecLeaf", "classArbol.html#a811156c9134ca7e0015bbe2ab95434b0", null ],
