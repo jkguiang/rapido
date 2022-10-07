@@ -15,7 +15,7 @@ class Histflow : public Cutflow
 {
 protected:
     /** "Schedule" dictating when to fill certain histograms */
-    std::map<std::string, std::vector<std::function<void(float)>>> fill_schedule;
+    std::map<std::string, std::vector<std::function<void(double)>>> fill_schedule;
     /** Collection of functions that write histograms to opened TFile */
     std::map<TString, std::function<void()>> hist_writers;
 
@@ -68,7 +68,7 @@ public:
      */
     template<typename THist1D>
     void bookHist1D(std::string target_cut_name, THist1D* hist, std::function<bool()> eval_lambda, 
-                    std::function<float()> fill_lambda);
+                    std::function<double()> fill_lambda);
 
     /**
      * Schedule a ROOT 1D histogram for a given cut
@@ -80,7 +80,7 @@ public:
      */
     template<typename THist1D>
     void bookHist1D(Cut* target_cut, THist1D* hist, std::function<bool()> eval_lambda, 
-                    std::function<float()> fill_lambda);
+                    std::function<double()> fill_lambda);
 
     /**
      * Schedule a ROOT 1D histogram for a given cut
@@ -90,7 +90,7 @@ public:
      * @return none
      */
     template<typename THist1D>
-    void bookHist1D(std::string target_cut_name, THist1D* hist, std::function<float()> fill_lambda);
+    void bookHist1D(std::string target_cut_name, THist1D* hist, std::function<double()> fill_lambda);
 
     /**
      * Schedule a ROOT 1D histogram for a given cut
@@ -100,7 +100,7 @@ public:
      * @return none
      */
     template<typename THist1D>
-    void bookHist1D(Cut* target_cut, THist1D* hist, std::function<float()> fill_lambda);
+    void bookHist1D(Cut* target_cut, THist1D* hist, std::function<double()> fill_lambda);
 
     /**
      * Schedule a ROOT 1D histogram object for a given cut
@@ -131,7 +131,7 @@ public:
     template<typename THist2D>
     void bookHist2D(std::string target_cut_name, THist2D* hist, 
                     std::function<bool()> eval_lambda, 
-                    std::function<std::pair<float, float>()> fill_lambda);
+                    std::function<std::pair<double, double>()> fill_lambda);
 
     /**
      * Schedule a ROOT 2D histogram for a given cut
@@ -144,7 +144,7 @@ public:
     template<typename THist2D>
     void bookHist2D(Cut* target_cut, THist2D* hist, 
                     std::function<bool()> eval_lambda, 
-                    std::function<std::pair<float, float>()> fill_lambda);
+                    std::function<std::pair<double, double>()> fill_lambda);
 
     /**
      * Schedule a ROOT 2D histogram for a given cut
@@ -155,7 +155,7 @@ public:
      */
     template<typename THist2D>
     void bookHist2D(std::string target_cut_name, THist2D* hist, 
-                    std::function<std::pair<float, float>()> fill_lambda);
+                    std::function<std::pair<double, double>()> fill_lambda);
 
     /**
      * Schedule a ROOT 2D histogram for a given cut
@@ -165,7 +165,7 @@ public:
      * @return none
      */
     template<typename THist2D>
-    void bookHist2D(Cut* target_cut, THist2D* hist, std::function<std::pair<float, float>()> fill_lambda);
+    void bookHist2D(Cut* target_cut, THist2D* hist, std::function<std::pair<double, double>()> fill_lambda);
 
     /**
      * Schedule a ROOT 2D histogram object for a given cut
