@@ -171,8 +171,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a11c1116dc01d4c0679945eeff66ff0a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fcdaaa72867042eed426e0d6fc8739d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8fcdaaa72867042eed426e0d6fc8739d">findTerminus</a> (<a class="el" href="classCut.html">Cut</a> *starting_cut)</td></tr>
 <tr class="separator:a8fcdaaa72867042eed426e0d6fc8739d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">print</a> ()</td></tr>
-<tr class="separator:a0cb4c8bd6d15ace1f85fe0cfb8d9d828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141000bdb8c482bc3ea48abbcd5535c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a141000bdb8c482bc3ea48abbcd5535c2">print</a> (bool show_timing=false)</td></tr>
+<tr class="separator:a141000bdb8c482bc3ea48abbcd5535c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42bd2909f9e32bb12e7dbd717248a253"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a42bd2909f9e32bb12e7dbd717248a253">write</a> (std::string output_dir=&quot;&quot;)</td></tr>
 <tr class="separator:a42bd2909f9e32bb12e7dbd717248a253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43e58326fbce5306e2b3d080c6cd85f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a43e58326fbce5306e2b3d080c6cd85f0">writeCSV</a> (std::string output_dir=&quot;&quot;)</td></tr>
@@ -197,8 +197,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ab90ee0d1a00b9859021afe179eac7d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6949f1d9e7d74c6ab8cf0c6f28ac3701"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCut.html">Cut</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a6949f1d9e7d74c6ab8cf0c6f28ac3701">recursiveFindTerminus</a> (<a class="el" href="classCut.html">Cut</a> *cut)</td></tr>
 <tr class="separator:a6949f1d9e7d74c6ab8cf0c6f28ac3701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d49242a5ff302d9654f135f7e478333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a8d49242a5ff302d9654f135f7e478333">recursivePrint</a> (std::string tabs, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction)</td></tr>
-<tr class="separator:a8d49242a5ff302d9654f135f7e478333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a464b9f417190b855a04d7442a2289f43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a464b9f417190b855a04d7442a2289f43">recursivePrint</a> (std::string tabs, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction, bool show_timing=false)</td></tr>
+<tr class="separator:a464b9f417190b855a04d7442a2289f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f7285409e90c76524ab0148e6fa0aa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a4f7285409e90c76524ab0148e6fa0aa9">recursiveWrite</a> (<a class="el" href="classCut.html">Cut</a> *cut, std::ofstream &amp;ofstream, std::string output_cflow)</td></tr>
 <tr class="separator:a4f7285409e90c76524ab0148e6fa0aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a398daefa870d9f58381047324a880701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCutflow.html#a398daefa870d9f58381047324a880701">recursiveWriteCSV</a> (std::string output_dir, <a class="el" href="classCut.html">Cut</a> *cut, Direction direction, int csv_idx, Utilities::CSVFiles csv_files)</td></tr>
@@ -577,8 +577,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a0cb4c8bd6d15ace1f85fe0cfb8d9d828" name="a0cb4c8bd6d15ace1f85fe0cfb8d9d828"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cb4c8bd6d15ace1f85fe0cfb8d9d828">&#9670;&#160;</a></span>print()</h2>
+<a id="a141000bdb8c482bc3ea48abbcd5535c2" name="a141000bdb8c482bc3ea48abbcd5535c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a141000bdb8c482bc3ea48abbcd5535c2">&#9670;&#160;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -586,12 +586,19 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Cutflow::print </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>show_timing</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Print cutflow </p><dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<p >Print cutflow </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">show_timing</td><td>toggle timing information in printout </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
 </div>
 </div>
@@ -696,8 +703,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8d49242a5ff302d9654f135f7e478333" name="a8d49242a5ff302d9654f135f7e478333"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d49242a5ff302d9654f135f7e478333">&#9670;&#160;</a></span>recursivePrint()</h2>
+<a id="a464b9f417190b855a04d7442a2289f43" name="a464b9f417190b855a04d7442a2289f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a464b9f417190b855a04d7442a2289f43">&#9670;&#160;</a></span>recursivePrint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -721,7 +728,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Direction&#160;</td>
-          <td class="paramname"><em>direction</em>&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>show_timing</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -740,6 +753,7 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">tabs</td><td>string with the prefix tabs for current cut </td></tr>
     <tr><td class="paramname">cut</td><td>pointer to current cut </td></tr>
     <tr><td class="paramname">direction</td><td>direction of cut relative to parent </td></tr>
+    <tr><td class="paramname">show_timing</td><td>toggle timing information in printout </td></tr>
   </table>
   </dd>
 </dl>
