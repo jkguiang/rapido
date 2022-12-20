@@ -179,9 +179,10 @@ protected:
      * @param tabs string with the prefix tabs for current cut
      * @param cut pointer to current cut
      * @param direction direction of cut relative to parent
+     * @param show_timing toggle timing information in printout
      * @return none
      */
-    void recursivePrint(std::string tabs, Cut* cut, Direction direction);
+    void recursivePrint(std::string tabs, Cut* cut, Direction direction, bool show_timing = false);
 
     /**
      * (PROTECTED) Recursively write RAPIDO cutflow file
@@ -391,9 +392,10 @@ public:
 
     /**
      * Print cutflow
+     * @param show_timing toggle timing information in printout
      * @return none
      */
-    void print();
+    void print(bool show_timing = false);
 
     /**
      * Write RAPIDO cutflow file
