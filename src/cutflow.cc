@@ -376,10 +376,10 @@ Cut* Cutflow::findTerminus(Cut* starting_cut)
     return recursiveFindTerminus(starting_cut);
 }
 
-void Cutflow::print()
+void Cutflow::print(bool show_timing)
 {
     std::cout << "Cutflow" << std::endl;
-    recursivePrint("", root, Right);
+    recursivePrint("", root, Right, show_timing);
     return;
 }
 
@@ -461,29 +461,39 @@ Cut* Cutflow::recursiveFindTerminus(Cut* cut)
     return cut;
 }
 
-void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
+void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction, bool show_timing)
 {
     if (cut != nullptr)
     {
         std::cout << tabs;
-        if (direction == Left && cut->parent->right != nullptr) { std::cout << "\u251C\u2612\u2500"; }
-        else if (direction == Left) { std::cout << "\u2514\u2612\u2500"; }
-        else { std::cout << "\u2514\u2611\u2500"; }
+        bool has_parent = cut->parent != nullptr;
+        if (direction == Right && has_parent && cut->parent->left != nullptr) { std::cout << "\u251C\u2611\u2500"; }
+        else if (direction == Right) { std::cout << "\u2514\u2611\u2500"; }
+        else { std::cout << "\u2514\u2612\u2500"; }
         // Print cut name and timing information
-        std::cout << cut->name << " (" << cut->runtimes.sum() << " ms total, ";
-        std::cout << cut->runtimes.max() << " ms max, ";
-        std::cout << cut->runtimes.min() << " ms min, ";
-        std::cout << cut->runtimes.mean()  << " \u00B1 " << cut->runtimes.stddev() <<  " ms/event)" << std::endl;
+        std::cout << cut->name;
+        if (show_timing == true)
+        {
+            std::cout << "("  << cut->runtimes.sum() << " ms total, ";
+            std::cout << cut->runtimes.max() << " ms max, ";
+            std::cout << cut->runtimes.min() << " ms min, ";
+            std::cout << cut->runtimes.mean()  << " \u00B1 " << cut->runtimes.stddev() <<  " ms/event)" << std::endl;
+        }
+        else
+        {
+            std::cout << std::endl;
+        }
         // Print pass/fail if parent cut yields are not identical
-        tabs += (direction == Left && cut->parent->right != nullptr) ? "\u2502  " : "   ";
+        tabs += (direction == Right && has_parent && cut->parent->left != nullptr) ? "\u2502  " : "   ";
         bool identical_yield = false;
-        if (cut->parent != nullptr) 
+        // if (cut->parent != nullptr) 
+        if (has_parent) 
         {
             if (direction == Right) { identical_yield = (cut->n_pass == cut->parent->n_pass); }
             else { identical_yield = (cut->n_pass == cut->parent->n_fail); }
         }
         if (direction == Right)
-        if (cut->parent == nullptr || !identical_yield)
+        if (has_parent || !identical_yield)
         {
             // Print cut info
             std::cout << tabs << "pass: " << cut->n_pass << " (raw)";
@@ -494,8 +504,8 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction)
             std::cout << std::endl;
         }
         // Print next cutflow level
-        recursivePrint(tabs, cut->left, Left);
         recursivePrint(tabs, cut->right, Right);
+        recursivePrint(tabs, cut->left, Left);
     }
     return;
 }
