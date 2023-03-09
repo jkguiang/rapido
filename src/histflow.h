@@ -103,24 +103,6 @@ public:
     void bookHist1D(Cut* target_cut, THist1D* hist, std::function<double()> fill_lambda);
 
     /**
-     * Schedule a ROOT 1D histogram object for a given cut
-     * @param target_cut_name target node name
-     * @param hist pointer to ROOT 1D histogram object to schedule
-     * @return none
-     */
-    template<typename THist1D>
-    void bookHist1D(std::string target_cut_name, THist1D* hist);
-
-    /**
-     * Schedule a ROOT 1D histogram object for a given cut
-     * @param target_cut pointer to target node
-     * @param hist pointer to ROOT 1D histogram object to schedule
-     * @return none
-     */
-    template<typename THist1D>
-    void bookHist1D(Cut* target_cut, THist1D* hist);
-
-    /**
      * Schedule a ROOT 2D histogram for a given cut
      * @param target_cut_name target node name
      * @param hist pointer to 2D ROOT histogram to schedule
@@ -168,22 +150,52 @@ public:
     void bookHist2D(Cut* target_cut, THist2D* hist, std::function<std::pair<double, double>()> fill_lambda);
 
     /**
-     * Schedule a ROOT 2D histogram object for a given cut
+     * Schedule a ROOT 3D histogram for a given cut
      * @param target_cut_name target node name
-     * @param hist pointer to ROOT 2D histogram object to schedule
+     * @param hist pointer to 3D ROOT histogram to schedule
+     * @param eval_lambda lambda function that computes whether histogram should be filled
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
      * @return none
      */
-    template<typename THist2D>
-    void bookHist2D(std::string target_cut_name, THist2D* hist);
+    template<typename THist3D>
+    void bookHist3D(std::string target_cut_name, THist3D* hist, 
+                    std::function<bool()> eval_lambda, 
+                    std::function<std::tuple<double, double, double>()> fill_lambda);
 
     /**
-     * Schedule a ROOT 2D histogram object for a given cut
+     * Schedule a ROOT 3D histogram for a given cut
      * @param target_cut pointer to target node
-     * @param hist pointer to ROOT 2D histogram object to schedule
+     * @param hist pointer to 3D ROOT histogram to schedule
+     * @param eval_lambda lambda function that computes whether histogram should be filled
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
      * @return none
      */
-    template<typename THist2D>
-    void bookHist2D(Cut* target_cut, THist2D* hist);
+    template<typename THist3D>
+    void bookHist3D(Cut* target_cut, THist3D* hist, 
+                    std::function<bool()> eval_lambda, 
+                    std::function<std::tuple<double, double, double>()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 3D histogram for a given cut
+     * @param target_cut_name target node name
+     * @param hist pointer to ROOT 3D histogram to schedule
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
+     * @return none
+     */
+    template<typename THist3D>
+    void bookHist3D(std::string target_cut_name, THist3D* hist, 
+                    std::function<std::tuple<double, double, double>()> fill_lambda);
+
+    /**
+     * Schedule a ROOT 3D histogram for a given cut
+     * @param target_cut pointer to target node
+     * @param hist pointer to ROOT 3D histogram to schedule
+     * @param fill_lambda lambda function that computes the values used to fill the histogram
+     * @return none
+     */
+    template<typename THist3D>
+    void bookHist3D(Cut* target_cut, THist3D* hist, 
+                    std::function<std::tuple<double, double, double>()> fill_lambda);
 
     /**
      * Write all histograms to a given TFile
