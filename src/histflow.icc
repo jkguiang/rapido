@@ -182,7 +182,18 @@ bool Histflow::recursiveEvaluate(Cut* cut)
         {
             // Fill histograms
             std::vector<std::function<void(double)>> fill_lambdas = fill_schedule[cut->name];
-            for (auto& fill : fill_lambdas) { fill(weight); }
+            for (auto& fill : fill_lambdas) 
+            { 
+                try
+                {
+                    fill(weight); 
+                }
+                catch(...)
+                {
+                    std::cout << "Histogram filler after Cut '" << cut->name << "' raised an exception:" << std::endl;
+                    throw;
+                }
+            }
         }
         if (cut->right == nullptr) { return true; }
         else { return recursiveEvaluate(cut->right); }

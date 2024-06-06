@@ -497,7 +497,6 @@ void Cutflow::recursivePrint(std::string tabs, Cut* cut, Direction direction, bo
             if (direction == Right) { identical_yield = (cut->n_pass == cut->parent->n_pass); }
             else { identical_yield = (cut->n_pass == cut->parent->n_fail); }
         }
-        if (direction == Right)
         if (has_parent || !identical_yield)
         {
             // Print cut info
