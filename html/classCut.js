@@ -2,6 +2,7 @@ var classCut =
 [
     [ "Cut", "classCut.html#ad11280d56a8d40eb200cde38ac29cd7f", null ],
     [ "~Cut", "classCut.html#a891e1f1b0c661e8f4984b4f9d4d4bde3", null ],
+    [ "clone", "classCut.html#a51d128a9d77f6e9e2965ae0a2ea077e1", null ],
     [ "evaluate", "classCut.html#a3222edd50632f5c97d411e0cac2e67f9", null ],
     [ "getResult", "classCut.html#a601de12d348ab93672d5b3487bc9e211", null ],
     [ "getWeight", "classCut.html#ae26ecb5b87409e8975af81b87a6557fa", null ],
