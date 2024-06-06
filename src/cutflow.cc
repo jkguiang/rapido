@@ -15,6 +15,11 @@ Cut::Cut(std::string new_name)
 
 Cut::~Cut() {}
 
+virtual Cut* Cut::clone(std::string new_name)
+{
+    return new Cut(new_name);
+}
+
 void Cut::print()
 {
     std::cout << "---- " << name << " ----" << std::endl;

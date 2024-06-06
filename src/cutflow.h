@@ -57,6 +57,13 @@ public:
     virtual ~Cut();
 
     /**
+     * Create a copy of this cut object
+     * @param new_name name of cut copy
+     * @return pointer to a copy of this cut object
+     */
+    virtual Cut* clone(std::string new_name);
+
+    /**
      * Print cut object properties
      * @return none
      */
