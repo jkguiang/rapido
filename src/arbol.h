@@ -71,6 +71,13 @@ public:
     Arbol();
     /**
      * Arbol object overload constructor
+     * @param tfile pointer to an existing TFile
+     * @param ttree_name name of output TTree (default: 'tree')
+     * @return none
+     */
+    Arbol(TFile* tfile, TString ttree_name = "tree");
+    /**
+     * Arbol object overload constructor
      * @param tfile_name name of output TFile
      * @param ttree_name name of output TTree (default: 'tree')
      * @return none
@@ -229,9 +236,10 @@ public:
     virtual void fill();
     /**
      * Write TTree to TFile
+     * @param close toggles whether TFile::Close is called after writing (default: true)
      * @return none
      */
-    virtual void write();
+    virtual void write(bool close = true);
 };
 
 #include "arbol.icc"

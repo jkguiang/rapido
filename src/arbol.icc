@@ -9,6 +9,12 @@ Branch<Type>::Branch(TTree* ttree, TString new_branch_name)
 
 Arbol::Arbol() {}
 
+Arbol::Arbol(TFile* tfile, TString ttree_name)
+{
+    this->tfile = tfile;
+    ttree = new TTree(ttree_name, ttree_name);
+}
+
 Arbol::Arbol(TString tfile_name, TString ttree_name)
 {
     tfile = new TFile(tfile_name, "RECREATE");
@@ -168,10 +174,13 @@ void Arbol::fill()
     return;
 }
 
-void Arbol::write()
+void Arbol::write(bool close)
 {
     tfile->cd();
     ttree->Write("", TObject::kWriteDelete);
-    tfile->Close();
+    if (close)
+    {
+        tfile->Close();
+    }
     return;
 }
