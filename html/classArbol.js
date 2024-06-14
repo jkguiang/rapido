@@ -1,6 +1,7 @@
 var classArbol =
 [
     [ "Arbol", "classArbol.html#a4f5d3e25a0e1a40cb09cefa39378b7be", null ],
+    [ "Arbol", "classArbol.html#abbd65935c83418250f40f75ed8c6cf37", null ],
     [ "Arbol", "classArbol.html#a5dab3252a932795d35546dbc2a45a911", null ],
     [ "Arbol", "classArbol.html#ac503c78c010c0d6579a4a1e8f89cce25", null ],
     [ "~Arbol", "classArbol.html#ab9929184ef12844034b5ad4375a09799", null ],
@@ -21,7 +22,7 @@ var classArbol =
     [ "setVecBranchResetValue", "classArbol.html#a448653919588717f4dfbe910565a3563", null ],
     [ "setVecLeaf", "classArbol.html#aa8547878e687941e4e84fc0e56f814d8", null ],
     [ "sortVecLeaf", "classArbol.html#aa4066700ccb5ecc42477538734ae6abb", null ],
-    [ "write", "classArbol.html#a8205213f91913095ee613b618ae6eb03", null ],
+    [ "write", "classArbol.html#a8503c3ff0c3d5aa80a6f1a478a03fd7c", null ],
     [ "branch_resetters", "classArbol.html#af8a0eb30b9dbb154a1a68233ef105db1", null ],
     [ "branches", "classArbol.html#aa5e8b636ab0e2df59aada12961beb738", null ],
     [ "tfile", "classArbol.html#ae2b0964ee5e90cb2d7beb10810c14b9c", null ],
